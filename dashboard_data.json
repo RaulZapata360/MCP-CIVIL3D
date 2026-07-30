@@ -1,0 +1,296 @@
+{
+  "last_update": "2026-07-30 18:53:44",
+  "stats": {
+    "total_skills": 1,
+    "total_tests": 5,
+    "tests_ok": 3,
+    "tests_falla": 1,
+    "tests_wip": 1,
+    "total_server_tools": 19,
+    "total_server_modules": 6
+  },
+  "skills": [
+    {
+      "name": "revision_curvas_verticales",
+      "description": "Revisión de curvas verticales y valores K en perfiles longitudinales de Civil 3D según el Manual de Carreteras de Chile.",
+      "category": "Vialidad",
+      "file_path": "skills/vialidad/revision-curvas-verticales.skill.md"
+    }
+  ],
+  "matrix": [
+    {
+      "servidor": "civil3d-mcp",
+      "tool": "get_drawing_info",
+      "version_c3d": "2026",
+      "dwg_prueba": "tests/dwg/01_vacio.dwg",
+      "resultado": "OK",
+      "evidencia": "consola",
+      "fecha": "2026-07-30",
+      "notas": "Devuelve correctamente metadatos del dibujo"
+    },
+    {
+      "servidor": "civil3d-mcp",
+      "tool": "list_civil_object_types",
+      "version_c3d": "2026",
+      "dwg_prueba": "tests/dwg/02_superficies_par.dwg",
+      "resultado": "OK",
+      "evidencia": "consola",
+      "fecha": "2026-07-30",
+      "notas": "Cuenta superficies y alineaciones"
+    },
+    {
+      "servidor": "civil3d-mcp",
+      "tool": "create_cogo_point",
+      "version_c3d": "2026",
+      "dwg_prueba": "tests/dwg/01_vacio.dwg",
+      "resultado": "WIP",
+      "evidencia": "tests/dwg/cogo_vacio.dwg",
+      "fecha": "2026-07-30",
+      "notas": "El punto se crea pero la descripción se omite"
+    },
+    {
+      "servidor": "civil3d-mcp",
+      "tool": "sample_surface_elevation",
+      "version_c3d": "2026",
+      "dwg_prueba": "tests/dwg/02_superficies_par.dwg",
+      "resultado": "OK",
+      "evidencia": "consola",
+      "fecha": "2026-07-30",
+      "notas": "Interpola cotas correctamente"
+    },
+    {
+      "servidor": "civil3d-mcp",
+      "tool": "delete_cogo_point",
+      "version_c3d": "2026",
+      "dwg_prueba": "tests/dwg/01_vacio.dwg",
+      "resultado": "FALLA",
+      "evidencia": "consola",
+      "fecha": "2026-07-30",
+      "notas": "Excepción COM al intentar eliminar"
+    }
+  ],
+  "server_tools": [
+    {
+      "module": "Alignments",
+      "file": "tools_alignments.py",
+      "tools_list": [
+        {
+          "name": "list_alignments",
+          "description": "List all alignments in the active Civil 3D drawing. Returns name, description, style, length, starting station and ending station for each alignment."
+        },
+        {
+          "name": "get_alignment_info",
+          "description": "Return detailed geometry for a named Civil 3D alignment: length, start/end stations and a breakdown of every entity (tangent, circular curve, spiral) with type, station range, length and radius where applicable."
+        },
+        {
+          "name": "get_station_offset",
+          "description": "Given a world coordinate (easting, northing), compute the station and perpendicular offset relative to a named alignment. Useful for checking whether a point is on or near a road centreline."
+        },
+        {
+          "name": "list_profiles",
+          "description": "List all vertical profiles (AeccDbVAlignment) attached to a named Civil 3D alignment. Returns name, description, style, length, start/end stations and min/max elevations for each profile."
+        },
+        {
+          "name": "get_profile_info",
+          "description": "Return detailed geometry for a named vertical profile on a Civil 3D alignment: start/end stations, min/max elevations, full entity breakdown (tangent grades, sag/crest curves) with station range, elevations, radius and K-value, plus a complete PVI list with station, elevation and curve length."
+        }
+      ],
+      "count": 5
+    },
+    {
+      "module": "Cogo",
+      "file": "tools_cogo.py",
+      "tools_list": [
+        {
+          "name": "create_cogo_point",
+          "description": "Create a new COGO (Coordinate Geometry) point in the active Civil 3D drawing. Provide northing, easting, optional elevation and description. Returns the assigned point number and coordinates."
+        },
+        {
+          "name": "list_cogo_points",
+          "description": "List COGO points in the active Civil 3D drawing. Returns point number, northing, easting, elevation and description for up to max_count points."
+        },
+        {
+          "name": "delete_cogo_point",
+          "description": "Delete a COGO point from the active drawing by its point number. Returns success confirmation or an error if the point is not found."
+        }
+      ],
+      "count": 3
+    },
+    {
+      "module": "Corridors",
+      "file": "tools_corridors.py",
+      "tools_list": [
+        {
+          "name": "get_corridor_info",
+          "description": "Return detailed information for a named Civil 3D corridor: description, style, baselines (with their alignment and profile names), regions per baseline, and the list of assemblies applied to each region."
+        }
+      ],
+      "count": 1
+    },
+    {
+      "module": "Drawing",
+      "file": "tools_drawing.py",
+      "tools_list": [
+        {
+          "name": "get_drawing_info",
+          "description": "Retrieve metadata about the currently active Civil 3D drawing: file name, full path, save state, unit settings, precision and coordinate system code."
+        },
+        {
+          "name": "list_civil_object_types",
+          "description": "List and count Civil 3D objects in the active drawing. Returns two sections: model_space_counts (AutoCAD entity counts by object name) and civil3d_collections (named collection counts for surfaces, alignments, COGO points, corridors, pipe networks, etc.)."
+        },
+        {
+          "name": "get_selected_objects_info",
+          "description": "Return properties of the currently selected Civil 3D objects (handle, layer, object type, name/description where available). Use max_count to limit results."
+        }
+      ],
+      "count": 3
+    },
+    {
+      "module": "Lines",
+      "file": "tools_lines.py",
+      "tools_list": [
+        {
+          "name": "create_line",
+          "description": "Create a 3D line segment in the active Civil 3D drawing model space. Provide start and end coordinates in (X/easting, Y/northing, Z/elevation). Returns the object handle, layer and computed length."
+        },
+        {
+          "name": "create_polyline",
+          "description": "Create a 3D polyline in the active Civil 3D drawing model space from an ordered list of vertices. Each vertex is [x, y, z]. Optionally close the polyline. Returns handle, vertex count and length."
+        },
+        {
+          "name": "list_lines",
+          "description": "List lines and polylines in the active Civil 3D drawing model space. Optionally filter by layer name. Returns object type, handle, layer and length for each entity found."
+        }
+      ],
+      "count": 3
+    },
+    {
+      "module": "Surfaces",
+      "file": "tools_surfaces.py",
+      "tools_list": [
+        {
+          "name": "list_surfaces",
+          "description": "List all TIN and Grid surfaces in the active Civil 3D drawing. Returns name, description, style and elevation statistics (min/max/mean) for each surface."
+        },
+        {
+          "name": "get_surface_info",
+          "description": "Return detailed statistics for a named Civil 3D surface: elevation range, mean elevation, point count, triangle count, 2D and 3D area."
+        },
+        {
+          "name": "sample_surface_elevation",
+          "description": "Sample the elevation of a named Civil 3D surface at a specific (easting, northing) coordinate. Returns the interpolated elevation at that point. Raises an error if the point lies outside the surface."
+        },
+        {
+          "name": "list_surface_definition",
+          "description": "List all definition items (boundaries, breaklines, contours, DEM files, drawing objects, point files, point groups, survey points, survey figures) that make up a named Civil 3D surface."
+        }
+      ],
+      "count": 4
+    }
+  ],
+  "graph_stats": {
+    "nodes": 41,
+    "edges": 0,
+    "communities": 8,
+    "active": true
+  },
+  "timeline": [
+    {
+      "file": "dashboard_data.js",
+      "path": "dashboard_data.js",
+      "source": "Workspace",
+      "mtime": 1785452019.3381467,
+      "date": "2026-07-30 18:53",
+      "date_raw": "2026-07-30T18:53:39.338147"
+    },
+    {
+      "file": "dashboard_data.json",
+      "path": "dashboard_data.json",
+      "source": "Workspace",
+      "mtime": 1785452019.3381467,
+      "date": "2026-07-30 18:53",
+      "date_raw": "2026-07-30T18:53:39.338147"
+    },
+    {
+      "file": "iniciar_laboratorio.bat",
+      "path": "iniciar_laboratorio.bat",
+      "source": "Workspace",
+      "mtime": 1785452013.5193355,
+      "date": "2026-07-30 18:53",
+      "date_raw": "2026-07-30T18:53:33.519336"
+    },
+    {
+      "file": "dashboard.html",
+      "path": "dashboard.html",
+      "source": "Workspace",
+      "mtime": 1785452007.6630282,
+      "date": "2026-07-30 18:53",
+      "date_raw": "2026-07-30T18:53:27.663028"
+    },
+    {
+      "file": "update_dashboard.py",
+      "path": "update_dashboard.py",
+      "source": "Workspace",
+      "mtime": 1785451988.4225347,
+      "date": "2026-07-30 18:53",
+      "date_raw": "2026-07-30T18:53:08.422535"
+    },
+    {
+      "file": "revision-curvas-verticales.skill.md",
+      "path": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source": "Workspace",
+      "mtime": 1785451269.1581464,
+      "date": "2026-07-30 18:41",
+      "date_raw": "2026-07-30T18:41:09.158146"
+    },
+    {
+      "file": "matriz.csv",
+      "path": "verificacion/matriz.csv",
+      "source": "Workspace",
+      "mtime": 1785451262.6001217,
+      "date": "2026-07-30 18:41",
+      "date_raw": "2026-07-30T18:41:02.600122"
+    },
+    {
+      "file": "mcp-civil3d-unificacion-informe-II.html",
+      "path": "mcp-civil3d-unificacion-informe-II.html",
+      "source": "Workspace",
+      "mtime": 1785450167.185371,
+      "date": "2026-07-30 18:22",
+      "date_raw": "2026-07-30T18:22:47.185371"
+    },
+    {
+      "file": "mcp-civil3d-capacidades-y-expansion.html",
+      "path": "mcp-civil3d-capacidades-y-expansion.html",
+      "source": "Workspace",
+      "mtime": 1785382700.423956,
+      "date": "2026-07-29 23:38",
+      "date_raw": "2026-07-29T23:38:20.423956"
+    },
+    {
+      "file": "_green.py",
+      "path": "civil3d-mcp/_green.py",
+      "source": "Server Codebase",
+      "mtime": 1781536466.0034153,
+      "date": "2026-06-15 11:14",
+      "date_raw": "2026-06-15T11:14:26.003415"
+    },
+    {
+      "file": "_street_area.py",
+      "path": "civil3d-mcp/_street_area.py",
+      "source": "Server Codebase",
+      "mtime": 1781535511.892348,
+      "date": "2026-06-15 10:58",
+      "date_raw": "2026-06-15T10:58:31.892348"
+    },
+    {
+      "file": "_streets.py",
+      "path": "civil3d-mcp/_streets.py",
+      "source": "Server Codebase",
+      "mtime": 1781535242.0016468,
+      "date": "2026-06-15 10:54",
+      "date_raw": "2026-06-15T10:54:02.001647"
+    }
+  ]
+}

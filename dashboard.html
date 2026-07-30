@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Civil 3D MCP — Laboratorio de Integración y Control</title>
+  <script src="dashboard_data.js"></script>
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+      --bg-panel: rgba(30, 41, 59, 0.45);
+      --bg-panel-hover: rgba(30, 41, 59, 0.65);
+      --border-glow: rgba(99, 102, 241, 0.2);
+      --border-glow-hover: rgba(99, 102, 241, 0.4);
+      --accent: #6366f1;
+      --accent-glow: rgba(99, 102, 241, 0.15);
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      
+      --crit: #ef4444;
+      --crit-glow: rgba(239, 68, 68, 0.15);
+      --major: #f59e0b;
+      --major-glow: rgba(245, 158, 11, 0.15);
+      --minor: #eab308;
+      --minor-glow: rgba(234, 179, 8, 0.1);
+      --ok: #10b981;
+      --ok-glow: rgba(16, 185, 129, 0.15);
+      --info: #06b6d4;
+      --info-glow: rgba(6, 182, 212, 0.15);
+      
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: "Fira Code", Consolas, Monaco, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg-gradient);
+      color: var(--text);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      line-height: 1.5;
+      padding: 40px 24px;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* GLASS PANEL STYLE */
+    .glass-card {
+      background: var(--bg-panel);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-glow);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .glass-card:hover {
+      border-color: var(--border-glow-hover);
+      box-shadow: 0 8px 32px 0 rgba(99, 102, 241, 0.15);
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      background: linear-gradient(to right, #f8fafc, #a5b4fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .badge-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--ok-glow);
+      border: 1px solid var(--ok);
+      color: var(--ok);
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .badge-live::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: var(--ok);
+      border-radius: 50%;
+      display: inline-block;
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+
+    .meta-time {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-align: right;
+    }
+
+    .meta-time span {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* GRID LAYOUTS */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    .stat-card {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .stat-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent-glow);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+    }
+
+    .stat-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+    }
+
+    .stat-info .n {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    .stat-info .l {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 4px;
+    }
+
+    /* MAIN CONTENT SPLIT */
+    .content-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .panel-section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .panel-section-title svg {
+      width: 18px;
+      height: 18px;
+      stroke-width: 2.2;
+    }
+
+    /* MATRIX TABLE */
+    .table-container {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    thead th {
+      text-align: left;
+      padding: 12px 16px;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 2px solid var(--border-glow);
+    }
+
+    tbody td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border-glow);
+      vertical-align: middle;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    tbody tr:hover {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .badge-status {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid;
+    }
+
+    .badge-status.OK {
+      background: var(--ok-glow);
+      border-color: var(--ok);
+      color: var(--ok);
+    }
+
+    .badge-status.WIP {
+      background: var(--major-glow);
+      border-color: var(--major);
+      color: var(--major);
+    }
+
+    .badge-status.FALLA {
+      background: var(--crit-glow);
+      border-color: var(--crit);
+      color: var(--crit);
+    }
+
+    .code-span {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #a5b4fc;
+    }
+
+    /* SKILLS GRID */
+    .skills-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .skill-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-glow);
+      border-radius: 12px;
+      padding: 18px;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .skill-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      background: var(--bg-panel-hover);
+    }
+
+    .skill-cat {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--info);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    .skill-name {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .skill-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      flex-grow: 1;
+    }
+
+    .skill-link {
+      font-size: 0.78rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .skill-link:hover {
+      color: #818cf8;
+      text-decoration: underline;
+    }
+
+    /* TIMELINE */
+    .timeline {
+      position: relative;
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 6px;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: var(--border-glow);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 20px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -20px;
+      top: 5px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid #0f172a;
+      box-shadow: 0 0 0 2px var(--border-glow);
+    }
+    
+    .timeline-item.Workspace .timeline-dot {
+      background: var(--info);
+    }
+
+    .timeline-date {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .timeline-file {
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .timeline-path {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      word-break: break-all;
+    }
+
+    /* GRAPHIFY INTEGRATION CARD */
+    .graphify-panel {
+      margin-bottom: 32px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 24px;
+    }
+
+    .graphify-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .btn-premium {
+      background: linear-gradient(135deg, var(--accent) 0%, #4f46e5 100%);
+      color: #fff;
+      border: none;
+      padding: 14px 24px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
+      text-decoration: none;
+    }
+
+    .btn-premium:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(99, 102, 241, 0.45);
+    }
+    
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-glow);
+      color: var(--text);
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--border-glow-hover);
+    }
+
+    .graph-stats-layout {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .graph-sub-stat {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+      border: 1px solid var(--border-glow);
+    }
+
+    .graph-sub-stat .v {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #a5b4fc;
+    }
+
+    .graph-sub-stat .k {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* TOOL LIST GRID */
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .module-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-glow);
+      border-radius: 12px;
+      padding: 18px;
+    }
+
+    .module-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--border-glow);
+      padding-bottom: 8px;
+    }
+
+    .module-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #a5b4fc;
+    }
+
+    .module-count {
+      background: var(--accent-glow);
+      border: 1px solid var(--accent);
+      color: var(--text);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+
+    .tool-list-items {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .tool-item {
+      font-size: 0.8rem;
+    }
+    
+    .tool-item-name {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      color: #f8fafc;
+    }
+
+    .tool-item-desc {
+      color: var(--text-muted);
+      font-size: 0.74rem;
+      margin-top: 2px;
+    }
+
+    /* ERROR BOUNDARY DISPLAY */
+    .error-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #090d16;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 1000;
+      display: none;
+    }
+
+    .error-card {
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .error-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--crit);
+      margin-bottom: 16px;
+    }
+
+    .error-msg {
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    /* UTILITIES */
+    .footer {
+      border-top: 1px solid var(--border-glow);
+      margin-top: 50px;
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ERROR BOUNDARY: Shown if dashboard_data.json is missing -->
+  <div id="errorOverlay" class="error-overlay">
+    <div class="glass-card error-card">
+      <div class="error-title">No se encontraron datos del laboratorio</div>
+      <div class="error-msg">
+        Para ver la información real del servidor y del espacio de trabajo, debes ejecutar el script de escaneo inicial en la terminal:<br>
+        <code class="code-span" style="display: block; margin-top: 12px; font-size: 0.9rem; padding: 8px;">python update_dashboard.py</code>
+      </div>
+      <button class="btn-premium" onclick="location.reload()">Reintentar Carga</button>
+    </div>
+  </div>
+
+  <div class="container">
+    
+    <!-- HEADER -->
+    <header>
+      <div>
+        <p style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; margin-bottom: 4px;">Auditoría y Pruebas CAD</p>
+        <h1>
+          <svg style="width: 32px; height: 32px; fill: none; stroke: currentColor; stroke-width: 2.2;" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" />
+          </svg>
+          Civil 3D MCP Lab
+        </h1>
+      </div>
+      <div class="meta-time">
+        <div style="margin-bottom: 6px;"><span class="badge-live">Servidor Vinculado</span></div>
+        Última actualización: <span id="lastUpdate">-</span>
+      </div>
+    </header>
+
+    <!-- STATS CARDS -->
+    <div class="dashboard-grid">
+      <div class="glass-card stat-card">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" /></svg>
+        </div>
+        <div class="stat-info">
+          <div class="n" id="statSkills">0</div>
+          <div class="l">Skills Normativas</div>
+        </div>
+      </div>
+      
+      <div class="glass-card stat-card">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+        </div>
+        <div class="stat-info">
+          <div class="n" id="statTests">0</div>
+          <div class="l">Pruebas Totales</div>
+        </div>
+      </div>
+
+      <div class="glass-card stat-card">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" /></svg>
+        </div>
+        <div class="stat-info">
+          <div class="n" id="statTools">0</div>
+          <div class="l">Herramientas MCP</div>
+        </div>
+      </div>
+
+      <div class="glass-card stat-card">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-1.242-1.008-2.25-2.25-2.25H9m1.5-6h3c.828 0 1.5.672 1.5 1.5V15c0 .828-.672 1.5-1.5 1.5h-3c-.828 0-1.5-.672-1.5-1.5V4.5c0-.828.672-1.5 1.5-1.5Z" /></svg>
+        </div>
+        <div class="stat-info">
+          <div class="n" id="statPassRate">-%</div>
+          <div class="l">Tasa de Aprobación</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRAPHIFY INTEGRATION PANEL -->
+    <div class="glass-card graphify-panel">
+      <div>
+        <h2 class="panel-section-title" style="color: #a5b4fc;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94-3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" /></svg>
+          Mapeo y Base de Conocimiento (Graphify)
+        </h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">
+          Esta sección se integra con la skill <code class="code-span">graphify</code>. Escanea el código del servidor MCP y los documentos de tu espacio de trabajo para estructurar un Grafo de Conocimiento interactivo. Permite auditar qué llama a qué y encontrar caminos lógicos entre herramientas.
+        </p>
+        <div class="graph-stats-layout">
+          <div class="graph-sub-stat">
+            <div class="v" id="graphNodes">0</div>
+            <div class="k">Nodos</div>
+          </div>
+          <div class="graph-sub-stat">
+            <div class="v" id="graphEdges">0</div>
+            <div class="k">Conexiones</div>
+          </div>
+          <div class="graph-sub-stat">
+            <div class="v" id="graphCommunities">0</div>
+            <div class="k">Comunidades</div>
+          </div>
+        </div>
+      </div>
+      <div class="graphify-buttons">
+        <a id="btnGraphView" class="btn-premium" target="_blank" href="graphify-out/graph.html">
+          <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
+          Abrir Grafo Interactivo
+        </a>
+        <a id="btnTreeView" class="btn-secondary" target="_blank" href="graphify-out/GRAPH_TREE.html">
+          Visualizar Árbol de Código (D3)
+        </a>
+      </div>
+    </div>
+
+    <!-- CONTENT SPLIT LAYOUT -->
+    <div class="content-layout">
+      
+      <!-- LEFT SECTION: TEST MATRIX & SKILLS -->
+      <div style="display: flex; flex-direction: column; gap: 24px;">
+        
+        <!-- VERIFICATION MATRIX -->
+        <div class="glass-card">
+          <h2 class="panel-section-title" style="color: #ef4444;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" /></svg>
+            Matriz de Verificación Funcional (Capa 2)
+          </h2>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Herramienta</th>
+                  <th>DWG Prueba</th>
+                  <th>Estado</th>
+                  <th>Evidencia</th>
+                  <th>Fecha</th>
+                  <th>Notas</th>
+                </tr>
+              </thead>
+              <tbody id="matrixBody">
+                <tr>
+                  <td colspan="6" style="text-align: center; color: var(--text-muted);">Cargando matriz...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- SKILLS LIBRARY -->
+        <div class="glass-card">
+          <h2 class="panel-section-title" style="color: #10b981;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" /></svg>
+            Biblioteca de Criterios y Habilidades (Capa 1)
+          </h2>
+          <div class="skills-list" id="skillsList">
+            <div style="grid-column: span 2; text-align: center; color: var(--text-muted);">Cargando habilidades...</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT SECTION: TIMELINE -->
+      <div style="display: flex; flex-direction: column; gap: 24px;">
+        
+        <!-- TIMELINE -->
+        <div class="glass-card">
+          <h2 class="panel-section-title" style="color: #06b6d4;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+            Historial de Actividad Reciente
+          </h2>
+          <div class="timeline" id="timelineList">
+            <div style="color: var(--text-muted);">Cargando línea de tiempo...</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- CODE TOOLS OVERVIEW -->
+    <div class="glass-card" style="margin-bottom: 32px;">
+      <h2 class="panel-section-title" style="color: #6366f1;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M14.25 9.75 16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z" /></svg>
+        Módulos y Herramientas del Servidor Civil 3D MCP
+      </h2>
+      <div class="modules-grid" id="modulesGrid">
+        <div style="grid-column: span 3; text-align: center; color: var(--text-muted);">Cargando herramientas del servidor...</div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div>Espacio de trabajo: <code>c:\Users\raulz\OneDrive\Escritorio\Trabajo\IA\OTROS\MCP\Autocad</code></div>
+      <div>Desarrollado para la integración con Claude & Gemini Antigravity IDE · 2026</div>
+    </div>
+
+  </div>
+
+  <!-- JAVASCRIPT DATABINDING -->
+  <script>
+    async function loadData() {
+      try {
+        let data = window.DASHBOARD_DATA;
+        if (!data) {
+          const response = await fetch('dashboard_data.json');
+          if (!response.ok) throw new Error("JSON file not found");
+          data = await response.json();
+        }
+        
+        // Error check success, hide boundary overlay
+        document.getElementById('errorOverlay').style.display = 'none';
+        
+        // Meta
+        document.getElementById('lastUpdate').innerText = data.last_update;
+        
+        // Stats
+        document.getElementById('statSkills').innerText = data.stats.total_skills;
+        document.getElementById('statTests').innerText = data.stats.total_tests;
+        document.getElementById('statTools').innerText = data.stats.total_server_tools;
+        
+        const passRate = data.stats.total_tests > 0 
+          ? Math.round((data.stats.tests_ok / data.stats.total_tests) * 100) 
+          : 0;
+        document.getElementById('statPassRate').innerText = passRate + '%';
+        
+        // Graphify Stats
+        document.getElementById('graphNodes').innerText = data.graph_stats.nodes;
+        document.getElementById('graphEdges').innerText = data.graph_stats.edges;
+        document.getElementById('graphCommunities').innerText = data.graph_stats.communities;
+        
+        if (!data.graph_stats.active) {
+          document.getElementById('btnGraphView').style.opacity = '0.5';
+          document.getElementById('btnGraphView').style.pointerEvents = 'none';
+          document.getElementById('btnGraphView').innerText = 'Grafo no generado aún';
+          document.getElementById('btnTreeView').style.opacity = '0.5';
+          document.getElementById('btnTreeView').style.pointerEvents = 'none';
+        }
+        
+        // Verification Matrix
+        const matrixBody = document.getElementById('matrixBody');
+        matrixBody.innerHTML = '';
+        if (data.matrix.length === 0) {
+          matrixBody.innerHTML = `<tr><td colspan="6" style="text-align: center; color: var(--text-muted);">No hay pruebas registradas en verificacion/matriz.csv</td></tr>`;
+        } else {
+          data.matrix.forEach(row => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+              <td><span class="code-span">${row.tool}</span></td>
+              <td><span style="font-size: 0.8rem; color: var(--text-muted);">${row.dwg_prueba}</span></td>
+              <td><span class="badge-status ${row.resultado}">${row.resultado}</span></td>
+              <td><span style="font-size: 0.8rem; font-family: var(--font-mono);">${row.evidencia}</span></td>
+              <td><span style="font-size: 0.8rem;">${row.fecha}</span></td>
+              <td style="color: var(--text-muted); max-width: 250px; font-size: 0.82rem;">${row.notas}</td>
+            `;
+            matrixBody.appendChild(tr);
+          });
+        }
+        
+        // Skills Library
+        const skillsList = document.getElementById('skillsList');
+        skillsList.innerHTML = '';
+        if (data.skills.length === 0) {
+          skillsList.innerHTML = `<div style="grid-column: span 2; text-align: center; color: var(--text-muted);">No hay habilidades en skills/</div>`;
+        } else {
+          data.skills.forEach(skill => {
+            const div = document.createElement('div');
+            div.className = 'skill-card';
+            div.innerHTML = `
+              <div>
+                <div class="skill-cat">${skill.category}</div>
+                <div class="skill-name">${skill.name}</div>
+                <div class="skill-desc">${skill.description}</div>
+              </div>
+              <a class="skill-link" target="_blank" href="${skill.file_path}">
+                Abrir Archivo (.md)
+                <svg style="width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2;" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
+              </a>
+            `;
+            skillsList.appendChild(div);
+          });
+        }
+        
+        // Recent Activity Timeline
+        const timelineList = document.getElementById('timelineList');
+        timelineList.innerHTML = '';
+        if (data.timeline.length === 0) {
+          timelineList.innerHTML = `<div style="color: var(--text-muted);">Sin actividad de archivos detectada</div>`;
+        } else {
+          data.timeline.forEach(item => {
+            const div = document.createElement('div');
+            div.className = `timeline-item ${item.source}`;
+            div.innerHTML = `
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">${item.date} · <span style="color: ${item.source === 'Workspace' ? 'var(--info)' : 'var(--accent)'}; font-weight: 700;">${item.source}</span></div>
+              <div class="timeline-file">${item.file}</div>
+              <div class="timeline-path">${item.path}</div>
+            `;
+            timelineList.appendChild(div);
+          });
+        }
+        
+        // Modules & Server Tools Overview
+        const modulesGrid = document.getElementById('modulesGrid');
+        modulesGrid.innerHTML = '';
+        if (data.server_tools.length === 0) {
+          modulesGrid.innerHTML = `<div style="grid-column: span 3; text-align: center; color: var(--text-muted);">No se encontraron módulos de herramientas en el servidor</div>`;
+        } else {
+          data.server_tools.forEach(mod => {
+            const div = document.createElement('div');
+            div.className = 'module-card';
+            
+            let listHtml = '';
+            if (mod.tools_list.length === 0) {
+              listHtml = `<div style="color: var(--text-muted); font-size: 0.8rem;">Sin herramientas expuestas</div>`;
+            } else {
+              mod.tools_list.forEach(t => {
+                listHtml += `
+                  <div class="tool-item">
+                    <span class="tool-item-name">${t.name}</span>
+                    <div class="tool-item-desc">${t.description}</div>
+                  </div>
+                `;
+              });
+            }
+            
+            div.innerHTML = `
+              <div class="module-head">
+                <div class="module-title">${mod.module}</div>
+                <div class="module-count">${mod.count} tools</div>
+              </div>
+              <div class="tool-list-items">
+                ${listHtml}
+              </div>
+            `;
+            modulesGrid.appendChild(div);
+          });
+        }
+        
+      } catch (err) {
+        console.error(err);
+        // Show error overlay since fetch failed
+        document.getElementById('errorOverlay').style.display = 'flex';
+      }
+    }
+    
+    // Load dynamic data on window load
+    window.onload = loadData;
+  </script>
+</body>
+</html>

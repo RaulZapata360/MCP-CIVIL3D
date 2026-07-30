@@ -1,0 +1,806 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "dashboard_data.json",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L1",
+      "id": "dashboard_data",
+      "community": 3,
+      "norm_label": "dashboard_data.json"
+    },
+    {
+      "label": "last_update",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L2",
+      "id": "dashboard_data_last_update",
+      "community": 3,
+      "norm_label": "last_update"
+    },
+    {
+      "label": "stats",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L3",
+      "id": "dashboard_data_stats",
+      "community": 1,
+      "norm_label": "stats"
+    },
+    {
+      "label": "total_skills",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L4",
+      "id": "dashboard_data_stats_total_skills",
+      "community": 1,
+      "norm_label": "total_skills"
+    },
+    {
+      "label": "total_tests",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L5",
+      "id": "dashboard_data_stats_total_tests",
+      "community": 1,
+      "norm_label": "total_tests"
+    },
+    {
+      "label": "tests_ok",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L6",
+      "id": "dashboard_data_stats_tests_ok",
+      "community": 1,
+      "norm_label": "tests_ok"
+    },
+    {
+      "label": "tests_falla",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L7",
+      "id": "dashboard_data_stats_tests_falla",
+      "community": 1,
+      "norm_label": "tests_falla"
+    },
+    {
+      "label": "tests_wip",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L8",
+      "id": "dashboard_data_stats_tests_wip",
+      "community": 1,
+      "norm_label": "tests_wip"
+    },
+    {
+      "label": "total_server_tools",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L9",
+      "id": "dashboard_data_stats_total_server_tools",
+      "community": 1,
+      "norm_label": "total_server_tools"
+    },
+    {
+      "label": "total_server_modules",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L10",
+      "id": "dashboard_data_stats_total_server_modules",
+      "community": 1,
+      "norm_label": "total_server_modules"
+    },
+    {
+      "label": "skills",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L12",
+      "id": "dashboard_data_skills",
+      "community": 3,
+      "norm_label": "skills"
+    },
+    {
+      "label": "matrix",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L20",
+      "id": "dashboard_data_matrix",
+      "community": 3,
+      "norm_label": "matrix"
+    },
+    {
+      "label": "server_tools",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L72",
+      "id": "dashboard_data_server_tools",
+      "community": 3,
+      "norm_label": "server_tools"
+    },
+    {
+      "label": "graph_stats",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L110",
+      "id": "dashboard_data_graph_stats",
+      "community": 4,
+      "norm_label": "graph_stats"
+    },
+    {
+      "label": "nodes",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L111",
+      "id": "dashboard_data_graph_stats_nodes",
+      "community": 4,
+      "norm_label": "nodes"
+    },
+    {
+      "label": "edges",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L112",
+      "id": "dashboard_data_graph_stats_edges",
+      "community": 4,
+      "norm_label": "edges"
+    },
+    {
+      "label": "communities",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L113",
+      "id": "dashboard_data_graph_stats_communities",
+      "community": 4,
+      "norm_label": "communities"
+    },
+    {
+      "label": "active",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L114",
+      "id": "dashboard_data_graph_stats_active",
+      "community": 4,
+      "norm_label": "active"
+    },
+    {
+      "label": "timeline",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L116",
+      "id": "dashboard_data_timeline",
+      "community": 3,
+      "norm_label": "timeline"
+    },
+    {
+      "label": "update_dashboard.py",
+      "file_type": "code",
+      "source_file": "update_dashboard.py",
+      "source_location": "L1",
+      "id": "update_dashboard",
+      "community": 2,
+      "norm_label": "update_dashboard.py"
+    },
+    {
+      "label": "clean_path()",
+      "file_type": "code",
+      "source_file": "update_dashboard.py",
+      "source_location": "L11",
+      "id": "update_dashboard_clean_path",
+      "community": 2,
+      "norm_label": "clean_path()"
+    },
+    {
+      "label": "get_skills()",
+      "file_type": "code",
+      "source_file": "update_dashboard.py",
+      "source_location": "L15",
+      "id": "update_dashboard_get_skills",
+      "community": 2,
+      "norm_label": "get_skills()"
+    },
+    {
+      "label": "get_verification_matrix()",
+      "file_type": "code",
+      "source_file": "update_dashboard.py",
+      "source_location": "L64",
+      "id": "update_dashboard_get_verification_matrix",
+      "community": 2,
+      "norm_label": "get_verification_matrix()"
+    },
+    {
+      "label": "get_server_tools()",
+      "file_type": "code",
+      "source_file": "update_dashboard.py",
+      "source_location": "L95",
+      "id": "update_dashboard_get_server_tools",
+      "community": 2,
+      "norm_label": "get_server_tools()"
+    },
+    {
+      "label": "get_graphify_stats()",
+      "file_type": "code",
+      "source_file": "update_dashboard.py",
+      "source_location": "L146",
+      "id": "update_dashboard_get_graphify_stats",
+      "community": 2,
+      "norm_label": "get_graphify_stats()"
+    },
+    {
+      "label": "get_timeline()",
+      "file_type": "code",
+      "source_file": "update_dashboard.py",
+      "source_location": "L167",
+      "id": "update_dashboard_get_timeline",
+      "community": 2,
+      "norm_label": "get_timeline()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "update_dashboard.py",
+      "source_location": "L217",
+      "id": "update_dashboard_main",
+      "community": 2,
+      "norm_label": "main()"
+    },
+    {
+      "label": "1.md",
+      "file_type": "document",
+      "source_file": ".agents/rules/1.md",
+      "source_location": "L1",
+      "id": "rules_1",
+      "community": 7,
+      "norm_label": "1.md"
+    },
+    {
+      "label": "graphify.md",
+      "file_type": "document",
+      "source_file": ".agents/rules/graphify.md",
+      "source_location": "L1",
+      "id": "rules_graphify",
+      "community": 5,
+      "norm_label": "graphify.md"
+    },
+    {
+      "label": "graphify",
+      "file_type": "document",
+      "source_file": ".agents/rules/graphify.md",
+      "source_location": "L6",
+      "id": "rules_graphify_graphify",
+      "community": 5,
+      "norm_label": "graphify"
+    },
+    {
+      "label": "graphify.md",
+      "file_type": "document",
+      "source_file": ".agents/workflows/graphify.md",
+      "source_location": "L1",
+      "id": "workflows_graphify",
+      "community": 6,
+      "norm_label": "graphify.md"
+    },
+    {
+      "label": "Workflow: graphify",
+      "file_type": "document",
+      "source_file": ".agents/workflows/graphify.md",
+      "source_location": "L6",
+      "id": "workflows_graphify_workflow_graphify",
+      "community": 6,
+      "norm_label": "workflow: graphify"
+    },
+    {
+      "label": "revision-curvas-verticales.skill.md",
+      "file_type": "document",
+      "source_file": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source_location": "L1",
+      "id": "vialidad_revision_curvas_verticales_skill",
+      "community": 0,
+      "norm_label": "revision-curvas-verticales.skill.md"
+    },
+    {
+      "label": "Revisi\u00f3n de Curvas Verticales contra Criterio de Dise\u00f1o (Manual de Carreteras Chile)",
+      "file_type": "document",
+      "source_file": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source_location": "L6",
+      "id": "vialidad_revision_curvas_verticales_skill_revisi\u00f3n_de_curvas_verticales_contra_criterio_de_dise\u00f1o_manual_de_carreteras_chile",
+      "community": 0,
+      "norm_label": "revision de curvas verticales contra criterio de diseno (manual de carreteras chile)"
+    },
+    {
+      "label": "Cu\u00e1ndo usar",
+      "file_type": "document",
+      "source_file": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source_location": "L10",
+      "id": "vialidad_revision_curvas_verticales_skill_cu\u00e1ndo_usar",
+      "community": 0,
+      "norm_label": "cuando usar"
+    },
+    {
+      "label": "Entradas requeridas",
+      "file_type": "document",
+      "source_file": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source_location": "L13",
+      "id": "vialidad_revision_curvas_verticales_skill_entradas_requeridas",
+      "community": 0,
+      "norm_label": "entradas requeridas"
+    },
+    {
+      "label": "Criterios aplicados (Manual de Carreteras de Chile, Vol. 3)",
+      "file_type": "document",
+      "source_file": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source_location": "L18",
+      "id": "vialidad_revision_curvas_verticales_skill_criterios_aplicados_manual_de_carreteras_de_chile_vol_3",
+      "community": 0,
+      "norm_label": "criterios aplicados (manual de carreteras de chile, vol. 3)"
+    },
+    {
+      "label": "1. Par\u00e1metros K M\u00ednimos (Distancia de Visibilidad de Parada)",
+      "file_type": "document",
+      "source_file": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source_location": "L20",
+      "id": "vialidad_revision_curvas_verticales_skill_1_par\u00e1metros_k_m\u00ednimos_distancia_de_visibilidad_de_parada",
+      "community": 0,
+      "norm_label": "1. parametros k minimos (distancia de visibilidad de parada)"
+    },
+    {
+      "label": "2. Longitud M\u00ednima de Curva",
+      "file_type": "document",
+      "source_file": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source_location": "L33",
+      "id": "vialidad_revision_curvas_verticales_skill_2_longitud_m\u00ednima_de_curva",
+      "community": 0,
+      "norm_label": "2. longitud minima de curva"
+    },
+    {
+      "label": "C\u00f3digo de Referencia / Flujo en C# (in-process)",
+      "file_type": "document",
+      "source_file": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source_location": "L40",
+      "id": "vialidad_revision_curvas_verticales_skill_c\u00f3digo_de_referencia_flujo_en_c_in_process",
+      "community": 0,
+      "norm_label": "codigo de referencia / flujo en c# (in-process)"
+    },
+    {
+      "label": "Falsos positivos conocidos",
+      "file_type": "document",
+      "source_file": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source_location": "L74",
+      "id": "vialidad_revision_curvas_verticales_skill_falsos_positivos_conocidos",
+      "community": 0,
+      "norm_label": "falsos positivos conocidos"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L110",
+      "weight": 1.0,
+      "source": "dashboard_data",
+      "target": "dashboard_data_graph_stats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "dashboard_data",
+      "target": "dashboard_data_last_update",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "dashboard_data",
+      "target": "dashboard_data_matrix",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L72",
+      "weight": 1.0,
+      "source": "dashboard_data",
+      "target": "dashboard_data_server_tools",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "dashboard_data",
+      "target": "dashboard_data_skills",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "dashboard_data",
+      "target": "dashboard_data_stats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L116",
+      "weight": 1.0,
+      "source": "dashboard_data",
+      "target": "dashboard_data_timeline",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "dashboard_data_stats",
+      "target": "dashboard_data_stats_tests_falla",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "dashboard_data_stats",
+      "target": "dashboard_data_stats_tests_ok",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "dashboard_data_stats",
+      "target": "dashboard_data_stats_tests_wip",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "dashboard_data_stats",
+      "target": "dashboard_data_stats_total_server_modules",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "dashboard_data_stats",
+      "target": "dashboard_data_stats_total_server_tools",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "dashboard_data_stats",
+      "target": "dashboard_data_stats_total_skills",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "dashboard_data_stats",
+      "target": "dashboard_data_stats_total_tests",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L114",
+      "weight": 1.0,
+      "source": "dashboard_data_graph_stats",
+      "target": "dashboard_data_graph_stats_active",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L113",
+      "weight": 1.0,
+      "source": "dashboard_data_graph_stats",
+      "target": "dashboard_data_graph_stats_communities",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L112",
+      "weight": 1.0,
+      "source": "dashboard_data_graph_stats",
+      "target": "dashboard_data_graph_stats_edges",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L111",
+      "weight": 1.0,
+      "source": "dashboard_data_graph_stats",
+      "target": "dashboard_data_graph_stats_nodes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "update_dashboard.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "update_dashboard",
+      "target": "update_dashboard_clean_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "update_dashboard.py",
+      "source_location": "L146",
+      "weight": 1.0,
+      "source": "update_dashboard",
+      "target": "update_dashboard_get_graphify_stats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "update_dashboard.py",
+      "source_location": "L95",
+      "weight": 1.0,
+      "source": "update_dashboard",
+      "target": "update_dashboard_get_server_tools",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "update_dashboard.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "update_dashboard",
+      "target": "update_dashboard_get_skills",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "update_dashboard.py",
+      "source_location": "L167",
+      "weight": 1.0,
+      "source": "update_dashboard",
+      "target": "update_dashboard_get_timeline",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "update_dashboard.py",
+      "source_location": "L64",
+      "weight": 1.0,
+      "source": "update_dashboard",
+      "target": "update_dashboard_get_verification_matrix",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "update_dashboard.py",
+      "source_location": "L217",
+      "weight": 1.0,
+      "source": "update_dashboard",
+      "target": "update_dashboard_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "update_dashboard.py",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "update_dashboard_get_skills",
+      "target": "update_dashboard_clean_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "update_dashboard.py",
+      "source_location": "L184",
+      "weight": 1.0,
+      "source": "update_dashboard_get_timeline",
+      "target": "update_dashboard_clean_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "update_dashboard.py",
+      "source_location": "L219",
+      "weight": 1.0,
+      "source": "update_dashboard_main",
+      "target": "update_dashboard_get_skills",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "update_dashboard.py",
+      "source_location": "L220",
+      "weight": 1.0,
+      "source": "update_dashboard_main",
+      "target": "update_dashboard_get_verification_matrix",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "update_dashboard.py",
+      "source_location": "L221",
+      "weight": 1.0,
+      "source": "update_dashboard_main",
+      "target": "update_dashboard_get_server_tools",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "update_dashboard.py",
+      "source_location": "L222",
+      "weight": 1.0,
+      "source": "update_dashboard_main",
+      "target": "update_dashboard_get_graphify_stats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "update_dashboard.py",
+      "source_location": "L223",
+      "weight": 1.0,
+      "source": "update_dashboard_main",
+      "target": "update_dashboard_get_timeline",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/rules/graphify.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "rules_graphify",
+      "target": "rules_graphify_graphify",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/workflows/graphify.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "workflows_graphify",
+      "target": "workflows_graphify_workflow_graphify",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "vialidad_revision_curvas_verticales_skill",
+      "target": "vialidad_revision_curvas_verticales_skill_revisi\u00f3n_de_curvas_verticales_contra_criterio_de_dise\u00f1o_manual_de_carreteras_chile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "vialidad_revision_curvas_verticales_skill_revisi\u00f3n_de_curvas_verticales_contra_criterio_de_dise\u00f1o_manual_de_carreteras_chile",
+      "target": "vialidad_revision_curvas_verticales_skill_criterios_aplicados_manual_de_carreteras_de_chile_vol_3",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "vialidad_revision_curvas_verticales_skill_revisi\u00f3n_de_curvas_verticales_contra_criterio_de_dise\u00f1o_manual_de_carreteras_chile",
+      "target": "vialidad_revision_curvas_verticales_skill_cu\u00e1ndo_usar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "vialidad_revision_curvas_verticales_skill_revisi\u00f3n_de_curvas_verticales_contra_criterio_de_dise\u00f1o_manual_de_carreteras_chile",
+      "target": "vialidad_revision_curvas_verticales_skill_c\u00f3digo_de_referencia_flujo_en_c_in_process",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "vialidad_revision_curvas_verticales_skill_revisi\u00f3n_de_curvas_verticales_contra_criterio_de_dise\u00f1o_manual_de_carreteras_chile",
+      "target": "vialidad_revision_curvas_verticales_skill_entradas_requeridas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source_location": "L74",
+      "weight": 1.0,
+      "source": "vialidad_revision_curvas_verticales_skill_revisi\u00f3n_de_curvas_verticales_contra_criterio_de_dise\u00f1o_manual_de_carreteras_chile",
+      "target": "vialidad_revision_curvas_verticales_skill_falsos_positivos_conocidos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "vialidad_revision_curvas_verticales_skill_criterios_aplicados_manual_de_carreteras_de_chile_vol_3",
+      "target": "vialidad_revision_curvas_verticales_skill_1_par\u00e1metros_k_m\u00ednimos_distancia_de_visibilidad_de_parada",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "vialidad_revision_curvas_verticales_skill_criterios_aplicados_manual_de_carreteras_de_chile_vol_3",
+      "target": "vialidad_revision_curvas_verticales_skill_2_longitud_m\u00ednima_de_curva",
+      "confidence_score": 1.0
+    }
+  ],
+  "hyperedges": []
+}

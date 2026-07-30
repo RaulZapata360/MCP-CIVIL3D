@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MCP Civil 3D — capacidades actuales y guía de expansión</title>
+<style>
+  :root{
+    --paper:#e9e7e1;
+    --sheet:#ffffff;
+    --ink:#1b2127;
+    --ink-soft:#586069;
+    --ink-faint:#8b929a;
+    --rule:#ddd9d0;
+    --rule-strong:#bdb8ac;
+    --accent:#0e5563;
+    --accent-soft:#e7eff1;
+    --accent-deep:#0a3d47;
+    --crit:#9e2b25;  --crit-soft:#f6ece9;
+    --major:#946218; --major-soft:#f5eede;
+    --minor:#76652b; --minor-soft:#f2eddc;
+    --ok:#2f6a4c;    --ok-soft:#e8f0eb;
+    --info:#2a587a;  --info-soft:#e8eff5;
+    --serif:Georgia,"Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:"Consolas",Menlo,Monaco,monospace;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; }
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:var(--sans); line-height:1.6; font-size:15px; -webkit-font-smoothing:antialiased;
+  }
+  .sheet{
+    max-width:880px; margin:32px auto; background:var(--sheet);
+    box-shadow:0 1px 2px rgba(0,0,0,.06), 0 12px 40px rgba(20,30,40,.10);
+    border-top:4px solid var(--accent);
+  }
+  .pad{ padding:54px 64px; }
+
+  .toolbar{ max-width:880px; margin:0 auto; display:flex; justify-content:flex-end; padding:0 8px; }
+  .print-btn{
+    display:inline-flex; align-items:center; gap:8px; cursor:pointer;
+    background:var(--accent); color:#fff; border:none; padding:9px 16px;
+    font-family:var(--sans); font-size:.78rem; font-weight:600; letter-spacing:.02em;
+    border-radius:3px; margin-top:18px;
+  }
+  .print-btn:hover{ background:var(--accent-deep); }
+  .print-btn svg{ width:14px; height:14px; fill:none; stroke:currentColor; stroke-width:1.6; }
+
+  .kicker{ font-size:.7rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin:0 0 14px; display:flex; align-items:center; gap:12px; }
+  .kicker::after{ content:""; flex:1; height:1px; background:var(--rule); }
+  h1{ font-family:var(--serif); font-weight:700; font-size:2.2rem; line-height:1.15; margin:0 0 16px; letter-spacing:-.01em; }
+  .lead{ font-size:1.02rem; color:var(--ink-soft); margin:0 0 30px; max-width:64ch; }
+  .lead b{ color:var(--ink); font-weight:600; }
+
+  .titleblock{ display:grid; grid-template-columns:repeat(4,1fr); border:1px solid var(--rule-strong); border-bottom:none; margin-bottom:8px; }
+  .tb-cell{ border-bottom:1px solid var(--rule-strong); border-right:1px solid var(--rule-strong); padding:9px 13px; }
+  .tb-cell:nth-child(4n){ border-right:none; }
+  .tb-cell.wide{ grid-column:span 2; }
+  .tb-k{ font-size:.62rem; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-faint); font-weight:700; }
+  .tb-v{ font-size:.86rem; color:var(--ink); margin-top:2px; }
+
+  .stats{ display:grid; grid-template-columns:repeat(4,1fr); border:1px solid var(--rule); margin:34px 0 10px; }
+  .stat{ padding:18px 14px; border-right:1px solid var(--rule); text-align:center; }
+  .stat:last-child{ border-right:none; }
+  .stat .n{ font-family:var(--serif); font-size:2rem; font-weight:700; line-height:1; }
+  .stat .n.crit{ color:var(--crit); } .stat .n.major{ color:var(--major); } .stat .n.ok{ color:var(--ok); } .stat .n.accent{ color:var(--accent); }
+  .stat .l{ font-size:.66rem; letter-spacing:.04em; text-transform:uppercase; color:var(--ink-soft); margin-top:8px; }
+
+  section{ margin-top:46px; }
+  .section-h{ display:flex; align-items:baseline; gap:14px; border-bottom:2px solid var(--ink); padding-bottom:8px; margin-bottom:22px; }
+  .section-n{ font-family:var(--serif); font-size:1.5rem; font-weight:700; color:var(--accent); line-height:1; }
+  .section-h h2{ font-family:var(--serif); font-size:1.38rem; font-weight:700; margin:0; letter-spacing:-.01em; }
+  .section-h .h-note{ margin-left:auto; font-size:.74rem; color:var(--ink-faint); align-self:center; }
+  p{ margin:12px 0; }
+  h3.sub{ font-family:var(--serif); font-size:1.05rem; margin:24px 0 8px; }
+
+  .sev{ display:inline-block; font-size:.63rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; padding:3px 8px; border:1px solid; border-radius:2px; white-space:nowrap; }
+  .sev.crit{ color:var(--crit); border-color:var(--crit); background:var(--crit-soft); }
+  .sev.major{ color:var(--major); border-color:var(--major); background:var(--major-soft); }
+  .sev.minor{ color:var(--minor); border-color:var(--minor); background:var(--minor-soft); }
+  .sev.ok{ color:var(--ok); border-color:var(--ok); background:var(--ok-soft); }
+  .sev.info{ color:var(--info); border-color:var(--info); background:var(--info-soft); }
+  .sev.done{ color:#fff; background:var(--accent); border-color:var(--accent); }
+  .sev.wait{ color:var(--ink-soft); border-color:var(--rule-strong); background:#f3f1ec; }
+
+  code{ font-family:var(--mono); font-size:.84em; background:#f0eee9; padding:1px 5px; border-radius:2px; color:var(--accent-deep); }
+
+  .finding{ border:1px solid var(--rule); border-left:3px solid var(--ink-faint); padding:20px 24px; margin:18px 0; }
+  .finding.crit{ border-left-color:var(--crit); }
+  .finding.major{ border-left-color:var(--major); }
+  .finding.minor{ border-left-color:var(--minor); }
+  .finding-head{ display:flex; align-items:center; gap:12px; margin-bottom:4px; flex-wrap:wrap; }
+  .finding-head h3{ font-family:var(--serif); font-size:1.1rem; margin:0; font-weight:700; }
+  dl{ margin:8px 0 0; }
+  dl dt{ font-size:.65rem; letter-spacing:.1em; text-transform:uppercase; font-weight:700; color:var(--accent); margin-top:14px; }
+  dl dd{ margin:3px 0 0; }
+
+  table{ width:100%; border-collapse:collapse; margin:16px 0; font-size:.9rem; }
+  thead th{ text-align:left; font-size:.65rem; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-soft); font-weight:700; padding:8px 11px; border-bottom:2px solid var(--ink); }
+  thead th.recomendado::after{ content:" ✓"; }
+  tbody td{ padding:10px 11px; border-bottom:1px solid var(--rule); vertical-align:top; }
+  tbody tr:last-child td{ border-bottom:none; }
+  td.num,th.num{ font-family:var(--serif); text-align:right; white-space:nowrap; }
+  td.center{ text-align:center; }
+  .bad{ color:var(--crit); font-weight:700; } .warn{ color:var(--major); font-weight:700; } .good{ color:var(--ok); font-weight:700; }
+  td .tn{ font-family:var(--mono); font-size:.82rem; color:var(--accent-deep); font-weight:600; white-space:nowrap; }
+
+  .keynote{ border:1px solid var(--rule); border-left:3px solid var(--accent); background:var(--accent-soft); padding:16px 20px; margin:20px 0; font-size:.94rem; }
+  .keynote .kn-l{ font-size:.64rem; letter-spacing:.12em; text-transform:uppercase; font-weight:700; color:var(--accent); display:block; margin-bottom:5px; }
+  .keynote.crit{ border-left-color:var(--crit); background:var(--crit-soft); } .keynote.crit .kn-l{ color:var(--crit); }
+  .keynote.major{ border-left-color:var(--major); background:var(--major-soft); } .keynote.major .kn-l{ color:var(--major); }
+
+  .framed{ position:relative; border:1px solid var(--rule-strong); background:#faf9f6; padding:20px 22px 16px; margin:24px 0; }
+  .framed .f-l{ position:absolute; top:-9px; left:16px; background:var(--sheet); padding:0 8px; font-size:.62rem; letter-spacing:.13em; text-transform:uppercase; font-weight:700; color:var(--ink-faint); }
+  .framed pre{ margin:0; font-family:var(--mono); font-size:.84rem; line-height:1.7; white-space:pre-wrap; color:var(--ink); }
+  .framed .hl{ color:var(--accent-deep); font-weight:700; } .framed .cm{ color:var(--ink-faint); }
+  .framed ul{ margin:0; padding-left:20px; } .framed li{ margin:4px 0; }
+
+  .tiers{ display:grid; grid-template-columns:repeat(3,1fr); border:1px solid var(--rule); margin:20px 0; }
+  .tier{ padding:14px 16px; border-right:1px solid var(--rule); }
+  .tier:last-child{ border-right:none; }
+  .tier-l{ font-size:.74rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; padding-bottom:6px; border-bottom:2px solid; margin-bottom:8px; display:inline-block; }
+  .tier.bad .tier-l{ color:var(--crit); border-color:var(--crit); }
+  .tier.warn .tier-l{ color:var(--major); border-color:var(--major); }
+  .tier.good .tier-l{ color:var(--ok); border-color:var(--ok); }
+  .tier .c{ font-size:.82rem; font-weight:600; } .tier .a{ font-size:.8rem; color:var(--ink-soft); margin-top:4px; }
+
+  ol.actions{ counter-reset:step; list-style:none; padding:0; margin:8px 0; }
+  ol.actions li{ position:relative; padding:12px 0 12px 44px; border-bottom:1px solid var(--rule); counter-increment:step; }
+  ol.actions li:last-child{ border-bottom:none; }
+  ol.actions li::before{ content:counter(step); position:absolute; left:0; top:11px; width:28px; height:28px; border-radius:50%; background:var(--accent-soft); color:var(--accent-deep); font-family:var(--serif); font-weight:700; font-size:.9rem; display:flex; align-items:center; justify-content:center; }
+  ol.actions li.done::before{ background:var(--accent); color:#fff; }
+  ol.actions li.done .txt{ color:var(--ink-faint); text-decoration:line-through; }
+
+  .group-card{ border:1px solid var(--rule); border-left:3px solid var(--accent); padding:18px 22px; margin:18px 0; }
+  .group-card.warn{ border-left-color:var(--major); } .group-card.bad{ border-left-color:var(--crit); }
+  .group-card h3{ font-family:var(--serif); font-size:1.05rem; margin:0 0 8px; }
+  .group-card ul{ margin:6px 0 0; padding-left:20px; } .group-card li{ margin:5px 0; }
+
+  .schema{ display:flex; justify-content:center; margin:18px 0; }
+  .schema svg{ max-width:100%; height:auto; }
+  .schema-box{ fill:var(--accent-soft); stroke:var(--accent); stroke-width:1.4; }
+  .schema-box.final{ fill:var(--accent); stroke:var(--accent); }
+  .schema-box.ghost{ fill:#f3f1ec; stroke:var(--rule-strong); stroke-dasharray:4 3; }
+  .schema-text{ font:600 13px var(--sans); fill:var(--ink); }
+  .schema-text.on-accent{ fill:#fff; }
+  .schema-text.small{ font:500 10.5px var(--sans); fill:var(--ink-soft); }
+  .schema-arrow{ stroke:var(--ink-faint); stroke-width:1.8; fill:none; marker-end:url(#arrow); }
+  .arrow-head{ fill:var(--ink-faint); }
+
+  details.note{ border:1px solid var(--rule); border-radius:2px; padding:12px 16px; margin:16px 0; background:#faf9f6; }
+  details.note summary{ cursor:pointer; font-weight:600; color:var(--accent); font-size:.88rem; }
+  details.note p:last-child{ margin-bottom:0; }
+
+  .legend{ display:flex; gap:16px; flex-wrap:wrap; font-size:.75rem; color:var(--ink-soft); margin:12px 0 0; }
+  .legend span{ display:inline-flex; align-items:center; gap:7px; }
+  .legend .sq{ width:10px; height:10px; border-radius:2px; }
+
+  footer{ border-top:1px solid var(--rule); margin-top:50px; padding-top:16px; font-size:.74rem; color:var(--ink-faint); }
+  footer p{ margin:6px 0; }
+
+  .page-break{ break-before:page; page-break-before:always; }
+  @media screen{ .page-break{ display:block; height:0; } }
+
+  @media (max-width:680px){
+    .pad{ padding:32px 22px; }
+    .titleblock,.stats{ grid-template-columns:repeat(2,1fr); }
+    .tb-cell:nth-child(4n){ border-right:1px solid var(--rule-strong); } .tb-cell:nth-child(2n){ border-right:none; }
+    .tb-cell.wide{ grid-column:span 2; }
+    .stat{ border-bottom:1px solid var(--rule); }
+    .tiers{ grid-template-columns:1fr; } .tier{ border-right:none; border-bottom:1px solid var(--rule); }
+    table{ display:block; overflow-x:auto; }
+  }
+
+  @media print{
+    *{ -webkit-print-color-adjust:exact; print-color-adjust:exact; box-shadow:none !important; }
+    :root{ --paper:#ffffff; }
+    body{ font-size:10.8pt; }
+    .toolbar,.no-print{ display:none !important; }
+    .sheet{ margin:0; max-width:none; border-top:3px solid var(--accent); }
+    .pad{ padding:0; }
+    section,.finding,.keynote,.framed,.tiers,.group-card,table,.titleblock,.stats,.schema,.stepper{ break-inside:avoid; page-break-inside:avoid; }
+    h1,h2,h3,.section-h{ break-after:avoid; page-break-after:avoid; }
+  }
+  @page{ size:A4; margin:16mm 14mm; }
+</style>
+</head>
+<body>
+
+  <div class="toolbar no-print">
+    <button class="print-btn" onclick="window.print()">
+      <svg viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2M6 14h12v7H6z"/></svg>
+      Imprimir / PDF
+    </button>
+  </div>
+
+  <div class="sheet">
+    <div class="pad">
+
+      <p class="kicker">Automatización CAD · Servidor MCP propio</p>
+      <h1>Tu MCP de Civil 3D:<br>qué hace hoy y cómo hacerlo tuyo</h1>
+      <p class="lead">Manual de las <b>19 herramientas</b> que ya tienes funcionando sobre Civil 3D, con criterio de cuándo usar cada una — y una segunda parte sobre <b>cómo expandirlo</b> con tus propios flujos de trabajo, DXF, LandXML e IFC. No cubre la instalación de ArcGeekCAD MCP (producto de terceros, revisado aparte).</p>
+
+      <div class="titleblock">
+        <div class="tb-cell wide"><div class="tb-k">Servidor</div><div class="tb-v">civil3d-mcp · Python 3.11 · FastMCP</div></div>
+        <div class="tb-cell"><div class="tb-k">Herramientas</div><div class="tb-v">19 en 6 módulos</div></div>
+        <div class="tb-cell"><div class="tb-k">Fecha</div><div class="tb-v">29 julio 2026</div></div>
+        <div class="tb-cell wide"><div class="tb-k">Ubicación</div><div class="tb-v"><code>C:\Users\raulz\mcp-servers\civil3d-mcp\</code></div></div>
+        <div class="tb-cell"><div class="tb-k">Transporte</div><div class="tb-v">stdio + COM/IDispatch</div></div>
+        <div class="tb-cell"><div class="tb-k">Objetivo</div><div class="tb-v">Civil 3D 2026</div></div>
+        <div class="tb-cell wide"><div class="tb-k">Origen</div><div class="tb-v">Fork de <code>antonhofstader/Civil3D-mcp-python-COM</code> — no oficial de Autodesk</div></div>
+        <div class="tb-cell wide"><div class="tb-k">Método del informe</div><div class="tb-v">Lectura directa del código fuente (<code>server.py</code>, <code>client.py</code>, 6 módulos <code>tools_*.py</code>) e historial git</div></div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="n accent">19</div><div class="l">Herramientas</div></div>
+        <div class="stat"><div class="n ok">15</div><div class="l">De consulta</div></div>
+        <div class="stat"><div class="n major">4</div><div class="l">De escritura</div></div>
+        <div class="stat"><div class="n crit">18</div><div class="l">Scripts sin promover</div></div>
+      </div>
+
+      <!-- ====================== 1 ====================== -->
+      <section>
+        <div class="section-h"><span class="section-n">1</span><h2>Resumen ejecutivo</h2></div>
+        <p>Ya tienes un servidor MCP de Civil 3D operativo, escrito íntegramente en Python. Su fortaleza es la <b>consulta</b>: interrogar un dibujo, auditar superficies, desglosar alineamientos y perfiles con valores K, y proyectar coordenadas contra un eje. Su debilidad es la <b>creación</b>: solo puede dibujar líneas, polilíneas y puntos COGO.</p>
+        <p>Esa asimetría no es falta de trabajo del autor — es consecuencia directa de la arquitectura elegida, y conviene entenderla antes de invertir tiempo en la dirección equivocada.</p>
+
+        <div class="keynote">
+          <span class="kn-l">Idea clave</span>
+          El techo de lo que este MCP puede <b>crear</b> lo pone el hecho de vivir <b>fuera</b> del proceso de AutoCAD. Ampliar la lectura es fácil y barato; ampliar la escritura profunda (superficies TIN, breaklines, corredores) requiere cambiar de vía — y la mejor vía no es pelearse con COM, sino <b>generar LandXML</b>.
+        </div>
+      </section>
+
+      <!-- ====================== 2 ====================== -->
+      <section>
+        <div class="section-h"><span class="section-n">2</span><h2>Cómo funciona por dentro</h2></div>
+        <p>Cuatro piezas en la misma sesión de Windows. El cliente de IA lanza el servidor como proceso hijo y le habla por entrada/salida estándar; el servidor traduce cada llamada a COM contra el AutoCAD que ya está abierto.</p>
+
+        <div class="schema">
+          <svg viewBox="0 0 780 200" xmlns="http://www.w3.org/2000/svg">
+            <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path class="arrow-head" d="M0,0 L10,5 L0,10 Z"/></marker></defs>
+            <rect class="schema-box" x="10" y="55" width="150" height="56" rx="6"/>
+            <text class="schema-text" x="85" y="78" text-anchor="middle">Cliente IA</text>
+            <text class="schema-text small" x="85" y="95" text-anchor="middle">Claude Desktop / Code</text>
+            <path class="schema-arrow" d="M160,83 H215"/>
+            <text class="schema-text small" x="187" y="74" text-anchor="middle">stdio</text>
+
+            <rect class="schema-box" x="215" y="40" width="165" height="86" rx="6"/>
+            <text class="schema-text" x="297" y="63" text-anchor="middle">FastMCP</text>
+            <text class="schema-text small" x="297" y="80" text-anchor="middle">event loop asyncio</text>
+            <text class="schema-text small" x="297" y="97" text-anchor="middle">19 tools registradas</text>
+            <text class="schema-text small" x="297" y="114" text-anchor="middle">server.py</text>
+            <path class="schema-arrow" d="M380,83 H435"/>
+            <text class="schema-text small" x="407" y="74" text-anchor="middle">1 hilo</text>
+
+            <rect class="schema-box" x="435" y="40" width="155" height="86" rx="6"/>
+            <text class="schema-text" x="512" y="63" text-anchor="middle">Civil3DClient</text>
+            <text class="schema-text small" x="512" y="80" text-anchor="middle">executor STA</text>
+            <text class="schema-text small" x="512" y="97" text-anchor="middle">win32com</text>
+            <text class="schema-text small" x="512" y="114" text-anchor="middle">client.py</text>
+            <path class="schema-arrow" d="M590,83 H645"/>
+            <text class="schema-text small" x="617" y="74" text-anchor="middle">COM</text>
+
+            <rect class="schema-box final" x="645" y="40" width="125" height="86" rx="6"/>
+            <text class="schema-text on-accent" x="707" y="70" text-anchor="middle">Civil 3D</text>
+            <text class="schema-text on-accent" x="707" y="88" text-anchor="middle" style="font-size:10.5px;opacity:.85">acad.exe</text>
+            <text class="schema-text on-accent" x="707" y="105" text-anchor="middle" style="font-size:10.5px;opacity:.85">ya abierto</text>
+
+            <rect class="schema-box ghost" x="645" y="145" width="125" height="42" rx="6"/>
+            <text class="schema-text small" x="707" y="163" text-anchor="middle">API .NET</text>
+            <text class="schema-text small" x="707" y="178" text-anchor="middle">(inalcanzable)</text>
+            <path class="schema-arrow" d="M707,126 V143" style="stroke-dasharray:4 3"/>
+          </svg>
+        </div>
+
+        <p>La caja punteada es lo importante: <b>la API .NET de Civil 3D queda al otro lado del muro</b>. Ahí viven las operaciones potentes (crear superficies TIN, añadir breaklines, importar DEM, generar curvas de nivel), y requieren abrir una transacción sobre la base de datos del documento vivo — algo que solo se consigue ejecutando <i>dentro</i> de <code>acad.exe</code>.</p>
+
+        <h3 class="sub">Comparación con el plugin del artículo (ArcGeekCAD MCP)</h3>
+        <table>
+          <thead><tr><th>Aspecto</th><th>ArcGeekCAD MCP</th><th class="recomendado">civil3d-mcp (el tuyo)</th></tr></thead>
+          <tbody>
+            <tr><td>Pieza dentro de AutoCAD</td><td><code>MCPAutoCAD.dll</code> (.NET, cargada con NETLOAD)</td><td>Ninguna</td></tr>
+            <tr><td>Transporte</td><td>Socket TCP, puerto 17272</td><td>COM / IDispatch directo</td></tr>
+            <tr><td>Dónde corre</td><td><b>Dentro</b> de <code>acad.exe</code></td><td><b>Fuera</b>, proceso aparte</td></tr>
+            <tr><td>Superficies TIN, breaklines, DEM</td><td><span class="sev ok">Sí</span></td><td><span class="sev crit">No</span></td></tr>
+            <tr><td>Para extenderlo necesitas</td><td>Código C# + recompilar el DLL <span class="bad">(no lo tienes)</span></td><td>Editar un <code>.py</code> <span class="good">(hoy mismo)</span></td></tr>
+            <tr><td>Versiones soportadas</td><td>2025, 2026, 2027 únicamente</td><td>2023–2026 (por ProgID)</td></tr>
+            <tr><td>Riesgo de instalación</td><td>Cargar un binario de terceros en AutoCAD</td><td>Ninguno adicional</td></tr>
+          </tbody>
+        </table>
+
+        <div class="keynote major">
+          <span class="kn-l">Lectura correcta de la tabla</span>
+          ArcGeekCAD no es "mejor": paga su potencia con un binario cerrado que no puedes auditar ni modificar. El tuyo cambia capacidad por <b>control total</b>. Para alguien que quiere incorporar sus propios flujos de trabajo, ese intercambio es el correcto.
+        </div>
+      </section>
+
+      <div class="page-break"></div>
+
+      <!-- ====================== 3 ====================== -->
+      <section>
+        <div class="section-h"><span class="section-n">3</span><h2>Las 19 herramientas</h2><span class="h-note">agrupadas por módulo</span></div>
+        <p>Para cada una: qué devuelve y — más importante — en qué situación real te ahorra tiempo.</p>
+
+        <h3 class="sub">Dibujo y reconocimiento · <code>tools_drawing.py</code></h3>
+        <table>
+          <thead><tr><th style="width:31%">Herramienta</th><th style="width:31%">Qué devuelve</th><th>Cuándo te sirve</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="tn">get_drawing_info</span></td>
+              <td>Nombre y ruta del archivo, estado de guardado, unidades, precisión, código del sistema de coordenadas.</td>
+              <td><b>El primer comando de toda sesión.</b> Confirma que estás sobre el DWG correcto y con qué unidades. Evita el error clásico de calcular en pies creyendo que son metros.</td>
+            </tr>
+            <tr>
+              <td><span class="tn">list_civil_object_types</span></td>
+              <td>Dos bloques: conteo de entidades de AutoCAD por tipo, y conteo de colecciones Civil 3D (superficies, alineamientos, COGO, corredores, redes de tubería).</td>
+              <td>Reconocimiento de un DWG ajeno. Responde «¿qué hay aquí dentro?» en un segundo, sin recorrer Toolspace a mano.</td>
+            </tr>
+            <tr>
+              <td><span class="tn">get_selected_objects_info</span></td>
+              <td>Handle, capa, tipo de objeto y nombre/descripción de lo que tengas seleccionado. Parámetro <code>max_count</code> (10 por defecto).</td>
+              <td><b>El puente entre tu ratón y el chat.</b> Seleccionas algo en pantalla y preguntas qué es. Imprescindible cuando no sabes cómo se llama un objeto para referirte a él.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 class="sub">Puntos COGO · <code>tools_cogo.py</code> <span class="sev major">Parcialmente WIP</span></h3>
+        <table>
+          <thead><tr><th style="width:31%">Herramienta</th><th style="width:31%">Qué hace</th><th>Cuándo te sirve</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="tn">create_cogo_point</span></td>
+              <td>Crea un punto con <code>northing</code>, <code>easting</code>, elevación y descripción. Devuelve el número asignado.</td>
+              <td>Materializar puntos calculados: replanteo, vértices de deslinde, puntos de control.</td>
+            </tr>
+            <tr>
+              <td><span class="tn">list_cogo_points</span></td>
+              <td>Número, norte, este, cota y descripción. <code>max_count</code> = 50 por defecto.</td>
+              <td>Exportar o revisar una nube de puntos existente. Marcada <b>WIP</b> en el propio repositorio.</td>
+            </tr>
+            <tr>
+              <td><span class="tn">delete_cogo_point</span></td>
+              <td>Borra por número de punto.</td>
+              <td>Limpieza de puntos erróneos. <span class="bad">Destructiva</span> — ver advertencia abajo.</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="keynote crit">
+          <span class="kn-l">Antes de usar este grupo</span>
+          <code>create_cogo_point</code> y <code>list_cogo_points</code> están marcadas <b>WIP</b> por el autor original en el README y en <code>ARCHITECTURE.md</code>. Pruébalas en un dibujo de sacrificio antes de tocar producción. Además, <b>el MCP no expone ninguna herramienta de deshacer ni de guardar</b>: las escrituras caen directamente sobre el dibujo abierto. Trabaja sobre copia.
+        </div>
+
+        <h3 class="sub">Líneas y polilíneas · <code>tools_lines.py</code></h3>
+        <table>
+          <thead><tr><th style="width:31%">Herramienta</th><th style="width:31%">Qué hace</th><th>Cuándo te sirve</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="tn">create_line</span></td>
+              <td>Segmento 3D entre dos puntos <code>(x,y,z)</code>, en la capa que indiques. Devuelve handle, capa y longitud.</td>
+              <td>Dibujar el resultado de un cálculo: ejes, líneas de quiebre, vectores de desplazamiento.</td>
+            </tr>
+            <tr>
+              <td><span class="tn">create_polyline</span></td>
+              <td>Polilínea 3D desde una lista ordenada de vértices; admite <code>[x,y]</code> (z=0) o <code>[x,y,z]</code>. Opción de cerrarla. Mínimo 2 vértices.</td>
+              <td><b>La herramienta más productiva de las cuatro de escritura.</b> Calculas en Python (taludes, offsets, envolventes) y devuelves la geometría lista al dibujo.</td>
+            </tr>
+            <tr>
+              <td><span class="tn">list_lines</span></td>
+              <td>Tipo, handle, capa y longitud de cada línea/polilínea. Filtro por capa (<code>layer_filter</code>, sin distinguir mayúsculas).</td>
+              <td><b>Metrados por capa.</b> Longitud total de red de agua potable, de alcantarillado, de cerco perimetral — filtrando por su capa y sumando.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="page-break"></div>
+
+        <h3 class="sub">Superficies · <code>tools_surfaces.py</code></h3>
+        <table>
+          <thead><tr><th style="width:31%">Herramienta</th><th style="width:31%">Qué devuelve</th><th>Cuándo te sirve</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="tn">list_surfaces</span></td>
+              <td>Nombre, descripción, estilo y estadística de cotas (mín/máx/media) de cada superficie TIN o Grid.</td>
+              <td>Inventario rápido. Detecta al vuelo superficies con cotas absurdas (un 0.00 de mínima suele delatar un punto basura).</td>
+            </tr>
+            <tr>
+              <td><span class="tn">get_surface_info</span></td>
+              <td>Rango y media de elevación, número de puntos, número de triángulos, <b>área 2D y área 3D</b>.</td>
+              <td>La relación <b>área 3D ÷ área 2D</b> es un índice de rugosidad gratuito: cerca de 1,0 es terreno plano; 1,3 o más indica pendientes fuertes. Sirve para justificar un factor de esponjamiento o detectar picos erróneos.</td>
+            </tr>
+            <tr>
+              <td><span class="tn">sample_surface_elevation</span></td>
+              <td>Cota interpolada en un <code>(este, norte)</code> dado. Da error si el punto cae fuera de la superficie.</td>
+              <td>Consultas puntuales de cota, y <b>diferencias entre superficies</b>: muestrea terreno y proyecto en el mismo punto para obtener corte o relleno.</td>
+            </tr>
+            <tr>
+              <td><span class="tn">list_surface_definition</span></td>
+              <td>Todos los elementos de definición: contornos, breaklines, curvas, archivos DEM, objetos de dibujo, archivos de puntos, grupos de puntos, puntos y figuras de topografía.</td>
+              <td><b>Auditoría de superficies recibidas de terceros.</b> Responde de qué está hecha realmente: ¿tiene contorno? ¿viene de curvas digitalizadas o de puntos medidos? Es la herramienta que más discusiones zanja.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 class="sub">Alineamientos y perfiles · <code>tools_alignments.py</code></h3>
+        <table>
+          <thead><tr><th style="width:31%">Herramienta</th><th style="width:31%">Qué devuelve</th><th>Cuándo te sirve</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="tn">list_alignments</span></td>
+              <td>Nombre, descripción, estilo, longitud, estación inicial y final.</td>
+              <td>Punto de partida de cualquier revisión vial. Los nombres exactos que devuelve son los que necesitas para el resto de herramientas del grupo.</td>
+            </tr>
+            <tr>
+              <td><span class="tn">get_alignment_info</span></td>
+              <td>Desglose entidad por entidad: tangentes, curvas circulares y espirales, con tipo, rango de estación, longitud y radio.</td>
+              <td><b>Verificar radios mínimos</b> contra la velocidad de diseño de un tirón, sin abrir la rejilla de entidades.</td>
+            </tr>
+            <tr>
+              <td><span class="tn">get_station_offset</span></td>
+              <td>Estación y distancia perpendicular de un punto respecto al eje.</td>
+              <td><b>El caballo de batalla.</b> Sitúa cualquier cosa respecto al eje: ¿a qué kilometraje está esta cámara? ¿este poste invade la faja? Convierte coordenadas en lenguaje de proyecto.</td>
+            </tr>
+            <tr>
+              <td><span class="tn">list_profiles</span></td>
+              <td>Perfiles verticales del alineamiento: nombre, estilo, longitud, estaciones y cotas mín/máx.</td>
+              <td>Distinguir terreno natural de rasante de proyecto antes de pedir el detalle.</td>
+            </tr>
+            <tr>
+              <td><span class="tn">get_profile_info</span></td>
+              <td>Desglose completo: tangentes con su pendiente, curvas cóncavas y convexas con radio y <b>valor K</b>, más la lista de todos los PVI con estación, cota y longitud de curva.</td>
+              <td><b>La joya del inventario.</b> Es revisión de diseño vial directa: comprobar K mínimos, pendientes máximas y longitudes de curva vertical contra la norma, sin exportar nada.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 class="sub">Corredores · <code>tools_corridors.py</code></h3>
+        <table>
+          <thead><tr><th style="width:31%">Herramienta</th><th style="width:31%">Qué devuelve</th><th>Cuándo te sirve</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="tn">get_corridor_info</span></td>
+              <td>Descripción, estilo, líneas base (con su alineamiento y perfil asociados), regiones de cada línea base y las <i>assemblies</i> aplicadas a cada región.</td>
+              <td>Entender en un minuto cómo está armado un corredor ajeno: qué sección se aplica en qué tramo. Solo lectura — no permite modificarlo ni reconstruirlo.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <div class="page-break"></div>
+
+      <!-- ====================== 4 ====================== -->
+      <section>
+        <div class="section-h"><span class="section-n">4</span><h2>Reglas de uso que evitan disgustos</h2></div>
+
+        <ol class="actions">
+          <li><b>El orden de arranque no es negociable.</b> Civil 3D abierto <i>y con un dibujo cargado</i> primero; el cliente de IA después. La conexión COM se intenta una sola vez, al arrancar el servidor: si Civil 3D no estaba, el servidor queda vivo pero desconectado y hay que reiniciarlo entero.</li>
+          <li><b>Los nombres deben ser exactos.</b> Superficies, alineamientos y perfiles se buscan por nombre literal tal como figuran en Toolspace. Usa primero <code>list_surfaces</code> / <code>list_alignments</code> y copia de ahí.</li>
+          <li><b>Cuidado con el orden de las coordenadas.</b> <code>create_cogo_point</code> recibe <span class="tn">(northing, easting)</span> — al estilo topográfico. <code>create_line</code> recibe <span class="tn">(x, y, z)</span>, o sea este primero. Es un tropiezo real; conviene decir siempre «norte tanto, este tanto» en la petición.</li>
+          <li><b>Una operación a la vez.</b> Todas las llamadas se serializan en un único hilo, porque COM exige apartamento STA. No esperes paralelismo: un listado de 5.000 puntos bloquea el resto.</li>
+          <li><b>Los errores no rompen nada.</b> Cada fallo vuelve como <code>{"error": "…"}</code>, el servidor sigue vivo y el modelo te explica qué pasó. Puedes pedir cosas imposibles sin miedo a colgar la sesión.</li>
+          <li><b>Trabaja sobre copia si vas a escribir.</b> No hay deshacer ni guardar desde el MCP.</li>
+        </ol>
+
+        <h3 class="sub">Frases que funcionan bien</h3>
+        <div class="framed">
+          <span class="f-l">Ejemplos reales</span>
+<pre><span class="cm"># Reconocimiento</span>
+"¿Qué hay en este dibujo?"                    <span class="cm">→ list_civil_object_types</span>
+"¿En qué unidades y sistema estoy?"           <span class="cm">→ get_drawing_info</span>
+
+<span class="cm"># Auditoría de superficie</span>
+"Audita la superficie TN: de qué está hecha y qué estadísticas tiene"
+                                              <span class="cm">→ list_surface_definition + get_surface_info</span>
+
+<span class="cm"># Revisión de diseño vial</span>
+"Del eje EJE-1, dame todas las curvas verticales con K menor a 30"
+                                              <span class="cm">→ get_profile_info + filtro</span>
+
+<span class="cm"># Corte y relleno puntual</span>
+"¿Cuánto corte hay en el este 342180, norte 6285420?"
+                                              <span class="cm">→ sample_surface_elevation × 2 superficies</span>
+
+<span class="cm"># Metrado</span>
+"Suma la longitud de todo lo que hay en la capa RED-AP"
+                                              <span class="cm">→ list_lines(layer_filter="RED-AP")</span>
+
+<span class="cm"># Puente ratón-chat</span>
+<span class="hl">[seleccionas algo en pantalla]</span> "¿qué es esto que tengo marcado?"
+                                              <span class="cm">→ get_selected_objects_info</span></pre>
+        </div>
+      </section>
+
+      <!-- ====================== 5 ====================== -->
+      <section>
+        <div class="section-h"><span class="section-n">5</span><h2>Límites reales del código actual</h2><span class="h-note">hallazgos de la revisión</span></div>
+
+        <div class="finding crit">
+          <div class="finding-head"><span class="sev crit">Estructural</span><h3>A · La capa pythonnet está cargada pero inerte</h3></div>
+          <dl>
+            <dt>Qué pasó</dt>
+            <dd><code>ARCHITECTURE.md</code> promete una capa gestionada que da acceso a los tipos .NET de Civil 3D (<code>TinSurface</code>, <code>Alignment</code>) para estadísticas y geometría avanzada. En <code>client.py</code> se ejecuta <code>clr.AddReference()</code> sobre <code>AeccDbMgd.dll</code> (líneas 203 y 218), pero <b>no se importa ni se usa un solo tipo del espacio de nombres <code>Autodesk.Civil.*</code></b>. Todo el trabajo real pasa por IDispatch.</dd>
+            <dt>Por qué importa</dt>
+            <dd>Explica de golpe todas las carencias del inventario: sin acceso efectivo a la API gestionada no hay creación de superficies TIN, ni breaklines, ni importación de DEM, ni reconstrucción de corredores. Y no es un descuido subsanable: la API gestionada exige abrir una transacción sobre la base de datos del documento vivo, lo que solo funciona ejecutando dentro de <code>acad.exe</code>.</dd>
+            <dt>Qué hacer</dt>
+            <dd>No inviertas horas intentando «activar» esa capa desde fuera — no se activa. Si necesitas esas operaciones, ve por la vía LandXML (sección 6) o por un plugin propio in-process.</dd>
+          </dl>
+        </div>
+
+        <div class="finding major">
+          <div class="finding-head"><span class="sev major">Funcional</span><h3>B · Puntos COGO marcados como trabajo en curso</h3></div>
+          <dl>
+            <dt>Qué pasó</dt>
+            <dd>Dos de los tres commits más recientes del repositorio son precisamente avisos de que <code>create_cogo_point</code> y <code>list_cogo_points</code> están incompletas.</dd>
+            <dt>Por qué importa</dt>
+            <dd>Es el grupo con más potencial para tu trabajo topográfico y es el menos fiable. Un fallo silencioso al crear puntos es difícil de detectar y caro de corregir aguas abajo.</dd>
+            <dt>Qué hacer</dt>
+            <dd>Validar en dibujo de prueba con un puñado de puntos de coordenadas conocidas antes de confiar en él. Es también el mejor primer candidato a arreglar tú mismo.</dd>
+          </dl>
+        </div>
+
+        <div class="finding major">
+          <div class="finding-head"><span class="sev major">Operativo</span><h3>C · No hay guardado ni deshacer desde el MCP</h3></div>
+          <dl>
+            <dt>Qué pasó</dt>
+            <dd>Ninguna de las 19 herramientas guarda el documento ni revierte cambios. En la raíz del repositorio hay un <code>save_doc.py</code> suelto, fuera del servidor.</dd>
+            <dt>Por qué importa</dt>
+            <dd>Las cuatro herramientas de escritura actúan de inmediato sobre el dibujo abierto. Una serie de creaciones equivocadas hay que deshacerla a mano en AutoCAD.</dd>
+            <dt>Qué hacer</dt>
+            <dd>Trabajar sobre copia, y añadir <code>save_drawing</code> como herramienta — es de las más fáciles de implementar y de las que más tranquilidad dan.</dd>
+          </dl>
+        </div>
+
+        <div class="finding minor">
+          <div class="finding-head"><span class="sev minor">Documentación</span><h3>D · <code>ARCHITECTURE.md</code> no refleja el código</h3></div>
+          <dl>
+            <dt>Qué pasó</dt>
+            <dd>El documento describe una estrategia de conexión que prueba ProgIDs de Civil 3D en orden. El código hace algo distinto y mejor: conecta primero a <code>AutoCAD.Application</code> y luego «promociona» con <code>GetInterfaceObject()</code>, precisamente porque Civil 3D 2025 no siempre se registra en la tabla de objetos activos. La lista de rutas de instalación tampoco incluye 2026 en el documento, aunque el código sí la tiene y es la que tú usas.</dd>
+            <dt>Por qué importa</dt>
+            <dd>Si tomas el documento como referencia para depurar un fallo de conexión, buscarás en el lugar equivocado.</dd>
+            <dt>Qué hacer</dt>
+            <dd>Actualizar el documento al ampliar el servidor. Es trabajo de diez minutos y el archivo es de los buenos: vale la pena mantenerlo vivo.</dd>
+          </dl>
+        </div>
+      </section>
+
+      <div class="page-break"></div>
+
+      <!-- ====================== 6 ====================== -->
+      <section>
+        <div class="section-h"><span class="section-n">6</span><h2>Cómo potenciarlo y volverlo tuyo</h2></div>
+        <p>Hay tres vías de expansión, con costes y techos muy distintos. Elegir bien la vía es más importante que el esfuerzo que pongas dentro de ella.</p>
+
+        <div class="tiers">
+          <div class="tier good">
+            <span class="tier-l">Vía A · Ficheros</span>
+            <div class="c">DXF, LandXML, IFC — sin COM ni AutoCAD abierto.</div>
+            <div class="a">Techo más alto, menor fragilidad. <b>Empieza aquí.</b></div>
+          </div>
+          <div class="tier warn">
+            <span class="tier-l">Vía B · COM</span>
+            <div class="c">Ampliar lo que ya funciona: más consultas, más geometría.</div>
+            <div class="a">Barato e inmediato, pero con techo conocido.</div>
+          </div>
+          <div class="tier bad">
+            <span class="tier-l">Vía C · In-process</span>
+            <div class="c">Scripts <code>.scr</code>, AutoLISP o un plugin .NET propio.</div>
+            <div class="a">Única vía a la API completa. Costosa y con riesgo de caídas.</div>
+          </div>
+        </div>
+
+        <h3 class="sub">Vía A — La jugada de LandXML</h3>
+        <p>Es la idea más rentable de todo el informe. <b>LandXML es el formato de intercambio nativo de Civil 3D</b>: puedes generar superficies, alineamientos y perfiles como XML desde Python puro y hacer que Civil 3D los importe. Eso rodea por completo el muro de la sección 2 — consigues por la puerta de atrás lo que la API COM te niega, y sin cargar ningún binario en AutoCAD.</p>
+        <p>Ventaja añadida: el código es testeable <b>sin tener AutoCAD abierto</b>, no depende de la versión instalada y no se rompe cuando Autodesk cambia el modelo de objetos. Es la parte de tu MCP que envejecerá mejor.</p>
+
+        <table>
+          <thead><tr><th style="width:20%">Formato</th><th style="width:24%">Librería Python</th><th>Qué te habilita</th></tr></thead>
+          <tbody>
+            <tr><td><b>LandXML</b></td><td><code>lxml</code> (estándar)</td><td>Generar e importar superficies, alineamientos, perfiles y puntos. La vía de escritura profunda que COM no te da.</td></tr>
+            <tr><td><b>DXF</b></td><td><code>ezdxf</code></td><td>Crear y editar dibujos completos sin AutoCAD: plantillas, cajetines, cuadros de coordenadas, láminas por lote.</td></tr>
+            <tr><td><b>IFC</b></td><td><code>ifcopenshell</code></td><td>Interoperabilidad BIM: leer modelos de arquitectura o MEP y cruzarlos con tu topografía.</td></tr>
+            <tr><td>XML genérico</td><td><code>lxml</code></td><td>Estilos, plantillas y configuraciones de Civil 3D; informes a medida.</td></tr>
+          </tbody>
+        </table>
+
+        <p><b>Ya empezaste esta vía sin darte cuenta:</b> en el repositorio hay <code>scan_ifc.py</code>, <code>scan_ifc_layers.py</code>, <code>scan_ifc_names.py</code> y <code>scan_xml.py</code>. El de IFC ya extrae esquema, proyecto, sitio, sistema de referencia y conteo de entidades por tipo. Le falta un paso para ser una herramienta MCP.</p>
+
+        <h3 class="sub">El patrón: añadir una herramienta son tres pasos</h3>
+        <p>La arquitectura del proyecto es limpia y está pensada para crecer. Cada módulo expone una función <code>register(mcp, client, run_com)</code> y dentro declara sus herramientas.</p>
+
+        <div class="framed">
+          <span class="f-l">Anatomía de una herramienta</span>
+<pre><span class="cm"># 1 · Método de datos en client.py  (o función pura, si es Vía A)</span>
+<span class="cm"># 2 · Herramienta en tools_loquesea.py:</span>
+
+@mcp.tool(
+    name="sample_surface_elevation",
+    description=(<span class="hl">"Sample the elevation of a named Civil 3D surface at a "</span>
+                 <span class="hl">"specific (easting, northing) coordinate…"</span>),
+)
+async def sample_surface_elevation(surface_name: str, easting: float,
+                                   northing: float) -> dict[str, Any]:
+    try:
+        return await <span class="hl">run_com</span>(client.sample_surface_elevation,
+                             surface_name, easting, northing)
+    except Civil3DError as exc:
+        return {"error": str(exc)}          <span class="cm"># se devuelve, no se lanza</span>
+
+<span class="cm"># 3 · Registrarlo en server.py:</span>
+tools_loquesea.register(mcp, client, run_com)</pre>
+        </div>
+
+        <p>Tres detalles que conviene interiorizar antes de escribir la primera:</p>
+        <div class="group-card">
+          <h3>El <code>description</code> es el prompt, no documentación</h3>
+          <ul>
+            <li>Es <b>lo único</b> que el modelo lee para decidir si usar esa herramienta y con qué argumentos. Una descripción vaga produce una herramienta que nunca se llama, o que se llama mal.</li>
+            <li>Di qué devuelve, en qué unidades, y cuándo <i>no</i> aplica. Fíjate en que las buenas del repositorio avisan cosas como «da error si el punto cae fuera de la superficie».</li>
+            <li>Es la parte peor cuidada de casi todos los MCP y donde más se gana.</li>
+          </ul>
+        </div>
+        <div class="group-card warn">
+          <h3><code>run_com</code> no es opcional</h3>
+          <ul>
+            <li>Despacha la llamada al ejecutor de un solo hilo con COM inicializado en apartamento STA.</li>
+            <li>Llamar a COM directamente desde el bucle de eventos produce <code>RPC_E_WRONG_THREAD</code>. No lo quites por «simplificar».</li>
+            <li>Si tu herramienta es Vía A (solo ficheros), <b>no necesitas <code>run_com</code></b> — y por eso esas herramientas son más simples y más rápidas.</li>
+          </ul>
+        </div>
+        <div class="group-card">
+          <h3>Los errores se devuelven, no se lanzan</h3>
+          <ul>
+            <li><code>return {"error": str(exc)}</code> mantiene el servidor vivo y permite al modelo explicarte el fallo y proponer alternativa.</li>
+            <li>Una excepción sin capturar sí puede tumbar la sesión. Respeta el patrón <code>try/except</code> en todas.</li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="page-break"></div>
+
+      <!-- ====================== 7 ====================== -->
+      <section>
+        <div class="section-h"><span class="section-n">7</span><h2>Tus 18 scripts son el mejor punto de partida</h2></div>
+        <p>En el repositorio hay <b>18 scripts <code>_*.py</code> sin versionar</b> que abren <code>GetActiveObject("AutoCAD.Application")</code> y hacen análisis reales tuyos. No son borradores: son flujos de trabajo que ya resolviste. Convertirlos en herramientas es el camino más corto entre donde estás y «un MCP con mis propias herramientas».</p>
+
+        <div class="keynote">
+          <span class="kn-l">Señal a leer</span>
+          Los sufijos delatan el trabajo repetido: <code>_lot65.py</code>, <code>_lot65b.py</code>, <code>_lot65c.py</code>; <code>_usable.py</code> y <code>_usable2.py</code>. Cada variante es el mismo cálculo con parámetros distintos. <b>Eso es exactamente lo que una herramienta parametrizada elimina:</b> las variantes se vuelven argumentos.
+        </div>
+
+        <div class="group-card">
+          <h3>Taludes — el candidato número uno</h3>
+          <ul>
+            <li><code>_talud_calc.py</code>, <code>_talud_map.py</code>, <code>_talud_probe.py</code></li>
+            <li>Ya tiene los parámetros declarados arriba del archivo: umbral de desnivel, relación H:V, paso de grilla, tolerancias angular y de solape. <b>Esos son los argumentos de la función</b>, literalmente.</li>
+            <li>Salida natural: polilíneas 3D con <code>create_polyline</code>, que ya funciona.</li>
+          </ul>
+        </div>
+        <div class="group-card">
+          <h3>Lotes y subdivisión</h3>
+          <ul>
+            <li><code>_lot65.py</code> · <code>_lot65b.py</code> · <code>_lot65c.py</code> · <code>_l65calc.py</code> · <code>_inspect_lotes.py</code> · <code>_inspect_subdiv.py</code> · <code>_lotes_join.py</code></li>
+            <li>Siete archivos sobre el mismo tema piden a gritos un <code>tools_lotes.py</code> con dos o tres herramientas bien parametrizadas.</li>
+          </ul>
+        </div>
+        <div class="group-card">
+          <h3>Áreas, calles y superficie útil</h3>
+          <ul>
+            <li><code>_areas.py</code> · <code>_street_area.py</code> · <code>_streets.py</code> · <code>_usable.py</code> · <code>_usable2.py</code> · <code>_green.py</code></li>
+            <li>Cálculos de cabida y áreas por destino. Salida ideal: tabla de resultados, no geometría — perfecto para que el modelo la interprete y la resuma.</li>
+          </ul>
+        </div>
+        <div class="group-card warn">
+          <h3>Escaneo y diagnóstico — reutilizar, no promover</h3>
+          <ul>
+            <li><code>_scan2.py</code> · <code>_deep_scan.py</code> · <code>scan_dwg.py</code> · <code>scan_ifc.py</code> · <code>scan_xml.py</code></li>
+            <li>Solapan con <code>list_civil_object_types</code>. Aquí lo valioso no es promoverlos tal cual, sino <b>quedarse con lo que hacen de más</b> y fundirlo en las herramientas existentes.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ====================== 8 ====================== -->
+      <section>
+        <div class="section-h"><span class="section-n">8</span><h2>Ruta recomendada</h2></div>
+        <p>De menor a mayor esfuerzo, cada paso apoyándose en el anterior.</p>
+        <ol class="actions">
+          <li><b>Versionar lo que hay.</b> Los 18 scripts están sin commitear: si se pierden, se pierde el trabajo original. Es lo primero, y son dos minutos. <span class="sev crit">Urgente</span></li>
+          <li><b>Añadir <code>save_drawing</code>.</b> La herramienta más simple del mundo y la que más tranquilidad da para operar con escrituras. <span class="sev wait">Fácil</span></li>
+          <li><b>Promover <code>_talud_calc.py</code> a <code>tools_taludes.py</code>.</b> El ejercicio que mejor enseña el patrón completo: ya está parametrizado y su salida encaja con <code>create_polyline</code>. <span class="sev wait">Primer hito</span></li>
+          <li><b>Arreglar o retirar las herramientas COGO marcadas WIP.</b> Una herramienta poco fiable es peor que ninguna, porque el modelo la usará confiando en ella. <span class="sev major">Importante</span></li>
+          <li><b>Crear <code>tools_landxml.py</code>.</b> Primero lectura, después generación. Es la vía que rompe el techo de la sección 2. <span class="sev info">Mayor alcance</span></li>
+          <li><b>Promover <code>scan_ifc.py</code> a herramienta.</b> Ya hace el trabajo duro; solo necesita envoltorio y un buen <code>description</code>. <span class="sev wait">Fácil</span></li>
+          <li><b>Actualizar <code>ARCHITECTURE.md</code>.</b> Con los hallazgos C y D de este informe, para que el documento vuelva a ser fiable. <span class="sev minor">Higiene</span></li>
+        </ol>
+
+        <details class="note">
+          <summary>Alcance y método de este informe</summary>
+          <p>Elaborado leyendo directamente el código fuente instalado en <code>C:\Users\raulz\mcp-servers\civil3d-mcp\</code>: <code>server.py</code>, <code>client.py</code> (parcial), los seis módulos <code>tools_*.py</code> completos, <code>ARCHITECTURE.md</code> y el historial de git. El inventario de 19 herramientas se verificó contra las que el servidor expone realmente en sesión: coinciden exactamente.</p>
+          <p>Lo que <b>no</b> se hizo: ejecutar ninguna herramienta contra un dibujo real, ni verificar en Civil 3D los comportamientos descritos. Las advertencias sobre las herramientas COGO provienen de las marcas del propio autor en el repositorio, no de pruebas propias. Los usos recomendados son inferencias razonadas a partir de la firma y la descripción de cada herramienta.</p>
+          <p>La comparación con ArcGeekCAD MCP se basa en la documentación pública de su autor (acolita.com, 26 julio 2026); ese producto no se instaló ni se inspeccionó.</p>
+        </details>
+      </section>
+
+      <footer>
+        <p>Informe técnico sobre servidor MCP propio para Autodesk Civil 3D. Ni <code>civil3d-mcp</code> ni ArcGeekCAD MCP son productos oficiales de Autodesk.</p>
+        <p>Generado con Claude · 29 de julio de 2026</p>
+      </footer>
+
+    </div>
+  </div>
+
+  <script>
+    let prev=[];
+    window.addEventListener('beforeprint',()=>{prev=[...document.querySelectorAll('details')].map(d=>d.open);document.querySelectorAll('details').forEach(d=>d.open=true);});
+    window.addEventListener('afterprint',()=>{document.querySelectorAll('details').forEach((d,i)=>d.open=prev[i]);});
+  </script>
+
+</body>
+</html>

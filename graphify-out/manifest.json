@@ -1,0 +1,47 @@
+{
+  "dashboard_data.json": {
+    "mtime": 1785451349.5881238,
+    "ast_hash": "9c75cae060d948a247e48ea8800a1b15",
+    "semantic_hash": ""
+  },
+  "update_dashboard.py": {
+    "mtime": 1785451277.988721,
+    "ast_hash": "dc097bfcbe3e0228373b3e6ca028c1ac",
+    "semantic_hash": ""
+  },
+  ".agents/rules/1.md": {
+    "mtime": 1785451269.755431,
+    "ast_hash": "756332ce02bd31a839182085e00c84b8",
+    "semantic_hash": ""
+  },
+  ".agents/rules/graphify.md": {
+    "mtime": 1785451355.4933653,
+    "ast_hash": "a0e4d192b9e2e17256124dbfc8e24e6a",
+    "semantic_hash": ""
+  },
+  ".agents/workflows/graphify.md": {
+    "mtime": 1785451355.4977002,
+    "ast_hash": "637776aa6f7496d069afe7520c845c8a",
+    "semantic_hash": ""
+  },
+  "dashboard.html": {
+    "mtime": 1785451299.8007305,
+    "ast_hash": "1754911dced3e1dbb2d00a33c619770e",
+    "semantic_hash": ""
+  },
+  "mcp-civil3d-capacidades-y-expansion.html": {
+    "mtime": 1785382700.423956,
+    "ast_hash": "8fab6342f1b1e22ce1938cbafad582f6",
+    "semantic_hash": ""
+  },
+  "mcp-civil3d-unificacion-informe-II.html": {
+    "mtime": 1785450167.185371,
+    "ast_hash": "a44c854e49f86b4260d3f61720e26c68",
+    "semantic_hash": ""
+  },
+  "skills/vialidad/revision-curvas-verticales.skill.md": {
+    "mtime": 1785451269.1581464,
+    "ast_hash": "dbc8f1b5667f4ee8b8fcab9be9653f01",
+    "semantic_hash": ""
+  }
+}
