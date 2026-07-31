@@ -4,9 +4,19 @@ import json
 import re
 from datetime import datetime
 
-# Rutas de origen
-WORKSPACE_PATH = r"c:\Users\raulz\OneDrive\Escritorio\Trabajo\IA\OTROS\MCP\Autocad"
-SERVER_PATH = r"C:\Users\raulz\mcp-servers\civil3d-mcp"
+# Rutas de origen dinámicas para soporte multidispositivo
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+WORKSPACE_PATH = CURRENT_DIR
+
+# Buscar servidor MCP local (priorizando el servidor interno unificado ./server)
+POSSIBLE_SERVER_PATHS = [
+    os.path.join(CURRENT_DIR, "server"),
+    r"C:\Users\Usuario\OneDrive\Escritorio\Raul ZOIN\Civil3D-mcp",
+    r"c:\Users\raulz\mcp-servers\civil3d-mcp",
+    os.path.abspath(os.path.join(CURRENT_DIR, "..", "Civil3D-mcp")),
+]
+
+SERVER_PATH = next((p for p in POSSIBLE_SERVER_PATHS if os.path.exists(p)), POSSIBLE_SERVER_PATHS[0])
 
 def clean_path(path, base_path):
     rel = os.path.relpath(path, base_path)
@@ -95,84 +105,99 @@ def get_verification_matrix():
 def get_server_tools():
     import ast
     tools = []
+    
+    # 1. Probar estructura TypeScript (src/tools/domains/*.ts)
+    ts_domains_dir = os.path.join(SERVER_PATH, "src", "tools", "domains")
+    if os.path.exists(ts_domains_dir):
+        for file in sorted(os.listdir(ts_domains_dir)):
+            if file.endswith("Domain.ts"):
+                file_path = os.path.join(ts_domains_dir, file)
+                domain_name = file.replace("Domain.ts", "").capitalize()
+                file_tools = []
+                try:
+                    with open(file_path, "r", encoding="utf-8") as f:
+                        content = f.read()
+                    
+                    # Extraer bloques de herramientas toolName / description
+                    tool_matches = re.findall(
+                        r'toolName:\s*"([^"]+)",?\s*(?:displayName:[^,]+,?\s*)?description:\s*"([^"]+)"',
+                        content, re.DOTALL
+                    )
+                    for t_name, t_desc in tool_matches:
+                        file_tools.append({
+                            "name": t_name,
+                            "description": t_desc.replace("\n", " ").strip()
+                        })
+                except Exception as e:
+                    print(f"Error parseando TS domain {file}: {e}")
+                
+                tools.append({
+                    "module": domain_name,
+                    "file": file,
+                    "tools_list": file_tools,
+                    "count": len(file_tools)
+                })
+        if tools:
+            return tools
+
+    # 2. Probar estructura Python (src/civil3d_mcp/tools_*.py)
     tools_dir = os.path.join(SERVER_PATH, "src", "civil3d_mcp")
-    if not os.path.exists(tools_dir):
-        return tools
-        
-    for file in os.listdir(tools_dir):
-        if file.startswith("tools_") and file.endswith(".py"):
-            file_path = os.path.join(tools_dir, file)
-            tool_name = file.replace("tools_", "").replace(".py", "").capitalize()
-            
-            file_tools = []
-            try:
-                with open(file_path, "r", encoding="utf-8") as f:
-                    tree = ast.parse(f.read(), filename=file_path)
-                
-                class ToolVisitor(ast.NodeVisitor):
-                    def visit_FunctionDef(self, node):
-                        self.check_function(node)
-                        self.generic_visit(node)
-                    def visit_AsyncFunctionDef(self, node):
-                        self.check_function(node)
-                        self.generic_visit(node)
-                        
-                    def check_function(self, node):
-                        for dec in node.decorator_list:
-                            is_tool = False
-                            dec_args = {}
+    if os.path.exists(tools_dir):
+        for file in os.listdir(tools_dir):
+            if file.startswith("tools_") and file.endswith(".py"):
+                file_path = os.path.join(tools_dir, file)
+                tool_name = file.replace("tools_", "").replace(".py", "").capitalize()
+                file_tools = []
+                try:
+                    with open(file_path, "r", encoding="utf-8") as f:
+                        tree = ast.parse(f.read(), filename=file_path)
+                    
+                    class ToolVisitor(ast.NodeVisitor):
+                        def visit_FunctionDef(self, node):
+                            self.check_function(node)
+                            self.generic_visit(node)
+                        def visit_AsyncFunctionDef(self, node):
+                            self.check_function(node)
+                            self.generic_visit(node)
                             
-                            # Dec can be Call like @mcp.tool(...)
-                            if isinstance(dec, ast.Call):
-                                func = dec.func
-                                if isinstance(func, ast.Attribute) and func.attr == "tool":
-                                    is_tool = True
-                                elif isinstance(func, ast.Name) and func.id == "tool":
-                                    is_tool = True
-                                    
+                        def check_function(self, node):
+                            for dec in node.decorator_list:
+                                is_tool = False
+                                dec_args = {}
+                                if isinstance(dec, ast.Call):
+                                    func = dec.func
+                                    if isinstance(func, ast.Attribute) and func.attr == "tool":
+                                        is_tool = True
+                                    elif isinstance(func, ast.Name) and func.id == "tool":
+                                        is_tool = True
+                                        
+                                    if is_tool:
+                                        for kw in dec.keywords:
+                                            if kw.arg == "name" and isinstance(kw.value, ast.Constant):
+                                                dec_args["name"] = kw.value.value
+                                            elif kw.arg == "description":
+                                                if isinstance(kw.value, ast.Constant):
+                                                    dec_args["description"] = kw.value.value
+                                
                                 if is_tool:
-                                    for kw in dec.keywords:
-                                        if kw.arg == "name" and isinstance(kw.value, ast.Constant):
-                                            dec_args["name"] = kw.value.value
-                                        elif kw.arg == "description":
-                                            if isinstance(kw.value, ast.Constant):
-                                                dec_args["description"] = kw.value.value
-                                            elif isinstance(kw.value, ast.JoinedStr):
-                                                dec_args["description"] = "".join(
-                                                    part.value for part in kw.value.values if isinstance(part, ast.Constant)
-                                                )
-                                            else:
-                                                try:
-                                                    # Eval string concatenations safely
-                                                    dec_args["description"] = eval(compile(ast.Expression(kw.value), '<string>', 'eval'))
-                                                except:
-                                                    dec_args["description"] = "Herramienta Civil 3D"
-                            
-                            if is_tool:
-                                name = dec_args.get("name", node.name)
-                                desc = dec_args.get("description")
-                                if not desc:
-                                    doc = ast.get_docstring(node)
-                                    if doc:
-                                        desc = doc.strip().split("\n")[0]
-                                    else:
-                                        desc = "Herramienta de Civil 3D"
-                                file_tools.append({
-                                    "name": name,
-                                    "description": desc
-                                })
-                
-                visitor = ToolVisitor()
-                visitor.visit(tree)
-            except Exception as e:
-                print(f"Error parseando AST en {file}: {e}")
-                
-            tools.append({
-                "module": tool_name,
-                "file": file,
-                "tools_list": file_tools,
-                "count": len(file_tools)
-            })
+                                    name = dec_args.get("name", node.name)
+                                    desc = dec_args.get("description", "Herramienta Civil 3D")
+                                    file_tools.append({
+                                        "name": name,
+                                        "description": desc
+                                    })
+                    
+                    visitor = ToolVisitor()
+                    visitor.visit(tree)
+                except Exception as e:
+                    print(f"Error parseando AST en {file}: {e}")
+                    
+                tools.append({
+                    "module": tool_name,
+                    "file": file,
+                    "tools_list": file_tools,
+                    "count": len(file_tools)
+                })
     return tools
 
 def get_graphify_stats():

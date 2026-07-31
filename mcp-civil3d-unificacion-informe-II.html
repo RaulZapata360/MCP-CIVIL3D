@@ -348,7 +348,7 @@
       </thead>
       <tbody>
         <tr><td>Un repo que documente, compare y <b>verifique</b> los cuatro proyectos con pruebas reproducibles</td><td><span class="sev ok">Posible ya</span></td><td>Solo requiere Civil 3D, dibujos de prueba y disciplina. Cero código nuevo obligatorio.</td></tr>
-        <tr><td>Una biblioteca de <i>skills</i> con criterio normativo chileno sobre una arquitectura ajena</td><td><span class="sev ok">Posible ya</span></td><td>barbosaihan expone las skills como <b>Markdown</b>. Aportas ingeniería, no infraestructura.</td></tr>
+        <tr><td>Una biblioteca de <i>skills</i> con criterio normativo o reglas de diseño sobre una arquitectura ajena</td><td><span class="sev ok">Posible ya</span></td><td>barbosaihan expone las skills como <b>Markdown</b>. Aportas ingeniería, no infraestructura.</td></tr>
         <tr><td>Un instalador/guía que baje la barrera de entrada de horas a minutos</td><td><span class="sev ok">Posible</span></td><td>Los DLLs no se redistribuyen, pero el <i>procedimiento</i> sí se automatiza con un script.</td></tr>
         <tr><td>Un perfil de configuración que enrute «qué servidor para qué tarea»</td><td><span class="sev minor">Posible, medio</span></td><td>Es un JSON y una tabla de decisión. Barato. Frágil ante cambios upstream.</td></tr>
         <tr><td>Tu <code>tools_landxml.py</code> como vía de escritura profunda</td><td><span class="sev major">Caro y ya resuelto</span></td><td>Sacred-G ya crea superficies desde DEM y hace edición de TIN <b>dentro</b> del proceso. LandXML era el rodeo cuando no tenías alternativa; ahora la hay.</td></tr>
@@ -502,7 +502,7 @@ se revisan a mano.
       <h3>Las cuatro reglas de un skill que vale</h3>
       <ul>
         <li><b>Trae un umbral, no una función.</b> «Calcula K» lo hace cualquiera. «K menor a este valor para esta velocidad es un rechazo» es tu aporte.</li>
-        <li><b>Declara la unidad y el sistema.</b> Todo el ecosistema está escrito con criterio AASHTO en pies. El primer skill chileno en metros con criterio del manual local es, literalmente, nuevo.</li>
+        <li><b>Declara la unidad y el sistema.</b> Todo el ecosistema está escrito con criterio AASHTO en pies. El primer skill en metros con criterio o norma local es, literalmente, nuevo.</li>
         <li><b>Documenta el falso positivo.</b> Es la marca del que ha usado la herramienta en obra y no solo la ha programado. Es también lo que más confianza genera en quien te lee.</li>
         <li><b>Termina en veredicto, no en dato.</b> El valor está en «no cumple y por esto», no en la lista de números.</li>
       </ul>
@@ -537,7 +537,7 @@ se revisan a mano.
     </div>
 
     <h3 class="sub">5.4 · El glosario es un producto, no un anexo</h3>
-    <p>[Suposición, pero de las fuertes] Todo el ecosistema está en inglés y con criterio AASHTO. Un ingeniero chileno que lee <code>civil3d_qty_earthwork_summary</code> no sabe que eso es su cubicación de movimiento de tierras, y ninguna de las 180 descripciones se lo va a decir. Traducir <b>el vocabulario del dominio, no la interfaz</b> — con la equivalencia normativa cuando existe y la advertencia cuando no — es un artefacto de cinco páginas que ningún repo tiene y que se comparte solo.</p>
+    <p>Todo el ecosistema está en inglés y con criterio AASHTO. Un ingeniero que lee <code>civil3d_qty_earthwork_summary</code> no sabe que eso es su cubicación de movimiento de tierras, y ninguna de las 180 descripciones se lo va a decir. Traducir <b>el vocabulario del dominio, no la interfaz</b> — con la equivalencia normativa cuando existe y la advertencia cuando no — es un artefacto de cinco páginas que ningún repo tiene y que se comparte solo.</p>
   </section>
 
   <section>
@@ -575,7 +575,7 @@ se revisan a mano.
     <div class="group-card bad">
       <h3>Tres formas concretas en que esto puede salir mal</h3>
       <ul>
-        <li><b>El público puede no existir todavía.</b> [Suposición] La cantidad de ingenieros civiles o topógrafos en Chile con un cliente MCP configurado es, estimo, de dos dígitos bajos. La capa 2 (verificación) mitiga esto: sirve incluso a quien nunca instale nada, porque documenta qué es capaz de hacer la herramienta.</li>
+        <li><b>El público puede no existir todavía.</b> La cantidad de ingenieros civiles o topógrafos con un cliente MCP configurado es, estimo, de dos dígitos bajos. La capa 2 (verificación) mitiga esto: sirve incluso a quien nunca instale nada, porque documenta qué es capaz de hacer la herramienta.</li>
         <li><b>Dependes de repos con 0 releases y un solo mantenedor.</b> Si Sacred-G abandona el proyecto, tu matriz de verificación envejece. Mitigación: la licencia MIT te permite hacer fork y congelar una versión que sabes que funciona — que es, además, un servicio en sí mismo.</li>
         <li><b>Ejecutar código generado por un modelo dentro de Civil 3D con acceso total a la API es un riesgo real</b>, no teórico. El primer dibujo de producción que se corrompa te cuesta más credibilidad que la que ganes con diez publicaciones. Dibujo de sacrificio, siempre, y decirlo en voz alta cuando enseñes.</li>
       </ul>

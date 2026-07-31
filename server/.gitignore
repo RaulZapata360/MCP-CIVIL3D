@@ -1,0 +1,91 @@
+# Node.js
+build/
+node_modules/
+dist/
+
+# Build artifacts
+**/bin/
+**/obj/
+*.dll
+*.pdb
+
+# IDE
+.vs/
+.vscode/
+.idea/
+.DS_Store
+
+# Claude
+.claude
+.claude.md.local
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Output directories
+output/
+output_clean*/
+output_repo_tools/
+temp_repo_only_tools/
+
+# Generated doc artifacts
+civil3d_docs.txt
+
+# Docs not needed to run the app
+docs/tutorials/
+docs/autodesk/
+docs/plans/
+docs/DEPLOYMENT.md
+docs/HYDROLOGY_GUIDE.md
+docs/tool-coverage-audit.md
+
+# Agent config files
+agents/
+
+# Help files (4041 files in docs/help/)
+docs/help/
+
+# External projects
+Civil3D-AI-CoPilot-master/
+MCPControl-main/
+
+# C# References
+C_References/
+
+# Templates
+templates/
+*.dwt
+
+# Images and screenshots
+image/
+*.png
+*.jpg
+*.jpeg
+!image/
+!image/civil3d_dynamic_mcp_blueprint/
+!image/civil3d_dynamic_mcp_blueprint/dffc9d11-a9c7-4794-bf73-ff1a39c72e3a.jpg
+
+# PDF files
+*.pdf
+
+# Processing scripts (temporary)
+pdf.py
+flatten_help_files.py
+flatten_help_files_auto.py
+clear_help_files.py
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.local
+.env.*.local

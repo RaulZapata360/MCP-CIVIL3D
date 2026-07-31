@@ -1,11 +1,11 @@
 ---
 name: revision_curvas_verticales
-description: "Revisión de curvas verticales y valores K en perfiles longitudinales de Civil 3D según el Manual de Carreteras de Chile."
+description: "Revisión de curvas verticales y valores K en perfiles longitudinales de Civil 3D según criterios de diseño vial y normativas configurables."
 ---
 
-# Revisión de Curvas Verticales contra Criterio de Diseño (Manual de Carreteras Chile)
+# Revisión de Curvas Verticales contra Criterio de Diseño Vial
 
-Este skill permite realizar una revisión automatizada de la geometría de curvas verticales en alineaciones y perfiles longitudinales de Civil 3D, contrastando los parámetros obtenidos contra los límites mínimos del Manual de Carreteras.
+Este skill permite realizar una revisión automatizada de la geometría de curvas verticales en alineaciones y perfiles longitudinales de Civil 3D, contrastando los parámetros obtenidos contra los límites mínimos de diseño vial o la normativa aplicable que se defina.
 
 ## Cuándo usar
 Revisión de rasantes viales nuevas o de terceros antes de emitir planos definitivos o informes de aprobación de trazado longitudinal.
@@ -14,8 +14,9 @@ Revisión de rasantes viales nuevas o de terceros antes de emitir planos definit
 *   `nombre_alineamiento` (string): Nombre del eje en el dibujo.
 *   `velocidad_diseno` (number): Velocidad de diseño del tramo en km/h (ej: 50, 80, 100).
 *   `tipo_via` (string): Tipo de vía (`Urbana`, `Rural`, `Local`) para determinar pendientes máximas.
+*   `normativa` (string, opcional): Normativa o tabla de criterios a aplicar.
 
-## Criterios aplicados (Manual de Carreteras de Chile, Vol. 3)
+## Criterios aplicados (Parámetros de Diseño Vial)
 
 ### 1. Parámetros K Mínimos (Distancia de Visibilidad de Parada)
 El parámetro K ($K = L/A$, donde $L$ es la longitud de la curva en metros y $A$ es la diferencia algebraica de pendientes en %) debe cumplir con los siguientes pisos prácticos:
