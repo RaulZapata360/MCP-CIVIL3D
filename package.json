@@ -1,0 +1,12 @@
+{
+  "name": "civil3d-mcp-lab",
+  "version": "1.0.0",
+  "description": "Servidor MCP y sistema de Skills de Inteligencia Artificial para Autodesk Civil 3D",
+  "type": "module",
+  "bin": {
+    "civil3d-mcp": "./server/build/index.js"
+  },
+  "scripts": {
+    "start": "node server/build/index.js"
+  }
+}
