@@ -1,7 +1,7 @@
 {
-  "last_update": "2026-07-30 20:25:52",
+  "last_update": "2026-08-01 13:16:48",
   "stats": {
-    "total_skills": 1,
+    "total_skills": 7,
     "total_tests": 5,
     "tests_ok": 3,
     "tests_falla": 1,
@@ -10,6 +10,42 @@
     "total_server_modules": 30
   },
   "skills": [
+    {
+      "name": "teselado_arcos_polilinea",
+      "description": "Tesela polilíneas DXF que contienen arcos (bulges) muestreando directamente la circunferencia real con una tolerancia de sagitta máxima.",
+      "category": "Geometria",
+      "file_path": "skills/geometria/teselado-arcos-polilinea.skill.md"
+    },
+    {
+      "name": "generacion_planos_svg",
+      "description": "Genera planos vectoriales SVG de verificación topográfica (TIN, perímetros, cotas, leyendas, escala gráfica y norte) sin requerir matplotlib ni librerías gráficas externas.",
+      "category": "Reportes",
+      "file_path": "skills/reportes/generacion-planos-svg.skill.md"
+    },
+    {
+      "name": "plano_svg_verificacion",
+      "description": "Sistema de planos SVG de verificación para Civil 3D y topografía: escribe el SVG como texto plano, sin matplotlib ni librerías gráficas, con escala única, norte, escala gráfica, leyenda y rampa de color validada.",
+      "category": "Reportes",
+      "file_path": "skills/reportes/plano-svg.skill.md"
+    },
+    {
+      "name": "auditoria_superficies_landxml",
+      "description": "Audita la integridad geométrica y estructural de archivos LandXML TIN: caras invisibles (i='1'), orden de coordenadas Norte/Este vs X/Y, unidades del dibujo y conservación de áreas 2D/3D.",
+      "category": "Superficies",
+      "file_path": "skills/superficies/auditoria-superficies-landxml.skill.md"
+    },
+    {
+      "name": "drapeado_contorno_3d",
+      "description": "Drapea polilíneas 2D sobre mallas TIN LandXML interpolando cotas Z para exportar polilíneas 3D en DXF aptas como Breaklines o Boundaries en Civil 3D.",
+      "category": "Superficies",
+      "file_path": "skills/superficies/drapeado-contorno-3d.skill.md"
+    },
+    {
+      "name": "recorte_superficie_con_perimetro",
+      "description": "Recorta una superficie TIN de LandXML con un perímetro cerrado de un DXF y entrega el área interior 2D y 3D, un plano SVG de verificación, el LandXML de la superficie cortada y el contorno en DXF.",
+      "category": "Superficies",
+      "file_path": "skills/superficies/recorte-superficie.skill.md"
+    },
     {
       "name": "revision_curvas_verticales",
       "description": "Revisión de curvas verticales y valores K en perfiles longitudinales de Civil 3D según criterios de diseño vial y normativas configurables.",
@@ -1146,107 +1182,107 @@
     }
   ],
   "graph_stats": {
-    "nodes": 41,
+    "nodes": 195,
     "edges": 0,
-    "communities": 8,
+    "communities": 20,
     "active": true
   },
   "timeline": [
     {
-      "file": "iniciar_laboratorio.bat",
-      "path": "iniciar_laboratorio.bat",
+      "file": "test_router.py",
+      "path": "skills/tests/test_router.py",
       "source": "Workspace",
-      "mtime": 1785457547.8687804,
-      "date": "2026-07-30 20:25",
-      "date_raw": "2026-07-30T20:25:47.868780"
+      "mtime": 1785604602.4043071,
+      "date": "2026-08-01 13:16",
+      "date_raw": "2026-08-01T13:16:42.404307"
     },
     {
-      "file": "update_dashboard.py",
-      "path": "update_dashboard.py",
+      "file": "test_recorte.py",
+      "path": "skills/superficies/scripts/test_recorte.py",
       "source": "Workspace",
-      "mtime": 1785457536.2186587,
-      "date": "2026-07-30 20:25",
-      "date_raw": "2026-07-30T20:25:36.218659"
+      "mtime": 1785604602.4033105,
+      "date": "2026-08-01 13:16",
+      "date_raw": "2026-08-01T13:16:42.403311"
     },
     {
-      "file": "AGENTS.md",
-      "path": "AGENTS.md",
+      "file": "test_auditoria.py",
+      "path": "skills/superficies/scripts/test_auditoria.py",
       "source": "Workspace",
-      "mtime": 1785457523.3492265,
-      "date": "2026-07-30 20:25",
-      "date_raw": "2026-07-30T20:25:23.349226"
+      "mtime": 1785604602.4023118,
+      "date": "2026-08-01 13:16",
+      "date_raw": "2026-08-01T13:16:42.402312"
     },
     {
-      "file": "dashboard_data.js",
-      "path": "dashboard_data.js",
+      "file": "test_drapeado.py",
+      "path": "skills/superficies/scripts/test_drapeado.py",
       "source": "Workspace",
-      "mtime": 1785456480.0549362,
-      "date": "2026-07-30 20:08",
-      "date_raw": "2026-07-30T20:08:00.054936"
+      "mtime": 1785604602.4023118,
+      "date": "2026-08-01 13:16",
+      "date_raw": "2026-08-01T13:16:42.402312"
     },
     {
-      "file": "dashboard_data.json",
-      "path": "dashboard_data.json",
+      "file": "drapear_contorno.py",
+      "path": "skills/superficies/scripts/drapear_contorno.py",
       "source": "Workspace",
-      "mtime": 1785456480.053936,
-      "date": "2026-07-30 20:08",
-      "date_raw": "2026-07-30T20:08:00.053936"
+      "mtime": 1785604602.4013114,
+      "date": "2026-08-01 13:16",
+      "date_raw": "2026-08-01T13:16:42.401311"
     },
     {
-      "file": "mcp-civil3d-unificacion-informe-II.html",
-      "path": "mcp-civil3d-unificacion-informe-II.html",
+      "file": "recortar_superficie.py",
+      "path": "skills/superficies/scripts/recortar_superficie.py",
       "source": "Workspace",
-      "mtime": 1785456475.4916375,
-      "date": "2026-07-30 20:07",
-      "date_raw": "2026-07-30T20:07:55.491637"
+      "mtime": 1785604602.4013114,
+      "date": "2026-08-01 13:16",
+      "date_raw": "2026-08-01T13:16:42.401311"
     },
     {
-      "file": "revision-curvas-verticales.skill.md",
-      "path": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "file": "auditar_superficie.py",
+      "path": "skills/superficies/scripts/auditar_superficie.py",
       "source": "Workspace",
-      "mtime": 1785456430.2001388,
-      "date": "2026-07-30 20:07",
-      "date_raw": "2026-07-30T20:07:10.200139"
+      "mtime": 1785604602.4003112,
+      "date": "2026-08-01 13:16",
+      "date_raw": "2026-08-01T13:16:42.400311"
     },
     {
-      "file": "matriz.csv",
-      "path": "verificacion/matriz.csv",
+      "file": "drapeado-contorno-3d.skill.md",
+      "path": "skills/superficies/drapeado-contorno-3d.skill.md",
       "source": "Workspace",
-      "mtime": 1785453692.3556328,
-      "date": "2026-07-30 19:21",
-      "date_raw": "2026-07-30T19:21:32.355633"
+      "mtime": 1785604602.3993099,
+      "date": "2026-08-01 13:16",
+      "date_raw": "2026-08-01T13:16:42.399310"
     },
     {
-      "file": "mcp-civil3d-capacidades-y-expansion.html",
-      "path": "mcp-civil3d-capacidades-y-expansion.html",
+      "file": "recorte-superficie.skill.md",
+      "path": "skills/superficies/recorte-superficie.skill.md",
       "source": "Workspace",
-      "mtime": 1785453692.3526337,
-      "date": "2026-07-30 19:21",
-      "date_raw": "2026-07-30T19:21:32.352634"
+      "mtime": 1785604602.3993099,
+      "date": "2026-08-01 13:16",
+      "date_raw": "2026-08-01T13:16:42.399310"
     },
     {
-      "file": "dashboard.html",
-      "path": "dashboard.html",
+      "file": "auditoria-superficies-landxml.skill.md",
+      "path": "skills/superficies/auditoria-superficies-landxml.skill.md",
       "source": "Workspace",
-      "mtime": 1785453692.3451192,
-      "date": "2026-07-30 19:21",
-      "date_raw": "2026-07-30T19:21:32.345119"
+      "mtime": 1785604602.3981473,
+      "date": "2026-08-01 13:16",
+      "date_raw": "2026-08-01T13:16:42.398147"
     },
     {
-      "file": "Civil3DMcpPlugin.csproj.FileListAbsolute.txt",
-      "path": "server/Civil3D-MCP-Plugin/obj/Release/net8.0-windows/Civil3DMcpPlugin.csproj.FileListAbsolute.txt",
+      "file": "router.py",
+      "path": "skills/router.py",
       "source": "Workspace",
-      "mtime": 1782308518.0487778,
-      "date": "2026-06-24 09:41",
-      "date_raw": "2026-06-24T09:41:58.048778"
+      "mtime": 1785604602.3971484,
+      "date": "2026-08-01 13:16",
+      "date_raw": "2026-08-01T13:16:42.397148"
     },
     {
-      "file": "Civil3DMcpPlugin.csproj.FileListAbsolute.txt",
-      "path": "civil3d-mcp/Civil3D-MCP-Plugin/obj/Release/net8.0-windows/Civil3DMcpPlugin.csproj.FileListAbsolute.txt",
-      "source": "Server Codebase",
-      "mtime": 1782308518.0487778,
-      "date": "2026-06-24 09:41",
-      "date_raw": "2026-06-24T09:41:58.048778"
+      "file": "test_plano_svg.py",
+      "path": "skills/reportes/scripts/test_plano_svg.py",
+      "source": "Workspace",
+      "mtime": 1785604602.3971484,
+      "date": "2026-08-01 13:16",
+      "date_raw": "2026-08-01T13:16:42.397148"
     }
   ]
 }
