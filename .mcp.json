@@ -9,6 +9,9 @@
         "-File",
         "./server/scripts/claude-bootstrap-and-run.ps1"
       ]
+    },
+    "revitcortex": {
+      "command": "C:\\Users\\raulz\\.revitcortex\\server\\RevitCortex.Server.exe"
     }
   }
 }

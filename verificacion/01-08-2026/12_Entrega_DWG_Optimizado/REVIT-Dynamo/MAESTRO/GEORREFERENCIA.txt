@@ -1,0 +1,15 @@
+VARIANTE  M A E S T R O
+=======================
+Coordenadas tal cual estan en North_Island_Surfaces.dwg (VA83-SF, US survey ft).
+Es la que hay que usar por defecto.
+
+Tras crear las Toposolid en Revit:
+
+    Manage -> Coordinates -> Specify Coordinates at Point
+    punto 0,0,0 del modelo:
+
+        E  12,119,000.000
+        N   3,530,500.000
+
+NO uses los valores de la variante GEO_REVIT: te dejaria 24 ft fuera.
+Ver LEEME.txt en la carpeta de arriba.

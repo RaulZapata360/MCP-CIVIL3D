@@ -1,0 +1,221 @@
+PAQUETES DYNAMO -> REVIT   (2026-07-31)
+================================================================================
+Dos paquetes con la MISMA geometria, que solo se diferencian en donde queda
+situada respecto al origen del modelo.
+
+  MAESTRO\    coordenadas tal cual estan en el DWG maestro (VA83-SF, US survey ft)
+  GEO_REVIT\  las mismas x 0.999998 respecto a 0,0,0, igual que
+              North_Island_Surfaces_GEO_REVIT.dwg
+
+Ambos crean 40 Toposolid a partir de 35 superficies (Gravel Surface 1 va en 3
+piezas separadas, Pavement Surface 12 en 2, y asi hasta 40).
+
+
+CUAL DE LOS DOS USAR
+--------------------
+Empieza por MAESTRO. Y lee esto antes de tocar GEO_REVIT:
+
+El desfase de 24 ft aparece porque Revit trabaja en pie internacional y VA83-SF
+esta en US survey foot: 2 partes por millon. A 12.1 millones de pies eso son
+24 ft. PERO este paquete NO entrega coordenadas de 12 millones: entrega
+coordenadas locales, con el origen restado, que van de 55 a 1,438 ft. A esa
+magnitud el mismo 2e-6 son 0.003 ft.
+
+O sea: por la via de Dynamo el problema de escala practicamente no existe, porque
+la geometria nunca llega a Revit con coordenadas grandes. Por eso lo esperable es
+que MAESTRO caiga bien.
+
+GEO_REVIT esta para el caso de que necesites que las Toposolid coincidan con algo
+que YA cargaste desde North_Island_Surfaces_GEO_REVIT.dwg. Ese DWG esta 24 ft
+corrido a proposito, asi que si mezclas las dos cosas sin compensar, no casan.
+
+  MAESTRO   - GEO_REVIT = 24.24 ft en X, 7.06 ft en Y
+  Verificado punto a punto sobre los 22,791: dX entre -24.241 y -24.238,
+  dY entre -7.065 y -7.061. Coincide con el corrimiento que el propio script
+  export_geo_revit.ps1 midio en el DWG (-24.243 / -7.064).
+
+NUNCA cargues los dos a la vez en el mismo proyecto: tendrias todo duplicado y
+descuadrado 24 ft.
+
+
+GEORREFERENCIACION -- ES LO UNICO QUE CAMBIA DE VERDAD
+------------------------------------------------------
+Los dos paquetes vienen en ORIGEN LOCAL para evitar el bug de Revit de "muy lejos
+del origen", que apila todas las superficies en el mismo punto. Tras crearlas:
+
+    Manage -> Coordinates -> Specify Coordinates at Point
+    selecciona el punto 0,0,0 del modelo, y asignale:
+
+    MAESTRO      E 12,119,000.000    N 3,530,500.000
+    GEO_REVIT    E 12,118,975.762    N 3,530,492.939
+
+Meter los valores del otro paquete es exactamente el error de 24 ft que se
+intenta evitar.
+
+
+CONTENIDO DE CADA CARPETA
+-------------------------
+All_Points_ByPiece.csv        22,791 puntos  (SurfaceName,PieceId,X,Y,Z)
+All_Boundaries_Complete.csv    4,795 vertices
+                              (SurfaceName,PieceId,RingType,RingId,Seq,X,Y)
+                              RingType = OUTER (perimetro) | HOLE (hueco)
+Surface_Boundaries_Complete_v2.dxf   verificacion visual, en coordenadas reales
+                              de SU variante (el de GEO_REVIT esta 24 ft corrido)
+                              capa SURF_OUTER_* (verde) = perimetros
+                              capa SURF_HOLE_*  (rojo)  = los 17 huecos
+Dynamo_CreateToposolids_ConHuecos.py    EL SCRIPT A PEGAR EN DYNAMO
+Dynamo_DiagnosticoToposolidCreate.py    solo si da error de API (paso 5)
+
+
+DE DONDE SALEN LOS DATOS
+------------------------
+Origen: 11_Extraer superficies nuevas\Surface entrega\
+        _TODAS_North_Island_Definitiva.xml  (35 superficies, 27,565 caras)
+
+Los contornos se extraen del borde de la triangulacion y se simplifican, porque
+en crudo salen a ~0.4 ft por vertice (cada vertice de triangulo sobre un tramo
+recto acaba siendo un vertice de la polilinea):
+
+    vertices : 17,712 -> 4,795   (72.9% menos)
+    densidad : 9.70 ft por vertice
+    desviacion maxima vs el contorno original: 0.0100 ft  (1/8 de pulgada)
+
+La simplificacion NO se hace anillo por anillo, sino sobre la red de aristas: se
+protegen los nodos donde confluyen 3 o mas superficies y cada arco entre nodos se
+simplifica UNA sola vez, de modo que dos vecinas leen el mismo resultado y la
+linea de division sigue siendo identica por construccion. Antes de eso se unifican
+los vertices compartidos, porque las vecinas comparten la LINEA pero no los
+vertices y sin ese paso el grafo se llena de "T" falsas que bloquean todo.
+(Scripts_Migracion\simplificar_contornos.py)
+
+
+ESTADO VERIFICADO  (identico en las dos variantes)
+--------------------------------------------------
+  Toposolid a crear                  : 40
+  anillos rotos o autointersecados   : 0
+  huecos fuera de su exterior        : 0
+  segmentos < 1/32" (tol. de Revit)  : 0
+  perfiles con puntos fuera          : 0
+  perfiles sin puntos                : 0
+  huecos de edificacion              : 17
+  puntos                             : 22,791
+  area de los perfiles               : 633,420.0 ft2  (MAESTRO)
+                                       633,417.5 ft2  (GEO_REVIT, por el factor)
+  rango Z                            : 8.59 a 16.68 ft
+
+Se descartaron 21 puntos que quedaban fuera de su perfil tras el filtro de 0.1 ft
+que aplica el script de Dynamo. Es la causa tipica del dialogo bloqueante
+"Slab Shape Edit failed": Revit no puede añadir un punto de forma que cae fuera
+del perimetro.
+
+
+PASO 0 - VERIFICACION VISUAL (5 min, recomendado)
+-------------------------------------------------
+En Civil 3D: INSERT -> DWG Reference -> Surface_Boundaries_Complete_v2.dxf,
+insercion 0,0,0, escala 1, sin rotacion.
+OJO: el DXF de MAESTRO cae alineado sobre el dibujo maestro; el de GEO_REVIT cae
+24 ft corrido, porque corresponde al DWG compensado.
+
+
+PASO 1 - PREPARAR REVIT
+-----------------------
+1. Abre el proyecto destino.
+2. Debe existir al menos un NIVEL y un TIPO DE TOPOSOLID: el script toma el
+   primero de cada uno que encuentra.
+3. Guarda antes de correr, por si hay que deshacer.
+4. Si quedan enlaces de Link Topography de intentos anteriores, QUITALOS antes
+   (Manage -> Manage Links). Si no, tendras las superficies duplicadas y
+   apareceran solapes que no son reales.
+
+
+PASO 2 - MONTAR EL GRAFO (4 nodos)
+----------------------------------
+Revit -> MANAGE -> Dynamo -> New.
+
+1. Nodo "File Path"  ->  All_Points_ByPiece.csv
+2. Nodo "File Path"  ->  All_Boundaries_Complete.csv
+3. Nodo "Python Script"
+4. Doble clic en el nodo Python y pega TODO el contenido de
+   Dynamo_CreateToposolids_ConHuecos.py. Guarda y cierra el editor.
+5. El nodo Python trae 1 sola entrada (IN[0]) y necesita 2: con el nodo
+   seleccionado, pulsa el "+" del propio nodo para añadir IN[1].
+6. Conecta:
+      File Path (puntos)     ->  IN[0]
+      File Path (contornos)  ->  IN[1]
+
+   EL ORDEN IMPORTA: IN[0] SIEMPRE puntos, IN[1] SIEMPRE contornos.
+   Invertirlos hace fallar el grafo entero.
+
+   Y NO MEZCLES CARPETAS: los dos CSV tienen que salir de la MISMA variante.
+
+
+PASO 3 - EJECUTAR
+-----------------
+Run. Tarda 1-3 minutos.
+
+Si aparece el dialogo "Slab Shape Edit failed" para alguna superficie: responde
+SIEMPRE "Reset Shape". NUNCA "Cancel" -- Cancel aborta la transaccion completa y
+se pierde todo lo creado. "Reset Shape" deja esa superficie plana pero con su
+huella correcta, y queda anotada en el log.
+
+
+PASO 4 - REVISAR
+----------------
+1. Log:  %USERPROFILE%\Desktop\dynamo_log.txt
+   Debe decir CREADAS (40) y ERRORES (0).
+2. Cada Toposolid queda identificada por su nombre en el parametro "Comments".
+   Las piezas separadas salen como "Gravel Surface 1 - 1", "- 2", "- 3".
+3. Georreferencia con los valores de la tabla de arriba, los de TU variante.
+4. Comprueba contra un punto de control conocido antes de dar la posicion por
+   buena. El mas comodo es HRCP-ProjectBasePoint:
+       X 12,122,297.801 / Y 3,528,292.414
+   (esta fuera de North Island, pero sirve para validar el sistema)
+
+
+PASO 5 - SI DA ERROR DE API
+---------------------------
+Si sale "No method matches given arguments" o similar, tu version de Revit tiene
+otra firma de Toposolid.Create. NO adivinar la firma:
+1. Nodo Python Script nuevo, vacio, sin entradas.
+2. Pega Dynamo_DiagnosticoToposolidCreate.py y ejecuta.
+3. Escribe en el Escritorio "toposolid_create_signatures.txt" con las firmas
+   REALES de tu Revit. Con ese texto se ajusta la llamada en un solo intento.
+
+
+COMO FUNCIONAN LOS HUECOS
+-------------------------
+Toposolid.Create recibe una LISTA de CurveLoop en "profiles": el PRIMERO es el
+perimetro exterior y todos los siguientes son huecos interiores. El script arma
+esa lista leyendo las filas OUTER y HOLE del CSV.
+
+Regla que hay que respetar en todos los loops, incluidos los huecos: han de ser
+PLANOS, con Z=0 en todos sus vertices. La elevacion real la aporta unicamente la
+lista de "points". Si se le pasa la Z real al contorno, Revit lanza "the input
+curve loops... not planar / not parallel to the horizontal (XY) plane".
+
+
+POR QUE ESTA VIA Y NO Link Topography
+--------------------------------------
+Link Topography no usa el contorno: reconstruye la forma a partir de los puntos.
+En superficies alargadas y concavas eso cruza por donde no debe. Aqui se le
+entrega a Revit el perimetro explicito como CurveLoop y los puntos por separado,
+asi que no puede inventarse la forma.
+
+
+REGENERAR
+---------
+  cd "...\HRCP\CIVIL 3D\Scripts_Migracion"
+  python export_surface_boundaries_complete.py ^
+      "...\Surface entrega\_TODAS_North_Island_Definitiva.xml" "...\REVIT-Dynamo\MAESTRO"
+  python simplificar_contornos.py "...\REVIT-Dynamo\MAESTRO" 0.01
+  python puntos_desde_cortadas.py ^
+      "...\Surface entrega\_TODAS_North_Island_Definitiva.xml" "...\REVIT-Dynamo\MAESTRO"
+  python dxf_desde_csv.py "...\REVIT-Dynamo\MAESTRO"
+  python variante_geo_revit.py "...\REVIT-Dynamo\MAESTRO" "...\REVIT-Dynamo\GEO_REVIT"
+  python dxf_desde_csv.py "...\REVIT-Dynamo\GEO_REVIT"
+
+El orden importa: simplificar_contornos.py reescribe All_Boundaries_Complete.csv y
+todo lo demas se apoya en el resultado. Si se salta ese paso, el paquete sale con
+17,712 vertices en vez de 4,795.
+NO correr export_surface_boundaries_complete.py sobre un paquete ya simplificado:
+vuelve a extraer el contorno de la triangulacion y devuelve la version densa.

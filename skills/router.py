@@ -55,6 +55,15 @@ REGISTRO_SKILLS = {
         "script": os.path.join(BASE_DIR, "reportes", "scripts", "plano_svg.py"),
         "doc": os.path.join(BASE_DIR, "reportes", "generacion-planos-svg.skill.md"),
     },
+    "importar_toposolid_revit": {
+        "nombre": "Importación de Superficies a Revit como Toposolid",
+        "categoria": "Interoperabilidad",
+        "palabras_clave": ["revit", "toposolid", "dynamo", "importar a revit", "exportar a revit",
+                           "visualizar en revit", "bim", "topografia revit"],
+        # corregir_paquete_revit.py prepara el paquete; generar_dyn_toposolid.py arma el grafo.
+        "script": os.path.join(BASE_DIR, "superficies", "scripts", "corregir_paquete_revit.py"),
+        "doc": os.path.join(BASE_DIR, "superficies", "importar-toposolid-revit.skill.md"),
+    },
 }
 
 

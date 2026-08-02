@@ -1,5 +1,5 @@
 window.DASHBOARD_DATA = {
-  "last_update": "2026-08-01 13:16:48",
+  "last_update": "2026-08-01 13:32:57",
   "stats": {
     "total_skills": 7,
     "total_tests": 5,
@@ -1189,6 +1189,30 @@ window.DASHBOARD_DATA = {
   },
   "timeline": [
     {
+      "file": "package.json",
+      "path": "package.json",
+      "source": "Workspace",
+      "mtime": 1785605112.2566922,
+      "date": "2026-08-01 13:25",
+      "date_raw": "2026-08-01T13:25:12.256692"
+    },
+    {
+      "file": "dashboard_data.js",
+      "path": "dashboard_data.js",
+      "source": "Workspace",
+      "mtime": 1785604608.7540739,
+      "date": "2026-08-01 13:16",
+      "date_raw": "2026-08-01T13:16:48.754074"
+    },
+    {
+      "file": "dashboard_data.json",
+      "path": "dashboard_data.json",
+      "source": "Workspace",
+      "mtime": 1785604608.7540739,
+      "date": "2026-08-01 13:16",
+      "date_raw": "2026-08-01T13:16:48.754074"
+    },
+    {
       "file": "test_router.py",
       "path": "skills/tests/test_router.py",
       "source": "Workspace",
@@ -1259,30 +1283,6 @@ window.DASHBOARD_DATA = {
       "mtime": 1785604602.3993099,
       "date": "2026-08-01 13:16",
       "date_raw": "2026-08-01T13:16:42.399310"
-    },
-    {
-      "file": "auditoria-superficies-landxml.skill.md",
-      "path": "skills/superficies/auditoria-superficies-landxml.skill.md",
-      "source": "Workspace",
-      "mtime": 1785604602.3981473,
-      "date": "2026-08-01 13:16",
-      "date_raw": "2026-08-01T13:16:42.398147"
-    },
-    {
-      "file": "router.py",
-      "path": "skills/router.py",
-      "source": "Workspace",
-      "mtime": 1785604602.3971484,
-      "date": "2026-08-01 13:16",
-      "date_raw": "2026-08-01T13:16:42.397148"
-    },
-    {
-      "file": "test_plano_svg.py",
-      "path": "skills/reportes/scripts/test_plano_svg.py",
-      "source": "Workspace",
-      "mtime": 1785604602.3971484,
-      "date": "2026-08-01 13:16",
-      "date_raw": "2026-08-01T13:16:42.397148"
     }
   ]
 };

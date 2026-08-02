@@ -1,0 +1,21 @@
+VARIANTE  G E O _ R E V I T
+===========================
+Coordenadas del maestro x 0.999998 respecto a 0,0,0: las mismas que
+North_Island_Surfaces_GEO_REVIT.dwg.
+
+USALA SOLO si necesitas que estas Toposolid coincidan con algo que ya cargaste
+desde ese DWG compensado. Para todo lo demas usa MAESTRO.
+
+Esta variante esta 24.24 ft al oeste y 7.06 ft al sur del maestro, A PROPOSITO.
+
+Tras crear las Toposolid en Revit:
+
+    Manage -> Coordinates -> Specify Coordinates at Point
+    punto 0,0,0 del modelo:
+
+        E  12,118,975.762
+        N   3,530,492.939
+
+Nunca cargues MAESTRO y GEO_REVIT en el mismo proyecto: geometria duplicada y
+descuadrada 24 ft.
+Ver LEEME.txt en la carpeta de arriba.
