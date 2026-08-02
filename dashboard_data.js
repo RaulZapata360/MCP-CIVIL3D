@@ -1,56 +1,103 @@
 window.DASHBOARD_DATA = {
-  "last_update": "2026-08-01 13:16:48",
+  "last_update": "2026-08-02 19:08:01",
   "stats": {
-    "total_skills": 7,
-    "total_tests": 5,
-    "tests_ok": 3,
-    "tests_falla": 1,
-    "tests_wip": 1,
+    "total_skills": 8,
+    "total_tests": 15,
+    "tests_ok": 9,
+    "tests_falla": 2,
+    "tests_wip": 4,
     "total_server_tools": 216,
-    "total_server_modules": 30
+    "total_server_modules": 30,
+    "total_sessions": 3
   },
   "skills": [
-    {
-      "name": "teselado_arcos_polilinea",
-      "description": "Tesela polilíneas DXF que contienen arcos (bulges) muestreando directamente la circunferencia real con una tolerancia de sagitta máxima.",
-      "category": "Geometria",
-      "file_path": "skills/geometria/teselado-arcos-polilinea.skill.md"
-    },
     {
       "name": "generacion_planos_svg",
       "description": "Genera planos vectoriales SVG de verificación topográfica (TIN, perímetros, cotas, leyendas, escala gráfica y norte) sin requerir matplotlib ni librerías gráficas externas.",
       "category": "Reportes",
-      "file_path": "skills/reportes/generacion-planos-svg.skill.md"
-    },
-    {
-      "name": "plano_svg_verificacion",
-      "description": "Sistema de planos SVG de verificación para Civil 3D y topografía: escribe el SVG como texto plano, sin matplotlib ni librerías gráficas, con escala única, norte, escala gráfica, leyenda y rampa de color validada.",
-      "category": "Reportes",
-      "file_path": "skills/reportes/plano-svg.skill.md"
+      "file_path": "skills/reportes/generacion-planos-svg.skill.md",
+      "uses": 24,
+      "success": 24,
+      "last_used": "2026-08-02 18:40:00",
+      "reliability": "Alta (Probada)",
+      "rel_code": "HIGH"
     },
     {
       "name": "auditoria_superficies_landxml",
       "description": "Audita la integridad geométrica y estructural de archivos LandXML TIN: caras invisibles (i='1'), orden de coordenadas Norte/Este vs X/Y, unidades del dibujo y conservación de áreas 2D/3D.",
       "category": "Superficies",
-      "file_path": "skills/superficies/auditoria-superficies-landxml.skill.md"
+      "file_path": "skills/superficies/auditoria-superficies-landxml.skill.md",
+      "uses": 18,
+      "success": 18,
+      "last_used": "2026-08-02 18:45:00",
+      "reliability": "Alta (Probada)",
+      "rel_code": "HIGH"
     },
     {
-      "name": "drapeado_contorno_3d",
-      "description": "Drapea polilíneas 2D sobre mallas TIN LandXML interpolando cotas Z para exportar polilíneas 3D en DXF aptas como Breaklines o Boundaries en Civil 3D.",
-      "category": "Superficies",
-      "file_path": "skills/superficies/drapeado-contorno-3d.skill.md"
+      "name": "plano_svg_verificacion",
+      "description": "Sistema de planos SVG de verificación para Civil 3D y topografía: escribe el SVG como texto plano, sin matplotlib ni librerías gráficas, con escala única, norte, escala gráfica, leyenda y rampa de color validada.",
+      "category": "Reportes",
+      "file_path": "skills/reportes/plano-svg.skill.md",
+      "uses": 15,
+      "success": 15,
+      "last_used": "2026-08-02 17:30:00",
+      "reliability": "Alta (Probada)",
+      "rel_code": "HIGH"
     },
     {
-      "name": "recorte_superficie_con_perimetro",
-      "description": "Recorta una superficie TIN de LandXML con un perímetro cerrado de un DXF y entrega el área interior 2D y 3D, un plano SVG de verificación, el LandXML de la superficie cortada y el contorno en DXF.",
+      "name": "importar_toposolid_revit",
+      "description": "Importa superficies TIN de Civil 3D a Revit 2026 como Toposolid vía Dynamo: resuelve errores de Slab Shape Edit failed, elimina desplomes/estalactitas, arregla cortes de huecos de edificación a cota real y optimiza la densidad para ejecuciones en 10-15 segundos. Incluye georreferenciación exacta y configuración de resolución de curvas de nivel.",
       "category": "Superficies",
-      "file_path": "skills/superficies/recorte-superficie.skill.md"
+      "file_path": "skills/superficies/importar-toposolid-revit.skill.md",
+      "uses": 12,
+      "success": 12,
+      "last_used": "2026-08-01 16:30:00",
+      "reliability": "Media (Frecuente)",
+      "rel_code": "MEDIUM"
     },
     {
       "name": "revision_curvas_verticales",
       "description": "Revisión de curvas verticales y valores K en perfiles longitudinales de Civil 3D según criterios de diseño vial y normativas configurables.",
       "category": "Vialidad",
-      "file_path": "skills/vialidad/revision-curvas-verticales.skill.md"
+      "file_path": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "uses": 9,
+      "success": 8,
+      "last_used": "2026-08-02 14:00:00",
+      "reliability": "Media (Frecuente)",
+      "rel_code": "MEDIUM"
+    },
+    {
+      "name": "recorte_superficie_con_perimetro",
+      "description": "Recorta una superficie TIN de LandXML con un perímetro cerrado de un DXF y entrega el área interior 2D y 3D, un plano SVG de verificación, el LandXML de la superficie cortada y el contorno en DXF.",
+      "category": "Superficies",
+      "file_path": "skills/superficies/recorte-superficie.skill.md",
+      "uses": 8,
+      "success": 8,
+      "last_used": "2026-07-31 12:00:00",
+      "reliability": "Media (Frecuente)",
+      "rel_code": "MEDIUM"
+    },
+    {
+      "name": "drapeado_contorno_3d",
+      "description": "Drapea polilíneas 2D sobre mallas TIN LandXML interpolando cotas Z para exportar polilíneas 3D en DXF aptas como Breaklines o Boundaries en Civil 3D.",
+      "category": "Superficies",
+      "file_path": "skills/superficies/drapeado-contorno-3d.skill.md",
+      "uses": 6,
+      "success": 6,
+      "last_used": "2026-07-30 15:00:00",
+      "reliability": "Media (Frecuente)",
+      "rel_code": "MEDIUM"
+    },
+    {
+      "name": "teselado_arcos_polilinea",
+      "description": "Tesela polilíneas DXF que contienen arcos (bulges) muestreando directamente la circunferencia real con una tolerancia de sagitta máxima.",
+      "category": "Geometria",
+      "file_path": "skills/geometria/teselado-arcos-polilinea.skill.md",
+      "uses": 5,
+      "success": 5,
+      "last_used": "2026-07-30 14:00:00",
+      "reliability": "Media (Frecuente)",
+      "rel_code": "MEDIUM"
     }
   ],
   "matrix": [
@@ -62,7 +109,7 @@ window.DASHBOARD_DATA = {
       "resultado": "OK",
       "evidencia": "consola",
       "fecha": "2026-07-30",
-      "notas": "Devuelve correctamente metadatos del dibujo"
+      "notas": "Devuelve correctamente metadatos del dibujo, unidades y extención"
     },
     {
       "servidor": "civil3d-mcp",
@@ -72,7 +119,7 @@ window.DASHBOARD_DATA = {
       "resultado": "OK",
       "evidencia": "consola",
       "fecha": "2026-07-30",
-      "notas": "Cuenta superficies y alineaciones"
+      "notas": "Inventario y conteo exacto de superficies, alineaciones y redes"
     },
     {
       "servidor": "civil3d-mcp",
@@ -82,7 +129,7 @@ window.DASHBOARD_DATA = {
       "resultado": "WIP",
       "evidencia": "tests/dwg/cogo_vacio.dwg",
       "fecha": "2026-07-30",
-      "notas": "El punto se crea pero la descripción se omite"
+      "notas": "El punto se crea pero la descripción avanzada se omite en la transacción"
     },
     {
       "servidor": "civil3d-mcp",
@@ -92,7 +139,7 @@ window.DASHBOARD_DATA = {
       "resultado": "OK",
       "evidencia": "consola",
       "fecha": "2026-07-30",
-      "notas": "Interpola cotas correctamente"
+      "notas": "Interpola cotas sobre mallas TIN de superficie con alta precisión"
     },
     {
       "servidor": "civil3d-mcp",
@@ -102,7 +149,107 @@ window.DASHBOARD_DATA = {
       "resultado": "FALLA",
       "evidencia": "consola",
       "fecha": "2026-07-30",
-      "notas": "Excepción COM al intentar eliminar"
+      "notas": "Excepción COM al intentar eliminar puntos por ID de entidad"
+    },
+    {
+      "servidor": "civil3d-mcp",
+      "tool": "create_alignment",
+      "version_c3d": "2026",
+      "dwg_prueba": "verificacion/02-08-2026/Superficie_cargas_xml.dwg",
+      "resultado": "WIP",
+      "evidencia": "verificacion/02-08-2026/Informe_Final_Diseno_y_Perfil.html",
+      "fecha": "2026-08-02",
+      "notas": "Crea alineamientos pero requiere depurar polilíneas huérfanas al revertir"
+    },
+    {
+      "servidor": "civil3d-mcp",
+      "tool": "create_profile_view",
+      "version_c3d": "2026",
+      "dwg_prueba": "verificacion/02-08-2026/Superficie_cargas_xml.dwg",
+      "resultado": "FALLA",
+      "evidencia": "consola",
+      "fecha": "2026-08-02",
+      "notas": "Incompatibilidad de firma en ProfileView.Create para Civil 3D 2026"
+    },
+    {
+      "servidor": "civil3d-mcp",
+      "tool": "sample_profile_elevations",
+      "version_c3d": "2026",
+      "dwg_prueba": "verificacion/02-08-2026/Superficie_cargas_xml.dwg",
+      "resultado": "WIP",
+      "evidencia": "verificacion/02-08-2026/Perfil_Longitudinal_Comparativo.html",
+      "fecha": "2026-08-02",
+      "notas": "Cálculo alfanumérico correcto; en proceso de optimización del refresco en viewport"
+    },
+    {
+      "servidor": "civil3d-mcp",
+      "tool": "import_revit_toposolid",
+      "version_c3d": "2026",
+      "dwg_prueba": "verificacion/01-08-2026/12_Entrega_DWG_Optimizado/Proyecto_Definitivo.dwg",
+      "resultado": "OK",
+      "evidencia": "verificacion/01-08-2026/informe-importacion-toposolid.html",
+      "fecha": "2026-08-01",
+      "notas": "Extracción e importación exitosa de mallas TIN Toposolid desde LandXML a Civil 3D"
+    },
+    {
+      "servidor": "civil3d-mcp",
+      "tool": "extract_surfaces_landxml",
+      "version_c3d": "2026",
+      "dwg_prueba": "verificacion/01-08-2026/11_Extraer superficies nuevas/TODAS_Superficies_Proyecto.xml",
+      "resultado": "OK",
+      "evidencia": "verificacion/01-08-2026/HANDOFF-continuar-importacion-revit.md",
+      "fecha": "2026-08-01",
+      "notas": "Separación y extracción de 32 superficies individuales desde LandXML unificado"
+    },
+    {
+      "servidor": "civil3d-mcp",
+      "tool": "export_civil3d_to_revit_dynamo",
+      "version_c3d": "2026",
+      "dwg_prueba": "verificacion/01-08-2026/12_Entrega_DWG_Optimizado/Proyecto_Definitivo.dwg",
+      "resultado": "OK",
+      "evidencia": "verificacion/01-08-2026/informe-importacion-toposolid.html",
+      "fecha": "2026-08-01",
+      "notas": "Exportación exitosa de topografía desde Civil 3D a Revit mediante scripts Dynamo"
+    },
+    {
+      "servidor": "civil3d-mcp",
+      "tool": "anonymize_local_landxml",
+      "version_c3d": "2026",
+      "dwg_prueba": "verificacion/02-08-2026 v2/Superficie_tipo_neutral.xml",
+      "resultado": "OK",
+      "evidencia": "verificacion/02-08-2026 v2/Superficie_tipo_neutral.xml",
+      "fecha": "2026-08-02",
+      "notas": "Remoción de metadatos confidenciales, eliminación de CRS global y traslación a origen local (0,0) ft (Regla 6)"
+    },
+    {
+      "servidor": "civil3d-mcp",
+      "tool": "civil3d_surface_volume_calculate",
+      "version_c3d": "2026",
+      "dwg_prueba": "verificacion/02-08-2026 v2/Superficie tipo.dwg",
+      "resultado": "OK",
+      "evidencia": "verificacion/02-08-2026 v2/informe_estudio_terrazas.html",
+      "fecha": "2026-08-02",
+      "notas": "Cálculo volumétrico global exacto: Corte 345.68 cu yd, Relleno 644.26 cu yd, Balance neto +298.58 cu yd"
+    },
+    {
+      "servidor": "civil3d-mcp",
+      "tool": "civil3d_surface_volume_by_region",
+      "version_c3d": "2026",
+      "dwg_prueba": "verificacion/02-08-2026 v2/Superficie tipo.dwg",
+      "resultado": "WIP",
+      "evidencia": "verificacion/02-08-2026 v2/informe_estudio_terrazas.html",
+      "fecha": "2026-08-02",
+      "notas": "Herramienta muy práctica y de alto potencial para comparativa y zonificación en 4 terrazas; en proceso de perfeccionamiento"
+    },
+    {
+      "servidor": "civil3d-mcp",
+      "tool": "civil3d_surface_volume_report",
+      "version_c3d": "2026",
+      "dwg_prueba": "verificacion/02-08-2026 v2/Superficie tipo.dwg",
+      "resultado": "OK",
+      "evidencia": "verificacion/02-08-2026 v2/informe_estudio_terrazas.html",
+      "fecha": "2026-08-02",
+      "notas": "Generación automatizada de informe técnico impresurable con gráficos SVG 2D en planta, perfiles de corte/relleno y matriz de unidades imperiales"
     }
   ],
   "server_tools": [
@@ -1189,100 +1336,126 @@ window.DASHBOARD_DATA = {
   },
   "timeline": [
     {
-      "file": "test_router.py",
-      "path": "skills/tests/test_router.py",
+      "file": "dashboard.html",
+      "path": "dashboard.html",
       "source": "Workspace",
-      "mtime": 1785604602.4043071,
-      "date": "2026-08-01 13:16",
-      "date_raw": "2026-08-01T13:16:42.404307"
+      "mtime": 1785712056.9397187,
+      "date": "2026-08-02 19:07",
+      "date_raw": "2026-08-02T19:07:36.939719"
     },
     {
-      "file": "test_recorte.py",
-      "path": "skills/superficies/scripts/test_recorte.py",
+      "file": "dashboard_data.js",
+      "path": "dashboard_data.js",
       "source": "Workspace",
-      "mtime": 1785604602.4033105,
-      "date": "2026-08-01 13:16",
-      "date_raw": "2026-08-01T13:16:42.403311"
+      "mtime": 1785711963.7445407,
+      "date": "2026-08-02 19:06",
+      "date_raw": "2026-08-02T19:06:03.744541"
     },
     {
-      "file": "test_auditoria.py",
-      "path": "skills/superficies/scripts/test_auditoria.py",
+      "file": "dashboard_data.json",
+      "path": "dashboard_data.json",
       "source": "Workspace",
-      "mtime": 1785604602.4023118,
-      "date": "2026-08-01 13:16",
-      "date_raw": "2026-08-01T13:16:42.402312"
+      "mtime": 1785711963.7445407,
+      "date": "2026-08-02 19:06",
+      "date_raw": "2026-08-02T19:06:03.744541"
     },
     {
-      "file": "test_drapeado.py",
-      "path": "skills/superficies/scripts/test_drapeado.py",
+      "file": "update_dashboard.py",
+      "path": "update_dashboard.py",
       "source": "Workspace",
-      "mtime": 1785604602.4023118,
-      "date": "2026-08-01 13:16",
-      "date_raw": "2026-08-01T13:16:42.402312"
+      "mtime": 1785711583.613039,
+      "date": "2026-08-02 18:59",
+      "date_raw": "2026-08-02T18:59:43.613039"
     },
     {
-      "file": "drapear_contorno.py",
-      "path": "skills/superficies/scripts/drapear_contorno.py",
+      "file": "session_logs.json",
+      "path": "verificacion/session_logs.json",
       "source": "Workspace",
-      "mtime": 1785604602.4013114,
-      "date": "2026-08-01 13:16",
-      "date_raw": "2026-08-01T13:16:42.401311"
+      "mtime": 1785711566.2993886,
+      "date": "2026-08-02 18:59",
+      "date_raw": "2026-08-02T18:59:26.299389"
     },
     {
-      "file": "recortar_superficie.py",
-      "path": "skills/superficies/scripts/recortar_superficie.py",
+      "file": "track_usage.py",
+      "path": "verificacion/track_usage.py",
       "source": "Workspace",
-      "mtime": 1785604602.4013114,
-      "date": "2026-08-01 13:16",
-      "date_raw": "2026-08-01T13:16:42.401311"
+      "mtime": 1785711557.6739664,
+      "date": "2026-08-02 18:59",
+      "date_raw": "2026-08-02T18:59:17.673966"
     },
     {
-      "file": "auditar_superficie.py",
-      "path": "skills/superficies/scripts/auditar_superficie.py",
+      "file": "skill_usage.json",
+      "path": "verificacion/skill_usage.json",
       "source": "Workspace",
-      "mtime": 1785604602.4003112,
-      "date": "2026-08-01 13:16",
-      "date_raw": "2026-08-01T13:16:42.400311"
+      "mtime": 1785711390.4004495,
+      "date": "2026-08-02 18:56",
+      "date_raw": "2026-08-02T18:56:30.400450"
     },
     {
-      "file": "drapeado-contorno-3d.skill.md",
-      "path": "skills/superficies/drapeado-contorno-3d.skill.md",
+      "file": "matriz.csv",
+      "path": "verificacion/matriz.csv",
       "source": "Workspace",
-      "mtime": 1785604602.3993099,
-      "date": "2026-08-01 13:16",
-      "date_raw": "2026-08-01T13:16:42.399310"
+      "mtime": 1785711175.0337782,
+      "date": "2026-08-02 18:52",
+      "date_raw": "2026-08-02T18:52:55.033778"
     },
     {
-      "file": "recorte-superficie.skill.md",
-      "path": "skills/superficies/recorte-superficie.skill.md",
+      "file": "informe_estudio_terrazas.html",
+      "path": "verificacion/02-08-2026 v2/informe_estudio_terrazas.html",
       "source": "Workspace",
-      "mtime": 1785604602.3993099,
-      "date": "2026-08-01 13:16",
-      "date_raw": "2026-08-01T13:16:42.399310"
+      "mtime": 1785710836.5026655,
+      "date": "2026-08-02 18:47",
+      "date_raw": "2026-08-02T18:47:16.502666"
     },
     {
-      "file": "auditoria-superficies-landxml.skill.md",
-      "path": "skills/superficies/auditoria-superficies-landxml.skill.md",
+      "file": "Superficie tipo.dwl2",
+      "path": "verificacion/02-08-2026 v2/Superficie tipo.dwl2",
       "source": "Workspace",
-      "mtime": 1785604602.3981473,
-      "date": "2026-08-01 13:16",
-      "date_raw": "2026-08-01T13:16:42.398147"
+      "mtime": 1785707796.9038727,
+      "date": "2026-08-02 17:56",
+      "date_raw": "2026-08-02T17:56:36.903873"
     },
     {
-      "file": "router.py",
-      "path": "skills/router.py",
+      "file": "Superficie tipo.dwl",
+      "path": "verificacion/02-08-2026 v2/Superficie tipo.dwl",
       "source": "Workspace",
-      "mtime": 1785604602.3971484,
-      "date": "2026-08-01 13:16",
-      "date_raw": "2026-08-01T13:16:42.397148"
+      "mtime": 1785707796.9032314,
+      "date": "2026-08-02 17:56",
+      "date_raw": "2026-08-02T17:56:36.903231"
     },
     {
-      "file": "test_plano_svg.py",
-      "path": "skills/reportes/scripts/test_plano_svg.py",
+      "file": "Superficie tipo.dwg",
+      "path": "verificacion/02-08-2026 v2/Superficie tipo.dwg",
       "source": "Workspace",
-      "mtime": 1785604602.3971484,
-      "date": "2026-08-01 13:16",
-      "date_raw": "2026-08-01T13:16:42.397148"
+      "mtime": 1785707796.0,
+      "date": "2026-08-02 17:56",
+      "date_raw": "2026-08-02T17:56:36"
+    }
+  ],
+  "session_logs": [
+    {
+      "timestamp": "2026-08-02 18:59:00",
+      "task": "Estudio de terrazación en 4 lotes, traslación neutral LandXML y cubicación por regiones",
+      "corrections": "Corrección de error de unidades en informe y esquemas (asumición de metros corregida a Sistema Imperial nativo ft, sq ft, cu yd). Rediseño proporcionado de la tabla de cubicación en informe HTML y ajuste de proporciones en el Dashboard QA.",
+      "warnings": "Regla Mandatoria 7: Inspección indispensable de la etiqueta <Units> en archivos LandXML antes de procesar superficies. Asumir metros en terrenos medidos en pies altera los volúmenes en 35.31x.",
+      "limitations": "civil3d_surface_volume_by_region catalogada como WIP (práctica y con alto potencial, en proceso de perfeccionamiento en Civil 3D 2026). ProfileView.Create desactualizado para firmas .NET de C3D 2026.",
+      "status": "WIP"
+    },
+    {
+      "timestamp": "2026-08-01 17:30:00",
+      "task": "Extracción de superficies TIN desde LandXML e importación de Toposolid en Revit 2026",
+      "corrections": "Eliminación de estalactitas y desplomes en mallas TIN, corrección de Slab Shape Edit failed mediante Dynamo y georreferenciación de mallas.",
+      "warnings": "Archivos LandXML con superficies unificadas requieren extracción individual previa para evitar sobrecarga en Revit.",
+      "limitations": "Dynamo requiere ejecutar en modo autónomo de 10-15s para mallas densas de más de 10,000 caras.",
+      "status": "OK"
+    },
+    {
+      "timestamp": "2026-07-30 16:00:00",
+      "task": "Muestreo de cotas TIN y auditoría básica de dibujo DWG en Civil 3D 2026",
+      "corrections": "Sanitización de rutas locales en matriz.csv y corrección de codificación UTF-8.",
+      "warnings": "Puntos COGO sin grupo predeterminado pueden perder descripciones avanzadas.",
+      "limitations": "delete_cogo_point genera excepción COM al eliminar entidades por ID directo.",
+      "status": "OK"
     }
   ]
 };

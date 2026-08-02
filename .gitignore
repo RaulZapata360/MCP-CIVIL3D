@@ -11,3 +11,5 @@ bin/
 obj/
 *.user
 *.suo
+informes/
+verificacion/

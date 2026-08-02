@@ -9,6 +9,13 @@
         "-File",
         "./server/scripts/claude-bootstrap-and-run.ps1"
       ]
+    },
+    "revitcortex": {
+      "command": "cmd.exe",
+      "args": [
+        "/c",
+        "server\\scripts\\run_revitcortex.bat"
+      ]
     }
   }
 }

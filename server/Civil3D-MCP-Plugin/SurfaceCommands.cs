@@ -39,8 +39,34 @@ public static class SurfaceCommands
     return CivilExecution.ReadAsync<object?>((doc, civilDoc, database, transaction) =>
     {
       var surface = CivilObjectUtils.FindSurfaceByName(civilDoc, transaction, name, OpenMode.ForRead);
-      var generalProperties = CivilObjectUtils.InvokeMethod(surface, "GetGeneralProperties");
+      object? generalProperties = null;
+      try
+      {
+        generalProperties = CivilObjectUtils.InvokeMethod(surface, "GetGeneralProperties");
+      }
+      catch { }
+
       var extents = CivilObjectUtils.GetPropertyValue<Extents3d?>(surface, "GeometricExtents");
+      double minX = 0, minY = 0, maxX = 0, maxY = 0;
+      if (extents.HasValue)
+      {
+        minX = extents.Value.MinPoint.X;
+        minY = extents.Value.MinPoint.Y;
+        maxX = extents.Value.MaxPoint.X;
+        maxY = extents.Value.MaxPoint.Y;
+      }
+      else
+      {
+        try
+        {
+          var bounds = surface.Bounds;
+          minX = bounds.MinPoint.X;
+          minY = bounds.MinPoint.Y;
+          maxX = bounds.MaxPoint.X;
+          maxY = bounds.MaxPoint.Y;
+        }
+        catch { }
+      }
 
       return new Dictionary<string, object?>
       {
@@ -51,20 +77,20 @@ public static class SurfaceCommands
         ["layer"] = surface.Layer,
         ["statistics"] = new Dictionary<string, object?>
         {
-          ["minimumElevation"] = CivilObjectUtils.GetPropertyValue<double?>(generalProperties, "MinimumElevation") ?? 0,
-          ["maximumElevation"] = CivilObjectUtils.GetPropertyValue<double?>(generalProperties, "MaximumElevation") ?? 0,
-          ["meanElevation"] = CivilObjectUtils.GetPropertyValue<double?>(generalProperties, "MeanElevation") ?? 0,
-          ["area2d"] = CivilObjectUtils.GetPropertyValue<double?>(generalProperties, "Area2D") ?? 0,
-          ["area3d"] = CivilObjectUtils.GetPropertyValue<double?>(generalProperties, "Area3D") ?? 0,
-          ["numberOfPoints"] = CivilObjectUtils.GetPropertyValue<int?>(generalProperties, "NumberOfPoints") ?? 0,
-          ["numberOfTriangles"] = CivilObjectUtils.GetPropertyValue<int?>(generalProperties, "NumberOfTriangles") ?? 0,
+          ["minimumElevation"] = generalProperties != null ? (CivilObjectUtils.GetPropertyValue<double?>(generalProperties, "MinimumElevation") ?? 0) : 0,
+          ["maximumElevation"] = generalProperties != null ? (CivilObjectUtils.GetPropertyValue<double?>(generalProperties, "MaximumElevation") ?? 0) : 0,
+          ["meanElevation"] = generalProperties != null ? (CivilObjectUtils.GetPropertyValue<double?>(generalProperties, "MeanElevation") ?? 0) : 0,
+          ["area2d"] = generalProperties != null ? (CivilObjectUtils.GetPropertyValue<double?>(generalProperties, "Area2D") ?? 0) : 0,
+          ["area3d"] = generalProperties != null ? (CivilObjectUtils.GetPropertyValue<double?>(generalProperties, "Area3D") ?? 0) : 0,
+          ["numberOfPoints"] = generalProperties != null ? (CivilObjectUtils.GetPropertyValue<int?>(generalProperties, "NumberOfPoints") ?? 0) : 0,
+          ["numberOfTriangles"] = generalProperties != null ? (CivilObjectUtils.GetPropertyValue<int?>(generalProperties, "NumberOfTriangles") ?? 0) : 0,
         },
         ["boundingBox"] = new Dictionary<string, object?>
         {
-          ["minX"] = extents?.MinPoint.X ?? 0,
-          ["minY"] = extents?.MinPoint.Y ?? 0,
-          ["maxX"] = extents?.MaxPoint.X ?? 0,
-          ["maxY"] = extents?.MaxPoint.Y ?? 0,
+          ["minX"] = minX,
+          ["minY"] = minY,
+          ["maxX"] = maxX,
+          ["maxY"] = maxY,
         },
         ["units"] = CivilObjectUtils.LinearUnits(database),
         ["isReference"] = CivilObjectUtils.GetPropertyValue<bool?>(surface, "IsReferenceObject") ?? false,
