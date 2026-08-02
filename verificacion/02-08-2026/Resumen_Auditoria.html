@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe de Auditoría de Superficies - Civil 3D</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.3);
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            color: var(--text-main);
+            margin: 0;
+            padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            animation: slideUp 0.8s ease-out backwards;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px var(--accent-glow);
+            border-color: var(--accent);
+        }
+
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+
+        .card-header {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .card-subtitle {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .data-item {
+            background: rgba(0,0,0,0.2);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .data-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.3rem;
+        }
+
+        .data-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #e2e8f0;
+        }
+
+        .btn-view {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            padding: 0.8rem;
+            background: linear-gradient(135deg, #3b82f6, #6366f1);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px var(--accent-glow);
+        }
+
+        .btn-view:hover {
+            opacity: 0.9;
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+            transform: scale(1.02);
+        }
+
+        .image-preview {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-color);
+            background: rgba(255,255,255,0.02);
+            padding: 10px;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Auditoría de Superficies</h1>
+        <p>Resultados de la limpieza y auditoría de superficies de asfalto. A todas se les removió la etiqueta de georeferencia espacial para considerarlas "superficies neutras".</p>
+    </div>
+
+    <div class="container">
+        <!-- Tarjeta 1 -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Superficie Principal</h2>
+                <p class="card-subtitle">CAPA ASFALTO.xml</p>
+            </div>
+            
+            <img class="image-preview" src="informe_superficie.svg" alt="Vista previa de CAPA ASFALTO">
+            
+            <div class="data-grid">
+                <div class="data-item">
+                    <div class="data-label">Nombre Interno</div>
+                    <div class="data-value" style="font-size:0.95rem;">S001_CAPA2_H4F013</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-label">Área 2D</div>
+                    <div class="data-value">31,020.53 ft²</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-label">Vértices</div>
+                    <div class="data-value">3,650</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-label">Triángulos</div>
+                    <div class="data-value">4,863</div>
+                </div>
+            </div>
+            <a href="informe_superficie.svg" target="_blank" class="btn-view">Ver Informe Gráfico Completo</a>
+        </div>
+
+        <!-- Tarjeta 2 -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Superficie Secundaria 01</h2>
+                <p class="card-subtitle">CAPA ASFALTO 01.xml</p>
+            </div>
+            
+            <img class="image-preview" src="informe_superficie_01.svg" alt="Vista previa de CAPA ASFALTO 01">
+
+            <div class="data-grid">
+                <div class="data-item">
+                    <div class="data-label">Nombre Interno</div>
+                    <div class="data-value" style="font-size:0.95rem;">S001_CAPA2_H4427F</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-label">Área 2D</div>
+                    <div class="data-value">6,781.51 ft²</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-label">Vértices</div>
+                    <div class="data-value">715</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-label">Triángulos</div>
+                    <div class="data-value">711</div>
+                </div>
+            </div>
+            <a href="informe_superficie_01.svg" target="_blank" class="btn-view">Ver Informe Gráfico Completo</a>
+        </div>
+
+        <!-- Tarjeta 3 -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Superficie Secundaria 02</h2>
+                <p class="card-subtitle">CAPA ASFALTO 02.xml</p>
+            </div>
+            
+            <img class="image-preview" src="informe_superficie_02.svg" alt="Vista previa de CAPA ASFALTO 02">
+
+            <div class="data-grid">
+                <div class="data-item">
+                    <div class="data-label">Nombre Interno</div>
+                    <div class="data-value" style="font-size:0.95rem;">S001_CAPA2_H4645F</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-label">Área 2D</div>
+                    <div class="data-value">14,290.27 ft²</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-label">Vértices</div>
+                    <div class="data-value">656</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-label">Triángulos</div>
+                    <div class="data-value">652</div>
+                </div>
+            </div>
+            <a href="informe_superficie_02.svg" target="_blank" class="btn-view">Ver Informe Gráfico Completo</a>
+        </div>
+    </div>
+
+</body>
+</html>

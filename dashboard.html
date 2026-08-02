@@ -4,29 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Civil 3D MCP — Laboratorio de Integración y Control</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏗️</text></svg>">
   <script src="dashboard_data.js"></script>
   <style>
     :root {
       --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
-      --bg-panel: rgba(30, 41, 59, 0.45);
-      --bg-panel-hover: rgba(30, 41, 59, 0.65);
-      --border-glow: rgba(99, 102, 241, 0.2);
-      --border-glow-hover: rgba(99, 102, 241, 0.4);
+      --bg-panel: rgba(30, 41, 59, 0.55);
+      --bg-panel-hover: rgba(30, 41, 59, 0.75);
+      --border-glow: rgba(99, 102, 241, 0.25);
+      --border-glow-hover: rgba(99, 102, 241, 0.5);
       --accent: #6366f1;
-      --accent-glow: rgba(99, 102, 241, 0.15);
+      --accent-glow: rgba(99, 102, 241, 0.2);
       --text: #f8fafc;
       --text-muted: #94a3b8;
       
       --crit: #ef4444;
-      --crit-glow: rgba(239, 68, 68, 0.15);
+      --crit-glow: rgba(239, 68, 68, 0.2);
       --major: #f59e0b;
-      --major-glow: rgba(245, 158, 11, 0.15);
+      --major-glow: rgba(245, 158, 11, 0.2);
       --minor: #eab308;
-      --minor-glow: rgba(234, 179, 8, 0.1);
+      --minor-glow: rgba(234, 179, 8, 0.15);
       --ok: #10b981;
-      --ok-glow: rgba(16, 185, 129, 0.15);
+      --ok-glow: rgba(16, 185, 129, 0.2);
       --info: #06b6d4;
-      --info-glow: rgba(6, 182, 212, 0.15);
+      --info-glow: rgba(6, 182, 212, 0.2);
       
       --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       --font-mono: "Fira Code", Consolas, Monaco, monospace;
@@ -44,12 +45,13 @@
       font-family: var(--font-sans);
       min-height: 100vh;
       line-height: 1.5;
-      padding: 40px 24px;
+      padding: 32px 24px;
       overflow-x: hidden;
     }
 
     .container {
-      max-width: 1400px;
+      max-width: 1680px;
+      width: 96%;
       margin: 0 auto;
     }
 
@@ -67,7 +69,7 @@
 
     .glass-card:hover {
       border-color: var(--border-glow-hover);
-      box-shadow: 0 8px 32px 0 rgba(99, 102, 241, 0.15);
+      box-shadow: 0 8px 32px 0 rgba(99, 102, 241, 0.2);
     }
 
     /* HEADER */
@@ -76,6 +78,8 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 32px;
+      flex-wrap: wrap;
+      gap: 16px;
     }
 
     h1 {
@@ -98,41 +102,36 @@
       border: 1px solid var(--ok);
       color: var(--ok);
       padding: 4px 12px;
-      border-radius: 9999px;
+      border-radius: 20px;
       font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
-    
+
     .badge-live::before {
-      content: "";
+      content: '';
       width: 8px;
       height: 8px;
       background: var(--ok);
       border-radius: 50%;
-      display: inline-block;
-      animation: pulse 1.8s infinite;
+      box-shadow: 0 0 8px var(--ok);
+      animation: pulse 2s infinite;
     }
 
     @keyframes pulse {
-      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-      70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
-      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+      100% { opacity: 1; transform: scale(1); }
     }
 
     .meta-time {
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       color: var(--text-muted);
       text-align: right;
     }
 
-    .meta-time span {
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    /* GRID LAYOUTS */
+    /* STATS CARDS GRID */
     .dashboard-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -143,12 +142,12 @@
     .stat-card {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 16px;
     }
 
     .stat-icon {
-      width: 56px;
-      height: 56px;
+      width: 52px;
+      height: 52px;
       border-radius: 12px;
       display: flex;
       align-items: center;
@@ -156,6 +155,7 @@
       background: var(--accent-glow);
       border: 1px solid var(--accent);
       color: var(--accent);
+      flex-shrink: 0;
     }
 
     .stat-icon svg {
@@ -167,15 +167,15 @@
     }
 
     .stat-info .n {
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: 800;
       line-height: 1.1;
     }
 
     .stat-info .l {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: var(--text-muted);
-      font-weight: 500;
+      font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       margin-top: 4px;
@@ -184,50 +184,167 @@
     /* MAIN CONTENT SPLIT */
     .content-layout {
       display: grid;
-      grid-template-columns: 2fr 1fr;
+      grid-template-columns: minmax(0, 2.8fr) minmax(380px, 1fr);
       gap: 24px;
       margin-bottom: 32px;
     }
 
     .panel-section-title {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: 700;
-      margin-bottom: 20px;
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
     .panel-section-title svg {
-      width: 18px;
-      height: 18px;
+      width: 20px;
+      height: 20px;
       stroke-width: 2.2;
+    }
+
+    /* MATRIX TOOLBAR: SEARCH & FILTERS */
+    .matrix-header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-glow);
+    }
+
+    .matrix-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .search-box {
+      position: relative;
+      flex: 1;
+      min-width: 240px;
+    }
+
+    .search-box svg {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px;
+      height: 16px;
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    .search-input {
+      width: 100%;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--border-glow);
+      border-radius: 10px;
+      padding: 9px 12px 9px 36px;
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .filter-pills {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .pill-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-glow);
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pill-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text);
+    }
+
+    .pill-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 2px 10px var(--accent-glow);
+    }
+
+    .pill-count {
+      background: rgba(0, 0, 0, 0.25);
+      padding: 2px 6px;
+      border-radius: 10px;
+      font-size: 0.7rem;
     }
 
     /* MATRIX TABLE */
     .table-container {
       overflow-x: auto;
+      border-radius: 10px;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
     }
 
     thead th {
       text-align: left;
-      padding: 12px 16px;
+      padding: 12px 14px;
       color: var(--text-muted);
-      font-weight: 600;
-      font-size: 0.75rem;
+      font-weight: 700;
+      font-size: 0.73rem;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
       border-bottom: 2px solid var(--border-glow);
+      user-select: none;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    thead th:hover {
+      color: var(--accent);
+    }
+
+    thead th .sort-icon {
+      display: inline-block;
+      margin-left: 4px;
+      font-size: 0.7rem;
+      opacity: 0.5;
+    }
+
+    thead th.sorted .sort-icon {
+      opacity: 1;
+      color: var(--accent);
     }
 
     tbody td {
-      padding: 14px 16px;
+      padding: 12px 14px;
       border-bottom: 1px solid var(--border-glow);
       vertical-align: middle;
     }
@@ -237,13 +354,13 @@
     }
 
     tbody tr:hover {
-      background: rgba(255, 255, 255, 0.02);
+      background: rgba(255, 255, 255, 0.03);
     }
 
     .badge-status {
       display: inline-flex;
       align-items: center;
-      font-size: 0.68rem;
+      font-size: 0.7rem;
       font-weight: 700;
       padding: 3px 8px;
       border-radius: 4px;
@@ -275,6 +392,62 @@
       padding: 2px 6px;
       border-radius: 4px;
       color: #a5b4fc;
+    }
+
+    /* PAGINATION BAR */
+    .pagination-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-glow);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .pagination-info {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .pagination-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-page {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-glow);
+      color: var(--text);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-page:hover:not(:disabled) {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .btn-page:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .page-indicator {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #a5b4fc;
+      padding: 0 6px;
     }
 
     /* SKILLS GRID */
@@ -311,7 +484,7 @@
     }
 
     .skill-name {
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 700;
       margin-bottom: 6px;
     }
@@ -320,82 +493,72 @@
       font-size: 0.82rem;
       color: var(--text-muted);
       margin-bottom: 14px;
-      flex-grow: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
     .skill-link {
-      font-size: 0.78rem;
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
       display: inline-flex;
       align-items: center;
-      gap: 4px;
+      gap: 6px;
+      font-size: 0.78rem;
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s ease;
     }
 
     .skill-link:hover {
-      color: #818cf8;
-      text-decoration: underline;
+      color: #a5b4fc;
     }
 
     /* TIMELINE */
     .timeline {
-      position: relative;
-      padding-left: 20px;
-      margin-top: 10px;
-    }
-
-    .timeline::before {
-      content: "";
-      position: absolute;
-      left: 6px;
-      top: 6px;
-      bottom: 6px;
-      width: 2px;
-      background: var(--border-glow);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
 
     .timeline-item {
       position: relative;
-      padding-bottom: 20px;
-    }
-
-    .timeline-item:last-child {
-      padding-bottom: 0;
+      padding-left: 24px;
+      border-left: 2px solid var(--border-glow);
     }
 
     .timeline-dot {
       position: absolute;
-      left: -20px;
-      top: 5px;
+      left: -6px;
+      top: 4px;
       width: 10px;
       height: 10px;
       border-radius: 50%;
       background: var(--accent);
-      border: 2px solid #0f172a;
-      box-shadow: 0 0 0 2px var(--border-glow);
+      box-shadow: 0 0 8px var(--accent-glow);
     }
-    
+
     .timeline-item.Workspace .timeline-dot {
       background: var(--info);
+      box-shadow: 0 0 8px var(--info-glow);
     }
 
     .timeline-date {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       color: var(--text-muted);
-      font-weight: 500;
+      margin-bottom: 2px;
     }
 
     .timeline-file {
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       font-weight: 600;
-      margin-top: 2px;
+      word-break: break-all;
     }
 
     .timeline-path {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
+      font-size: 0.75rem;
       color: var(--text-muted);
+      font-family: var(--font-mono);
       word-break: break-all;
     }
 
@@ -418,10 +581,10 @@
       background: linear-gradient(135deg, var(--accent) 0%, #4f46e5 100%);
       color: #fff;
       border: none;
-      padding: 14px 24px;
+      padding: 12px 20px;
       border-radius: 10px;
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
@@ -441,10 +604,10 @@
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border-glow);
       color: var(--text);
-      padding: 12px 24px;
+      padding: 10px 20px;
       border-radius: 10px;
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
@@ -498,7 +661,7 @@
       background: rgba(255, 255, 255, 0.02);
       border: 1px solid var(--border-glow);
       border-radius: 12px;
-      padding: 18px;
+      padding: 16px;
     }
 
     .module-head {
@@ -506,24 +669,23 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 12px;
-      border-bottom: 1px solid var(--border-glow);
       padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-glow);
     }
 
     .module-title {
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 0.9rem;
       color: #a5b4fc;
     }
 
     .module-count {
+      font-size: 0.7rem;
       background: var(--accent-glow);
-      border: 1px solid var(--accent);
-      color: var(--text);
-      font-size: 0.72rem;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 999px;
+      color: var(--accent);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
     }
 
     .tool-list-items {
@@ -533,9 +695,12 @@
     }
 
     .tool-item {
+      padding: 6px 8px;
+      background: rgba(0, 0, 0, 0.15);
+      border-radius: 6px;
       font-size: 0.8rem;
     }
-    
+
     .tool-item-name {
       font-family: var(--font-mono);
       font-weight: 600;
@@ -546,6 +711,50 @@
       color: var(--text-muted);
       font-size: 0.74rem;
       margin-top: 2px;
+    }
+
+    /* MEDIA QUERIES FOR RESPONSIVENESS */
+    @media (max-width: 1100px) {
+      .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .content-layout {
+        grid-template-columns: 1fr;
+      }
+      .graphify-panel {
+        grid-template-columns: 1fr;
+      }
+      .modules-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 16px 12px;
+      }
+      h1 {
+        font-size: 1.6rem;
+      }
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+      .modules-grid {
+        grid-template-columns: 1fr;
+      }
+      .skills-list {
+        grid-template-columns: 1fr;
+      }
+      .matrix-controls {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .search-box {
+        width: 100%;
+      }
+      .filter-pills {
+        justify-content: flex-start;
+      }
     }
 
     /* ERROR BOUNDARY DISPLAY */
@@ -581,7 +790,6 @@
       margin-bottom: 24px;
     }
 
-    /* UTILITIES */
     .footer {
       border-top: 1px solid var(--border-glow);
       margin-top: 50px;
@@ -590,6 +798,8 @@
       justify-content: space-between;
       font-size: 0.75rem;
       color: var(--text-muted);
+      flex-wrap: wrap;
+      gap: 10px;
     }
   </style>
 </head>
@@ -650,35 +860,35 @@
       </div>
 
       <div class="glass-card stat-card">
-        <div class="stat-icon">
-          <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" /></svg>
+        <div class="stat-icon" style="background: var(--ok-glow); border-color: var(--ok); color: var(--ok);">
+          <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
+        </div>
+        <div class="stat-info">
+          <div class="n" id="statPassRate">0%</div>
+          <div class="l">Tasa de Éxito QA</div>
+        </div>
+      </div>
+
+      <div class="glass-card stat-card">
+        <div class="stat-icon" style="background: var(--info-glow); border-color: var(--info); color: var(--info);">
+          <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.25 9.75 16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z" /></svg>
         </div>
         <div class="stat-info">
           <div class="n" id="statTools">0</div>
           <div class="l">Herramientas MCP</div>
         </div>
       </div>
-
-      <div class="glass-card stat-card">
-        <div class="stat-icon">
-          <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-1.242-1.008-2.25-2.25-2.25H9m1.5-6h3c.828 0 1.5.672 1.5 1.5V15c0 .828-.672 1.5-1.5 1.5h-3c-.828 0-1.5-.672-1.5-1.5V4.5c0-.828.672-1.5 1.5-1.5Z" /></svg>
-        </div>
-        <div class="stat-info">
-          <div class="n" id="statPassRate">-%</div>
-          <div class="l">Tasa de Aprobación</div>
-        </div>
-      </div>
     </div>
 
-    <!-- GRAPHIFY INTEGRATION PANEL -->
+    <!-- GRAPHIFY KNOWLEDGE GRAPH STATS PANEL -->
     <div class="glass-card graphify-panel">
       <div>
         <h2 class="panel-section-title" style="color: #a5b4fc;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94-3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" /></svg>
-          Mapeo y Base de Conocimiento (Graphify)
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M3.6 9h16.8M3.6 15h16.8" /></svg>
+          Grafo de Conocimiento Arquitectónico (Graphify)
         </h2>
-        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">
-          Esta sección se integra con la skill <code class="code-span">graphify</code>. Escanea el código del servidor MCP y los documentos de tu espacio de trabajo para estructurar un Grafo de Conocimiento interactivo. Permite auditar qué llama a qué y encontrar caminos lógicos entre herramientas.
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px;">
+          Red neuronal de conceptos, herramientas C#, scripts de verificación y reglas del laboratorio indexadas mediante AST.
         </p>
         <div class="graph-stats-layout">
           <div class="graph-sub-stat">
@@ -687,7 +897,7 @@
           </div>
           <div class="graph-sub-stat">
             <div class="v" id="graphEdges">0</div>
-            <div class="k">Conexiones</div>
+            <div class="k">Relaciones</div>
           </div>
           <div class="graph-sub-stat">
             <div class="v" id="graphCommunities">0</div>
@@ -712,36 +922,93 @@
       <!-- LEFT SECTION: TEST MATRIX & SKILLS -->
       <div style="display: flex; flex-direction: column; gap: 24px;">
         
-        <!-- VERIFICATION MATRIX -->
+        <!-- VERIFICATION MATRIX CARD WITH SEARCH, FILTER, SORT & PAGINATION -->
         <div class="glass-card">
-          <h2 class="panel-section-title" style="color: #ef4444;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" /></svg>
-            Matriz de Verificación Funcional (Capa 2)
-          </h2>
+          <div class="matrix-header-bar">
+            <h2 class="panel-section-title" style="color: #ef4444;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" /></svg>
+              Matriz de Verificación Funcional (Capa 2)
+            </h2>
+            <div class="matrix-controls">
+              <div class="search-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
+                <input type="text" id="matrixSearchInput" class="search-input" placeholder="Buscar por herramienta, DWG, notas..." oninput="onSearchChange()">
+              </div>
+              <div class="filter-pills">
+                <button class="pill-btn active" id="pill-ALL" onclick="setFilter('ALL')">
+                  Todos <span class="pill-count" id="count-ALL">0</span>
+                </button>
+                <button class="pill-btn" id="pill-OK" onclick="setFilter('OK')">
+                  OK <span class="pill-count" id="count-OK">0</span>
+                </button>
+                <button class="pill-btn" id="pill-WIP" onclick="setFilter('WIP')">
+                  WIP <span class="pill-count" id="count-WIP">0</span>
+                </button>
+                <button class="pill-btn" id="pill-FALLA" onclick="setFilter('FALLA')">
+                  Falla <span class="pill-count" id="count-FALLA">0</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TABLE CONTAINER -->
           <div class="table-container">
-            <table>
+            <table style="table-layout: fixed; width: 100%;">
+              <colgroup>
+                <col style="width: 18%;">
+                <col style="width: 20%;">
+                <col style="width: 8%;">
+                <col style="width: 18%;">
+                <col style="width: 10%;">
+                <col style="width: 26%;">
+              </colgroup>
               <thead>
                 <tr>
-                  <th>Herramienta</th>
-                  <th>DWG Prueba</th>
-                  <th>Estado</th>
+                  <th onclick="toggleSort('tool')" id="th-tool">
+                    Herramienta <span class="sort-icon" id="sort-tool">⇅</span>
+                  </th>
+                  <th onclick="toggleSort('dwg_prueba')" id="th-dwg_prueba">
+                    DWG Prueba <span class="sort-icon" id="sort-dwg_prueba">⇅</span>
+                  </th>
+                  <th onclick="toggleSort('resultado')" id="th-resultado">
+                    Estado <span class="sort-icon" id="sort-resultado">⇅</span>
+                  </th>
                   <th>Evidencia</th>
-                  <th>Fecha</th>
+                  <th onclick="toggleSort('fecha')" id="th-fecha">
+                    Fecha <span class="sort-icon" id="sort-fecha">⇅</span>
+                  </th>
                   <th>Notas</th>
                 </tr>
               </thead>
               <tbody id="matrixBody">
                 <tr>
-                  <td colspan="6" style="text-align: center; color: var(--text-muted);">Cargando matriz...</td>
+                  <td colspan="6" style="text-align: center; color: var(--text-muted); padding: 24px;">Cargando matriz...</td>
                 </tr>
               </tbody>
             </table>
           </div>
+
+          <!-- PAGINATION CONTROLS -->
+          <div class="pagination-bar">
+            <div class="pagination-info" id="paginationInfo">
+              Mostrando 0 - 0 de 0 entradas
+            </div>
+            <div class="pagination-controls">
+              <button class="btn-page" id="btnPrevPage" onclick="changePage(-1)" disabled>
+                ◀ Anterior
+              </button>
+              <span class="page-indicator" id="pageIndicator">Página 1 de 1</span>
+              <button class="btn-page" id="btnNextPage" onclick="changePage(1)" disabled>
+                Siguiente ▶
+              </button>
+            </div>
+          </div>
+
         </div>
 
         <!-- SKILLS LIBRARY -->
         <div class="glass-card">
-          <h2 class="panel-section-title" style="color: #10b981;">
+          <h2 class="panel-section-title" style="color: #10b981; margin-bottom: 20px;">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" /></svg>
             Biblioteca de Criterios y Habilidades (Capa 1)
           </h2>
@@ -752,17 +1019,28 @@
 
       </div>
 
-      <!-- RIGHT SECTION: TIMELINE -->
+      <!-- RIGHT SECTION: TIMELINE & SESSION AUDIT LOGS -->
       <div style="display: flex; flex-direction: column; gap: 24px;">
         
-        <!-- TIMELINE -->
+        <!-- RECENT ACTIVITY TIMELINE -->
         <div class="glass-card">
-          <h2 class="panel-section-title" style="color: #06b6d4;">
+          <h2 class="panel-section-title" style="color: #06b6d4; margin-bottom: 20px; white-space: nowrap; font-size: 1.1rem;">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
             Historial de Actividad Reciente
           </h2>
           <div class="timeline" id="timelineList">
             <div style="color: var(--text-muted);">Cargando línea de tiempo...</div>
+          </div>
+        </div>
+
+        <!-- SESSION AUDIT LOG CARD -->
+        <div class="glass-card">
+          <h2 class="panel-section-title" style="color: #f59e0b; margin-bottom: 20px; white-space: nowrap; font-size: 1.1rem;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" /></svg>
+            Bitácora de Sesiones IA (Auditoría & Hallazgos)
+          </h2>
+          <div id="sessionLogsList" style="display: flex; flex-direction: column; gap: 16px;">
+            <div style="color: var(--text-muted);">Cargando bitácora de sesiones...</div>
           </div>
         </div>
 
@@ -772,7 +1050,7 @@
 
     <!-- CODE TOOLS OVERVIEW -->
     <div class="glass-card" style="margin-bottom: 32px;">
-      <h2 class="panel-section-title" style="color: #6366f1;">
+      <h2 class="panel-section-title" style="color: #6366f1; margin-bottom: 20px;">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M14.25 9.75 16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z" /></svg>
         Módulos y Herramientas del Servidor Civil 3D MCP
       </h2>
@@ -789,67 +1067,82 @@
 
   </div>
 
-  <!-- JAVASCRIPT DATABINDING -->
+  <!-- JAVASCRIPT DATABINDING, FILTERING, SORTING & PAGINATION -->
   <script>
+    // State management for Matrix
+    let rawMatrix = [];
+    let currentFilter = 'ALL';
+    let currentSearch = '';
+    let sortField = 'fecha';
+    let sortAsc = false;
+    let currentPage = 1;
+    const PAGE_SIZE = 12; // 12 informes por página para vista amplia
+
     async function loadData() {
       try {
         let data = window.DASHBOARD_DATA;
         if (!data) {
-          const response = await fetch('dashboard_data.json');
-          if (!response.ok) throw new Error("JSON file not found");
-          data = await response.json();
+          try {
+            const response = await fetch('dashboard_data.json');
+            if (response.ok) {
+              data = await response.json();
+            }
+          } catch (e) {
+            console.warn("Fetch failed (expected on file:// scheme), waiting for DASHBOARD_DATA script", e);
+          }
+        }
+        
+        if (!data) {
+          document.getElementById('errorOverlay').style.display = 'flex';
+          return;
         }
         
         // Error check success, hide boundary overlay
         document.getElementById('errorOverlay').style.display = 'none';
         
         // Meta
-        document.getElementById('lastUpdate').innerText = data.last_update;
+        if (document.getElementById('lastUpdate')) {
+          document.getElementById('lastUpdate').innerText = data.last_update || 'Reciente';
+        }
         
         // Stats
-        document.getElementById('statSkills').innerText = data.stats.total_skills;
-        document.getElementById('statTests').innerText = data.stats.total_tests;
-        document.getElementById('statTools').innerText = data.stats.total_server_tools;
+        const stats = data.stats || {};
+        if (document.getElementById('statSkills')) document.getElementById('statSkills').innerText = stats.total_skills || 0;
+        if (document.getElementById('statTests')) document.getElementById('statTests').innerText = stats.total_tests || 0;
+        if (document.getElementById('statTools')) document.getElementById('statTools').innerText = stats.total_server_tools || 0;
         
-        const passRate = data.stats.total_tests > 0 
-          ? Math.round((data.stats.tests_ok / data.stats.total_tests) * 100) 
+        const totalTests = stats.total_tests || 0;
+        const passRate = totalTests > 0 
+          ? Math.round(((stats.tests_ok || 0) / totalTests) * 100) 
           : 0;
-        document.getElementById('statPassRate').innerText = passRate + '%';
+        if (document.getElementById('statPassRate')) document.getElementById('statPassRate').innerText = passRate + '%';
         
         // Graphify Stats
-        document.getElementById('graphNodes').innerText = data.graph_stats.nodes;
-        document.getElementById('graphEdges').innerText = data.graph_stats.edges;
-        document.getElementById('graphCommunities').innerText = data.graph_stats.communities;
+        const gStats = data.graph_stats || {};
+        if (document.getElementById('graphNodes')) document.getElementById('graphNodes').innerText = gStats.nodes || 0;
+        if (document.getElementById('graphEdges')) document.getElementById('graphEdges').innerText = gStats.edges || 0;
+        if (document.getElementById('graphCommunities')) document.getElementById('graphCommunities').innerText = gStats.communities || 0;
         
-        if (!data.graph_stats.active) {
-          document.getElementById('btnGraphView').style.opacity = '0.5';
-          document.getElementById('btnGraphView').style.pointerEvents = 'none';
-          document.getElementById('btnGraphView').innerText = 'Grafo no generado aún';
-          document.getElementById('btnTreeView').style.opacity = '0.5';
-          document.getElementById('btnTreeView').style.pointerEvents = 'none';
+        if (!gStats.active) {
+          const btnG = document.getElementById('btnGraphView');
+          const btnT = document.getElementById('btnTreeView');
+          if (btnG) {
+            btnG.style.opacity = '0.5';
+            btnG.style.pointerEvents = 'none';
+            btnG.innerText = 'Grafo no generado aún';
+          }
+          if (btnT) {
+            btnT.style.opacity = '0.5';
+            btnT.style.pointerEvents = 'none';
+          }
         }
         
-        // Verification Matrix
-        const matrixBody = document.getElementById('matrixBody');
-        matrixBody.innerHTML = '';
-        if (data.matrix.length === 0) {
-          matrixBody.innerHTML = `<tr><td colspan="6" style="text-align: center; color: var(--text-muted);">No hay pruebas registradas en verificacion/matriz.csv</td></tr>`;
-        } else {
-          data.matrix.forEach(row => {
-            const tr = document.createElement('tr');
-            tr.innerHTML = `
-              <td><span class="code-span">${row.tool}</span></td>
-              <td><span style="font-size: 0.8rem; color: var(--text-muted);">${row.dwg_prueba}</span></td>
-              <td><span class="badge-status ${row.resultado}">${row.resultado}</span></td>
-              <td><span style="font-size: 0.8rem; font-family: var(--font-mono);">${row.evidencia}</span></td>
-              <td><span style="font-size: 0.8rem;">${row.fecha}</span></td>
-              <td style="color: var(--text-muted); max-width: 250px; font-size: 0.82rem;">${row.notas}</td>
-            `;
-            matrixBody.appendChild(tr);
-          });
-        }
+        // Store raw matrix and render
+        rawMatrix = data.matrix || [];
+        updateFilterPillCounts();
+        renderMatrix();
         
-        // Skills Library
+        // Skills Library with Usage Telemetry
         const skillsList = document.getElementById('skillsList');
         skillsList.innerHTML = '';
         if (data.skills.length === 0) {
@@ -858,16 +1151,38 @@
           data.skills.forEach(skill => {
             const div = document.createElement('div');
             div.className = 'skill-card';
+            
+            let badgeStyle = 'background: rgba(255, 255, 255, 0.05); border: 1px solid #64748b; color: #94a3b8;';
+            let icon = '🧪';
+            if (skill.rel_code === 'HIGH') {
+              badgeStyle = 'background: rgba(16, 185, 129, 0.18); border: 1px solid #10b981; color: #34d399;';
+              icon = '🔥';
+            } else if (skill.rel_code === 'MEDIUM') {
+              badgeStyle = 'background: rgba(6, 182, 212, 0.18); border: 1px solid #06b6d4; color: #38bdf8;';
+              icon = '⚡';
+            } else if (skill.rel_code === 'LOW') {
+              badgeStyle = 'background: rgba(245, 158, 11, 0.18); border: 1px solid #f59e0b; color: #fbbf24;';
+              icon = '🔹';
+            }
+
             div.innerHTML = `
               <div>
-                <div class="skill-cat">${skill.category}</div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <span class="skill-cat">${skill.category}</span>
+                  <span style="font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 12px; ${badgeStyle}">
+                    ${icon} ${skill.uses} usos · ${skill.reliability}
+                  </span>
+                </div>
                 <div class="skill-name">${skill.name}</div>
                 <div class="skill-desc">${skill.description}</div>
               </div>
-              <a class="skill-link" target="_blank" href="${skill.file_path}">
-                Abrir Archivo (.md)
-                <svg style="width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2;" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
-              </a>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.06);">
+                <a class="skill-link" target="_blank" href="${skill.file_path}">
+                  Abrir Skill (.md)
+                  <svg style="width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2;" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
+                </a>
+                <span style="font-size: 0.68rem; color: var(--text-muted);">Uso: ${skill.last_used}</span>
+              </div>
             `;
             skillsList.appendChild(div);
           });
@@ -875,21 +1190,59 @@
         
         // Recent Activity Timeline
         const timelineList = document.getElementById('timelineList');
-        timelineList.innerHTML = '';
-        if (data.timeline.length === 0) {
-          timelineList.innerHTML = `<div style="color: var(--text-muted);">Sin actividad de archivos detectada</div>`;
-        } else {
-          data.timeline.forEach(item => {
-            const div = document.createElement('div');
-            div.className = `timeline-item ${item.source}`;
-            div.innerHTML = `
-              <div class="timeline-dot"></div>
-              <div class="timeline-date">${item.date} · <span style="color: ${item.source === 'Workspace' ? 'var(--info)' : 'var(--accent)'}; font-weight: 700;">${item.source}</span></div>
-              <div class="timeline-file">${item.file}</div>
-              <div class="timeline-path">${item.path}</div>
-            `;
-            timelineList.appendChild(div);
-          });
+        if (timelineList) {
+          timelineList.innerHTML = '';
+          if ((data.timeline || []).length === 0) {
+            timelineList.innerHTML = `<div style="color: var(--text-muted);">Sin actividad de archivos detectada</div>`;
+          } else {
+            data.timeline.forEach(item => {
+              const div = document.createElement('div');
+              div.className = `timeline-item ${item.source}`;
+              div.innerHTML = `
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">${item.date} · <span style="color: ${item.source === 'Workspace' ? 'var(--info)' : 'var(--accent)'}; font-weight: 700;">${item.source}</span></div>
+                <div class="timeline-file">${item.file}</div>
+                <div class="timeline-path">${item.path}</div>
+              `;
+              timelineList.appendChild(div);
+            });
+          }
+        }
+        
+        // Session Audit Logs
+        const sessionLogsList = document.getElementById('sessionLogsList');
+        if (sessionLogsList) {
+          sessionLogsList.innerHTML = '';
+          const logs = data.session_logs || [];
+          if (logs.length === 0) {
+            sessionLogsList.innerHTML = `<div style="color: var(--text-muted);">Sin bitácoras de sesión registradas</div>`;
+          } else {
+            logs.forEach(log => {
+              const card = document.createElement('div');
+              card.style.cssText = 'background: rgba(15, 23, 42, 0.4); border: 1px solid var(--border-glow); border-radius: 10px; padding: 14px;';
+              
+              card.innerHTML = `
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 6px;">
+                  <span style="font-size: 0.72rem; color: #a5b4fc; font-family: var(--font-mono); font-weight: 700;">${log.timestamp}</span>
+                  <span class="badge-status ${log.status}">${log.status}</span>
+                </div>
+                <div style="font-weight: 700; font-size: 0.88rem; color: #f8fafc; margin-bottom: 8px;">📌 Tarea: ${log.task}</div>
+                
+                <div style="font-size: 0.8rem; margin-bottom: 6px;">
+                  <strong style="color: #34d399;">🛠️ Correcciones:</strong> <span style="color: #cbd5e1;">${log.corrections}</span>
+                </div>
+                
+                <div style="font-size: 0.8rem; margin-bottom: 6px;">
+                  <strong style="color: #fbbf24;">⚠️ Advertencias:</strong> <span style="color: #cbd5e1;">${log.warnings}</span>
+                </div>
+                
+                <div style="font-size: 0.8rem;">
+                  <strong style="color: #f87171;">🚧 Limitaciones:</strong> <span style="color: #cbd5e1;">${log.limitations}</span>
+                </div>
+              `;
+              sessionLogsList.appendChild(card);
+            });
+          }
         }
         
         // Modules & Server Tools Overview
@@ -931,9 +1284,138 @@
         
       } catch (err) {
         console.error(err);
-        // Show error overlay since fetch failed
         document.getElementById('errorOverlay').style.display = 'flex';
       }
+    }
+
+    // Filter pill count calculator
+    function updateFilterPillCounts() {
+      const counts = { ALL: rawMatrix.length, OK: 0, WIP: 0, FALLA: 0 };
+      rawMatrix.forEach(r => {
+        if (counts[r.resultado] !== undefined) counts[r.resultado]++;
+      });
+      document.getElementById('count-ALL').innerText = counts.ALL;
+      document.getElementById('count-OK').innerText = counts.OK;
+      document.getElementById('count-WIP').innerText = counts.WIP;
+      document.getElementById('count-FALLA').innerText = counts.FALLA;
+    }
+
+    // Filter selector
+    function setFilter(filterType) {
+      currentFilter = filterType;
+      currentPage = 1;
+      ['ALL', 'OK', 'WIP', 'FALLA'].forEach(f => {
+        const btn = document.getElementById(`pill-${f}`);
+        if (f === filterType) btn.classList.add('active');
+        else btn.classList.remove('active');
+      });
+      renderMatrix();
+    }
+
+    // Live search handler
+    function onSearchChange() {
+      currentSearch = document.getElementById('matrixSearchInput').value.toLowerCase().trim();
+      currentPage = 1;
+      renderMatrix();
+    }
+
+    // Column sorting toggle
+    function toggleSort(field) {
+      if (sortField === field) {
+        sortAsc = !sortAsc;
+      } else {
+        sortField = field;
+        sortAsc = true;
+      }
+      renderMatrix();
+    }
+
+    // Pagination controls
+    function changePage(delta) {
+      currentPage += delta;
+      renderMatrix();
+    }
+
+    // Main render function for Verification Matrix
+    function renderMatrix() {
+      const matrixBody = document.getElementById('matrixBody');
+      matrixBody.innerHTML = '';
+
+      // 1. Filter
+      let filtered = rawMatrix.filter(row => {
+        if (currentFilter !== 'ALL' && row.resultado !== currentFilter) return false;
+        if (currentSearch !== '') {
+          const matchTool = (row.tool || '').toLowerCase().includes(currentSearch);
+          const matchDwg = (row.dwg_prueba || '').toLowerCase().includes(currentSearch);
+          const matchNotas = (row.notas || '').toLowerCase().includes(currentSearch);
+          const matchEvi = (row.evidencia || '').toLowerCase().includes(currentSearch);
+          if (!matchTool && !matchDwg && !matchNotas && !matchEvi) return false;
+        }
+        return true;
+      });
+
+      // 2. Sort
+      filtered.sort((a, b) => {
+        let valA = (a[sortField] || '').toString().toLowerCase();
+        let valB = (b[sortField] || '').toString().toLowerCase();
+        if (valA < valB) return sortAsc ? -1 : 1;
+        if (valA > valB) return sortAsc ? 1 : -1;
+        return 0;
+      });
+
+      // Update Sort Header Icons
+      ['tool', 'dwg_prueba', 'resultado', 'fecha'].forEach(col => {
+        const th = document.getElementById(`th-${col}`);
+        const icon = document.getElementById(`sort-${col}`);
+        if (col === sortField) {
+          th.classList.add('sorted');
+          icon.innerText = sortAsc ? '▲' : '▼';
+        } else {
+          th.classList.remove('sorted');
+          icon.innerText = '⇅';
+        }
+      });
+
+      // 3. Paginate (PAGE_SIZE = 6)
+      const totalItems = filtered.length;
+      const totalPages = Math.ceil(totalItems / PAGE_SIZE) || 1;
+      if (currentPage > totalPages) currentPage = totalPages;
+      if (currentPage < 1) currentPage = 1;
+
+      const startIndex = (currentPage - 1) * PAGE_SIZE;
+      const endIndex = Math.min(startIndex + PAGE_SIZE, totalItems);
+      const pageItems = filtered.slice(startIndex, endIndex);
+
+      // Render Rows
+      if (totalItems === 0) {
+        matrixBody.innerHTML = `<tr><td colspan="6" style="text-align: center; color: var(--text-muted); padding: 32px;">No se encontraron informes o pruebas con los filtros aplicados.</td></tr>`;
+      } else {
+        pageItems.forEach(row => {
+          const tr = document.createElement('tr');
+          
+          let evidenciaHtml = `<span style="font-size: 0.8rem; font-family: var(--font-mono);">${row.evidencia}</span>`;
+          if (row.evidencia && (row.evidencia.endsWith('.html') || row.evidencia.endsWith('.md'))) {
+            evidenciaHtml = `<a class="skill-link" target="_blank" href="${row.evidencia}">${row.evidencia}</a>`;
+          }
+
+          tr.innerHTML = `
+            <td style="word-break: break-word;"><span class="code-span" style="word-break: break-all;">${row.tool}</span></td>
+            <td style="word-break: break-word; font-size: 0.82rem; color: var(--text-muted);">${row.dwg_prueba}</td>
+            <td style="text-align: center;"><span class="badge-status ${row.resultado}">${row.resultado}</span></td>
+            <td style="word-break: break-all;">${evidenciaHtml}</td>
+            <td style="white-space: nowrap; font-size: 0.82rem; font-family: var(--font-mono); color: #a5b4fc;">${row.fecha}</td>
+            <td style="color: #cbd5e1; font-size: 0.84rem; line-height: 1.45; word-break: break-word;">${row.notas}</td>
+          `;
+          matrixBody.appendChild(tr);
+        });
+      }
+
+      // Update Pagination UI
+      const displayStart = totalItems === 0 ? 0 : startIndex + 1;
+      document.getElementById('paginationInfo').innerText = `Mostrando ${displayStart} - ${endIndex} de ${totalItems} entradas`;
+      document.getElementById('pageIndicator').innerText = `Página ${currentPage} de ${totalPages}`;
+      document.getElementById('btnPrevPage').disabled = (currentPage <= 1);
+      document.getElementById('btnNextPage').disabled = (currentPage >= totalPages);
     }
     
     // Load dynamic data on window load

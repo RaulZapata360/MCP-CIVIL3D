@@ -22,11 +22,24 @@ def clean_path(path, base_path):
     rel = os.path.relpath(path, base_path)
     return rel.replace("\\", "/")
 
+def load_usage_telemetry():
+    usage_file = os.path.join(WORKSPACE_PATH, "verificacion", "skill_usage.json")
+    if os.path.exists(usage_file):
+        try:
+            with open(usage_file, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception as e:
+            print(f"Error cargando skill_usage.json: {e}")
+    return {"skills": {}, "mcp_tools": {}}
+
 def get_skills():
     skills = []
     skills_dir = os.path.join(WORKSPACE_PATH, "skills")
     if not os.path.exists(skills_dir):
         return skills
+        
+    telemetry = load_usage_telemetry()
+    skills_data = telemetry.get("skills", {})
     
     for root, dirs, files in os.walk(skills_dir):
         for file in files:
@@ -63,12 +76,40 @@ def get_skills():
                 except Exception as e:
                     print(f"Error leyendo skill {file}: {e}")
                 
+                # Extraer telemetría para esta skill (por nombre o identificador)
+                key = title.lower().replace(" ", "_")
+                t_info = skills_data.get(key, skills_data.get(title, {}))
+                uses = t_info.get("uses", 0)
+                success = t_info.get("success", uses)
+                last_used = t_info.get("last_used", "Sin registrar")
+                
+                if uses >= 15:
+                    reliability = "Alta (Probada)"
+                    rel_code = "HIGH"
+                elif uses >= 5:
+                    reliability = "Media (Frecuente)"
+                    rel_code = "MEDIUM"
+                elif uses > 0:
+                    reliability = "Inicial (Por validar)"
+                    rel_code = "LOW"
+                else:
+                    reliability = "Sin uso"
+                    rel_code = "NONE"
+                
                 skills.append({
                     "name": title,
                     "description": desc,
                     "category": category.capitalize(),
-                    "file_path": relative_path
+                    "file_path": relative_path,
+                    "uses": uses,
+                    "success": success,
+                    "last_used": last_used,
+                    "reliability": reliability,
+                    "rel_code": rel_code
                 })
+                
+    # Ordenar por usos descendente
+    skills.sort(key=lambda s: s["uses"], reverse=True)
     return skills
 
 def get_verification_matrix():
@@ -271,6 +312,16 @@ def get_timeline():
     timeline.sort(key=lambda x: x["mtime"], reverse=True)
     return timeline[:12]
 
+def get_session_logs():
+    session_file = os.path.join(WORKSPACE_PATH, "verificacion", "session_logs.json")
+    if os.path.exists(session_file):
+        try:
+            with open(session_file, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception as e:
+            print(f"Error cargando session_logs.json: {e}")
+    return []
+
 def main():
     print("Iniciando escaneo del espacio de trabajo...")
     skills = get_skills()
@@ -278,6 +329,7 @@ def main():
     server_tools = get_server_tools()
     graph_stats = get_graphify_stats()
     timeline = get_timeline()
+    session_logs = get_session_logs()
     
     # Compilar estadísticas de servidor
     total_server_tools = sum(m["count"] for m in server_tools)
@@ -291,13 +343,15 @@ def main():
             "tests_falla": matrix_stats.get("FALLA", 0),
             "tests_wip": matrix_stats.get("WIP", 0),
             "total_server_tools": total_server_tools,
-            "total_server_modules": len(server_tools)
+            "total_server_modules": len(server_tools),
+            "total_sessions": len(session_logs)
         },
         "skills": skills,
         "matrix": matrix,
         "server_tools": server_tools,
         "graph_stats": graph_stats,
-        "timeline": timeline
+        "timeline": timeline,
+        "session_logs": session_logs
     }
     
     output_file = os.path.join(WORKSPACE_PATH, "dashboard_data.json")

@@ -321,26 +321,56 @@ public static class ProfileEditCommands
       var bandSetId = LookupUtils.GetProfileViewBandSetId(
         civilDoc, transaction, PluginRuntime.GetOptionalString(parameters, "bandSet"));
 
-      // ProfileView.Create(profileViewName, alignmentId, styleId, insertionPoint)
-      // or ProfileView.Create(profileViewName, alignmentId, insertionPoint, styleId, bandSetId)
-      var profileViewType = typeof(ProfileView);
-      var pvId = (ObjectId?)(
-        CivilObjectUtils.InvokeStaticMethod(profileViewType, "Create",
-          profileViewName, alignment.ObjectId, insertionPoint, styleId, bandSetId)
-        ?? CivilObjectUtils.InvokeStaticMethod(profileViewType, "Create",
-          profileViewName, alignment.ObjectId, styleId, insertionPoint)
-        ?? CivilObjectUtils.InvokeStaticMethod(profileViewType, "Create",
-          profileViewName, alignment.ObjectId, insertionPoint));
+      // ProfileView.Create in Civil 3D .NET API: (string name, ObjectId alignmentId, Point3d pt, ObjectId styleId, ObjectId bandSetId)
+      // or (ObjectId alignmentId, Point3d pt, string name, ObjectId bandSetId, ObjectId styleId)
+      // or via reflection
+      ObjectId pvId = ObjectId.Null;
+      var methods = typeof(ProfileView).GetMethods(BindingFlags.Public | BindingFlags.Static).Where(m => m.Name == "Create");
+      foreach (var m in methods)
+      {
+        try
+        {
+          var pars = m.GetParameters();
+          object[] args = new object[pars.Length];
+          bool valid = true;
+          for (int i = 0; i < pars.Length; i++)
+          {
+            var pName = pars[i].Name?.ToLowerInvariant() ?? "";
+            var pType = pars[i].ParameterType;
 
-      if (pvId == null || pvId.Value.IsNull)
+            if (pType == typeof(Autodesk.Civil.ApplicationServices.CivilDocument)) args[i] = civilDoc;
+            else if (pType == typeof(string)) args[i] = profileViewName;
+            else if (pType == typeof(Point3d)) args[i] = insertionPoint;
+            else if (pType == typeof(ObjectId))
+            {
+              if (pName.Contains("align")) args[i] = alignment.ObjectId;
+              else if (pName.Contains("band")) args[i] = bandSetId;
+              else args[i] = styleId;
+            }
+            else
+            {
+              valid = false;
+              break;
+            }
+          }
+          if (valid)
+          {
+            var res = m.Invoke(null, args);
+            if (res is ObjectId id && !id.IsNull) { pvId = id; break; }
+          }
+        }
+        catch { }
+      }
+
+      if (pvId == ObjectId.Null || pvId.IsNull)
       {
         throw new JsonRpcDispatchException(
           "CIVIL3D.TRANSACTION_FAILED",
-          "ProfileView.Create returned null — this Civil 3D version may require a different API signature.");
+          "ProfileView.Create returned null — failed to create ProfileView in Civil 3D.");
       }
 
       var profileView = CivilObjectUtils.GetRequiredObject<ProfileView>(
-        transaction, pvId.Value, OpenMode.ForRead);
+        transaction, pvId, OpenMode.ForRead);
 
       return new Dictionary<string, object?>
       {

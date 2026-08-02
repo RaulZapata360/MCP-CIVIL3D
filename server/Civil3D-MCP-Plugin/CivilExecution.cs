@@ -28,6 +28,7 @@ public static class CivilExecution
         if (write)
         {
           transaction.Commit();
+          try { doc.Editor.Regen(); } catch { }
         }
       }
       catch (Exception ex)
