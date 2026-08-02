@@ -11,7 +11,11 @@
       ]
     },
     "revitcortex": {
-      "command": "C:\\Users\\raulz\\.revitcortex\\server\\RevitCortex.Server.exe"
+      "command": "cmd.exe",
+      "args": [
+        "/c",
+        "server\\scripts\\run_revitcortex.bat"
+      ]
     }
   }
 }

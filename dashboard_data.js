@@ -1,7 +1,7 @@
 window.DASHBOARD_DATA = {
-  "last_update": "2026-08-01 13:32:57",
+  "last_update": "2026-08-02 11:41:35",
   "stats": {
-    "total_skills": 7,
+    "total_skills": 8,
     "total_tests": 5,
     "tests_ok": 3,
     "tests_falla": 1,
@@ -39,6 +39,12 @@ window.DASHBOARD_DATA = {
       "description": "Drapea polilíneas 2D sobre mallas TIN LandXML interpolando cotas Z para exportar polilíneas 3D en DXF aptas como Breaklines o Boundaries en Civil 3D.",
       "category": "Superficies",
       "file_path": "skills/superficies/drapeado-contorno-3d.skill.md"
+    },
+    {
+      "name": "importar_toposolid_revit",
+      "description": "Importa superficies TIN de Civil 3D a Revit 2026 como Toposolid vía Dynamo: resuelve errores de Slab Shape Edit failed, elimina desplomes/estalactitas, arregla cortes de huecos de edificación a cota real y optimiza la densidad para ejecuciones en 10-15 segundos. Incluye georreferenciación exacta y configuración de resolución de curvas de nivel.",
+      "category": "Superficies",
+      "file_path": "skills/superficies/importar-toposolid-revit.skill.md"
     },
     {
       "name": "recorte_superficie_con_perimetro",
@@ -1189,100 +1195,100 @@ window.DASHBOARD_DATA = {
   },
   "timeline": [
     {
-      "file": "package.json",
-      "path": "package.json",
+      "file": "importar-toposolid-revit.skill.md",
+      "path": "skills/superficies/importar-toposolid-revit.skill.md",
       "source": "Workspace",
-      "mtime": 1785605112.2566922,
-      "date": "2026-08-01 13:25",
-      "date_raw": "2026-08-01T13:25:12.256692"
+      "mtime": 1785651523.5641968,
+      "date": "2026-08-02 02:18",
+      "date_raw": "2026-08-02T02:18:43.564197"
     },
     {
-      "file": "dashboard_data.js",
-      "path": "dashboard_data.js",
+      "file": "informe-importacion-toposolid.html",
+      "path": "verificacion/01-08-2026/informe-importacion-toposolid.html",
       "source": "Workspace",
-      "mtime": 1785604608.7540739,
-      "date": "2026-08-01 13:16",
-      "date_raw": "2026-08-01T13:16:48.754074"
+      "mtime": 1785650995.3595448,
+      "date": "2026-08-02 02:09",
+      "date_raw": "2026-08-02T02:09:55.359545"
     },
     {
-      "file": "dashboard_data.json",
-      "path": "dashboard_data.json",
+      "file": "HANDOFF-continuar-importacion-revit.md",
+      "path": "verificacion/01-08-2026/HANDOFF-continuar-importacion-revit.md",
       "source": "Workspace",
-      "mtime": 1785604608.7540739,
-      "date": "2026-08-01 13:16",
-      "date_raw": "2026-08-01T13:16:48.754074"
+      "mtime": 1785645751.2021158,
+      "date": "2026-08-02 00:42",
+      "date_raw": "2026-08-02T00:42:31.202116"
     },
     {
-      "file": "test_router.py",
-      "path": "skills/tests/test_router.py",
+      "file": "Dynamo_CreateToposolids_ConHuecos.py",
+      "path": "skills/superficies/scripts/Dynamo_CreateToposolids_ConHuecos.py",
       "source": "Workspace",
-      "mtime": 1785604602.4043071,
-      "date": "2026-08-01 13:16",
-      "date_raw": "2026-08-01T13:16:42.404307"
+      "mtime": 1785643257.3793316,
+      "date": "2026-08-02 00:00",
+      "date_raw": "2026-08-02T00:00:57.379332"
     },
     {
-      "file": "test_recorte.py",
-      "path": "skills/superficies/scripts/test_recorte.py",
+      "file": "router.py",
+      "path": "skills/router.py",
       "source": "Workspace",
-      "mtime": 1785604602.4033105,
-      "date": "2026-08-01 13:16",
-      "date_raw": "2026-08-01T13:16:42.403311"
+      "mtime": 1785642982.2667298,
+      "date": "2026-08-01 23:56",
+      "date_raw": "2026-08-01T23:56:22.266730"
     },
     {
-      "file": "test_auditoria.py",
-      "path": "skills/superficies/scripts/test_auditoria.py",
+      "file": "generar_dyn_toposolid.py",
+      "path": "skills/superficies/scripts/generar_dyn_toposolid.py",
       "source": "Workspace",
-      "mtime": 1785604602.4023118,
-      "date": "2026-08-01 13:16",
-      "date_raw": "2026-08-01T13:16:42.402312"
+      "mtime": 1785635026.8864288,
+      "date": "2026-08-01 21:43",
+      "date_raw": "2026-08-01T21:43:46.886429"
     },
     {
-      "file": "test_drapeado.py",
-      "path": "skills/superficies/scripts/test_drapeado.py",
+      "file": "corregir_paquete_revit.py",
+      "path": "skills/superficies/scripts/corregir_paquete_revit.py",
       "source": "Workspace",
-      "mtime": 1785604602.4023118,
-      "date": "2026-08-01 13:16",
-      "date_raw": "2026-08-01T13:16:42.402312"
+      "mtime": 1785634787.6305668,
+      "date": "2026-08-01 21:39",
+      "date_raw": "2026-08-01T21:39:47.630567"
     },
     {
-      "file": "drapear_contorno.py",
-      "path": "skills/superficies/scripts/drapear_contorno.py",
+      "file": "verificar_paquete.py",
+      "path": "verificacion/01-08-2026/12_Entrega_DWG_Optimizado/REVIT-Dynamo/verificar_paquete.py",
       "source": "Workspace",
-      "mtime": 1785604602.4013114,
-      "date": "2026-08-01 13:16",
-      "date_raw": "2026-08-01T13:16:42.401311"
+      "mtime": 1785607508.1156356,
+      "date": "2026-08-01 14:05",
+      "date_raw": "2026-08-01T14:05:08.115636"
     },
     {
-      "file": "recortar_superficie.py",
-      "path": "skills/superficies/scripts/recortar_superficie.py",
+      "file": "index.js",
+      "path": "server/build/index.js",
       "source": "Workspace",
-      "mtime": 1785604602.4013114,
-      "date": "2026-08-01 13:16",
-      "date_raw": "2026-08-01T13:16:42.401311"
+      "mtime": 1785606793.2041764,
+      "date": "2026-08-01 13:53",
+      "date_raw": "2026-08-01T13:53:13.204176"
     },
     {
-      "file": "auditar_superficie.py",
-      "path": "skills/superficies/scripts/auditar_superficie.py",
-      "source": "Workspace",
-      "mtime": 1785604602.4003112,
-      "date": "2026-08-01 13:16",
-      "date_raw": "2026-08-01T13:16:42.400311"
+      "file": "index.js",
+      "path": "civil3d-mcp/build/index.js",
+      "source": "Server Codebase",
+      "mtime": 1785606793.2041764,
+      "date": "2026-08-01 13:53",
+      "date_raw": "2026-08-01T13:53:13.204176"
     },
     {
-      "file": "drapeado-contorno-3d.skill.md",
-      "path": "skills/superficies/drapeado-contorno-3d.skill.md",
+      "file": "register.js",
+      "path": "server/build/tools/register.js",
       "source": "Workspace",
-      "mtime": 1785604602.3993099,
-      "date": "2026-08-01 13:16",
-      "date_raw": "2026-08-01T13:16:42.399310"
+      "mtime": 1785606793.2031715,
+      "date": "2026-08-01 13:53",
+      "date_raw": "2026-08-01T13:53:13.203171"
     },
     {
-      "file": "recorte-superficie.skill.md",
-      "path": "skills/superficies/recorte-superficie.skill.md",
-      "source": "Workspace",
-      "mtime": 1785604602.3993099,
-      "date": "2026-08-01 13:16",
-      "date_raw": "2026-08-01T13:16:42.399310"
+      "file": "register.js",
+      "path": "civil3d-mcp/build/tools/register.js",
+      "source": "Server Codebase",
+      "mtime": 1785606793.2031715,
+      "date": "2026-08-01 13:53",
+      "date_raw": "2026-08-01T13:53:13.203171"
     }
   ]
 };
