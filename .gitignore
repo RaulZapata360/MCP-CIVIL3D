@@ -13,3 +13,14 @@ obj/
 *.suo
 informes/
 verificacion/
+
+# Cache generada por graphify: contiene rutas absolutas de la maquina que la genero,
+# por lo que no debe viajar entre PCs. Se regenera con el workflow .agents/workflows/graphify.md
+graphify-out/
+
+# Respaldos del bundle de Civil 3D creados por server/scripts/deploy-plugin.ps1
+*.bundle.bak/
+
+# NOTA: server/C_References/ SI se versiona a proposito. Son las 5 DLLs de Civil 3D
+# que necesita el .csproj (HintPath = ..\C_References) para compilar el plugin.
+# Mantenerlas dentro del repo es lo que permite clonar y compilar en cualquier PC.

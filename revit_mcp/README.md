@@ -61,12 +61,17 @@ Este módulo proporciona la estructura, guía de instalación y scripts de audit
 
 ## 📌 Configuración en `.mcp.json` (Ejemplo)
 
+> [!IMPORTANT]
+> Usa **siempre rutas relativas a la raíz del repositorio**. Claude Code resuelve las rutas
+> del `.mcp.json` desde la carpeta del proyecto, así que evitamos rutas absolutas para que
+> el repo funcione igual al clonarlo en otro PC.
+
 ```json
 {
   "mcpServers": {
     "revit-mcp": {
       "command": "node",
-      "args": ["C:/Users/raulz/OneDrive/Escritorio/Trabajo/IA/OTROS/MCP/Autocad/revit_mcp/server/dist/index.js"],
+      "args": ["./revit_mcp/server/dist/index.js"],
       "env": {
         "REVIT_VERSION": "2026"
       }
