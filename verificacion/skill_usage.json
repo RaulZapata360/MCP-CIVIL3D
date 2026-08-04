@@ -1,0 +1,45 @@
+{
+  "skills": {
+    "generacion_planos_svg": {
+      "uses": 24,
+      "success": 24,
+      "last_used": "2026-08-02 18:40:00"
+    },
+    "auditoria_superficies_landxml": {
+      "uses": 18,
+      "success": 18,
+      "last_used": "2026-08-02 18:45:00"
+    },
+    "plano_svg_verificacion": {
+      "uses": 15,
+      "success": 15,
+      "last_used": "2026-08-02 17:30:00"
+    },
+    "importar_toposolid_revit": {
+      "uses": 12,
+      "success": 12,
+      "last_used": "2026-08-01 16:30:00"
+    },
+    "revision_curvas_verticales": {
+      "uses": 9,
+      "success": 8,
+      "last_used": "2026-08-02 14:00:00"
+    },
+    "recorte_superficie_con_perimetro": {
+      "uses": 8,
+      "success": 8,
+      "last_used": "2026-07-31 12:00:00"
+    },
+    "drapeado_contorno_3d": {
+      "uses": 6,
+      "success": 6,
+      "last_used": "2026-07-30 15:00:00"
+    },
+    "teselado_arcos_polilinea": {
+      "uses": 5,
+      "success": 5,
+      "last_used": "2026-07-30 14:00:00"
+    }
+  },
+  "mcp_tools": {}
+}

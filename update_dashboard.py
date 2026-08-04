@@ -8,11 +8,11 @@ from datetime import datetime
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 WORKSPACE_PATH = CURRENT_DIR
 
-# Buscar servidor MCP local (priorizando el servidor interno unificado ./server)
+# Buscar servidor MCP local. Solo rutas relativas al repositorio: las rutas absolutas
+# que habia aqui apuntaban a maquinas concretas (incluida otra distinta a esta) y no
+# funcionan al clonar en otro PC.
 POSSIBLE_SERVER_PATHS = [
     os.path.join(CURRENT_DIR, "server"),
-    r"C:\Users\Usuario\OneDrive\Escritorio\Raul ZOIN\Civil3D-mcp",
-    r"c:\Users\raulz\mcp-servers\civil3d-mcp",
     os.path.abspath(os.path.join(CURRENT_DIR, "..", "Civil3D-mcp")),
 ]
 
@@ -22,6 +22,33 @@ def clean_path(path, base_path):
     rel = os.path.relpath(path, base_path)
     return rel.replace("\\", "/")
 
+def recover_usage_from_dashboard():
+    """Rescata los contadores del ultimo dashboard_data.json generado.
+
+    Red de seguridad: si falta skill_usage.json, sin esto el dashboard se
+    regeneraria con todo a 0 y SOBRESCRIBIRIA el historial de uso, que es el
+    medidor de confianza de cada skill. Perdida silenciosa e irreversible.
+    """
+    dash = os.path.join(WORKSPACE_PATH, "dashboard_data.json")
+    if not os.path.exists(dash):
+        return {}
+    try:
+        with open(dash, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except Exception:
+        return {}
+
+    recovered = {}
+    for item in data.get("skills", []):
+        if item.get("uses", 0) > 0:
+            recovered[item["name"]] = {
+                "uses": item["uses"],
+                "success": item.get("success", item["uses"]),
+                "last_used": item.get("last_used", "Sin registrar"),
+            }
+    return recovered
+
+
 def load_usage_telemetry():
     usage_file = os.path.join(WORKSPACE_PATH, "verificacion", "skill_usage.json")
     if os.path.exists(usage_file):
@@ -30,6 +57,23 @@ def load_usage_telemetry():
                 return json.load(f)
         except Exception as e:
             print(f"Error cargando skill_usage.json: {e}")
+
+    # No hay telemetria: antes de dar todo por 0, intentar rescatar lo ultimo conocido.
+    recovered = recover_usage_from_dashboard()
+    if recovered:
+        total = sum(s["uses"] for s in recovered.values())
+        print(f"AVISO: falta verificacion/skill_usage.json.")
+        print(f"       Se rescataron {len(recovered)} skills ({total} usos) del dashboard anterior")
+        print(f"       y se regenera el archivo para no perder el medidor de confianza.")
+        os.makedirs(os.path.join(WORKSPACE_PATH, "verificacion"), exist_ok=True)
+        try:
+            with open(usage_file, "w", encoding="utf-8") as f:
+                json.dump({"skills": recovered, "mcp_tools": {}}, f, indent=2, ensure_ascii=False)
+                f.write("\n")
+        except Exception as e:
+            print(f"       (no se pudo reescribir skill_usage.json: {e})")
+        return {"skills": recovered, "mcp_tools": {}}
+
     return {"skills": {}, "mcp_tools": {}}
 
 def get_skills():

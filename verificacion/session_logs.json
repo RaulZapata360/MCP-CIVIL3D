@@ -1,0 +1,26 @@
+[
+  {
+    "timestamp": "2026-08-02 18:59:00",
+    "task": "Estudio de terrazación en 4 lotes, traslación neutral LandXML y cubicación por regiones",
+    "corrections": "Corrección de error de unidades en informe y esquemas (asumición de metros corregida a Sistema Imperial nativo ft, sq ft, cu yd). Rediseño proporcionado de la tabla de cubicación en informe HTML y ajuste de proporciones en el Dashboard QA.",
+    "warnings": "Regla Mandatoria 7: Inspección indispensable de la etiqueta <Units> en archivos LandXML antes de procesar superficies. Asumir metros en terrenos medidos en pies altera los volúmenes en 35.31x.",
+    "limitations": "civil3d_surface_volume_by_region catalogada como WIP (práctica y con alto potencial, en proceso de perfeccionamiento en Civil 3D 2026). ProfileView.Create desactualizado para firmas .NET de C3D 2026.",
+    "status": "WIP"
+  },
+  {
+    "timestamp": "2026-08-01 17:30:00",
+    "task": "Extracción de superficies TIN desde LandXML e importación de Toposolid en Revit 2026",
+    "corrections": "Eliminación de estalactitas y desplomes en mallas TIN, corrección de Slab Shape Edit failed mediante Dynamo y georreferenciación de mallas.",
+    "warnings": "Archivos LandXML con superficies unificadas requieren extracción individual previa para evitar sobrecarga en Revit.",
+    "limitations": "Dynamo requiere ejecutar en modo autónomo de 10-15s para mallas densas de más de 10,000 caras.",
+    "status": "OK"
+  },
+  {
+    "timestamp": "2026-07-30 16:00:00",
+    "task": "Muestreo de cotas TIN y auditoría básica de dibujo DWG en Civil 3D 2026",
+    "corrections": "Sanitización de rutas locales en matriz.csv y corrección de codificación UTF-8.",
+    "warnings": "Puntos COGO sin grupo predeterminado pueden perder descripciones avanzadas.",
+    "limitations": "delete_cogo_point genera excepción COM al eliminar entidades por ID directo.",
+    "status": "OK"
+  }
+]

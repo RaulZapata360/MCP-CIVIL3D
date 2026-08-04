@@ -59,11 +59,15 @@ public static class SurfaceCommands
       {
         try
         {
+          // surface.Bounds es Extents3d? (nullable): hay que desenvolverlo antes de usarlo.
           var bounds = surface.Bounds;
-          minX = bounds.MinPoint.X;
-          minY = bounds.MinPoint.Y;
-          maxX = bounds.MaxPoint.X;
-          maxY = bounds.MaxPoint.Y;
+          if (bounds.HasValue)
+          {
+            minX = bounds.Value.MinPoint.X;
+            minY = bounds.Value.MinPoint.Y;
+            maxX = bounds.Value.MaxPoint.X;
+            maxY = bounds.Value.MaxPoint.Y;
+          }
         }
         catch { }
       }

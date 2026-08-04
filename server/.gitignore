@@ -9,6 +9,9 @@ dist/
 *.dll
 *.pdb
 
+# Excepcion: las referencias de Civil 3D si viajan con el repo (ver nota mas abajo).
+!C_References/*.dll
+
 # IDE
 .vs/
 .vscode/
@@ -55,11 +58,16 @@ Civil3D-AI-CoPilot-master/
 MCPControl-main/
 
 # C# References
-C_References/
+# Regla del upstream (Sacred-G). En ESTE fork las versionamos a proposito:
+# son las 5 DLLs de Civil 3D que el .csproj resuelve via HintPath = ..\C_References,
+# y tenerlas dentro del repo es lo que permite clonar y compilar en cualquier PC.
+# C_References/
+C_References/_backup*/
 
 # Templates
-templates/
-*.dwt
+# Igual que arriba: el .dwt de trabajo viaja con el repo para no depender de rutas externas.
+# templates/
+# *.dwt
 
 # Images and screenshots
 image/
