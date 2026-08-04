@@ -30,6 +30,19 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
+# --- Guarda: Civil 3D bloquea el DLL mientras esta abierto ---------------------
+# Se comprueba ANTES de tocar el bundle. Si no, se borra el contenido y luego
+# falla la copia, dejando el bundle a medias (sin deps.json / runtimeconfig.json).
+$acad = Get-Process acad -ErrorAction SilentlyContinue
+if ($acad) {
+  Write-Host ''
+  Write-Host 'Civil 3D (acad.exe) esta abierto: mantiene bloqueado Civil3DMcpPlugin.dll.' -ForegroundColor Yellow
+  Write-Host ("PID(s): {0}" -f (($acad | Select-Object -ExpandProperty Id) -join ', '))
+  Write-Host 'Cierra Civil 3D y vuelve a ejecutar este script.'
+  Write-Host 'No se ha modificado nada.' -ForegroundColor Yellow
+  exit 1
+}
+
 # --- Rutas internas al repositorio -------------------------------------------
 $scriptDir  = $PSScriptRoot
 $serverRoot = Split-Path -Parent $scriptDir
@@ -93,17 +106,34 @@ if (Test-Path $bundle) {
   if (Test-Path $backup) { Remove-Item $backup -Recurse -Force }
   Copy-Item $bundle $backup -Recurse -Force
   Write-Host "      respaldo: $backup"
-  Remove-Item $contents -Recurse -Force -ErrorAction SilentlyContinue
 }
 
 New-Item -ItemType Directory -Path $contents -Force | Out-Null
 
 # Copiamos el DLL y sus metadatos de runtime; NO las DLLs de Civil 3D
 # (Private=False en el .csproj: las aporta el propio Civil 3D en ejecucion).
+#
+# Se COPIA ENCIMA en vez de borrar primero: si algo estuviera bloqueado, la copia
+# falla dejando el bundle anterior intacto y consistente, en lugar de a medias.
+$deployed = @()
 foreach ($pattern in @('Civil3DMcpPlugin.dll', 'Civil3DMcpPlugin.deps.json', 'Civil3DMcpPlugin.runtimeconfig.json', '*.pdb')) {
-  Get-ChildItem -Path $outDir -Filter $pattern -ErrorAction SilentlyContinue |
-    Copy-Item -Destination $contents -Force
+  foreach ($file in Get-ChildItem -Path $outDir -Filter $pattern -ErrorAction SilentlyContinue) {
+    Copy-Item -LiteralPath $file.FullName -Destination $contents -Force
+    $deployed += $file.Name
+  }
 }
+
+if ($deployed -notcontains 'Civil3DMcpPlugin.dll') {
+  throw "No se copio Civil3DMcpPlugin.dll al bundle. Bundle sin cambios."
+}
+
+# Ya con la copia hecha, retiramos sobrantes de despliegues anteriores.
+Get-ChildItem -Path $contents -File |
+  Where-Object { $deployed -notcontains $_.Name } |
+  ForEach-Object {
+    Write-Host "      retirando sobrante: $($_.Name)"
+    Remove-Item -LiteralPath $_.FullName -Force -ErrorAction SilentlyContinue
+  }
 
 $packageContents = @'
 <?xml version="1.0" encoding="utf-8"?>
