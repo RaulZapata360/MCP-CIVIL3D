@@ -1,0 +1,4293 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "dashboard_data.js",
+      "file_type": "code",
+      "source_file": "dashboard_data.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "dashboard_data",
+      "community": 3,
+      "norm_label": "dashboard_data.js"
+    },
+    {
+      "label": "teselar_arcos.py",
+      "file_type": "code",
+      "source_file": "skills/geometria/scripts/teselar_arcos.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_teselar_arcos",
+      "community": 14,
+      "norm_label": "teselar_arcos.py"
+    },
+    {
+      "label": "teselar_bulge()",
+      "file_type": "code",
+      "source_file": "skills/geometria/scripts/teselar_arcos.py",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "scripts_teselar_arcos_teselar_bulge",
+      "community": 14,
+      "norm_label": "teselar_bulge()"
+    },
+    {
+      "label": "teselar_polilinea_dxf()",
+      "file_type": "code",
+      "source_file": "skills/geometria/scripts/teselar_arcos.py",
+      "source_location": "L62",
+      "_origin": "ast",
+      "id": "scripts_teselar_arcos_teselar_polilinea_dxf",
+      "community": 14,
+      "norm_label": "teselar_polilinea_dxf()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "skills/geometria/scripts/teselar_arcos.py",
+      "source_location": "L101",
+      "_origin": "ast",
+      "id": "scripts_teselar_arcos_main",
+      "community": 14,
+      "norm_label": "main()"
+    },
+    {
+      "label": "Devuelve los puntos muestreados a lo largo del arco real representado por un bul",
+      "file_type": "rationale",
+      "source_file": "skills/geometria/scripts/teselar_arcos.py",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "scripts_teselar_arcos_rationale_21",
+      "community": 14,
+      "norm_label": "devuelve los puntos muestreados a lo largo del arco real representado por un bul"
+    },
+    {
+      "label": "Lee un DXF y devuelve listas de vertices (X, Y) con arcos teselados.",
+      "file_type": "rationale",
+      "source_file": "skills/geometria/scripts/teselar_arcos.py",
+      "source_location": "L63",
+      "_origin": "ast",
+      "id": "scripts_teselar_arcos_rationale_63",
+      "community": 14,
+      "norm_label": "lee un dxf y devuelve listas de vertices (x, y) con arcos teselados."
+    },
+    {
+      "label": "test_teselado.py",
+      "file_type": "code",
+      "source_file": "skills/geometria/scripts/test_teselado.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_test_teselado",
+      "community": 14,
+      "norm_label": "test_teselado.py"
+    },
+    {
+      "label": "TestTeselado",
+      "file_type": "code",
+      "source_file": "skills/geometria/scripts/test_teselado.py",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "scripts_test_teselado_testteselado",
+      "community": 14,
+      "norm_label": "testteselado"
+    },
+    {
+      "label": ".test_linea_recta()",
+      "file_type": "code",
+      "source_file": "skills/geometria/scripts/test_teselado.py",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "scripts_test_teselado_testteselado_test_linea_recta",
+      "community": 14,
+      "norm_label": ".test_linea_recta()"
+    },
+    {
+      "label": ".test_arco_semicirculo()",
+      "file_type": "code",
+      "source_file": "skills/geometria/scripts/test_teselado.py",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "scripts_test_teselado_testteselado_test_arco_semicirculo",
+      "community": 14,
+      "norm_label": ".test_arco_semicirculo()"
+    },
+    {
+      "label": "plano_svg.py",
+      "file_type": "code",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_plano_svg",
+      "community": 4,
+      "norm_label": "plano_svg.py"
+    },
+    {
+      "label": "_esc()",
+      "file_type": "code",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L68",
+      "_origin": "ast",
+      "id": "scripts_plano_svg_esc",
+      "community": 4,
+      "norm_label": "_esc()"
+    },
+    {
+      "label": "_mezclar()",
+      "file_type": "code",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L73",
+      "_origin": "ast",
+      "id": "scripts_plano_svg_mezclar",
+      "community": 4,
+      "norm_label": "_mezclar()"
+    },
+    {
+      "label": "color_rampa()",
+      "file_type": "code",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L79",
+      "_origin": "ast",
+      "id": "scripts_plano_svg_color_rampa",
+      "community": 4,
+      "norm_label": "color_rampa()"
+    },
+    {
+      "label": "paso_redondo()",
+      "file_type": "code",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L88",
+      "_origin": "ast",
+      "id": "scripts_plano_svg_paso_redondo",
+      "community": 4,
+      "norm_label": "paso_redondo()"
+    },
+    {
+      "label": "PlanoSVG",
+      "file_type": "code",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L97",
+      "_origin": "ast",
+      "id": "scripts_plano_svg_planosvg",
+      "community": 4,
+      "norm_label": "planosvg"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L107",
+      "_origin": "ast",
+      "id": "scripts_plano_svg_planosvg_init",
+      "community": 4,
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": "._rol_color()",
+      "file_type": "code",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L121",
+      "_origin": "ast",
+      "id": "scripts_plano_svg_planosvg_rol_color",
+      "community": 4,
+      "norm_label": "._rol_color()"
+    },
+    {
+      "label": ".poligonos()",
+      "file_type": "code",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L128",
+      "_origin": "ast",
+      "id": "scripts_plano_svg_planosvg_poligonos",
+      "community": 4,
+      "norm_label": ".poligonos()"
+    },
+    {
+      "label": ".poligonos_graduados()",
+      "file_type": "code",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L143",
+      "_origin": "ast",
+      "id": "scripts_plano_svg_planosvg_poligonos_graduados",
+      "community": 4,
+      "norm_label": ".poligonos_graduados()"
+    },
+    {
+      "label": ".lineas()",
+      "file_type": "code",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L161",
+      "_origin": "ast",
+      "id": "scripts_plano_svg_planosvg_lineas",
+      "community": 4,
+      "norm_label": ".lineas()"
+    },
+    {
+      "label": ".puntos()",
+      "file_type": "code",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L173",
+      "_origin": "ast",
+      "id": "scripts_plano_svg_planosvg_puntos",
+      "community": 4,
+      "norm_label": ".puntos()"
+    },
+    {
+      "label": ".nota()",
+      "file_type": "code",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L185",
+      "_origin": "ast",
+      "id": "scripts_plano_svg_planosvg_nota",
+      "community": 4,
+      "norm_label": ".nota()"
+    },
+    {
+      "label": "._bbox()",
+      "file_type": "code",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L190",
+      "_origin": "ast",
+      "id": "scripts_plano_svg_planosvg_bbox",
+      "community": 4,
+      "norm_label": "._bbox()"
+    },
+    {
+      "label": "._transformar()",
+      "file_type": "code",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L208",
+      "_origin": "ast",
+      "id": "scripts_plano_svg_planosvg_transformar",
+      "community": 4,
+      "norm_label": "._transformar()"
+    },
+    {
+      "label": ".guardar()",
+      "file_type": "code",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L232",
+      "_origin": "ast",
+      "id": "scripts_plano_svg_planosvg_guardar",
+      "community": 4,
+      "norm_label": ".guardar()"
+    },
+    {
+      "label": "leer_landxml()",
+      "file_type": "code",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L357",
+      "_origin": "ast",
+      "id": "scripts_plano_svg_leer_landxml",
+      "community": 4,
+      "norm_label": "leer_landxml()"
+    },
+    {
+      "label": "leer_dxf()",
+      "file_type": "code",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L387",
+      "_origin": "ast",
+      "id": "scripts_plano_svg_leer_dxf",
+      "community": 4,
+      "norm_label": "leer_dxf()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L407",
+      "_origin": "ast",
+      "id": "scripts_plano_svg_main",
+      "community": 4,
+      "norm_label": "main()"
+    },
+    {
+      "label": "Escapa texto para XML. Sin esto un nombre con & rompe el SVG.",
+      "file_type": "rationale",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L69",
+      "_origin": "ast",
+      "id": "scripts_plano_svg_rationale_69",
+      "community": 4,
+      "norm_label": "escapa texto para xml. sin esto un nombre con & rompe el svg."
+    },
+    {
+      "label": "Interpola un valor dentro de la rampa secuencial.",
+      "file_type": "rationale",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L80",
+      "_origin": "ast",
+      "id": "scripts_plano_svg_rationale_80",
+      "community": 4,
+      "norm_label": "interpola un valor dentro de la rampa secuencial."
+    },
+    {
+      "label": "Numero redondo 1/2/5 x 10^n mas cercano, para la escala grafica.",
+      "file_type": "rationale",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L89",
+      "_origin": "ast",
+      "id": "scripts_plano_svg_rationale_89",
+      "community": 4,
+      "norm_label": "numero redondo 1/2/5 x 10^n mas cercano, para la escala grafica."
+    },
+    {
+      "label": "Plano en planta con escala unica, norte, escala grafica y leyenda.      Todo se",
+      "file_type": "rationale",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L98",
+      "_origin": "ast",
+      "id": "scripts_plano_svg_rationale_98",
+      "community": 4,
+      "norm_label": "plano en planta con escala unica, norte, escala grafica y leyenda.      todo se"
+    },
+    {
+      "label": "anillos: iterable de listas [(x, y), ...] en coordenadas de terreno.",
+      "file_type": "rationale",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L130",
+      "_origin": "ast",
+      "id": "scripts_plano_svg_rationale_130",
+      "community": 4,
+      "norm_label": "anillos: iterable de listas [(x, y), ...] en coordenadas de terreno."
+    },
+    {
+      "label": "anillos_valores: iterable de (anillo, valor). Rampa secuencial de un tono.",
+      "file_type": "rationale",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L145",
+      "_origin": "ast",
+      "id": "scripts_plano_svg_rationale_145",
+      "community": 4,
+      "norm_label": "anillos_valores: iterable de (anillo, valor). rampa secuencial de un tono."
+    },
+    {
+      "label": "Devuelve (tx, escala, marco). El marco es el area de dibujo en pixeles.",
+      "file_type": "rationale",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L209",
+      "_origin": "ast",
+      "id": "scripts_plano_svg_rationale_209",
+      "community": 4,
+      "norm_label": "devuelve (tx, escala, marco). el marco es el area de dibujo en pixeles."
+    },
+    {
+      "label": "Devuelve (nombre, triangulos [(E,N,Z)x3], unidad_lineal).",
+      "file_type": "rationale",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L358",
+      "_origin": "ast",
+      "id": "scripts_plano_svg_rationale_358",
+      "community": 4,
+      "norm_label": "devuelve (nombre, triangulos [(e,n,z)x3], unidad_lineal)."
+    },
+    {
+      "label": "Devuelve (polilineas [(x,y)...], descripcion). Requiere ezdxf.",
+      "file_type": "rationale",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L388",
+      "_origin": "ast",
+      "id": "scripts_plano_svg_rationale_388",
+      "community": 4,
+      "norm_label": "devuelve (polilineas [(x,y)...], descripcion). requiere ezdxf."
+    },
+    {
+      "label": "test_plano_svg.py",
+      "file_type": "code",
+      "source_file": "skills/reportes/scripts/test_plano_svg.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_test_plano_svg",
+      "community": 12,
+      "norm_label": "test_plano_svg.py"
+    },
+    {
+      "label": "check()",
+      "file_type": "code",
+      "source_file": "skills/reportes/scripts/test_plano_svg.py",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "scripts_test_plano_svg_check",
+      "community": 12,
+      "norm_label": "check()"
+    },
+    {
+      "label": "coords_de()",
+      "file_type": "code",
+      "source_file": "skills/reportes/scripts/test_plano_svg.py",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "scripts_test_plano_svg_coords_de",
+      "community": 12,
+      "norm_label": "coords_de()"
+    },
+    {
+      "label": "desborde()",
+      "file_type": "code",
+      "source_file": "skills/reportes/scripts/test_plano_svg.py",
+      "source_location": "L157",
+      "_origin": "ast",
+      "id": "scripts_test_plano_svg_desborde",
+      "community": 12,
+      "norm_label": "desborde()"
+    },
+    {
+      "label": "Extrae los pares x,y del primer path que contenga el patron dado.",
+      "file_type": "rationale",
+      "source_file": "skills/reportes/scripts/test_plano_svg.py",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "scripts_test_plano_svg_rationale_26",
+      "community": 12,
+      "norm_label": "extrae los pares x,y del primer path que contenga el patron dado."
+    },
+    {
+      "label": "router.py",
+      "file_type": "code",
+      "source_file": "skills/router.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "skills_router",
+      "community": 13,
+      "norm_label": "router.py"
+    },
+    {
+      "label": "detectar_intenciones()",
+      "file_type": "code",
+      "source_file": "skills/router.py",
+      "source_location": "L61",
+      "_origin": "ast",
+      "id": "skills_router_detectar_intenciones",
+      "community": 13,
+      "norm_label": "detectar_intenciones()"
+    },
+    {
+      "label": "ejecutar_pipeline()",
+      "file_type": "code",
+      "source_file": "skills/router.py",
+      "source_location": "L77",
+      "_origin": "ast",
+      "id": "skills_router_ejecutar_pipeline",
+      "community": 13,
+      "norm_label": "ejecutar_pipeline()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "skills/router.py",
+      "source_location": "L113",
+      "_origin": "ast",
+      "id": "skills_router_main",
+      "community": 13,
+      "norm_label": "main()"
+    },
+    {
+      "label": "Identifica las skills asociadas a un texto o consulta en lenguaje natural.",
+      "file_type": "rationale",
+      "source_file": "skills/router.py",
+      "source_location": "L62",
+      "_origin": "ast",
+      "id": "skills_router_rationale_62",
+      "community": 13,
+      "norm_label": "identifica las skills asociadas a un texto o consulta en lenguaje natural."
+    },
+    {
+      "label": "Ejecuta el pipeline completo unificado de recortes y verificaci\u00f3n.",
+      "file_type": "rationale",
+      "source_file": "skills/router.py",
+      "source_location": "L78",
+      "_origin": "ast",
+      "id": "skills_router_rationale_78",
+      "community": 13,
+      "norm_label": "ejecuta el pipeline completo unificado de recortes y verificacion."
+    },
+    {
+      "label": "auditar_superficie.py",
+      "file_type": "code",
+      "source_file": "skills/superficies/scripts/auditar_superficie.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_auditar_superficie",
+      "community": 17,
+      "norm_label": "auditar_superficie.py"
+    },
+    {
+      "label": "auditar_landxml()",
+      "file_type": "code",
+      "source_file": "skills/superficies/scripts/auditar_superficie.py",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "scripts_auditar_superficie_auditar_landxml",
+      "community": 17,
+      "norm_label": "auditar_landxml()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "skills/superficies/scripts/auditar_superficie.py",
+      "source_location": "L97",
+      "_origin": "ast",
+      "id": "scripts_auditar_superficie_main",
+      "community": 17,
+      "norm_label": "main()"
+    },
+    {
+      "label": "drapear_contorno.py",
+      "file_type": "code",
+      "source_file": "skills/superficies/scripts/drapear_contorno.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_drapear_contorno",
+      "community": 15,
+      "norm_label": "drapear_contorno.py"
+    },
+    {
+      "label": "interpolar_z_triangulo()",
+      "file_type": "code",
+      "source_file": "skills/superficies/scripts/drapear_contorno.py",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "scripts_drapear_contorno_interpolar_z_triangulo",
+      "community": 15,
+      "norm_label": "interpolar_z_triangulo()"
+    },
+    {
+      "label": "drapear_polilineas()",
+      "file_type": "code",
+      "source_file": "skills/superficies/scripts/drapear_contorno.py",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "scripts_drapear_contorno_drapear_polilineas",
+      "community": 15,
+      "norm_label": "drapear_polilineas()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "skills/superficies/scripts/drapear_contorno.py",
+      "source_location": "L91",
+      "_origin": "ast",
+      "id": "scripts_drapear_contorno_main",
+      "community": 15,
+      "norm_label": "main()"
+    },
+    {
+      "label": "Interpola cota Z sobre el plano formado por p1, p2, p3.",
+      "file_type": "rationale",
+      "source_file": "skills/superficies/scripts/drapear_contorno.py",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "scripts_drapear_contorno_rationale_25",
+      "community": 15,
+      "norm_label": "interpola cota z sobre el plano formado por p1, p2, p3."
+    },
+    {
+      "label": "recortar_superficie.py",
+      "file_type": "code",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_recortar_superficie",
+      "community": 8,
+      "norm_label": "recortar_superficie.py"
+    },
+    {
+      "label": "aviso()",
+      "file_type": "code",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L57",
+      "_origin": "ast",
+      "id": "scripts_recortar_superficie_aviso",
+      "community": 8,
+      "norm_label": "aviso()"
+    },
+    {
+      "label": "fmt()",
+      "file_type": "code",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L61",
+      "_origin": "ast",
+      "id": "scripts_recortar_superficie_fmt",
+      "community": 8,
+      "norm_label": "fmt()"
+    },
+    {
+      "label": "leer_landxml()",
+      "file_type": "code",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L66",
+      "_origin": "ast",
+      "id": "scripts_recortar_superficie_leer_landxml",
+      "community": 8,
+      "norm_label": "leer_landxml()"
+    },
+    {
+      "label": "teselar()",
+      "file_type": "code",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L127",
+      "_origin": "ast",
+      "id": "scripts_recortar_superficie_teselar",
+      "community": 8,
+      "norm_label": "teselar()"
+    },
+    {
+      "label": "leer_perimetro()",
+      "file_type": "code",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L160",
+      "_origin": "ast",
+      "id": "scripts_recortar_superficie_leer_perimetro",
+      "community": 8,
+      "norm_label": "leer_perimetro()"
+    },
+    {
+      "label": "razon_3d()",
+      "file_type": "code",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L223",
+      "_origin": "ast",
+      "id": "scripts_recortar_superficie_razon_3d",
+      "community": 8,
+      "norm_label": "razon_3d()"
+    },
+    {
+      "label": "cota_en_plano()",
+      "file_type": "code",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L234",
+      "_origin": "ast",
+      "id": "scripts_recortar_superficie_cota_en_plano",
+      "community": 8,
+      "norm_label": "cota_en_plano()"
+    },
+    {
+      "label": "triangular()",
+      "file_type": "code",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L242",
+      "_origin": "ast",
+      "id": "scripts_recortar_superficie_triangular",
+      "community": 8,
+      "norm_label": "triangular()"
+    },
+    {
+      "label": "recortar()",
+      "file_type": "code",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L281",
+      "_origin": "ast",
+      "id": "scripts_recortar_superficie_recortar",
+      "community": 8,
+      "norm_label": "recortar()"
+    },
+    {
+      "label": "escribir_svg()",
+      "file_type": "code",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L309",
+      "_origin": "ast",
+      "id": "scripts_recortar_superficie_escribir_svg",
+      "community": 8,
+      "norm_label": "escribir_svg()"
+    },
+    {
+      "label": "escribir_landxml()",
+      "file_type": "code",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L335",
+      "_origin": "ast",
+      "id": "scripts_recortar_superficie_escribir_landxml",
+      "community": 8,
+      "norm_label": "escribir_landxml()"
+    },
+    {
+      "label": "escribir_dxf_borde()",
+      "file_type": "code",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L387",
+      "_origin": "ast",
+      "id": "scripts_recortar_superficie_escribir_dxf_borde",
+      "community": 8,
+      "norm_label": "escribir_dxf_borde()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L419",
+      "_origin": "ast",
+      "id": "scripts_recortar_superficie_main",
+      "community": 8,
+      "norm_label": "main()"
+    },
+    {
+      "label": "Devuelve (nombre, triangulos, meta, unidad). Triangulos como ((E,N,Z)x3).",
+      "file_type": "rationale",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L67",
+      "_origin": "ast",
+      "id": "scripts_recortar_superficie_rationale_67",
+      "community": 8,
+      "norm_label": "devuelve (nombre, triangulos, meta, unidad). triangulos como ((e,n,z)x3)."
+    },
+    {
+      "label": "Convierte [(x, y, bulge)] en lista de puntos (x, y) muestreando los arcos.",
+      "file_type": "rationale",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L128",
+      "_origin": "ast",
+      "id": "scripts_recortar_superficie_rationale_128",
+      "community": 8,
+      "norm_label": "convierte [(x, y, bulge)] en lista de puntos (x, y) muestreando los arcos."
+    },
+    {
+      "label": "Devuelve (poligono shapely, descripcion). Tesela los arcos (bulges).",
+      "file_type": "rationale",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L162",
+      "_origin": "ast",
+      "id": "scripts_recortar_superficie_rationale_162",
+      "community": 8,
+      "norm_label": "devuelve (poligono shapely, descripcion). tesela los arcos (bulges)."
+    },
+    {
+      "label": "area3D/area2D del triangulo. Constante en todo su plano.",
+      "file_type": "rationale",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L224",
+      "_origin": "ast",
+      "id": "scripts_recortar_superficie_rationale_224",
+      "community": 8,
+      "norm_label": "area3d/area2d del triangulo. constante en todo su plano."
+    },
+    {
+      "label": "Triangula un anillo simple (sin huecos). Abanico si es convexo, si no ear clippi",
+      "file_type": "rationale",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L243",
+      "_origin": "ast",
+      "id": "scripts_recortar_superficie_rationale_243",
+      "community": 8,
+      "norm_label": "triangula un anillo simple (sin huecos). abanico si es convexo, si no ear clippi"
+    },
+    {
+      "label": "Arma el plano de verificacion con el sistema de reportes (plano_svg).",
+      "file_type": "rationale",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L311",
+      "_origin": "ast",
+      "id": "scripts_recortar_superficie_rationale_311",
+      "community": 8,
+      "norm_label": "arma el plano de verificacion con el sistema de reportes (plano_svg)."
+    },
+    {
+      "label": "test_auditoria.py",
+      "file_type": "code",
+      "source_file": "skills/superficies/scripts/test_auditoria.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_test_auditoria",
+      "community": 17,
+      "norm_label": "test_auditoria.py"
+    },
+    {
+      "label": "TestAuditoria",
+      "file_type": "code",
+      "source_file": "skills/superficies/scripts/test_auditoria.py",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "scripts_test_auditoria_testauditoria",
+      "community": 17,
+      "norm_label": "testauditoria"
+    },
+    {
+      "label": ".test_auditoria_prueba_ia()",
+      "file_type": "code",
+      "source_file": "skills/superficies/scripts/test_auditoria.py",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "scripts_test_auditoria_testauditoria_test_auditoria_prueba_ia",
+      "community": 17,
+      "norm_label": ".test_auditoria_prueba_ia()"
+    },
+    {
+      "label": "test_drapeado.py",
+      "file_type": "code",
+      "source_file": "skills/superficies/scripts/test_drapeado.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_test_drapeado",
+      "community": 15,
+      "norm_label": "test_drapeado.py"
+    },
+    {
+      "label": "TestDrapeado",
+      "file_type": "code",
+      "source_file": "skills/superficies/scripts/test_drapeado.py",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "scripts_test_drapeado_testdrapeado",
+      "community": 15,
+      "norm_label": "testdrapeado"
+    },
+    {
+      "label": ".test_drapeado_prueba_ia()",
+      "file_type": "code",
+      "source_file": "skills/superficies/scripts/test_drapeado.py",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "scripts_test_drapeado_testdrapeado_test_drapeado_prueba_ia",
+      "community": 15,
+      "norm_label": ".test_drapeado_prueba_ia()"
+    },
+    {
+      "label": "test_recorte.py",
+      "file_type": "code",
+      "source_file": "skills/superficies/scripts/test_recorte.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_test_recorte",
+      "community": 10,
+      "norm_label": "test_recorte.py"
+    },
+    {
+      "label": "check()",
+      "file_type": "code",
+      "source_file": "skills/superficies/scripts/test_recorte.py",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "scripts_test_recorte_check",
+      "community": 10,
+      "norm_label": "check()"
+    },
+    {
+      "label": "tin_metrico()",
+      "file_type": "code",
+      "source_file": "skills/superficies/scripts/test_recorte.py",
+      "source_location": "L36",
+      "_origin": "ast",
+      "id": "scripts_test_recorte_tin_metrico",
+      "community": 10,
+      "norm_label": "tin_metrico()"
+    },
+    {
+      "label": "dxf_circulo()",
+      "file_type": "code",
+      "source_file": "skills/superficies/scripts/test_recorte.py",
+      "source_location": "L66",
+      "_origin": "ast",
+      "id": "scripts_test_recorte_dxf_circulo",
+      "community": 10,
+      "norm_label": "dxf_circulo()"
+    },
+    {
+      "label": "dxf_poly()",
+      "file_type": "code",
+      "source_file": "skills/superficies/scripts/test_recorte.py",
+      "source_location": "L75",
+      "_origin": "ast",
+      "id": "scripts_test_recorte_dxf_poly",
+      "community": 10,
+      "norm_label": "dxf_poly()"
+    },
+    {
+      "label": "correr()",
+      "file_type": "code",
+      "source_file": "skills/superficies/scripts/test_recorte.py",
+      "source_location": "L81",
+      "_origin": "ast",
+      "id": "scripts_test_recorte_correr",
+      "community": 10,
+      "norm_label": "correr()"
+    },
+    {
+      "label": "area_landxml()",
+      "file_type": "code",
+      "source_file": "skills/superficies/scripts/test_recorte.py",
+      "source_location": "L91",
+      "_origin": "ast",
+      "id": "scripts_test_recorte_area_landxml",
+      "community": 10,
+      "norm_label": "area_landxml()"
+    },
+    {
+      "label": "Malla regular sobre un plano inclinado, en metros.",
+      "file_type": "rationale",
+      "source_file": "skills/superficies/scripts/test_recorte.py",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "scripts_test_recorte_rationale_37",
+      "community": 10,
+      "norm_label": "malla regular sobre un plano inclinado, en metros."
+    },
+    {
+      "label": "Circulo exacto: LWPOLYLINE de 2 vertices con bulge=1 (dos semicircunferencias).",
+      "file_type": "rationale",
+      "source_file": "skills/superficies/scripts/test_recorte.py",
+      "source_location": "L67",
+      "_origin": "ast",
+      "id": "scripts_test_recorte_rationale_67",
+      "community": 10,
+      "norm_label": "circulo exacto: lwpolyline de 2 vertices con bulge=1 (dos semicircunferencias)."
+    },
+    {
+      "label": "test_router.py",
+      "file_type": "code",
+      "source_file": "skills/tests/test_router.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tests_test_router",
+      "community": 13,
+      "norm_label": "test_router.py"
+    },
+    {
+      "label": "TestRouterIntenciones",
+      "file_type": "code",
+      "source_file": "skills/tests/test_router.py",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "tests_test_router_testrouterintenciones",
+      "community": 13,
+      "norm_label": "testrouterintenciones"
+    },
+    {
+      "label": ".test_clasificacion_recorte()",
+      "file_type": "code",
+      "source_file": "skills/tests/test_router.py",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "tests_test_router_testrouterintenciones_test_clasificacion_recorte",
+      "community": 13,
+      "norm_label": ".test_clasificacion_recorte()"
+    },
+    {
+      "label": ".test_clasificacion_drapeado()",
+      "file_type": "code",
+      "source_file": "skills/tests/test_router.py",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "tests_test_router_testrouterintenciones_test_clasificacion_drapeado",
+      "community": 13,
+      "norm_label": ".test_clasificacion_drapeado()"
+    },
+    {
+      "label": ".test_clasificacion_auditoria()",
+      "file_type": "code",
+      "source_file": "skills/tests/test_router.py",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "tests_test_router_testrouterintenciones_test_clasificacion_auditoria",
+      "community": 13,
+      "norm_label": ".test_clasificacion_auditoria()"
+    },
+    {
+      "label": ".test_pipeline_completo()",
+      "file_type": "code",
+      "source_file": "skills/tests/test_router.py",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "tests_test_router_testrouterintenciones_test_pipeline_completo",
+      "community": 13,
+      "norm_label": ".test_pipeline_completo()"
+    },
+    {
+      "label": "update_dashboard.py",
+      "file_type": "code",
+      "source_file": "update_dashboard.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "update_dashboard",
+      "community": 2,
+      "norm_label": "update_dashboard.py"
+    },
+    {
+      "label": "clean_path()",
+      "file_type": "code",
+      "source_file": "update_dashboard.py",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "update_dashboard_clean_path",
+      "community": 2,
+      "norm_label": "clean_path()"
+    },
+    {
+      "label": "get_skills()",
+      "file_type": "code",
+      "source_file": "update_dashboard.py",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "update_dashboard_get_skills",
+      "community": 2,
+      "norm_label": "get_skills()"
+    },
+    {
+      "label": "get_verification_matrix()",
+      "file_type": "code",
+      "source_file": "update_dashboard.py",
+      "source_location": "L64",
+      "_origin": "ast",
+      "id": "update_dashboard_get_verification_matrix",
+      "community": 2,
+      "norm_label": "get_verification_matrix()"
+    },
+    {
+      "label": "get_server_tools()",
+      "file_type": "code",
+      "source_file": "update_dashboard.py",
+      "source_location": "L95",
+      "_origin": "ast",
+      "id": "update_dashboard_get_server_tools",
+      "community": 2,
+      "norm_label": "get_server_tools()"
+    },
+    {
+      "label": "get_graphify_stats()",
+      "file_type": "code",
+      "source_file": "update_dashboard.py",
+      "source_location": "L178",
+      "_origin": "ast",
+      "id": "update_dashboard_get_graphify_stats",
+      "community": 2,
+      "norm_label": "get_graphify_stats()"
+    },
+    {
+      "label": "get_timeline()",
+      "file_type": "code",
+      "source_file": "update_dashboard.py",
+      "source_location": "L199",
+      "_origin": "ast",
+      "id": "update_dashboard_get_timeline",
+      "community": 2,
+      "norm_label": "get_timeline()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "update_dashboard.py",
+      "source_location": "L249",
+      "_origin": "ast",
+      "id": "update_dashboard_main",
+      "community": 2,
+      "norm_label": "main()"
+    },
+    {
+      "label": "1.md",
+      "file_type": "document",
+      "source_file": ".agents/rules/1.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "rules_1",
+      "community": 7,
+      "norm_label": "1.md"
+    },
+    {
+      "label": "graphify.md",
+      "file_type": "document",
+      "source_file": ".agents/rules/graphify.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "rules_graphify",
+      "community": 5,
+      "norm_label": "graphify.md"
+    },
+    {
+      "label": "graphify",
+      "file_type": "document",
+      "source_file": ".agents/rules/graphify.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "rules_graphify_graphify",
+      "community": 5,
+      "norm_label": "graphify"
+    },
+    {
+      "label": "graphify.md",
+      "file_type": "document",
+      "source_file": ".agents/workflows/graphify.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "workflows_graphify",
+      "community": 6,
+      "norm_label": "graphify.md"
+    },
+    {
+      "label": "Workflow: graphify",
+      "file_type": "document",
+      "source_file": ".agents/workflows/graphify.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "workflows_graphify_workflow_graphify",
+      "community": 6,
+      "norm_label": "workflow: graphify"
+    },
+    {
+      "label": "teselado-arcos-polilinea.skill.md",
+      "file_type": "document",
+      "source_file": "skills/geometria/teselado-arcos-polilinea.skill.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "geometria_teselado_arcos_polilinea_skill",
+      "community": 16,
+      "norm_label": "teselado-arcos-polilinea.skill.md"
+    },
+    {
+      "label": "Teselado de Arcos y Bulges en Polil\u00edneas por Sagitta",
+      "file_type": "document",
+      "source_file": "skills/geometria/teselado-arcos-polilinea.skill.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "geometria_teselado_arcos_polilinea_skill_teselado_de_arcos_y_bulges_en_polil\u00edneas_por_sagitta",
+      "community": 16,
+      "norm_label": "teselado de arcos y bulges en polilineas por sagitta"
+    },
+    {
+      "label": "Cu\u00e1ndo usar",
+      "file_type": "document",
+      "source_file": "skills/geometria/teselado-arcos-polilinea.skill.md",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "geometria_teselado_arcos_polilinea_skill_cu\u00e1ndo_usar",
+      "community": 16,
+      "norm_label": "cuando usar"
+    },
+    {
+      "label": "Entradas requeridas",
+      "file_type": "document",
+      "source_file": "skills/geometria/teselado-arcos-polilinea.skill.md",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "geometria_teselado_arcos_polilinea_skill_entradas_requeridas",
+      "community": 16,
+      "norm_label": "entradas requeridas"
+    },
+    {
+      "label": "Uso",
+      "file_type": "document",
+      "source_file": "skills/geometria/teselado-arcos-polilinea.skill.md",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "geometria_teselado_arcos_polilinea_skill_uso",
+      "community": 16,
+      "norm_label": "uso"
+    },
+    {
+      "label": "Salida",
+      "file_type": "document",
+      "source_file": "skills/geometria/teselado-arcos-polilinea.skill.md",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "geometria_teselado_arcos_polilinea_skill_salida",
+      "community": 16,
+      "norm_label": "salida"
+    },
+    {
+      "label": "generacion-planos-svg.skill.md",
+      "file_type": "document",
+      "source_file": "skills/reportes/generacion-planos-svg.skill.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "reportes_generacion_planos_svg_skill",
+      "community": 11,
+      "norm_label": "generacion-planos-svg.skill.md"
+    },
+    {
+      "label": "Generaci\u00f3n de Planos Vectoriales SVG de Verificaci\u00f3n Topogr\u00e1fica",
+      "file_type": "document",
+      "source_file": "skills/reportes/generacion-planos-svg.skill.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "reportes_generacion_planos_svg_skill_generaci\u00f3n_de_planos_vectoriales_svg_de_verificaci\u00f3n_topogr\u00e1fica",
+      "community": 11,
+      "norm_label": "generacion de planos vectoriales svg de verificacion topografica"
+    },
+    {
+      "label": "Cu\u00e1ndo usar",
+      "file_type": "document",
+      "source_file": "skills/reportes/generacion-planos-svg.skill.md",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "reportes_generacion_planos_svg_skill_cu\u00e1ndo_usar",
+      "community": 11,
+      "norm_label": "cuando usar"
+    },
+    {
+      "label": "Entradas requeridas",
+      "file_type": "document",
+      "source_file": "skills/reportes/generacion-planos-svg.skill.md",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "reportes_generacion_planos_svg_skill_entradas_requeridas",
+      "community": 11,
+      "norm_label": "entradas requeridas"
+    },
+    {
+      "label": "Uso en Python",
+      "file_type": "document",
+      "source_file": "skills/reportes/generacion-planos-svg.skill.md",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "reportes_generacion_planos_svg_skill_uso_en_python",
+      "community": 11,
+      "norm_label": "uso en python"
+    },
+    {
+      "label": "Uso desde L\u00ednea de Comandos (CLI)",
+      "file_type": "document",
+      "source_file": "skills/reportes/generacion-planos-svg.skill.md",
+      "source_location": "L33",
+      "_origin": "ast",
+      "id": "reportes_generacion_planos_svg_skill_uso_desde_l\u00ednea_de_comandos_cli",
+      "community": 11,
+      "norm_label": "uso desde linea de comandos (cli)"
+    },
+    {
+      "label": "Salidas",
+      "file_type": "document",
+      "source_file": "skills/reportes/generacion-planos-svg.skill.md",
+      "source_location": "L39",
+      "_origin": "ast",
+      "id": "reportes_generacion_planos_svg_skill_salidas",
+      "community": 11,
+      "norm_label": "salidas"
+    },
+    {
+      "label": "Estado",
+      "file_type": "document",
+      "source_file": "skills/reportes/generacion-planos-svg.skill.md",
+      "source_location": "L48",
+      "_origin": "ast",
+      "id": "reportes_generacion_planos_svg_skill_estado",
+      "community": 11,
+      "norm_label": "estado"
+    },
+    {
+      "label": "plano-svg.skill.md",
+      "file_type": "document",
+      "source_file": "skills/reportes/plano-svg.skill.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "reportes_plano_svg_skill",
+      "community": 1,
+      "norm_label": "plano-svg.skill.md"
+    },
+    {
+      "label": "Sistema de Reportes Gr\u00e1ficos SVG",
+      "file_type": "document",
+      "source_file": "skills/reportes/plano-svg.skill.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "reportes_plano_svg_skill_sistema_de_reportes_gr\u00e1ficos_svg",
+      "community": 1,
+      "norm_label": "sistema de reportes graficos svg"
+    },
+    {
+      "label": "Cu\u00e1ndo usar",
+      "file_type": "document",
+      "source_file": "skills/reportes/plano-svg.skill.md",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "reportes_plano_svg_skill_cu\u00e1ndo_usar",
+      "community": 1,
+      "norm_label": "cuando usar"
+    },
+    {
+      "label": "Uso como librer\u00eda",
+      "file_type": "document",
+      "source_file": "skills/reportes/plano-svg.skill.md",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "reportes_plano_svg_skill_uso_como_librer\u00eda",
+      "community": 1,
+      "norm_label": "uso como libreria"
+    },
+    {
+      "label": "Uso como herramienta",
+      "file_type": "document",
+      "source_file": "skills/reportes/plano-svg.skill.md",
+      "source_location": "L52",
+      "_origin": "ast",
+      "id": "reportes_plano_svg_skill_uso_como_herramienta",
+      "community": 1,
+      "norm_label": "uso como herramienta"
+    },
+    {
+      "label": "Reglas de dise\u00f1o (no son est\u00e9ticas, son de lectura)",
+      "file_type": "document",
+      "source_file": "skills/reportes/plano-svg.skill.md",
+      "source_location": "L61",
+      "_origin": "ast",
+      "id": "reportes_plano_svg_skill_reglas_de_dise\u00f1o_no_son_est\u00e9ticas_son_de_lectura",
+      "community": 1,
+      "norm_label": "reglas de diseno (no son esteticas, son de lectura)"
+    },
+    {
+      "label": "Paleta",
+      "file_type": "document",
+      "source_file": "skills/reportes/plano-svg.skill.md",
+      "source_location": "L76",
+      "_origin": "ast",
+      "id": "reportes_plano_svg_skill_paleta",
+      "community": 1,
+      "norm_label": "paleta"
+    },
+    {
+      "label": "Detalles cr\u00edticos (aprendidos a la mala)",
+      "file_type": "document",
+      "source_file": "skills/reportes/plano-svg.skill.md",
+      "source_location": "L92",
+      "_origin": "ast",
+      "id": "reportes_plano_svg_skill_detalles_cr\u00edticos_aprendidos_a_la_mala",
+      "community": 1,
+      "norm_label": "detalles criticos (aprendidos a la mala)"
+    },
+    {
+      "label": "1. El origen del contenido no es el origen del marco",
+      "file_type": "document",
+      "source_file": "skills/reportes/plano-svg.skill.md",
+      "source_location": "L94",
+      "_origin": "ast",
+      "id": "reportes_plano_svg_skill_1_el_origen_del_contenido_no_es_el_origen_del_marco",
+      "community": 1,
+      "norm_label": "1. el origen del contenido no es el origen del marco"
+    },
+    {
+      "label": "2. Hay que escapar `&`, `<` y `>` en todos los textos",
+      "file_type": "document",
+      "source_file": "skills/reportes/plano-svg.skill.md",
+      "source_location": "L101",
+      "_origin": "ast",
+      "id": "reportes_plano_svg_skill_2_hay_que_escapar_y_en_todos_los_textos",
+      "community": 1,
+      "norm_label": "2. hay que escapar `&`, `<` y `>` en todos los textos"
+    },
+    {
+      "label": "3. Las pruebas van junto a la skill, no en una carpeta temporal",
+      "file_type": "document",
+      "source_file": "skills/reportes/plano-svg.skill.md",
+      "source_location": "L105",
+      "_origin": "ast",
+      "id": "reportes_plano_svg_skill_3_las_pruebas_van_junto_a_la_skill_no_en_una_carpeta_temporal",
+      "community": 1,
+      "norm_label": "3. las pruebas van junto a la skill, no en una carpeta temporal"
+    },
+    {
+      "label": "4. Mirar el resultado, no solo los n\u00fameros",
+      "file_type": "document",
+      "source_file": "skills/reportes/plano-svg.skill.md",
+      "source_location": "L109",
+      "_origin": "ast",
+      "id": "reportes_plano_svg_skill_4_mirar_el_resultado_no_solo_los_n\u00fameros",
+      "community": 1,
+      "norm_label": "4. mirar el resultado, no solo los numeros"
+    },
+    {
+      "label": "Verificaci\u00f3n",
+      "file_type": "document",
+      "source_file": "skills/reportes/plano-svg.skill.md",
+      "source_location": "L114",
+      "_origin": "ast",
+      "id": "reportes_plano_svg_skill_verificaci\u00f3n",
+      "community": 1,
+      "norm_label": "verificacion"
+    },
+    {
+      "label": "Qui\u00e9n la usa",
+      "file_type": "document",
+      "source_file": "skills/reportes/plano-svg.skill.md",
+      "source_location": "L125",
+      "_origin": "ast",
+      "id": "reportes_plano_svg_skill_qui\u00e9n_la_usa",
+      "community": 1,
+      "norm_label": "quien la usa"
+    },
+    {
+      "label": "auditoria-superficies-landxml.skill.md",
+      "file_type": "document",
+      "source_file": "skills/superficies/auditoria-superficies-landxml.skill.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "superficies_auditoria_superficies_landxml_skill",
+      "community": 18,
+      "norm_label": "auditoria-superficies-landxml.skill.md"
+    },
+    {
+      "label": "Auditor\u00eda e Integridad de Superficies LandXML TIN",
+      "file_type": "document",
+      "source_file": "skills/superficies/auditoria-superficies-landxml.skill.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "superficies_auditoria_superficies_landxml_skill_auditor\u00eda_e_integridad_de_superficies_landxml_tin",
+      "community": 18,
+      "norm_label": "auditoria e integridad de superficies landxml tin"
+    },
+    {
+      "label": "Cu\u00e1ndo usar",
+      "file_type": "document",
+      "source_file": "skills/superficies/auditoria-superficies-landxml.skill.md",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "superficies_auditoria_superficies_landxml_skill_cu\u00e1ndo_usar",
+      "community": 18,
+      "norm_label": "cuando usar"
+    },
+    {
+      "label": "Entradas requeridas",
+      "file_type": "document",
+      "source_file": "skills/superficies/auditoria-superficies-landxml.skill.md",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "superficies_auditoria_superficies_landxml_skill_entradas_requeridas",
+      "community": 18,
+      "norm_label": "entradas requeridas"
+    },
+    {
+      "label": "Uso",
+      "file_type": "document",
+      "source_file": "skills/superficies/auditoria-superficies-landxml.skill.md",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "superficies_auditoria_superficies_landxml_skill_uso",
+      "community": 18,
+      "norm_label": "uso"
+    },
+    {
+      "label": "Reporte de Auditor\u00eda",
+      "file_type": "document",
+      "source_file": "skills/superficies/auditoria-superficies-landxml.skill.md",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "superficies_auditoria_superficies_landxml_skill_reporte_de_auditor\u00eda",
+      "community": 18,
+      "norm_label": "reporte de auditoria"
+    },
+    {
+      "label": "drapeado-contorno-3d.skill.md",
+      "file_type": "document",
+      "source_file": "skills/superficies/drapeado-contorno-3d.skill.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "superficies_drapeado_contorno_3d_skill",
+      "community": 19,
+      "norm_label": "drapeado-contorno-3d.skill.md"
+    },
+    {
+      "label": "Drapeado e Interpolaci\u00f3n 3D de Contornos sobre TIN",
+      "file_type": "document",
+      "source_file": "skills/superficies/drapeado-contorno-3d.skill.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "superficies_drapeado_contorno_3d_skill_drapeado_e_interpolaci\u00f3n_3d_de_contornos_sobre_tin",
+      "community": 19,
+      "norm_label": "drapeado e interpolacion 3d de contornos sobre tin"
+    },
+    {
+      "label": "Cu\u00e1ndo usar",
+      "file_type": "document",
+      "source_file": "skills/superficies/drapeado-contorno-3d.skill.md",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "superficies_drapeado_contorno_3d_skill_cu\u00e1ndo_usar",
+      "community": 19,
+      "norm_label": "cuando usar"
+    },
+    {
+      "label": "Entradas requeridas",
+      "file_type": "document",
+      "source_file": "skills/superficies/drapeado-contorno-3d.skill.md",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "superficies_drapeado_contorno_3d_skill_entradas_requeridas",
+      "community": 19,
+      "norm_label": "entradas requeridas"
+    },
+    {
+      "label": "Uso",
+      "file_type": "document",
+      "source_file": "skills/superficies/drapeado-contorno-3d.skill.md",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "superficies_drapeado_contorno_3d_skill_uso",
+      "community": 19,
+      "norm_label": "uso"
+    },
+    {
+      "label": "Salida",
+      "file_type": "document",
+      "source_file": "skills/superficies/drapeado-contorno-3d.skill.md",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "superficies_drapeado_contorno_3d_skill_salida",
+      "community": 19,
+      "norm_label": "salida"
+    },
+    {
+      "label": "recorte-superficie.skill.md",
+      "file_type": "document",
+      "source_file": "skills/superficies/recorte-superficie.skill.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "superficies_recorte_superficie_skill",
+      "community": 9,
+      "norm_label": "recorte-superficie.skill.md"
+    },
+    {
+      "label": "Recorte de Superficie TIN con Per\u00edmetro y C\u00e1lculo de \u00c1rea Interior",
+      "file_type": "document",
+      "source_file": "skills/superficies/recorte-superficie.skill.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "superficies_recorte_superficie_skill_recorte_de_superficie_tin_con_per\u00edmetro_y_c\u00e1lculo_de_\u00e1rea_interior",
+      "community": 9,
+      "norm_label": "recorte de superficie tin con perimetro y calculo de area interior"
+    },
+    {
+      "label": "Cu\u00e1ndo usar",
+      "file_type": "document",
+      "source_file": "skills/superficies/recorte-superficie.skill.md",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "superficies_recorte_superficie_skill_cu\u00e1ndo_usar",
+      "community": 9,
+      "norm_label": "cuando usar"
+    },
+    {
+      "label": "Entradas requeridas",
+      "file_type": "document",
+      "source_file": "skills/superficies/recorte-superficie.skill.md",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "superficies_recorte_superficie_skill_entradas_requeridas",
+      "community": 9,
+      "norm_label": "entradas requeridas"
+    },
+    {
+      "label": "Uso",
+      "file_type": "document",
+      "source_file": "skills/superficies/recorte-superficie.skill.md",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "superficies_recorte_superficie_skill_uso",
+      "community": 9,
+      "norm_label": "uso"
+    },
+    {
+      "label": "Salidas",
+      "file_type": "document",
+      "source_file": "skills/superficies/recorte-superficie.skill.md",
+      "source_location": "L42",
+      "_origin": "ast",
+      "id": "superficies_recorte_superficie_skill_salidas",
+      "community": 9,
+      "norm_label": "salidas"
+    },
+    {
+      "label": "Detalles cr\u00edticos (aprendidos a la mala)",
+      "file_type": "document",
+      "source_file": "skills/superficies/recorte-superficie.skill.md",
+      "source_location": "L55",
+      "_origin": "ast",
+      "id": "superficies_recorte_superficie_skill_detalles_cr\u00edticos_aprendidos_a_la_mala",
+      "community": 9,
+      "norm_label": "detalles criticos (aprendidos a la mala)"
+    },
+    {
+      "label": "1. Las caras `i=\"1\"` del LandXML hay que descartarlas",
+      "file_type": "document",
+      "source_file": "skills/superficies/recorte-superficie.skill.md",
+      "source_location": "L57",
+      "_origin": "ast",
+      "id": "superficies_recorte_superficie_skill_1_las_caras_i_1_del_landxml_hay_que_descartarlas",
+      "community": 9,
+      "norm_label": "1. las caras `i=\"1\"` del landxml hay que descartarlas"
+    },
+    {
+      "label": "2. El orden de coordenadas del LandXML es *norte este cota*",
+      "file_type": "document",
+      "source_file": "skills/superficies/recorte-superficie.skill.md",
+      "source_location": "L64",
+      "_origin": "ast",
+      "id": "superficies_recorte_superficie_skill_2_el_orden_de_coordenadas_del_landxml_es_norte_este_cota",
+      "community": 9,
+      "norm_label": "2. el orden de coordenadas del landxml es *norte este cota*"
+    },
+    {
+      "label": "3. El \u00e1rea 3D se calcula por tri\u00e1ngulo, no al final",
+      "file_type": "document",
+      "source_file": "skills/superficies/recorte-superficie.skill.md",
+      "source_location": "L70",
+      "_origin": "ast",
+      "id": "superficies_recorte_superficie_skill_3_el_\u00e1rea_3d_se_calcula_por_tri\u00e1ngulo_no_al_final",
+      "community": 9,
+      "norm_label": "3. el area 3d se calcula por triangulo, no al final"
+    },
+    {
+      "label": "4. Los arcos (bulges) de la polil\u00ednea hay que teselarlos sobre el arco real",
+      "file_type": "document",
+      "source_file": "skills/superficies/recorte-superficie.skill.md",
+      "source_location": "L76",
+      "_origin": "ast",
+      "id": "superficies_recorte_superficie_skill_4_los_arcos_bulges_de_la_polil\u00ednea_hay_que_teselarlos_sobre_el_arco_real",
+      "community": 9,
+      "norm_label": "4. los arcos (bulges) de la polilinea hay que teselarlos sobre el arco real"
+    },
+    {
+      "label": "5. El per\u00edmetro puede ser m\u00e1s grande que la superficie",
+      "file_type": "document",
+      "source_file": "skills/superficies/recorte-superficie.skill.md",
+      "source_location": "L84",
+      "_origin": "ast",
+      "id": "superficies_recorte_superficie_skill_5_el_per\u00edmetro_puede_ser_m\u00e1s_grande_que_la_superficie",
+      "community": 9,
+      "norm_label": "5. el perimetro puede ser mas grande que la superficie"
+    },
+    {
+      "label": "Verificaci\u00f3n contra Civil 3D (si est\u00e1 abierto, v\u00eda el MCP)",
+      "file_type": "document",
+      "source_file": "skills/superficies/recorte-superficie.skill.md",
+      "source_location": "L91",
+      "_origin": "ast",
+      "id": "superficies_recorte_superficie_skill_verificaci\u00f3n_contra_civil_3d_si_est\u00e1_abierto_v\u00eda_el_mcp",
+      "community": 9,
+      "norm_label": "verificacion contra civil 3d (si esta abierto, via el mcp)"
+    },
+    {
+      "label": "Falsos positivos conocidos",
+      "file_type": "document",
+      "source_file": "skills/superficies/recorte-superficie.skill.md",
+      "source_location": "L103",
+      "_origin": "ast",
+      "id": "superficies_recorte_superficie_skill_falsos_positivos_conocidos",
+      "community": 9,
+      "norm_label": "falsos positivos conocidos"
+    },
+    {
+      "label": "Dependencias",
+      "file_type": "document",
+      "source_file": "skills/superficies/recorte-superficie.skill.md",
+      "source_location": "L114",
+      "_origin": "ast",
+      "id": "superficies_recorte_superficie_skill_dependencias",
+      "community": 9,
+      "norm_label": "dependencias"
+    },
+    {
+      "label": "Verificaci\u00f3n",
+      "file_type": "document",
+      "source_file": "skills/superficies/recorte-superficie.skill.md",
+      "source_location": "L120",
+      "_origin": "ast",
+      "id": "superficies_recorte_superficie_skill_verificaci\u00f3n",
+      "community": 9,
+      "norm_label": "verificacion"
+    },
+    {
+      "label": "last_update",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L2",
+      "community": 3,
+      "norm_label": "last_update",
+      "id": "dashboard_data_last_update"
+    },
+    {
+      "label": "stats",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L3",
+      "community": 3,
+      "norm_label": "stats",
+      "id": "dashboard_data_stats"
+    },
+    {
+      "label": "total_skills",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L4",
+      "community": 3,
+      "norm_label": "total_skills",
+      "id": "dashboard_data_stats_total_skills"
+    },
+    {
+      "label": "total_tests",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L5",
+      "community": 3,
+      "norm_label": "total_tests",
+      "id": "dashboard_data_stats_total_tests"
+    },
+    {
+      "label": "tests_ok",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L6",
+      "community": 3,
+      "norm_label": "tests_ok",
+      "id": "dashboard_data_stats_tests_ok"
+    },
+    {
+      "label": "tests_falla",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L7",
+      "community": 3,
+      "norm_label": "tests_falla",
+      "id": "dashboard_data_stats_tests_falla"
+    },
+    {
+      "label": "tests_wip",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L8",
+      "community": 3,
+      "norm_label": "tests_wip",
+      "id": "dashboard_data_stats_tests_wip"
+    },
+    {
+      "label": "total_server_tools",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L9",
+      "community": 3,
+      "norm_label": "total_server_tools",
+      "id": "dashboard_data_stats_total_server_tools"
+    },
+    {
+      "label": "total_server_modules",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L10",
+      "community": 3,
+      "norm_label": "total_server_modules",
+      "id": "dashboard_data_stats_total_server_modules"
+    },
+    {
+      "label": "skills",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L12",
+      "community": 3,
+      "norm_label": "skills",
+      "id": "dashboard_data_skills"
+    },
+    {
+      "label": "matrix",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L20",
+      "community": 3,
+      "norm_label": "matrix",
+      "id": "dashboard_data_matrix"
+    },
+    {
+      "label": "server_tools",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L72",
+      "community": 3,
+      "norm_label": "server_tools",
+      "id": "dashboard_data_server_tools"
+    },
+    {
+      "label": "graph_stats",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L110",
+      "community": 3,
+      "norm_label": "graph_stats",
+      "id": "dashboard_data_graph_stats"
+    },
+    {
+      "label": "nodes",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L111",
+      "community": 3,
+      "norm_label": "nodes",
+      "id": "dashboard_data_graph_stats_nodes"
+    },
+    {
+      "label": "edges",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L112",
+      "community": 3,
+      "norm_label": "edges",
+      "id": "dashboard_data_graph_stats_edges"
+    },
+    {
+      "label": "communities",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L113",
+      "community": 3,
+      "norm_label": "communities",
+      "id": "dashboard_data_graph_stats_communities"
+    },
+    {
+      "label": "active",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L114",
+      "community": 3,
+      "norm_label": "active",
+      "id": "dashboard_data_graph_stats_active"
+    },
+    {
+      "label": "timeline",
+      "file_type": "code",
+      "source_file": "dashboard_data.json",
+      "source_location": "L116",
+      "community": 3,
+      "norm_label": "timeline",
+      "id": "dashboard_data_timeline"
+    },
+    {
+      "label": "revision-curvas-verticales.skill.md",
+      "file_type": "document",
+      "source_file": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "revision-curvas-verticales.skill.md",
+      "id": "vialidad_revision_curvas_verticales_skill"
+    },
+    {
+      "label": "Revisi\u00f3n de Curvas Verticales contra Criterio de Dise\u00f1o (Manual de Carreteras Chile)",
+      "file_type": "document",
+      "source_file": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source_location": "L6",
+      "community": 0,
+      "norm_label": "revision de curvas verticales contra criterio de diseno (manual de carreteras chile)",
+      "id": "vialidad_revision_curvas_verticales_skill_revisi\u00f3n_de_curvas_verticales_contra_criterio_de_dise\u00f1o_manual_de_carreteras_chile"
+    },
+    {
+      "label": "Cu\u00e1ndo usar",
+      "file_type": "document",
+      "source_file": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source_location": "L10",
+      "community": 0,
+      "norm_label": "cuando usar",
+      "id": "vialidad_revision_curvas_verticales_skill_cu\u00e1ndo_usar"
+    },
+    {
+      "label": "Entradas requeridas",
+      "file_type": "document",
+      "source_file": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source_location": "L13",
+      "community": 0,
+      "norm_label": "entradas requeridas",
+      "id": "vialidad_revision_curvas_verticales_skill_entradas_requeridas"
+    },
+    {
+      "label": "Criterios aplicados (Manual de Carreteras de Chile, Vol. 3)",
+      "file_type": "document",
+      "source_file": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source_location": "L18",
+      "community": 0,
+      "norm_label": "criterios aplicados (manual de carreteras de chile, vol. 3)",
+      "id": "vialidad_revision_curvas_verticales_skill_criterios_aplicados_manual_de_carreteras_de_chile_vol_3"
+    },
+    {
+      "label": "1. Par\u00e1metros K M\u00ednimos (Distancia de Visibilidad de Parada)",
+      "file_type": "document",
+      "source_file": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source_location": "L20",
+      "community": 0,
+      "norm_label": "1. parametros k minimos (distancia de visibilidad de parada)",
+      "id": "vialidad_revision_curvas_verticales_skill_1_par\u00e1metros_k_m\u00ednimos_distancia_de_visibilidad_de_parada"
+    },
+    {
+      "label": "2. Longitud M\u00ednima de Curva",
+      "file_type": "document",
+      "source_file": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source_location": "L33",
+      "community": 0,
+      "norm_label": "2. longitud minima de curva",
+      "id": "vialidad_revision_curvas_verticales_skill_2_longitud_m\u00ednima_de_curva"
+    },
+    {
+      "label": "C\u00f3digo de Referencia / Flujo en C# (in-process)",
+      "file_type": "document",
+      "source_file": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source_location": "L40",
+      "community": 0,
+      "norm_label": "codigo de referencia / flujo en c# (in-process)",
+      "id": "vialidad_revision_curvas_verticales_skill_c\u00f3digo_de_referencia_flujo_en_c_in_process"
+    },
+    {
+      "label": "Falsos positivos conocidos",
+      "file_type": "document",
+      "source_file": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source_location": "L74",
+      "community": 0,
+      "norm_label": "falsos positivos conocidos",
+      "id": "vialidad_revision_curvas_verticales_skill_falsos_positivos_conocidos"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L110",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dashboard_data",
+      "target": "dashboard_data_graph_stats"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dashboard_data",
+      "target": "dashboard_data_last_update"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dashboard_data",
+      "target": "dashboard_data_matrix"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L72",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dashboard_data",
+      "target": "dashboard_data_server_tools"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dashboard_data",
+      "target": "dashboard_data_skills"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dashboard_data",
+      "target": "dashboard_data_stats"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L116",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dashboard_data",
+      "target": "dashboard_data_timeline"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/geometria/scripts/teselar_arcos.py",
+      "source_location": "L101",
+      "weight": 1.0,
+      "source": "scripts_teselar_arcos",
+      "target": "scripts_teselar_arcos_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/geometria/scripts/teselar_arcos.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "scripts_teselar_arcos",
+      "target": "scripts_teselar_arcos_teselar_bulge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/geometria/scripts/teselar_arcos.py",
+      "source_location": "L62",
+      "weight": 1.0,
+      "source": "scripts_teselar_arcos",
+      "target": "scripts_teselar_arcos_teselar_polilinea_dxf",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/geometria/scripts/teselar_arcos.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "scripts_teselar_arcos_rationale_21",
+      "target": "scripts_teselar_arcos_teselar_bulge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/geometria/scripts/teselar_arcos.py",
+      "source_location": "L83",
+      "weight": 1.0,
+      "source": "scripts_teselar_arcos_teselar_polilinea_dxf",
+      "target": "scripts_teselar_arcos_teselar_bulge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "skills/geometria/scripts/test_teselado.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "scripts_test_teselado_testteselado_test_arco_semicirculo",
+      "target": "scripts_teselar_arcos_teselar_bulge"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "skills/geometria/scripts/test_teselado.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "scripts_test_teselado_testteselado_test_linea_recta",
+      "target": "scripts_teselar_arcos_teselar_bulge"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "skills/superficies/scripts/drapear_contorno.py",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "scripts_drapear_contorno_drapear_polilineas",
+      "target": "scripts_teselar_arcos_teselar_polilinea_dxf"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/geometria/scripts/teselar_arcos.py",
+      "source_location": "L108",
+      "weight": 1.0,
+      "source": "scripts_teselar_arcos_main",
+      "target": "scripts_teselar_arcos_teselar_polilinea_dxf",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/geometria/scripts/teselar_arcos.py",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "scripts_teselar_arcos_rationale_63",
+      "target": "scripts_teselar_arcos_teselar_polilinea_dxf",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/geometria/scripts/test_teselado.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "scripts_test_teselado",
+      "target": "scripts_test_teselado_testteselado",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/geometria/scripts/test_teselado.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "scripts_test_teselado_testteselado",
+      "target": "scripts_test_teselado_testteselado_test_arco_semicirculo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/geometria/scripts/test_teselado.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "scripts_test_teselado_testteselado",
+      "target": "scripts_test_teselado_testteselado_test_linea_recta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L79",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg",
+      "target": "scripts_plano_svg_color_rampa"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L68",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg",
+      "target": "scripts_plano_svg_esc"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L387",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg",
+      "target": "scripts_plano_svg_leer_dxf"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L357",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg",
+      "target": "scripts_plano_svg_leer_landxml"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L407",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg",
+      "target": "scripts_plano_svg_main"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L73",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg",
+      "target": "scripts_plano_svg_mezclar"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L88",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg",
+      "target": "scripts_plano_svg_paso_redondo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L97",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg",
+      "target": "scripts_plano_svg_planosvg"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L271",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_planosvg_guardar",
+      "target": "scripts_plano_svg_esc"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L69",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_rationale_69",
+      "target": "scripts_plano_svg_esc"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L85",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_color_rampa",
+      "target": "scripts_plano_svg_mezclar"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L155",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_planosvg_poligonos_graduados",
+      "target": "scripts_plano_svg_color_rampa"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L80",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_rationale_80",
+      "target": "scripts_plano_svg_color_rampa"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L301",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_planosvg_guardar",
+      "target": "scripts_plano_svg_paso_redondo"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L89",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_rationale_89",
+      "target": "scripts_plano_svg_paso_redondo"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L431",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_main",
+      "target": "scripts_plano_svg_planosvg"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L190",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_planosvg",
+      "target": "scripts_plano_svg_planosvg_bbox"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L232",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_planosvg",
+      "target": "scripts_plano_svg_planosvg_guardar"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L107",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_planosvg",
+      "target": "scripts_plano_svg_planosvg_init"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L161",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_planosvg",
+      "target": "scripts_plano_svg_planosvg_lineas"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L185",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_planosvg",
+      "target": "scripts_plano_svg_planosvg_nota"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L128",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_planosvg",
+      "target": "scripts_plano_svg_planosvg_poligonos"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L143",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_planosvg",
+      "target": "scripts_plano_svg_planosvg_poligonos_graduados"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L173",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_planosvg",
+      "target": "scripts_plano_svg_planosvg_puntos"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L121",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_planosvg",
+      "target": "scripts_plano_svg_planosvg_rol_color"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L208",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_planosvg",
+      "target": "scripts_plano_svg_planosvg_transformar"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L98",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_rationale_98",
+      "target": "scripts_plano_svg_planosvg"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L315",
+      "weight": 1.0,
+      "source": "scripts_recortar_superficie_escribir_svg",
+      "target": "scripts_plano_svg_planosvg"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L166",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_planosvg_lineas",
+      "target": "scripts_plano_svg_planosvg_rol_color"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L134",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_planosvg_poligonos",
+      "target": "scripts_plano_svg_planosvg_rol_color"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L178",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_planosvg_puntos",
+      "target": "scripts_plano_svg_planosvg_rol_color"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L440",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_main",
+      "target": "scripts_plano_svg_planosvg_poligonos"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L130",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_rationale_130",
+      "target": "scripts_plano_svg_planosvg_poligonos"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L435",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_main",
+      "target": "scripts_plano_svg_planosvg_poligonos_graduados"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L145",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_rationale_145",
+      "target": "scripts_plano_svg_planosvg_poligonos_graduados"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L447",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_main",
+      "target": "scripts_plano_svg_planosvg_lineas"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L438",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_main",
+      "target": "scripts_plano_svg_planosvg_nota"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L301",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_planosvg_guardar",
+      "target": "scripts_plano_svg_planosvg_bbox"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L215",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_planosvg_transformar",
+      "target": "scripts_plano_svg_planosvg_bbox"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L233",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_planosvg_guardar",
+      "target": "scripts_plano_svg_planosvg_transformar"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L209",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_rationale_209",
+      "target": "scripts_plano_svg_planosvg_transformar"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L450",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_main",
+      "target": "scripts_plano_svg_planosvg_guardar"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L429",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_main",
+      "target": "scripts_plano_svg_leer_landxml"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L358",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_rationale_358",
+      "target": "scripts_plano_svg_leer_landxml"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L443",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_main",
+      "target": "scripts_plano_svg_leer_dxf"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/plano_svg.py",
+      "source_location": "L388",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_plano_svg_rationale_388",
+      "target": "scripts_plano_svg_leer_dxf"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/test_plano_svg.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_test_plano_svg",
+      "target": "scripts_test_plano_svg_check"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/test_plano_svg.py",
+      "source_location": "L25",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_test_plano_svg",
+      "target": "scripts_test_plano_svg_coords_de"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/test_plano_svg.py",
+      "source_location": "L157",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_test_plano_svg",
+      "target": "scripts_test_plano_svg_desborde"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/scripts/test_plano_svg.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_test_plano_svg_rationale_26",
+      "target": "scripts_test_plano_svg_coords_de"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/router.py",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "skills_router",
+      "target": "skills_router_detectar_intenciones",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/router.py",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "skills_router",
+      "target": "skills_router_ejecutar_pipeline",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/router.py",
+      "source_location": "L113",
+      "weight": 1.0,
+      "source": "skills_router",
+      "target": "skills_router_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/router.py",
+      "source_location": "L122",
+      "weight": 1.0,
+      "source": "skills_router_main",
+      "target": "skills_router_detectar_intenciones",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/router.py",
+      "source_location": "L62",
+      "weight": 1.0,
+      "source": "skills_router_rationale_62",
+      "target": "skills_router_detectar_intenciones",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "skills/tests/test_router.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "tests_test_router_testrouterintenciones_test_clasificacion_auditoria",
+      "target": "skills_router_detectar_intenciones"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "skills/tests/test_router.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "tests_test_router_testrouterintenciones_test_clasificacion_drapeado",
+      "target": "skills_router_detectar_intenciones"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "skills/tests/test_router.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "tests_test_router_testrouterintenciones_test_clasificacion_recorte",
+      "target": "skills_router_detectar_intenciones"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "skills/tests/test_router.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "tests_test_router_testrouterintenciones_test_pipeline_completo",
+      "target": "skills_router_detectar_intenciones"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/router.py",
+      "source_location": "L133",
+      "weight": 1.0,
+      "source": "skills_router_main",
+      "target": "skills_router_ejecutar_pipeline",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/router.py",
+      "source_location": "L78",
+      "weight": 1.0,
+      "source": "skills_router_rationale_78",
+      "target": "skills_router_ejecutar_pipeline",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/auditar_superficie.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "scripts_auditar_superficie",
+      "target": "scripts_auditar_superficie_auditar_landxml",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/auditar_superficie.py",
+      "source_location": "L97",
+      "weight": 1.0,
+      "source": "scripts_auditar_superficie",
+      "target": "scripts_auditar_superficie_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/auditar_superficie.py",
+      "source_location": "L103",
+      "weight": 1.0,
+      "source": "scripts_auditar_superficie_main",
+      "target": "scripts_auditar_superficie_auditar_landxml",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "skills/superficies/scripts/test_auditoria.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "scripts_test_auditoria_testauditoria_test_auditoria_prueba_ia",
+      "target": "scripts_auditar_superficie_auditar_landxml"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/drapear_contorno.py",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "scripts_drapear_contorno",
+      "target": "scripts_drapear_contorno_drapear_polilineas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/drapear_contorno.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "scripts_drapear_contorno",
+      "target": "scripts_drapear_contorno_interpolar_z_triangulo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/drapear_contorno.py",
+      "source_location": "L91",
+      "weight": 1.0,
+      "source": "scripts_drapear_contorno",
+      "target": "scripts_drapear_contorno_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/drapear_contorno.py",
+      "source_location": "L72",
+      "weight": 1.0,
+      "source": "scripts_drapear_contorno_drapear_polilineas",
+      "target": "scripts_drapear_contorno_interpolar_z_triangulo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/drapear_contorno.py",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "scripts_drapear_contorno_rationale_25",
+      "target": "scripts_drapear_contorno_interpolar_z_triangulo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/drapear_contorno.py",
+      "source_location": "L98",
+      "weight": 1.0,
+      "source": "scripts_drapear_contorno_main",
+      "target": "scripts_drapear_contorno_drapear_polilineas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "skills/superficies/scripts/test_drapeado.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "scripts_test_drapeado_testdrapeado_test_drapeado_prueba_ia",
+      "target": "scripts_drapear_contorno_drapear_polilineas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L57",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie",
+      "target": "scripts_recortar_superficie_aviso"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L234",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie",
+      "target": "scripts_recortar_superficie_cota_en_plano"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L387",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie",
+      "target": "scripts_recortar_superficie_escribir_dxf_borde"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L335",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie",
+      "target": "scripts_recortar_superficie_escribir_landxml"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L309",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie",
+      "target": "scripts_recortar_superficie_escribir_svg"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L61",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie",
+      "target": "scripts_recortar_superficie_fmt"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L66",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie",
+      "target": "scripts_recortar_superficie_leer_landxml"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L160",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie",
+      "target": "scripts_recortar_superficie_leer_perimetro"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L419",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie",
+      "target": "scripts_recortar_superficie_main"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L223",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie",
+      "target": "scripts_recortar_superficie_razon_3d"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L281",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie",
+      "target": "scripts_recortar_superficie_recortar"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L127",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie",
+      "target": "scripts_recortar_superficie_teselar"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L242",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie",
+      "target": "scripts_recortar_superficie_triangular"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L352",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie_escribir_landxml",
+      "target": "scripts_recortar_superficie_aviso"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L78",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie_leer_landxml",
+      "target": "scripts_recortar_superficie_aviso"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L208",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie_leer_perimetro",
+      "target": "scripts_recortar_superficie_aviso"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L474",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie_main",
+      "target": "scripts_recortar_superficie_aviso"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L316",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie_escribir_svg",
+      "target": "scripts_recortar_superficie_fmt"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L463",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie_main",
+      "target": "scripts_recortar_superficie_fmt"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L452",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie_main",
+      "target": "scripts_recortar_superficie_leer_landxml"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L67",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie_rationale_67",
+      "target": "scripts_recortar_superficie_leer_landxml"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L186",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie_leer_perimetro",
+      "target": "scripts_recortar_superficie_teselar"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L128",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie_rationale_128",
+      "target": "scripts_recortar_superficie_teselar"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L458",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie_main",
+      "target": "scripts_recortar_superficie_leer_perimetro"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L162",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie_rationale_162",
+      "target": "scripts_recortar_superficie_leer_perimetro"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L224",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie_rationale_224",
+      "target": "scripts_recortar_superficie_razon_3d"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L288",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie_recortar",
+      "target": "scripts_recortar_superficie_razon_3d"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L347",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie_escribir_landxml",
+      "target": "scripts_recortar_superficie_cota_en_plano"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L499",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie_main",
+      "target": "scripts_recortar_superficie_cota_en_plano"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L349",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie_escribir_landxml",
+      "target": "scripts_recortar_superficie_triangular"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L243",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie_rationale_243",
+      "target": "scripts_recortar_superficie_triangular"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L479",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie_main",
+      "target": "scripts_recortar_superficie_recortar"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L524",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie_main",
+      "target": "scripts_recortar_superficie_escribir_svg"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L311",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie_rationale_311",
+      "target": "scripts_recortar_superficie_escribir_svg"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L528",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie_main",
+      "target": "scripts_recortar_superficie_escribir_landxml"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/recortar_superficie.py",
+      "source_location": "L533",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_recortar_superficie_main",
+      "target": "scripts_recortar_superficie_escribir_dxf_borde"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/test_auditoria.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "scripts_test_auditoria",
+      "target": "scripts_test_auditoria_testauditoria",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/test_auditoria.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "scripts_test_auditoria_testauditoria",
+      "target": "scripts_test_auditoria_testauditoria_test_auditoria_prueba_ia",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/test_drapeado.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "scripts_test_drapeado",
+      "target": "scripts_test_drapeado_testdrapeado",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/test_drapeado.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "scripts_test_drapeado_testdrapeado",
+      "target": "scripts_test_drapeado_testdrapeado_test_drapeado_prueba_ia",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/test_recorte.py",
+      "source_location": "L91",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_test_recorte",
+      "target": "scripts_test_recorte_area_landxml"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/test_recorte.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_test_recorte",
+      "target": "scripts_test_recorte_check"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/test_recorte.py",
+      "source_location": "L81",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_test_recorte",
+      "target": "scripts_test_recorte_correr"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/test_recorte.py",
+      "source_location": "L66",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_test_recorte",
+      "target": "scripts_test_recorte_dxf_circulo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/test_recorte.py",
+      "source_location": "L75",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_test_recorte",
+      "target": "scripts_test_recorte_dxf_poly"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/test_recorte.py",
+      "source_location": "L36",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_test_recorte",
+      "target": "scripts_test_recorte_tin_metrico"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/test_recorte.py",
+      "source_location": "L37",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_test_recorte_rationale_37",
+      "target": "scripts_test_recorte_tin_metrico"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/scripts/test_recorte.py",
+      "source_location": "L67",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_test_recorte_rationale_67",
+      "target": "scripts_test_recorte_dxf_circulo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/tests/test_router.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "tests_test_router",
+      "target": "tests_test_router_testrouterintenciones",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/tests/test_router.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "tests_test_router_testrouterintenciones",
+      "target": "tests_test_router_testrouterintenciones_test_clasificacion_auditoria",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/tests/test_router.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "tests_test_router_testrouterintenciones",
+      "target": "tests_test_router_testrouterintenciones_test_clasificacion_drapeado",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/tests/test_router.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "tests_test_router_testrouterintenciones",
+      "target": "tests_test_router_testrouterintenciones_test_clasificacion_recorte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/tests/test_router.py",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "tests_test_router_testrouterintenciones",
+      "target": "tests_test_router_testrouterintenciones_test_pipeline_completo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "update_dashboard.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "update_dashboard",
+      "target": "update_dashboard_clean_path"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "update_dashboard.py",
+      "source_location": "L146",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "update_dashboard",
+      "target": "update_dashboard_get_graphify_stats"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "update_dashboard.py",
+      "source_location": "L95",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "update_dashboard",
+      "target": "update_dashboard_get_server_tools"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "update_dashboard.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "update_dashboard",
+      "target": "update_dashboard_get_skills"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "update_dashboard.py",
+      "source_location": "L167",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "update_dashboard",
+      "target": "update_dashboard_get_timeline"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "update_dashboard.py",
+      "source_location": "L64",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "update_dashboard",
+      "target": "update_dashboard_get_verification_matrix"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "update_dashboard.py",
+      "source_location": "L217",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "update_dashboard",
+      "target": "update_dashboard_main"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "update_dashboard.py",
+      "source_location": "L25",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "update_dashboard_get_skills",
+      "target": "update_dashboard_clean_path"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "update_dashboard.py",
+      "source_location": "L184",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "update_dashboard_get_timeline",
+      "target": "update_dashboard_clean_path"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "update_dashboard.py",
+      "source_location": "L219",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "update_dashboard_main",
+      "target": "update_dashboard_get_skills"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "update_dashboard.py",
+      "source_location": "L220",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "update_dashboard_main",
+      "target": "update_dashboard_get_verification_matrix"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "update_dashboard.py",
+      "source_location": "L221",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "update_dashboard_main",
+      "target": "update_dashboard_get_server_tools"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "update_dashboard.py",
+      "source_location": "L222",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "update_dashboard_main",
+      "target": "update_dashboard_get_graphify_stats"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "update_dashboard.py",
+      "source_location": "L223",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "update_dashboard_main",
+      "target": "update_dashboard_get_timeline"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/rules/graphify.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "rules_graphify",
+      "target": "rules_graphify_graphify"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/workflows/graphify.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "workflows_graphify",
+      "target": "workflows_graphify_workflow_graphify"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/geometria/teselado-arcos-polilinea.skill.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "geometria_teselado_arcos_polilinea_skill",
+      "target": "geometria_teselado_arcos_polilinea_skill_teselado_de_arcos_y_bulges_en_polil\u00edneas_por_sagitta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/geometria/teselado-arcos-polilinea.skill.md",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "geometria_teselado_arcos_polilinea_skill_teselado_de_arcos_y_bulges_en_polil\u00edneas_por_sagitta",
+      "target": "geometria_teselado_arcos_polilinea_skill_cu\u00e1ndo_usar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/geometria/teselado-arcos-polilinea.skill.md",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "geometria_teselado_arcos_polilinea_skill_teselado_de_arcos_y_bulges_en_polil\u00edneas_por_sagitta",
+      "target": "geometria_teselado_arcos_polilinea_skill_entradas_requeridas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/geometria/teselado-arcos-polilinea.skill.md",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "geometria_teselado_arcos_polilinea_skill_teselado_de_arcos_y_bulges_en_polil\u00edneas_por_sagitta",
+      "target": "geometria_teselado_arcos_polilinea_skill_salida",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/geometria/teselado-arcos-polilinea.skill.md",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "geometria_teselado_arcos_polilinea_skill_teselado_de_arcos_y_bulges_en_polil\u00edneas_por_sagitta",
+      "target": "geometria_teselado_arcos_polilinea_skill_uso",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/generacion-planos-svg.skill.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "reportes_generacion_planos_svg_skill",
+      "target": "reportes_generacion_planos_svg_skill_generaci\u00f3n_de_planos_vectoriales_svg_de_verificaci\u00f3n_topogr\u00e1fica"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/generacion-planos-svg.skill.md",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "reportes_generacion_planos_svg_skill_generaci\u00f3n_de_planos_vectoriales_svg_de_verificaci\u00f3n_topogr\u00e1fica",
+      "target": "reportes_generacion_planos_svg_skill_cu\u00e1ndo_usar"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/generacion-planos-svg.skill.md",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "reportes_generacion_planos_svg_skill_generaci\u00f3n_de_planos_vectoriales_svg_de_verificaci\u00f3n_topogr\u00e1fica",
+      "target": "reportes_generacion_planos_svg_skill_entradas_requeridas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/generacion-planos-svg.skill.md",
+      "source_location": "L48",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "reportes_generacion_planos_svg_skill_generaci\u00f3n_de_planos_vectoriales_svg_de_verificaci\u00f3n_topogr\u00e1fica",
+      "target": "reportes_generacion_planos_svg_skill_estado"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/generacion-planos-svg.skill.md",
+      "source_location": "L39",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "reportes_generacion_planos_svg_skill_generaci\u00f3n_de_planos_vectoriales_svg_de_verificaci\u00f3n_topogr\u00e1fica",
+      "target": "reportes_generacion_planos_svg_skill_salidas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/generacion-planos-svg.skill.md",
+      "source_location": "L33",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "reportes_generacion_planos_svg_skill_generaci\u00f3n_de_planos_vectoriales_svg_de_verificaci\u00f3n_topogr\u00e1fica",
+      "target": "reportes_generacion_planos_svg_skill_uso_desde_l\u00ednea_de_comandos_cli"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/generacion-planos-svg.skill.md",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "reportes_generacion_planos_svg_skill_generaci\u00f3n_de_planos_vectoriales_svg_de_verificaci\u00f3n_topogr\u00e1fica",
+      "target": "reportes_generacion_planos_svg_skill_uso_en_python"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/plano-svg.skill.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "reportes_plano_svg_skill",
+      "target": "reportes_plano_svg_skill_sistema_de_reportes_gr\u00e1ficos_svg",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/plano-svg.skill.md",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "reportes_plano_svg_skill_sistema_de_reportes_gr\u00e1ficos_svg",
+      "target": "reportes_plano_svg_skill_cu\u00e1ndo_usar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/plano-svg.skill.md",
+      "source_location": "L92",
+      "weight": 1.0,
+      "source": "reportes_plano_svg_skill_sistema_de_reportes_gr\u00e1ficos_svg",
+      "target": "reportes_plano_svg_skill_detalles_cr\u00edticos_aprendidos_a_la_mala",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/plano-svg.skill.md",
+      "source_location": "L76",
+      "weight": 1.0,
+      "source": "reportes_plano_svg_skill_sistema_de_reportes_gr\u00e1ficos_svg",
+      "target": "reportes_plano_svg_skill_paleta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/plano-svg.skill.md",
+      "source_location": "L125",
+      "weight": 1.0,
+      "source": "reportes_plano_svg_skill_sistema_de_reportes_gr\u00e1ficos_svg",
+      "target": "reportes_plano_svg_skill_qui\u00e9n_la_usa",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/plano-svg.skill.md",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "reportes_plano_svg_skill_sistema_de_reportes_gr\u00e1ficos_svg",
+      "target": "reportes_plano_svg_skill_reglas_de_dise\u00f1o_no_son_est\u00e9ticas_son_de_lectura",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/plano-svg.skill.md",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "reportes_plano_svg_skill_sistema_de_reportes_gr\u00e1ficos_svg",
+      "target": "reportes_plano_svg_skill_uso_como_herramienta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/plano-svg.skill.md",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "reportes_plano_svg_skill_sistema_de_reportes_gr\u00e1ficos_svg",
+      "target": "reportes_plano_svg_skill_uso_como_librer\u00eda",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/plano-svg.skill.md",
+      "source_location": "L114",
+      "weight": 1.0,
+      "source": "reportes_plano_svg_skill_sistema_de_reportes_gr\u00e1ficos_svg",
+      "target": "reportes_plano_svg_skill_verificaci\u00f3n",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/plano-svg.skill.md",
+      "source_location": "L94",
+      "weight": 1.0,
+      "source": "reportes_plano_svg_skill_detalles_cr\u00edticos_aprendidos_a_la_mala",
+      "target": "reportes_plano_svg_skill_1_el_origen_del_contenido_no_es_el_origen_del_marco",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/plano-svg.skill.md",
+      "source_location": "L101",
+      "weight": 1.0,
+      "source": "reportes_plano_svg_skill_detalles_cr\u00edticos_aprendidos_a_la_mala",
+      "target": "reportes_plano_svg_skill_2_hay_que_escapar_y_en_todos_los_textos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/plano-svg.skill.md",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "reportes_plano_svg_skill_detalles_cr\u00edticos_aprendidos_a_la_mala",
+      "target": "reportes_plano_svg_skill_3_las_pruebas_van_junto_a_la_skill_no_en_una_carpeta_temporal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/reportes/plano-svg.skill.md",
+      "source_location": "L109",
+      "weight": 1.0,
+      "source": "reportes_plano_svg_skill_detalles_cr\u00edticos_aprendidos_a_la_mala",
+      "target": "reportes_plano_svg_skill_4_mirar_el_resultado_no_solo_los_n\u00fameros",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/auditoria-superficies-landxml.skill.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "superficies_auditoria_superficies_landxml_skill",
+      "target": "superficies_auditoria_superficies_landxml_skill_auditor\u00eda_e_integridad_de_superficies_landxml_tin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/auditoria-superficies-landxml.skill.md",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "superficies_auditoria_superficies_landxml_skill_auditor\u00eda_e_integridad_de_superficies_landxml_tin",
+      "target": "superficies_auditoria_superficies_landxml_skill_cu\u00e1ndo_usar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/auditoria-superficies-landxml.skill.md",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "superficies_auditoria_superficies_landxml_skill_auditor\u00eda_e_integridad_de_superficies_landxml_tin",
+      "target": "superficies_auditoria_superficies_landxml_skill_entradas_requeridas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/auditoria-superficies-landxml.skill.md",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "superficies_auditoria_superficies_landxml_skill_auditor\u00eda_e_integridad_de_superficies_landxml_tin",
+      "target": "superficies_auditoria_superficies_landxml_skill_reporte_de_auditor\u00eda",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/auditoria-superficies-landxml.skill.md",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "superficies_auditoria_superficies_landxml_skill_auditor\u00eda_e_integridad_de_superficies_landxml_tin",
+      "target": "superficies_auditoria_superficies_landxml_skill_uso",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/drapeado-contorno-3d.skill.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "superficies_drapeado_contorno_3d_skill",
+      "target": "superficies_drapeado_contorno_3d_skill_drapeado_e_interpolaci\u00f3n_3d_de_contornos_sobre_tin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/drapeado-contorno-3d.skill.md",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "superficies_drapeado_contorno_3d_skill_drapeado_e_interpolaci\u00f3n_3d_de_contornos_sobre_tin",
+      "target": "superficies_drapeado_contorno_3d_skill_cu\u00e1ndo_usar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/drapeado-contorno-3d.skill.md",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "superficies_drapeado_contorno_3d_skill_drapeado_e_interpolaci\u00f3n_3d_de_contornos_sobre_tin",
+      "target": "superficies_drapeado_contorno_3d_skill_entradas_requeridas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/drapeado-contorno-3d.skill.md",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "superficies_drapeado_contorno_3d_skill_drapeado_e_interpolaci\u00f3n_3d_de_contornos_sobre_tin",
+      "target": "superficies_drapeado_contorno_3d_skill_salida",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/drapeado-contorno-3d.skill.md",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "superficies_drapeado_contorno_3d_skill_drapeado_e_interpolaci\u00f3n_3d_de_contornos_sobre_tin",
+      "target": "superficies_drapeado_contorno_3d_skill_uso",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/recorte-superficie.skill.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "superficies_recorte_superficie_skill",
+      "target": "superficies_recorte_superficie_skill_recorte_de_superficie_tin_con_per\u00edmetro_y_c\u00e1lculo_de_\u00e1rea_interior"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/recorte-superficie.skill.md",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "superficies_recorte_superficie_skill_recorte_de_superficie_tin_con_per\u00edmetro_y_c\u00e1lculo_de_\u00e1rea_interior",
+      "target": "superficies_recorte_superficie_skill_cu\u00e1ndo_usar"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/recorte-superficie.skill.md",
+      "source_location": "L114",
+      "weight": 1.0,
+      "source": "superficies_recorte_superficie_skill_recorte_de_superficie_tin_con_per\u00edmetro_y_c\u00e1lculo_de_\u00e1rea_interior",
+      "target": "superficies_recorte_superficie_skill_dependencias",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/recorte-superficie.skill.md",
+      "source_location": "L53",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "superficies_recorte_superficie_skill_recorte_de_superficie_tin_con_per\u00edmetro_y_c\u00e1lculo_de_\u00e1rea_interior",
+      "target": "superficies_recorte_superficie_skill_detalles_cr\u00edticos_aprendidos_a_la_mala"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/recorte-superficie.skill.md",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "superficies_recorte_superficie_skill_recorte_de_superficie_tin_con_per\u00edmetro_y_c\u00e1lculo_de_\u00e1rea_interior",
+      "target": "superficies_recorte_superficie_skill_entradas_requeridas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/recorte-superficie.skill.md",
+      "source_location": "L101",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "superficies_recorte_superficie_skill_recorte_de_superficie_tin_con_per\u00edmetro_y_c\u00e1lculo_de_\u00e1rea_interior",
+      "target": "superficies_recorte_superficie_skill_falsos_positivos_conocidos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/recorte-superficie.skill.md",
+      "source_location": "L42",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "superficies_recorte_superficie_skill_recorte_de_superficie_tin_con_per\u00edmetro_y_c\u00e1lculo_de_\u00e1rea_interior",
+      "target": "superficies_recorte_superficie_skill_salidas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/recorte-superficie.skill.md",
+      "source_location": "L25",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "superficies_recorte_superficie_skill_recorte_de_superficie_tin_con_per\u00edmetro_y_c\u00e1lculo_de_\u00e1rea_interior",
+      "target": "superficies_recorte_superficie_skill_uso"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/recorte-superficie.skill.md",
+      "source_location": "L120",
+      "weight": 1.0,
+      "source": "superficies_recorte_superficie_skill_recorte_de_superficie_tin_con_per\u00edmetro_y_c\u00e1lculo_de_\u00e1rea_interior",
+      "target": "superficies_recorte_superficie_skill_verificaci\u00f3n",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/recorte-superficie.skill.md",
+      "source_location": "L89",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "superficies_recorte_superficie_skill_recorte_de_superficie_tin_con_per\u00edmetro_y_c\u00e1lculo_de_\u00e1rea_interior",
+      "target": "superficies_recorte_superficie_skill_verificaci\u00f3n_contra_civil_3d_si_est\u00e1_abierto_v\u00eda_el_mcp"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/recorte-superficie.skill.md",
+      "source_location": "L55",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "superficies_recorte_superficie_skill_detalles_cr\u00edticos_aprendidos_a_la_mala",
+      "target": "superficies_recorte_superficie_skill_1_las_caras_i_1_del_landxml_hay_que_descartarlas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/recorte-superficie.skill.md",
+      "source_location": "L62",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "superficies_recorte_superficie_skill_detalles_cr\u00edticos_aprendidos_a_la_mala",
+      "target": "superficies_recorte_superficie_skill_2_el_orden_de_coordenadas_del_landxml_es_norte_este_cota"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/recorte-superficie.skill.md",
+      "source_location": "L68",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "superficies_recorte_superficie_skill_detalles_cr\u00edticos_aprendidos_a_la_mala",
+      "target": "superficies_recorte_superficie_skill_3_el_\u00e1rea_3d_se_calcula_por_tri\u00e1ngulo_no_al_final"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/recorte-superficie.skill.md",
+      "source_location": "L74",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "superficies_recorte_superficie_skill_detalles_cr\u00edticos_aprendidos_a_la_mala",
+      "target": "superficies_recorte_superficie_skill_4_los_arcos_bulges_de_la_polil\u00ednea_hay_que_teselarlos_sobre_el_arco_real"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/superficies/recorte-superficie.skill.md",
+      "source_location": "L82",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "superficies_recorte_superficie_skill_detalles_cr\u00edticos_aprendidos_a_la_mala",
+      "target": "superficies_recorte_superficie_skill_5_el_per\u00edmetro_puede_ser_m\u00e1s_grande_que_la_superficie"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dashboard_data_stats",
+      "target": "dashboard_data_stats_tests_falla"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dashboard_data_stats",
+      "target": "dashboard_data_stats_tests_ok"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dashboard_data_stats",
+      "target": "dashboard_data_stats_tests_wip"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dashboard_data_stats",
+      "target": "dashboard_data_stats_total_server_modules"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dashboard_data_stats",
+      "target": "dashboard_data_stats_total_server_tools"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dashboard_data_stats",
+      "target": "dashboard_data_stats_total_skills"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dashboard_data_stats",
+      "target": "dashboard_data_stats_total_tests"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L114",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dashboard_data_graph_stats",
+      "target": "dashboard_data_graph_stats_active"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L113",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dashboard_data_graph_stats",
+      "target": "dashboard_data_graph_stats_communities"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L112",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dashboard_data_graph_stats",
+      "target": "dashboard_data_graph_stats_edges"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dashboard_data.json",
+      "source_location": "L111",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dashboard_data_graph_stats",
+      "target": "dashboard_data_graph_stats_nodes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "vialidad_revision_curvas_verticales_skill",
+      "target": "vialidad_revision_curvas_verticales_skill_revisi\u00f3n_de_curvas_verticales_contra_criterio_de_dise\u00f1o_manual_de_carreteras_chile"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "vialidad_revision_curvas_verticales_skill_revisi\u00f3n_de_curvas_verticales_contra_criterio_de_dise\u00f1o_manual_de_carreteras_chile",
+      "target": "vialidad_revision_curvas_verticales_skill_criterios_aplicados_manual_de_carreteras_de_chile_vol_3"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "vialidad_revision_curvas_verticales_skill_revisi\u00f3n_de_curvas_verticales_contra_criterio_de_dise\u00f1o_manual_de_carreteras_chile",
+      "target": "vialidad_revision_curvas_verticales_skill_cu\u00e1ndo_usar"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source_location": "L40",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "vialidad_revision_curvas_verticales_skill_revisi\u00f3n_de_curvas_verticales_contra_criterio_de_dise\u00f1o_manual_de_carreteras_chile",
+      "target": "vialidad_revision_curvas_verticales_skill_c\u00f3digo_de_referencia_flujo_en_c_in_process"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "vialidad_revision_curvas_verticales_skill_revisi\u00f3n_de_curvas_verticales_contra_criterio_de_dise\u00f1o_manual_de_carreteras_chile",
+      "target": "vialidad_revision_curvas_verticales_skill_entradas_requeridas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source_location": "L74",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "vialidad_revision_curvas_verticales_skill_revisi\u00f3n_de_curvas_verticales_contra_criterio_de_dise\u00f1o_manual_de_carreteras_chile",
+      "target": "vialidad_revision_curvas_verticales_skill_falsos_positivos_conocidos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "vialidad_revision_curvas_verticales_skill_criterios_aplicados_manual_de_carreteras_de_chile_vol_3",
+      "target": "vialidad_revision_curvas_verticales_skill_1_par\u00e1metros_k_m\u00ednimos_distancia_de_visibilidad_de_parada"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/vialidad/revision-curvas-verticales.skill.md",
+      "source_location": "L33",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "vialidad_revision_curvas_verticales_skill_criterios_aplicados_manual_de_carreteras_de_chile_vol_3",
+      "target": "vialidad_revision_curvas_verticales_skill_2_longitud_m\u00ednima_de_curva"
+    }
+  ],
+  "hyperedges": [],
+  "built_at_commit": "9b85b71502576ff792523068294abfaee8bedeb3"
+}

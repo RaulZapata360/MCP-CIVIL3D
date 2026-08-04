@@ -1,0 +1,137 @@
+{
+  "dashboard_data.json": {
+    "mtime": 1785602669.528697,
+    "ast_hash": "7940d22a2a20d737602c5c715b69a0d7",
+    "semantic_hash": ""
+  },
+  "update_dashboard.py": {
+    "mtime": 1785451988.4225347,
+    "ast_hash": "dee13ff0e973bbba06b946b5a61fdb58",
+    "semantic_hash": ""
+  },
+  ".agents/rules/1.md": {
+    "mtime": 1785451269.755431,
+    "ast_hash": "756332ce02bd31a839182085e00c84b8",
+    "semantic_hash": ""
+  },
+  ".agents/rules/graphify.md": {
+    "mtime": 1785451355.4933653,
+    "ast_hash": "a0e4d192b9e2e17256124dbfc8e24e6a",
+    "semantic_hash": ""
+  },
+  ".agents/workflows/graphify.md": {
+    "mtime": 1785451355.4977002,
+    "ast_hash": "637776aa6f7496d069afe7520c845c8a",
+    "semantic_hash": ""
+  },
+  "dashboard.html": {
+    "mtime": 1785452007.6630282,
+    "ast_hash": "0912f5ea0bd8324d083ca9e4d2c199bb",
+    "semantic_hash": ""
+  },
+  "mcp-civil3d-capacidades-y-expansion.html": {
+    "mtime": 1785382700.423956,
+    "ast_hash": "8fab6342f1b1e22ce1938cbafad582f6",
+    "semantic_hash": ""
+  },
+  "mcp-civil3d-unificacion-informe-II.html": {
+    "mtime": 1785450167.185371,
+    "ast_hash": "a44c854e49f86b4260d3f61720e26c68",
+    "semantic_hash": ""
+  },
+  "dashboard_data.js": {
+    "mtime": 1785602669.528697,
+    "ast_hash": "b24491c765550f9df732b7a93a2d95b3",
+    "semantic_hash": ""
+  },
+  "skills/reportes/scripts/plano_svg.py": {
+    "mtime": 1785601780.474457,
+    "ast_hash": "18d1fec40dad9dca9a9ee9629b9363dd",
+    "semantic_hash": ""
+  },
+  "skills/reportes/scripts/test_plano_svg.py": {
+    "mtime": 1785601802.3047278,
+    "ast_hash": "64b235a0ffa8a15dd91bc2e1213ab86a",
+    "semantic_hash": ""
+  },
+  "skills/superficies/scripts/recortar_superficie.py": {
+    "mtime": 1785600043.236511,
+    "ast_hash": "c190cfb98d8dd32df149fe82adc26b9b",
+    "semantic_hash": ""
+  },
+  "skills/superficies/scripts/test_recorte.py": {
+    "mtime": 1785600676.7249815,
+    "ast_hash": "63f21160f2a9b3b5428a79b179b66641",
+    "semantic_hash": ""
+  },
+  "skills/reportes/generacion-planos-svg.skill.md": {
+    "mtime": 1785601916.8153481,
+    "ast_hash": "4124c702391de2257de1cc589707adbf",
+    "semantic_hash": ""
+  },
+  "skills/superficies/recorte-superficie.skill.md": {
+    "mtime": 1785602244.9150567,
+    "ast_hash": "11fe40b83aa53f65333062d7201be7c7",
+    "semantic_hash": ""
+  },
+  "skills/geometria/scripts/teselar_arcos.py": {
+    "mtime": 1785602577.1665702,
+    "ast_hash": "8b523e2f16f75132e9c7b41bff825a01",
+    "semantic_hash": ""
+  },
+  "skills/geometria/scripts/test_teselado.py": {
+    "mtime": 1785602580.7916765,
+    "ast_hash": "05c3af6914cec62a664207c2f24e28b4",
+    "semantic_hash": ""
+  },
+  "skills/router.py": {
+    "mtime": 1785602654.6127675,
+    "ast_hash": "94c0d5af4b592461562f1da6ad86e6ee",
+    "semantic_hash": ""
+  },
+  "skills/superficies/scripts/auditar_superficie.py": {
+    "mtime": 1785602595.4429255,
+    "ast_hash": "ba6e640213186380c40452104b3608a7",
+    "semantic_hash": ""
+  },
+  "skills/superficies/scripts/drapear_contorno.py": {
+    "mtime": 1785602645.5195405,
+    "ast_hash": "f2a9fcc67903e9ca572e97a023c96875",
+    "semantic_hash": ""
+  },
+  "skills/superficies/scripts/test_auditoria.py": {
+    "mtime": 1785602599.8916326,
+    "ast_hash": "bcdbc647c423a298697e80d54e163cdf",
+    "semantic_hash": ""
+  },
+  "skills/superficies/scripts/test_drapeado.py": {
+    "mtime": 1785602616.2460313,
+    "ast_hash": "b1f8e627e762d43b8d62a36f10701f18",
+    "semantic_hash": ""
+  },
+  "skills/tests/test_router.py": {
+    "mtime": 1785602658.8936336,
+    "ast_hash": "9af2f36b83d9ce7f5ee0f5448f004464",
+    "semantic_hash": ""
+  },
+  "skills/geometria/teselado-arcos-polilinea.skill.md": {
+    "mtime": 1785602571.9512181,
+    "ast_hash": "267a089a0b408bbd789ab30f69018a76",
+    "semantic_hash": ""
+  },
+  "skills/reportes/plano-svg.skill.md": {
+    "mtime": 1785602221.0604267,
+    "ast_hash": "bfb64b9f5088af22eca61a010d92dfc9",
+    "semantic_hash": ""
+  },
+  "skills/superficies/auditoria-superficies-landxml.skill.md": {
+    "mtime": 1785602589.7551265,
+    "ast_hash": "62040104d4329fd94a3e4694a27f1928",
+    "semantic_hash": ""
+  },
+  "skills/superficies/drapeado-contorno-3d.skill.md": {
+    "mtime": 1785602607.684474,
+    "ast_hash": "69566f000cbf5b797fd20ed6595459b1",
+    "semantic_hash": ""
+  }
+}

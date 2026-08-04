@@ -12,11 +12,25 @@ obj/
 *.user
 *.suo
 informes/
-verificacion/
 
-# Cache generada por graphify: contiene rutas absolutas de la maquina que la genero,
-# por lo que no debe viajar entre PCs. Se regenera con el workflow .agents/workflows/graphify.md
-graphify-out/
+# verificacion/ guarda dos cosas distintas:
+#   - almacenamiento local de pruebas (DWGs, evidencias, logs sueltos) -> NO se versiona
+#   - la telemetria que alimenta el dashboard -> SI se versiona, es el "medidor de
+#     confianza" (cuantas veces se uso cada skill). Si se ignora entera, cualquier
+#     clon nuevo arranca en "0 usos / Sin uso" y pierde el historial.
+# Nota: hay que excluir el CONTENIDO (verificacion/*), no la carpeta, porque git no
+# puede re-incluir archivos dentro de un directorio ya excluido.
+verificacion/*
+!verificacion/skill_usage.json
+!verificacion/matriz.csv
+!verificacion/session_logs.json
+
+# De graphify solo se ignora la cache de AST: contiene rutas absolutas de la maquina
+# que la genero y no debe viajar entre PCs (se regenera sola).
+# El RESTO de graphify-out/ SI se versiona: graph.json alimenta el panel de grafo del
+# dashboard (update_dashboard.py -> get_graphify_stats), asi que si se ignora entero,
+# ese panel aparece vacio en cualquier clon nuevo.
+graphify-out/cache/
 
 # Respaldos del bundle de Civil 3D creados por server/scripts/deploy-plugin.ps1
 *.bundle.bak/

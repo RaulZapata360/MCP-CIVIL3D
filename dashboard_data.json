@@ -1,5 +1,5 @@
 {
-  "last_update": "2026-08-02 19:08:01",
+  "last_update": "2026-08-04 17:03:51",
   "stats": {
     "total_skills": 8,
     "total_tests": 15,
@@ -1336,100 +1336,100 @@
   },
   "timeline": [
     {
-      "file": "dashboard.html",
-      "path": "dashboard.html",
+      "file": "skill_usage.json",
+      "path": "verificacion/skill_usage.json",
       "source": "Workspace",
-      "mtime": 1785712056.9397187,
-      "date": "2026-08-02 19:07",
-      "date_raw": "2026-08-02T19:07:36.939719"
+      "mtime": 1785877430.9816828,
+      "date": "2026-08-04 17:03",
+      "date_raw": "2026-08-04T17:03:50.981683"
     },
     {
       "file": "dashboard_data.js",
       "path": "dashboard_data.js",
       "source": "Workspace",
-      "mtime": 1785711963.7445407,
-      "date": "2026-08-02 19:06",
-      "date_raw": "2026-08-02T19:06:03.744541"
+      "mtime": 1785877415.9814117,
+      "date": "2026-08-04 17:03",
+      "date_raw": "2026-08-04T17:03:35.981412"
     },
     {
       "file": "dashboard_data.json",
       "path": "dashboard_data.json",
       "source": "Workspace",
-      "mtime": 1785711963.7445407,
-      "date": "2026-08-02 19:06",
-      "date_raw": "2026-08-02T19:06:03.744541"
+      "mtime": 1785877415.9793944,
+      "date": "2026-08-04 17:03",
+      "date_raw": "2026-08-04T17:03:35.979394"
     },
     {
       "file": "update_dashboard.py",
       "path": "update_dashboard.py",
       "source": "Workspace",
-      "mtime": 1785711583.613039,
-      "date": "2026-08-02 18:59",
-      "date_raw": "2026-08-02T18:59:43.613039"
-    },
-    {
-      "file": "session_logs.json",
-      "path": "verificacion/session_logs.json",
-      "source": "Workspace",
-      "mtime": 1785711566.2993886,
-      "date": "2026-08-02 18:59",
-      "date_raw": "2026-08-02T18:59:26.299389"
-    },
-    {
-      "file": "track_usage.py",
-      "path": "verificacion/track_usage.py",
-      "source": "Workspace",
-      "mtime": 1785711557.6739664,
-      "date": "2026-08-02 18:59",
-      "date_raw": "2026-08-02T18:59:17.673966"
-    },
-    {
-      "file": "skill_usage.json",
-      "path": "verificacion/skill_usage.json",
-      "source": "Workspace",
-      "mtime": 1785711390.4004495,
-      "date": "2026-08-02 18:56",
-      "date_raw": "2026-08-02T18:56:30.400450"
+      "mtime": 1785877396.2537155,
+      "date": "2026-08-04 17:03",
+      "date_raw": "2026-08-04T17:03:16.253716"
     },
     {
       "file": "matriz.csv",
       "path": "verificacion/matriz.csv",
       "source": "Workspace",
-      "mtime": 1785711175.0337782,
-      "date": "2026-08-02 18:52",
-      "date_raw": "2026-08-02T18:52:55.033778"
+      "mtime": 1785877332.6282578,
+      "date": "2026-08-04 17:02",
+      "date_raw": "2026-08-04T17:02:12.628258"
     },
     {
-      "file": "informe_estudio_terrazas.html",
-      "path": "verificacion/02-08-2026 v2/informe_estudio_terrazas.html",
+      "file": "session_logs.json",
+      "path": "verificacion/session_logs.json",
       "source": "Workspace",
-      "mtime": 1785710836.5026655,
-      "date": "2026-08-02 18:47",
-      "date_raw": "2026-08-02T18:47:16.502666"
+      "mtime": 1785877332.6282578,
+      "date": "2026-08-04 17:02",
+      "date_raw": "2026-08-04T17:02:12.628258"
     },
     {
-      "file": "Superficie tipo.dwl2",
-      "path": "verificacion/02-08-2026 v2/Superficie tipo.dwl2",
+      "file": "index.js",
+      "path": "server/build/index.js",
       "source": "Workspace",
-      "mtime": 1785707796.9038727,
-      "date": "2026-08-02 17:56",
-      "date_raw": "2026-08-02T17:56:36.903873"
+      "mtime": 1785876974.987497,
+      "date": "2026-08-04 16:56",
+      "date_raw": "2026-08-04T16:56:14.987497"
     },
     {
-      "file": "Superficie tipo.dwl",
-      "path": "verificacion/02-08-2026 v2/Superficie tipo.dwl",
-      "source": "Workspace",
-      "mtime": 1785707796.9032314,
-      "date": "2026-08-02 17:56",
-      "date_raw": "2026-08-02T17:56:36.903231"
+      "file": "index.js",
+      "path": "civil3d-mcp/build/index.js",
+      "source": "Server Codebase",
+      "mtime": 1785876974.987497,
+      "date": "2026-08-04 16:56",
+      "date_raw": "2026-08-04T16:56:14.987497"
     },
     {
-      "file": "Superficie tipo.dwg",
-      "path": "verificacion/02-08-2026 v2/Superficie tipo.dwg",
+      "file": "register.js",
+      "path": "server/build/tools/register.js",
       "source": "Workspace",
-      "mtime": 1785707796.0,
-      "date": "2026-08-02 17:56",
-      "date_raw": "2026-08-02T17:56:36"
+      "mtime": 1785876974.9864967,
+      "date": "2026-08-04 16:56",
+      "date_raw": "2026-08-04T16:56:14.986497"
+    },
+    {
+      "file": "register.js",
+      "path": "civil3d-mcp/build/tools/register.js",
+      "source": "Server Codebase",
+      "mtime": 1785876974.9864967,
+      "date": "2026-08-04 16:56",
+      "date_raw": "2026-08-04T16:56:14.986497"
+    },
+    {
+      "file": "httpBridge.js",
+      "path": "server/build/httpBridge.js",
+      "source": "Workspace",
+      "mtime": 1785876974.9854968,
+      "date": "2026-08-04 16:56",
+      "date_raw": "2026-08-04T16:56:14.985497"
+    },
+    {
+      "file": "httpBridge.js",
+      "path": "civil3d-mcp/build/httpBridge.js",
+      "source": "Server Codebase",
+      "mtime": 1785876974.9854968,
+      "date": "2026-08-04 16:56",
+      "date_raw": "2026-08-04T16:56:14.985497"
     }
   ],
   "session_logs": [
