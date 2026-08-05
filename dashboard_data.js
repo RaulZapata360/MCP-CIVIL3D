@@ -1,7 +1,7 @@
 window.DASHBOARD_DATA = {
-  "last_update": "2026-08-04 17:03:51",
+  "last_update": "2026-08-05 11:26:41",
   "stats": {
-    "total_skills": 8,
+    "total_skills": 18,
     "total_tests": 15,
     "tests_ok": 9,
     "tests_falla": 2,
@@ -98,6 +98,116 @@ window.DASHBOARD_DATA = {
       "last_used": "2026-07-30 14:00:00",
       "reliability": "Media (Frecuente)",
       "rel_code": "MEDIUM"
+    },
+    {
+      "name": "inspeccion_dwg_por_xref",
+      "description": "Unifica por XREF todos los DWG de una carpeta en un solo dibujo de comparación visual, con rutas relativas para que la carpeta de salida sea copiable o comprimible sin romper enlaces.",
+      "category": "Dibujo",
+      "file_path": "skills/dibujo/inspeccion-dwg.skill.md",
+      "uses": 0,
+      "success": 0,
+      "last_used": "Sin registrar",
+      "reliability": "Sin uso",
+      "rel_code": "NONE"
+    },
+    {
+      "name": "ifc_a_civil3d",
+      "description": "Convierte modelos IFC (Bentley OpenRoads/GeoPak) a DXF con capas NCS o a LandXML TIN georreferenciado en VA83-SF, conservando la triangulación, con diagnóstico previo del esquema y control explícito del factor de escala.",
+      "category": "Migracion",
+      "file_path": "skills/migracion/ifc-a-civil3d.skill.md",
+      "uses": 0,
+      "success": 0,
+      "last_used": "Sin registrar",
+      "reliability": "Sin uso",
+      "rel_code": "NONE"
+    },
+    {
+      "name": "cara_superior_desde_solido",
+      "description": "Convierte mallas polyface volumétricas (sólidos con cara superior, paredes y fondo) en superficies TIN que conservan solo la cara transitable, en DXF o en LandXML por elemento.",
+      "category": "Superficies",
+      "file_path": "skills/superficies/cara-superior-desde-solido.skill.md",
+      "uses": 0,
+      "success": 0,
+      "last_used": "Sin registrar",
+      "reliability": "Sin uso",
+      "rel_code": "NONE"
+    },
+    {
+      "name": "comparar_superficies",
+      "description": "Marca en un DXF las zonas donde dos superficies TIN difieren en cota más de un umbral, rasterizando ambas sobre la misma malla regular e interpolando por baricéntricas.",
+      "category": "Superficies",
+      "file_path": "skills/superficies/comparar-superficies.skill.md",
+      "uses": 0,
+      "success": 0,
+      "last_used": "Sin registrar",
+      "reliability": "Sin uso",
+      "rel_code": "NONE"
+    },
+    {
+      "name": "contornos_y_boundaries",
+      "description": "Extrae el paquete completo de contornos (anillo exterior y huecos) de cada superficie de un LandXML y simplifica los vértices redundantes; explica por qué un boundary de Civil 3D no recorta la triangulación.",
+      "category": "Superficies",
+      "file_path": "skills/superficies/contornos-y-boundaries.skill.md",
+      "uses": 0,
+      "success": 0,
+      "last_used": "Sin registrar",
+      "reliability": "Sin uso",
+      "rel_code": "NONE"
+    },
+    {
+      "name": "malla_a_landxml",
+      "description": "Convierte mallas polyface/3DFACE/MESH de un DXF en superficies TIN LandXML conservando la triangulación exacta, con soldadura por XY, limpieza de caras degeneradas y relleno de huecos internos.",
+      "category": "Superficies",
+      "file_path": "skills/superficies/malla-a-landxml.skill.md",
+      "uses": 0,
+      "success": 0,
+      "last_used": "Sin registrar",
+      "reliability": "Sin uso",
+      "rel_code": "NONE"
+    },
+    {
+      "name": "particion_de_superficies",
+      "description": "Parte una superficie de la entrega en piezas usando líneas de un DXF como cuchilla, renumerando de norte a sur, y explica por qué los bordes compartidos se reconstruyen por topología y no promediando pares.",
+      "category": "Superficies",
+      "file_path": "skills/superficies/particion-de-superficies.skill.md",
+      "uses": 0,
+      "success": 0,
+      "last_used": "Sin registrar",
+      "reliability": "Sin uso",
+      "rel_code": "NONE"
+    },
+    {
+      "name": "recorte_y_resta_de_superficies",
+      "description": "Recorta superficies TIN de un LandXML contra contornos cerrados de un DXF, resta la huella de una superficie de otra, y parte una superficie en piezas por capas SURF_OUTER/SURF_HOLE.",
+      "category": "Superficies",
+      "file_path": "skills/superficies/recorte-y-resta.skill.md",
+      "uses": 0,
+      "success": 0,
+      "last_used": "Sin registrar",
+      "reliability": "Sin uso",
+      "rel_code": "NONE"
+    },
+    {
+      "name": "rellenar_huecos_y_costuras",
+      "description": "Cierra los huecos entre superficies entregadas y el límite real de la malla tomando la geometría del XML de origen, y anexa a una superficie el trozo que no cubría ninguna otra.",
+      "category": "Superficies",
+      "file_path": "skills/superficies/rellenar-huecos.skill.md",
+      "uses": 0,
+      "success": 0,
+      "last_used": "Sin registrar",
+      "reliability": "Sin uso",
+      "rel_code": "NONE"
+    },
+    {
+      "name": "⚠️ Cuarentena — herramientas que NO se deben usar sin leer esto",
+      "description": "Sin descripción",
+      "category": "_cuarentena",
+      "file_path": "skills/_cuarentena/README.md",
+      "uses": 0,
+      "success": 0,
+      "last_used": "Sin registrar",
+      "reliability": "Sin uso",
+      "rel_code": "NONE"
     }
   ],
   "matrix": [
@@ -1336,100 +1446,100 @@ window.DASHBOARD_DATA = {
   },
   "timeline": [
     {
-      "file": "skill_usage.json",
-      "path": "verificacion/skill_usage.json",
-      "source": "Workspace",
-      "mtime": 1785877430.9816828,
-      "date": "2026-08-04 17:03",
-      "date_raw": "2026-08-04T17:03:50.981683"
-    },
-    {
       "file": "dashboard_data.js",
       "path": "dashboard_data.js",
       "source": "Workspace",
-      "mtime": 1785877415.9814117,
-      "date": "2026-08-04 17:03",
-      "date_raw": "2026-08-04T17:03:35.981412"
+      "mtime": 1785943445.8993635,
+      "date": "2026-08-05 11:24",
+      "date_raw": "2026-08-05T11:24:05.899364"
     },
     {
       "file": "dashboard_data.json",
       "path": "dashboard_data.json",
       "source": "Workspace",
-      "mtime": 1785877415.9793944,
-      "date": "2026-08-04 17:03",
-      "date_raw": "2026-08-04T17:03:35.979394"
+      "mtime": 1785943445.8983622,
+      "date": "2026-08-05 11:24",
+      "date_raw": "2026-08-05T11:24:05.898362"
     },
     {
-      "file": "update_dashboard.py",
-      "path": "update_dashboard.py",
+      "file": "plano-svg.skill.md",
+      "path": "skills/reportes/plano-svg.skill.md",
       "source": "Workspace",
-      "mtime": 1785877396.2537155,
-      "date": "2026-08-04 17:03",
-      "date_raw": "2026-08-04T17:03:16.253716"
+      "mtime": 1785937026.6653838,
+      "date": "2026-08-05 09:37",
+      "date_raw": "2026-08-05T09:37:06.665384"
     },
     {
-      "file": "matriz.csv",
-      "path": "verificacion/matriz.csv",
+      "file": "plano_svg.py",
+      "path": "skills/reportes/scripts/plano_svg.py",
       "source": "Workspace",
-      "mtime": 1785877332.6282578,
-      "date": "2026-08-04 17:02",
-      "date_raw": "2026-08-04T17:02:12.628258"
+      "mtime": 1785936944.4709773,
+      "date": "2026-08-05 09:35",
+      "date_raw": "2026-08-05T09:35:44.470977"
     },
     {
-      "file": "session_logs.json",
-      "path": "verificacion/session_logs.json",
+      "file": "test_plano_svg.py",
+      "path": "skills/reportes/scripts/test_plano_svg.py",
       "source": "Workspace",
-      "mtime": 1785877332.6282578,
-      "date": "2026-08-04 17:02",
-      "date_raw": "2026-08-04T17:02:12.628258"
+      "mtime": 1785936852.9556267,
+      "date": "2026-08-05 09:34",
+      "date_raw": "2026-08-05T09:34:12.955627"
     },
     {
-      "file": "index.js",
-      "path": "server/build/index.js",
+      "file": "router.py",
+      "path": "skills/router.py",
       "source": "Workspace",
-      "mtime": 1785876974.987497,
-      "date": "2026-08-04 16:56",
-      "date_raw": "2026-08-04T16:56:14.987497"
+      "mtime": 1785880633.4765947,
+      "date": "2026-08-04 17:57",
+      "date_raw": "2026-08-04T17:57:13.476595"
     },
     {
-      "file": "index.js",
-      "path": "civil3d-mcp/build/index.js",
-      "source": "Server Codebase",
-      "mtime": 1785876974.987497,
-      "date": "2026-08-04 16:56",
-      "date_raw": "2026-08-04T16:56:14.987497"
-    },
-    {
-      "file": "register.js",
-      "path": "server/build/tools/register.js",
+      "file": "malla-a-landxml.skill.md",
+      "path": "skills/superficies/malla-a-landxml.skill.md",
       "source": "Workspace",
-      "mtime": 1785876974.9864967,
-      "date": "2026-08-04 16:56",
-      "date_raw": "2026-08-04T16:56:14.986497"
+      "mtime": 1785880607.4442513,
+      "date": "2026-08-04 17:56",
+      "date_raw": "2026-08-04T17:56:47.444251"
     },
     {
-      "file": "register.js",
-      "path": "civil3d-mcp/build/tools/register.js",
-      "source": "Server Codebase",
-      "mtime": 1785876974.9864967,
-      "date": "2026-08-04 16:56",
-      "date_raw": "2026-08-04T16:56:14.986497"
-    },
-    {
-      "file": "httpBridge.js",
-      "path": "server/build/httpBridge.js",
+      "file": "README.md",
+      "path": "skills/_cuarentena/README.md",
       "source": "Workspace",
-      "mtime": 1785876974.9854968,
-      "date": "2026-08-04 16:56",
-      "date_raw": "2026-08-04T16:56:14.985497"
+      "mtime": 1785880597.171946,
+      "date": "2026-08-04 17:56",
+      "date_raw": "2026-08-04T17:56:37.171946"
     },
     {
-      "file": "httpBridge.js",
-      "path": "civil3d-mcp/build/httpBridge.js",
-      "source": "Server Codebase",
-      "mtime": 1785876974.9854968,
-      "date": "2026-08-04 16:56",
-      "date_raw": "2026-08-04T16:56:14.985497"
+      "file": "inspeccion-dwg.skill.md",
+      "path": "skills/dibujo/inspeccion-dwg.skill.md",
+      "source": "Workspace",
+      "mtime": 1785880573.1330478,
+      "date": "2026-08-04 17:56",
+      "date_raw": "2026-08-04T17:56:13.133048"
+    },
+    {
+      "file": "comparar-superficies.skill.md",
+      "path": "skills/superficies/comparar-superficies.skill.md",
+      "source": "Workspace",
+      "mtime": 1785880558.363142,
+      "date": "2026-08-04 17:55",
+      "date_raw": "2026-08-04T17:55:58.363142"
+    },
+    {
+      "file": "ifc-a-civil3d.skill.md",
+      "path": "skills/migracion/ifc-a-civil3d.skill.md",
+      "source": "Workspace",
+      "mtime": 1785880545.334364,
+      "date": "2026-08-04 17:55",
+      "date_raw": "2026-08-04T17:55:45.334364"
+    },
+    {
+      "file": "rellenar-huecos.skill.md",
+      "path": "skills/superficies/rellenar-huecos.skill.md",
+      "source": "Workspace",
+      "mtime": 1785880505.6261704,
+      "date": "2026-08-04 17:55",
+      "date_raw": "2026-08-04T17:55:05.626170"
     }
   ],
   "session_logs": [

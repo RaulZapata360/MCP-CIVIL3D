@@ -7,9 +7,18 @@ description: "Sistema de planos SVG de verificación para Civil 3D y topografía
 
 Genera planos en planta de verificación a partir de geometría de Civil 3D
 (LandXML, DXF, o listas de coordenadas). El SVG se arma concatenando texto: **no
-requiere matplotlib, cairo ni ninguna librería gráfica instalada**, que es
-justamente la razón por la que existe — en la máquina de trabajo matplotlib no
-está y no vale la pena instalar dependencias para un dibujo de control.
+requiere matplotlib, cairo ni ninguna librería gráfica instalada**.
+
+> **Sobre matplotlib (corregido 2026-08-05).** La versión original de esta skill
+> decía que existía porque *"en la máquina de trabajo matplotlib no está"*. Eso ya
+> no es cierto: hay matplotlib 3.11.0 instalado. Y esa frase tuvo consecuencias —
+> en la sesión del 05/08 se dio por buena y se dibujó el plano de verificación de
+> South Island a mano con matplotlib, saltándose esta skill y produciendo un plano
+> **sin escala gráfica, sin norte y con rampa arcoíris**, o sea violando las reglas
+> 3 y 6 de más abajo. La razón para usar esta skill no es la falta de dependencias:
+> son las reglas de lectura, la paleta validada y los tests. Si alguna vez conviene
+> un PNG (una malla de cientos de miles de triángulos pesa menos rasterizada), se
+> añade un backend acá, no se dibuja por fuera.
 
 ## Cuándo usar
 
@@ -40,7 +49,8 @@ p.guardar("plano.svg")
 | Método | Para qué |
 |---|---|
 | `poligonos(anillos, rol, etiqueta)` | Relleno: triángulos, áreas, recintos |
-| `poligonos_graduados(anillos_valores, titulo_escala)` | Relleno por valor con rampa secuencial + barra de gradiente |
+| `poligonos_graduados(anillos_valores, vmin, vmax, titulo_escala, borde_malla)` | Relleno por valor con rampa secuencial + barra de gradiente |
+| `mosaico(grupos, etiqueta, borde_malla, rotular)` | N regiones, un color y un rótulo cada una |
 | `lineas(polilineas, rol, cerrar, guion)` | Ejes, perímetros, quiebres |
 | `puntos(coords, rol, rotulos)` | Vértices, estacas, puntos COGO |
 | `nota(texto)` | Línea de contexto bajo el subtítulo |
@@ -48,6 +58,22 @@ p.guardar("plano.svg")
 
 Roles: `contexto` (tinta de chrome, recesivo) y `serie1`..`serie3` (paleta categórica,
 en orden fijo). Temas `claro` y `oscuro`.
+
+### Varias superficies en un plano
+
+```python
+from plano_svg import PlanoSVG, leer_landxml_todas
+
+todas, unidad = leer_landxml_todas("entrega.xml")     # todas las <Surface>
+p = PlanoSVG(titulo="Entrega", unidad_lin=unidad)
+p.mosaico([(n, [[(q[0], q[1]) for q in t] for t in tris]) for n, tris in todas],
+          etiqueta=f"{len(todas)} superficies (rótulo = nombre)", borde_malla=True)
+p.guardar("identificacion.svg")
+```
+
+`mosaico` reparte tonos con el **ángulo áureo** (137,508°), no en orden correlativo:
+las regiones vecinas suelen tener índices consecutivos, y con reparto lineal saldrían
+de tonos casi iguales. Deja **una sola entrada de leyenda**, no N.
 
 ## Uso como herramienta
 
@@ -57,6 +83,22 @@ python skills/reportes/scripts/plano_svg.py --xml superficie.xml --dxf ejes.dxf 
 
 Dibuja un LandXML y/o un DXF sin escribir código. `--color-cota` colorea los triángulos
 por cota con la rampa secuencial. `--tema oscuro` para pantalla.
+
+Para una entrega de varias superficies, los dos planos que hacen falta:
+
+```bash
+python skills/reportes/scripts/plano_svg.py --xml entrega.xml --todas --borde-malla --titulo "Identificacion" --salida ident.svg
+```
+
+```bash
+python skills/reportes/scripts/plano_svg.py --xml entrega.xml --todas --color-cota --borde-malla --titulo "Cota" --salida cota.svg
+```
+
+| Opción | Para qué |
+|---|---|
+| `--todas` | Todas las `<Surface>` del XML, no solo la primera |
+| `--borde-malla` | Dibuja las aristas de los triángulos |
+| `--cota-min` / `--cota-max` | Recorta la rampa cuando el terreno es plano con outliers |
 
 ## Reglas de diseño (no son estéticas, son de lectura)
 
@@ -106,7 +148,35 @@ nada. Todo texto pasa por `_esc()`.
 La suite de este sistema vivía en el scratchpad de la sesión y se borró sola en medio
 del trabajo. Los tests están en `scripts/test_plano_svg.py` y se corren solos.
 
-### 4. Mirar el resultado, no solo los números
+### 4. Dibujar la triangulación es lo único que verifica una malla
+Un relleno liso oculta exactamente el defecto que se busca: caras perdidas, huecos,
+triángulos cruzados. `borde_malla=True` deja ver la malla. La arista va en **tinta al
+15 % de opacidad**, no en gris claro: sobre un relleno saturado un hairline claro se
+lee como línea blanca y tapa el dato — el primer plano de cota de South Island salió
+así, con la malla comiéndose el relieve.
+
+### 5. Una sola escala de color para todas las superficies
+Si cada superficie escala su propio rango de cota, **cada junta inventa un salto de
+color que no existe** y ya no se distingue el artefacto del defecto. Por eso
+`poligonos_graduados` acepta `vmin`/`vmax` explícitos y el CLI los comparte entre todas
+las superficies. Y si se recorta la rampa (`--cota-min`/`--cota-max`), el plano lo dice
+en la nota: un recorte callado aparenta un rango de cotas que no es el del dato.
+
+### 6. Los rótulos se descolapsan solos, pero hay que mirarlos igual
+`descolapsar()` separa en vertical los rótulos que se pisan (nunca en horizontal: mover
+en X sugiere que el rótulo es de la región de al lado) y dibuja línea guía si el rótulo
+tuvo que alejarse más de 6 px. Con 25 superficies, `SI CV Top 01` y `SI CV Top 02` salían
+encimados y no se leía ninguno.
+
+### 7. El color de `mosaico` no codifica nada
+`serie1..serie3` son categorías **que se leen** — por eso son tres y van en orden fijo.
+El mosaico resuelve otra cosa: que dos regiones pegadas no se confundan, como en el
+coloreado de mapas. El identificador real es el rótulo, y por eso los rellenos son
+pálidos: tienen que perder contra el texto. **No hagas una leyenda de N entradas con
+ellos**: si el lector necesita mirar un color y saber qué significa, son categorías, y
+entonces son como mucho tres.
+
+### 8. Mirar el resultado, no solo los números
 La validación de color y el chequeo de desborde son automáticos, pero la composición
 hay que verla: abrir el SVG y revisar colisiones de rótulos y encuadre. El bug del
 norte fuera del lienzo apareció mirando, no calculando.
@@ -117,10 +187,18 @@ norte fuera del lienzo apareció mirando, no calculando.
 python skills/reportes/scripts/test_plano_svg.py
 ```
 
-26 comprobaciones: escala idéntica en ambos ejes, relación de aspecto preservada, norte
+54 comprobaciones: escala idéntica en ambos ejes, relación de aspecto preservada, norte
 arriba, XML válido con caracteres especiales, leyenda y escala presentes, rampa de un
 solo tono con luminosidad monótona en ambos temas, errores claros ante geometría vacía
-o rol inválido, y nada fuera del lienzo en terreno angosto y ancho.
+o rol inválido, y nada fuera del lienzo en terreno angosto y ancho. Más: colores de
+mosaico distintos y separados en tono, centroide ponderado por área, rótulos que no se
+pisan con línea guía, escala de cota compartida, borde de malla, y lectura de LandXML
+multi-superficie con caras `i="1"` descartadas.
+
+Ojo con un falso positivo al escribir tests de rótulos: si el plano es pequeño en
+unidades de terreno, tres regiones separadas 3 ft ya quedan a 25 px y **no hay colisión
+que resolver** — el test pasa sin ejercitar nada. Hay que estirar la escala con regiones
+lejanas para que las de prueba se junten de verdad.
 
 ## Quién la usa
 
