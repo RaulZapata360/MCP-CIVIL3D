@@ -64,6 +64,18 @@ REGISTRO_SKILLS = {
         "script": os.path.join(BASE_DIR, "superficies", "scripts", "corregir_paquete_revit.py"),
         "doc": os.path.join(BASE_DIR, "superficies", "importar-toposolid-revit.skill.md"),
     },
+    "terrazas_taludes_calzadas": {
+        "nombre": "Terrazas, Taludes y Calzadas de un Loteo en Ladera",
+        "categoria": "Loteo",
+        "palabras_clave": ["terraza", "terrazas", "talud", "taludes", "plataforma", "npt",
+                            "loteo", "calzada", "calzadas", "rasante", "solera",
+                            "cota de piso", "subdivision", "urbanizacion", "cerro",
+                            "movimiento de tierras", "cubicar loteo", "escalonamiento"],
+        # Biblioteca, no un CLI: se importa `terrazas_lib` y `vialidad_lib` desde el
+        # flujo del proyecto, porque cada loteo trae su propia forma de leer lotes y NPT.
+        "script": os.path.join(BASE_DIR, "loteo", "scripts", "terrazas_lib.py"),
+        "doc": os.path.join(BASE_DIR, "loteo", "terrazas-taludes-calzadas.skill.md"),
+    },
 }
 
 
