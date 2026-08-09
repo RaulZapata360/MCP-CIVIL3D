@@ -1,9 +1,9 @@
 window.DASHBOARD_DATA = {
-  "last_update": "2026-08-05 11:26:41",
+  "last_update": "2026-08-08 23:24:55",
   "stats": {
-    "total_skills": 18,
-    "total_tests": 15,
-    "tests_ok": 9,
+    "total_skills": 19,
+    "total_tests": 16,
+    "tests_ok": 10,
     "tests_falla": 2,
     "tests_wip": 4,
     "total_server_tools": 216,
@@ -104,6 +104,17 @@ window.DASHBOARD_DATA = {
       "description": "Unifica por XREF todos los DWG de una carpeta en un solo dibujo de comparación visual, con rutas relativas para que la carpeta de salida sea copiable o comprimible sin romper enlaces.",
       "category": "Dibujo",
       "file_path": "skills/dibujo/inspeccion-dwg.skill.md",
+      "uses": 0,
+      "success": 0,
+      "last_used": "Sin registrar",
+      "reliability": "Sin uso",
+      "rel_code": "NONE"
+    },
+    {
+      "name": "terrazas_taludes_calzadas",
+      "description": "Genera la superficie de proyecto de un loteo en ladera: terrazas horizontales por lote a su NPT, taludes contra la calzada y entre lotes vecinos, y el pavimento de la vialidad con rasante continua. Parte de un DXF de loteo y el TIN del terreno natural, y entrega LandXML importable a Civil 3D más DXF de bordes editable. Usar cuando pidan modelar plataformas/terrazas de un loteo, generar taludes entre lotes o contra calles, cubicar un loteo en cerro, o cuando una superficie de proyecto ya generada salga con triangulación sucia, bordes dentados o taludes discontinuos.",
+      "category": "Loteo",
+      "file_path": "skills/loteo/terrazas-taludes-calzadas.skill.md",
       "uses": 0,
       "success": 0,
       "last_used": "Sin registrar",
@@ -360,6 +371,16 @@ window.DASHBOARD_DATA = {
       "evidencia": "verificacion/02-08-2026 v2/informe_estudio_terrazas.html",
       "fecha": "2026-08-02",
       "notas": "Generación automatizada de informe técnico impresurable con gráficos SVG 2D en planta, perfiles de corte/relleno y matriz de unidades imperiales"
+    },
+    {
+      "servidor": "civil3d-mcp",
+      "tool": "skill_terrazas_taludes_calzadas",
+      "version_c3d": "2026",
+      "dwg_prueba": "verificacion/07-08-2026/Chaimavida/02_DXF Loteo/Loteo.dxf",
+      "resultado": "OK",
+      "evidencia": "skills/loteo/terrazas-taludes-calzadas.skill.md",
+      "fecha": "2026-08-08",
+      "notas": "Superficie de proyecto de loteo en ladera: 89 terrazas a NPT con taludes 1:1 contra calzada y vecinos, y pavimento con rasante de red. Auditoria: cobertura 100%, 0 huecos, 0 piezas sueltas, 0 vertices flotantes, llano en talud 0,01%. Metodo empaquetado como skill reutilizable"
     }
   ],
   "server_tools": [
@@ -1446,100 +1467,100 @@ window.DASHBOARD_DATA = {
   },
   "timeline": [
     {
+      "file": "matriz.csv",
+      "path": "verificacion/matriz.csv",
+      "source": "Workspace",
+      "mtime": 1786245893.8426588,
+      "date": "2026-08-08 23:24",
+      "date_raw": "2026-08-08T23:24:53.842659"
+    },
+    {
       "file": "dashboard_data.js",
       "path": "dashboard_data.js",
       "source": "Workspace",
-      "mtime": 1785943445.8993635,
-      "date": "2026-08-05 11:24",
-      "date_raw": "2026-08-05T11:24:05.899364"
+      "mtime": 1786245807.2915711,
+      "date": "2026-08-08 23:23",
+      "date_raw": "2026-08-08T23:23:27.291571"
     },
     {
       "file": "dashboard_data.json",
       "path": "dashboard_data.json",
       "source": "Workspace",
-      "mtime": 1785943445.8983622,
-      "date": "2026-08-05 11:24",
-      "date_raw": "2026-08-05T11:24:05.898362"
-    },
-    {
-      "file": "plano-svg.skill.md",
-      "path": "skills/reportes/plano-svg.skill.md",
-      "source": "Workspace",
-      "mtime": 1785937026.6653838,
-      "date": "2026-08-05 09:37",
-      "date_raw": "2026-08-05T09:37:06.665384"
-    },
-    {
-      "file": "plano_svg.py",
-      "path": "skills/reportes/scripts/plano_svg.py",
-      "source": "Workspace",
-      "mtime": 1785936944.4709773,
-      "date": "2026-08-05 09:35",
-      "date_raw": "2026-08-05T09:35:44.470977"
-    },
-    {
-      "file": "test_plano_svg.py",
-      "path": "skills/reportes/scripts/test_plano_svg.py",
-      "source": "Workspace",
-      "mtime": 1785936852.9556267,
-      "date": "2026-08-05 09:34",
-      "date_raw": "2026-08-05T09:34:12.955627"
+      "mtime": 1786245807.2915711,
+      "date": "2026-08-08 23:23",
+      "date_raw": "2026-08-08T23:23:27.291571"
     },
     {
       "file": "router.py",
       "path": "skills/router.py",
       "source": "Workspace",
-      "mtime": 1785880633.4765947,
-      "date": "2026-08-04 17:57",
-      "date_raw": "2026-08-04T17:57:13.476595"
+      "mtime": 1786245764.3136163,
+      "date": "2026-08-08 23:22",
+      "date_raw": "2026-08-08T23:22:44.313616"
     },
     {
-      "file": "malla-a-landxml.skill.md",
-      "path": "skills/superficies/malla-a-landxml.skill.md",
+      "file": "update_dashboard.py",
+      "path": "update_dashboard.py",
       "source": "Workspace",
-      "mtime": 1785880607.4442513,
-      "date": "2026-08-04 17:56",
-      "date_raw": "2026-08-04T17:56:47.444251"
+      "mtime": 1786245715.670358,
+      "date": "2026-08-08 23:21",
+      "date_raw": "2026-08-08T23:21:55.670358"
     },
     {
-      "file": "README.md",
-      "path": "skills/_cuarentena/README.md",
+      "file": "session_logs.json",
+      "path": "verificacion/session_logs.json",
       "source": "Workspace",
-      "mtime": 1785880597.171946,
-      "date": "2026-08-04 17:56",
-      "date_raw": "2026-08-04T17:56:37.171946"
+      "mtime": 1786245715.670358,
+      "date": "2026-08-08 23:21",
+      "date_raw": "2026-08-08T23:21:55.670358"
     },
     {
-      "file": "inspeccion-dwg.skill.md",
-      "path": "skills/dibujo/inspeccion-dwg.skill.md",
+      "file": "skill_usage.json",
+      "path": "verificacion/skill_usage.json",
       "source": "Workspace",
-      "mtime": 1785880573.1330478,
-      "date": "2026-08-04 17:56",
-      "date_raw": "2026-08-04T17:56:13.133048"
+      "mtime": 1786245715.670358,
+      "date": "2026-08-08 23:21",
+      "date_raw": "2026-08-08T23:21:55.670358"
     },
     {
-      "file": "comparar-superficies.skill.md",
-      "path": "skills/superficies/comparar-superficies.skill.md",
+      "file": "mesh_multi_to_landxml.py",
+      "path": "skills/superficies/scripts/mesh_multi_to_landxml.py",
       "source": "Workspace",
-      "mtime": 1785880558.363142,
-      "date": "2026-08-04 17:55",
-      "date_raw": "2026-08-04T17:55:58.363142"
+      "mtime": 1786245715.6634095,
+      "date": "2026-08-08 23:21",
+      "date_raw": "2026-08-08T23:21:55.663409"
     },
     {
-      "file": "ifc-a-civil3d.skill.md",
-      "path": "skills/migracion/ifc-a-civil3d.skill.md",
+      "file": "mesh_to_breaklines_dxf.py",
+      "path": "skills/superficies/scripts/mesh_to_breaklines_dxf.py",
       "source": "Workspace",
-      "mtime": 1785880545.334364,
-      "date": "2026-08-04 17:55",
-      "date_raw": "2026-08-04T17:55:45.334364"
+      "mtime": 1786245715.6634095,
+      "date": "2026-08-08 23:21",
+      "date_raw": "2026-08-08T23:21:55.663409"
     },
     {
-      "file": "rellenar-huecos.skill.md",
-      "path": "skills/superficies/rellenar-huecos.skill.md",
+      "file": "mesh_to_landxml.py",
+      "path": "skills/superficies/scripts/mesh_to_landxml.py",
       "source": "Workspace",
-      "mtime": 1785880505.6261704,
-      "date": "2026-08-04 17:55",
-      "date_raw": "2026-08-04T17:55:05.626170"
+      "mtime": 1786245715.6634095,
+      "date": "2026-08-08 23:21",
+      "date_raw": "2026-08-08T23:21:55.663409"
+    },
+    {
+      "file": "mesh_utils.py",
+      "path": "skills/superficies/scripts/mesh_utils.py",
+      "source": "Workspace",
+      "mtime": 1786245715.6634095,
+      "date": "2026-08-08 23:21",
+      "date_raw": "2026-08-08T23:21:55.663409"
+    },
+    {
+      "file": "partir_una.py",
+      "path": "skills/superficies/scripts/partir_una.py",
+      "source": "Workspace",
+      "mtime": 1786245715.6634095,
+      "date": "2026-08-08 23:21",
+      "date_raw": "2026-08-08T23:21:55.663409"
     }
   ],
   "session_logs": [
