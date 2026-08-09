@@ -71,10 +71,83 @@ REGISTRO_SKILLS = {
                             "loteo", "calzada", "calzadas", "rasante", "solera",
                             "cota de piso", "subdivision", "urbanizacion", "cerro",
                             "movimiento de tierras", "cubicar loteo", "escalonamiento"],
-        # Biblioteca, no un CLI: se importa `terrazas_lib` y `vialidad_lib` desde el
-        # flujo del proyecto, porque cada loteo trae su propia forma de leer lotes y NPT.
+        # Biblioteca, no un CLI: el flujo importa `loteo_io`, `terrazas_lib` y
+        # `vialidad_lib`; el .skill.md lleva el proceso completo paso a paso.
         "script": os.path.join(BASE_DIR, "loteo", "scripts", "terrazas_lib.py"),
         "doc": os.path.join(BASE_DIR, "loteo", "terrazas-taludes-calzadas.skill.md"),
+    },
+    # --- Promovidas desde HRCP\CIVIL 3D\Scripts_Migracion (2026-08-04) ---
+    "cara_superior_desde_solido": {
+        "nombre": "Cara Superior desde Malla Sólida",
+        "categoria": "Superficies",
+        "palabras_clave": ["cara superior", "top", "transitable", "malla volumetrica",
+                           "superficie volumetrica", "solido", "espesor", "paredes", "extruida"],
+        "script": os.path.join(BASE_DIR, "superficies", "scripts", "xml_desde_cara_superior.py"),
+        "doc": os.path.join(BASE_DIR, "superficies", "cara-superior-desde-solido.skill.md"),
+    },
+    "malla_a_landxml": {
+        "nombre": "Malla Polyface a Superficie TIN (LandXML)",
+        "categoria": "Superficies",
+        "palabras_clave": ["polyface", "malla a landxml", "mesh a landxml", "3dface",
+                           "triangulacion exacta", "soldar vertices", "breakline"],
+        "script": os.path.join(BASE_DIR, "superficies", "scripts", "mesh_to_landxml.py"),
+        "doc": os.path.join(BASE_DIR, "superficies", "malla-a-landxml.skill.md"),
+    },
+    "recorte_y_resta_de_superficies": {
+        "nombre": "Recorte y Resta de Superficies TIN",
+        "categoria": "Superficies",
+        "palabras_clave": ["restar", "resta", "sustraer", "recortar superficie", "invade",
+                           "solape", "traslape", "cortar por bordes", "booleana"],
+        "script": os.path.join(BASE_DIR, "superficies", "scripts", "clip_surface_by_boundary.py"),
+        "doc": os.path.join(BASE_DIR, "superficies", "recorte-y-resta.skill.md"),
+    },
+    "contornos_y_boundaries": {
+        "nombre": "Contornos, Huecos y Boundaries",
+        "categoria": "Superficies",
+        "palabras_clave": ["contorno", "boundary", "anillo exterior", "hueco", "vacio",
+                           "simplificar contornos", "superficie inflada", "casco convexo"],
+        "script": os.path.join(BASE_DIR, "superficies", "scripts", "export_surface_boundaries_complete.py"),
+        "doc": os.path.join(BASE_DIR, "superficies", "contornos-y-boundaries.skill.md"),
+    },
+    "particion_de_superficies": {
+        "nombre": "Partición de Superficies y Bordes Compartidos",
+        "categoria": "Superficies",
+        "palabras_clave": ["partir", "particion", "dividir superficie", "borde compartido",
+                           "linea divisoria", "lineas dobles", "renumerar"],
+        "script": os.path.join(BASE_DIR, "superficies", "scripts", "partir_una.py"),
+        "doc": os.path.join(BASE_DIR, "superficies", "particion-de-superficies.skill.md"),
+    },
+    "rellenar_huecos_y_costuras": {
+        "nombre": "Rellenar Huecos y Costuras",
+        "categoria": "Superficies",
+        "palabras_clave": ["rellenar", "hueco", "costura", "cicatriz", "anexar",
+                           "gap", "sin cubrir", "faltante"],
+        "script": os.path.join(BASE_DIR, "superficies", "scripts", "rellenar_huecos.py"),
+        "doc": os.path.join(BASE_DIR, "superficies", "rellenar-huecos.skill.md"),
+    },
+    "comparar_superficies": {
+        "nombre": "Comparar Dos Superficies TIN",
+        "categoria": "Superficies",
+        "palabras_clave": ["comparar", "diferencia", "desnivel", "vieja contra nueva",
+                           "que cambio", "zonas de diferencia"],
+        "script": os.path.join(BASE_DIR, "superficies", "scripts", "zonas_desnivel.py"),
+        "doc": os.path.join(BASE_DIR, "superficies", "comparar-superficies.skill.md"),
+    },
+    "ifc_a_civil3d": {
+        "nombre": "Migración IFC a Civil 3D (DXF NCS / LandXML)",
+        "categoria": "Migración",
+        "palabras_clave": ["ifc", "bentley", "openroads", "geopak", "georreferenciar",
+                           "va83", "state plane", "us survey foot", "desfase", "capas ncs"],
+        "script": os.path.join(BASE_DIR, "migracion", "scripts", "ifc_to_ncs_dxf.py"),
+        "doc": os.path.join(BASE_DIR, "migracion", "ifc-a-civil3d.skill.md"),
+    },
+    "inspeccion_dwg_por_xref": {
+        "nombre": "Unificar DWG por XREF para Inspección",
+        "categoria": "Dibujo",
+        "palabras_clave": ["xref", "unificar dwg", "superponer", "comparacion visual",
+                           "paquete de revision"],
+        "script": os.path.join(BASE_DIR, "dibujo", "scripts", "unify_xref.py"),
+        "doc": os.path.join(BASE_DIR, "dibujo", "inspeccion-dwg.skill.md"),
     },
 }
 

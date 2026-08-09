@@ -1,14 +1,14 @@
 window.DASHBOARD_DATA = {
-  "last_update": "2026-08-08 13:34:19",
+  "last_update": "2026-08-08 23:24:55",
   "stats": {
-    "total_skills": 8,
+    "total_skills": 19,
     "total_tests": 16,
-    "tests_ok": 9,
+    "tests_ok": 10,
     "tests_falla": 2,
-    "tests_wip": 5,
+    "tests_wip": 4,
     "total_server_tools": 216,
     "total_server_modules": 30,
-    "total_sessions": 4
+    "total_sessions": 3
   },
   "skills": [
     {
@@ -98,6 +98,127 @@ window.DASHBOARD_DATA = {
       "last_used": "2026-07-30 14:00:00",
       "reliability": "Media (Frecuente)",
       "rel_code": "MEDIUM"
+    },
+    {
+      "name": "inspeccion_dwg_por_xref",
+      "description": "Unifica por XREF todos los DWG de una carpeta en un solo dibujo de comparación visual, con rutas relativas para que la carpeta de salida sea copiable o comprimible sin romper enlaces.",
+      "category": "Dibujo",
+      "file_path": "skills/dibujo/inspeccion-dwg.skill.md",
+      "uses": 0,
+      "success": 0,
+      "last_used": "Sin registrar",
+      "reliability": "Sin uso",
+      "rel_code": "NONE"
+    },
+    {
+      "name": "terrazas_taludes_calzadas",
+      "description": "Genera la superficie de proyecto de un loteo en ladera: terrazas horizontales por lote a su NPT, taludes contra la calzada y entre lotes vecinos, y el pavimento de la vialidad con rasante continua. Parte de un DXF de loteo y el TIN del terreno natural, y entrega LandXML importable a Civil 3D más DXF de bordes editable. Usar cuando pidan modelar plataformas/terrazas de un loteo, generar taludes entre lotes o contra calles, cubicar un loteo en cerro, o cuando una superficie de proyecto ya generada salga con triangulación sucia, bordes dentados o taludes discontinuos.",
+      "category": "Loteo",
+      "file_path": "skills/loteo/terrazas-taludes-calzadas.skill.md",
+      "uses": 0,
+      "success": 0,
+      "last_used": "Sin registrar",
+      "reliability": "Sin uso",
+      "rel_code": "NONE"
+    },
+    {
+      "name": "ifc_a_civil3d",
+      "description": "Convierte modelos IFC (Bentley OpenRoads/GeoPak) a DXF con capas NCS o a LandXML TIN georreferenciado en VA83-SF, conservando la triangulación, con diagnóstico previo del esquema y control explícito del factor de escala.",
+      "category": "Migracion",
+      "file_path": "skills/migracion/ifc-a-civil3d.skill.md",
+      "uses": 0,
+      "success": 0,
+      "last_used": "Sin registrar",
+      "reliability": "Sin uso",
+      "rel_code": "NONE"
+    },
+    {
+      "name": "cara_superior_desde_solido",
+      "description": "Convierte mallas polyface volumétricas (sólidos con cara superior, paredes y fondo) en superficies TIN que conservan solo la cara transitable, en DXF o en LandXML por elemento.",
+      "category": "Superficies",
+      "file_path": "skills/superficies/cara-superior-desde-solido.skill.md",
+      "uses": 0,
+      "success": 0,
+      "last_used": "Sin registrar",
+      "reliability": "Sin uso",
+      "rel_code": "NONE"
+    },
+    {
+      "name": "comparar_superficies",
+      "description": "Marca en un DXF las zonas donde dos superficies TIN difieren en cota más de un umbral, rasterizando ambas sobre la misma malla regular e interpolando por baricéntricas.",
+      "category": "Superficies",
+      "file_path": "skills/superficies/comparar-superficies.skill.md",
+      "uses": 0,
+      "success": 0,
+      "last_used": "Sin registrar",
+      "reliability": "Sin uso",
+      "rel_code": "NONE"
+    },
+    {
+      "name": "contornos_y_boundaries",
+      "description": "Extrae el paquete completo de contornos (anillo exterior y huecos) de cada superficie de un LandXML y simplifica los vértices redundantes; explica por qué un boundary de Civil 3D no recorta la triangulación.",
+      "category": "Superficies",
+      "file_path": "skills/superficies/contornos-y-boundaries.skill.md",
+      "uses": 0,
+      "success": 0,
+      "last_used": "Sin registrar",
+      "reliability": "Sin uso",
+      "rel_code": "NONE"
+    },
+    {
+      "name": "malla_a_landxml",
+      "description": "Convierte mallas polyface/3DFACE/MESH de un DXF en superficies TIN LandXML conservando la triangulación exacta, con soldadura por XY, limpieza de caras degeneradas y relleno de huecos internos.",
+      "category": "Superficies",
+      "file_path": "skills/superficies/malla-a-landxml.skill.md",
+      "uses": 0,
+      "success": 0,
+      "last_used": "Sin registrar",
+      "reliability": "Sin uso",
+      "rel_code": "NONE"
+    },
+    {
+      "name": "particion_de_superficies",
+      "description": "Parte una superficie de la entrega en piezas usando líneas de un DXF como cuchilla, renumerando de norte a sur, y explica por qué los bordes compartidos se reconstruyen por topología y no promediando pares.",
+      "category": "Superficies",
+      "file_path": "skills/superficies/particion-de-superficies.skill.md",
+      "uses": 0,
+      "success": 0,
+      "last_used": "Sin registrar",
+      "reliability": "Sin uso",
+      "rel_code": "NONE"
+    },
+    {
+      "name": "recorte_y_resta_de_superficies",
+      "description": "Recorta superficies TIN de un LandXML contra contornos cerrados de un DXF, resta la huella de una superficie de otra, y parte una superficie en piezas por capas SURF_OUTER/SURF_HOLE.",
+      "category": "Superficies",
+      "file_path": "skills/superficies/recorte-y-resta.skill.md",
+      "uses": 0,
+      "success": 0,
+      "last_used": "Sin registrar",
+      "reliability": "Sin uso",
+      "rel_code": "NONE"
+    },
+    {
+      "name": "rellenar_huecos_y_costuras",
+      "description": "Cierra los huecos entre superficies entregadas y el límite real de la malla tomando la geometría del XML de origen, y anexa a una superficie el trozo que no cubría ninguna otra.",
+      "category": "Superficies",
+      "file_path": "skills/superficies/rellenar-huecos.skill.md",
+      "uses": 0,
+      "success": 0,
+      "last_used": "Sin registrar",
+      "reliability": "Sin uso",
+      "rel_code": "NONE"
+    },
+    {
+      "name": "⚠️ Cuarentena — herramientas que NO se deben usar sin leer esto",
+      "description": "Sin descripción",
+      "category": "_cuarentena",
+      "file_path": "skills/_cuarentena/README.md",
+      "uses": 0,
+      "success": 0,
+      "last_used": "Sin registrar",
+      "reliability": "Sin uso",
+      "rel_code": "NONE"
     }
   ],
   "matrix": [
@@ -253,13 +374,13 @@ window.DASHBOARD_DATA = {
     },
     {
       "servidor": "civil3d-mcp",
-      "tool": "landxml_audit_calzadas",
+      "tool": "skill_terrazas_taludes_calzadas",
       "version_c3d": "2026",
-      "dwg_prueba": "verificacion/07-08-2026/Chaimavida_Propuesta/01_XML/Calzadas_y_Accesos_Chaimavida.xml",
-      "resultado": "WIP",
-      "evidencia": "verificacion/07-08-2026/Chaimavida_Propuesta/03_Informe/Informe_Calzadas_y_Accesos.html",
+      "dwg_prueba": "verificacion/07-08-2026/Chaimavida/02_DXF Loteo/Loteo.dxf",
+      "resultado": "OK",
+      "evidencia": "skills/loteo/terrazas-taludes-calzadas.skill.md",
       "fecha": "2026-08-08",
-      "notas": "Evaluación LandXML calzadas y accesos (90 superficies, 19068 pts). Pendiente incorporar outer boundaries explícitos (detalles estéticos)"
+      "notas": "Superficie de proyecto de loteo en ladera: 89 terrazas a NPT con taludes 1:1 contra calzada y vecinos, y pavimento con rasante de red. Auditoria: cobertura 100%, 0 huecos, 0 piezas sueltas, 0 vertices flotantes, llano en talud 0,01%. Metodo empaquetado como skill reutilizable"
     }
   ],
   "server_tools": [
@@ -1346,111 +1467,103 @@ window.DASHBOARD_DATA = {
   },
   "timeline": [
     {
-      "file": "Informe_Propuesta_Terrazas.html",
-      "path": "verificacion/07-08-2026/Chaimavida_Propuesta/03_Informe/Informe_Propuesta_Terrazas.html",
+      "file": "matriz.csv",
+      "path": "verificacion/matriz.csv",
       "source": "Workspace",
-      "mtime": 1786210456.691734,
-      "date": "2026-08-08 13:34",
-      "date_raw": "2026-08-08T13:34:16.691734"
-    },
-    {
-      "file": "Informe_Calzadas_y_Accesos.html",
-      "path": "verificacion/07-08-2026/Chaimavida_Propuesta/03_Informe/Informe_Calzadas_y_Accesos.html",
-      "source": "Workspace",
-      "mtime": 1786210450.1989796,
-      "date": "2026-08-08 13:34",
-      "date_raw": "2026-08-08T13:34:10.198980"
+      "mtime": 1786245893.8426588,
+      "date": "2026-08-08 23:24",
+      "date_raw": "2026-08-08T23:24:53.842659"
     },
     {
       "file": "dashboard_data.js",
       "path": "dashboard_data.js",
       "source": "Workspace",
-      "mtime": 1786210300.8107896,
-      "date": "2026-08-08 13:31",
-      "date_raw": "2026-08-08T13:31:40.810790"
+      "mtime": 1786245807.2915711,
+      "date": "2026-08-08 23:23",
+      "date_raw": "2026-08-08T23:23:27.291571"
     },
     {
       "file": "dashboard_data.json",
       "path": "dashboard_data.json",
       "source": "Workspace",
-      "mtime": 1786210300.8107896,
-      "date": "2026-08-08 13:31",
-      "date_raw": "2026-08-08T13:31:40.810790"
+      "mtime": 1786245807.2915711,
+      "date": "2026-08-08 23:23",
+      "date_raw": "2026-08-08T23:23:27.291571"
+    },
+    {
+      "file": "router.py",
+      "path": "skills/router.py",
+      "source": "Workspace",
+      "mtime": 1786245764.3136163,
+      "date": "2026-08-08 23:22",
+      "date_raw": "2026-08-08T23:22:44.313616"
+    },
+    {
+      "file": "update_dashboard.py",
+      "path": "update_dashboard.py",
+      "source": "Workspace",
+      "mtime": 1786245715.670358,
+      "date": "2026-08-08 23:21",
+      "date_raw": "2026-08-08T23:21:55.670358"
     },
     {
       "file": "session_logs.json",
       "path": "verificacion/session_logs.json",
       "source": "Workspace",
-      "mtime": 1786210300.5206547,
-      "date": "2026-08-08 13:31",
-      "date_raw": "2026-08-08T13:31:40.520655"
+      "mtime": 1786245715.670358,
+      "date": "2026-08-08 23:21",
+      "date_raw": "2026-08-08T23:21:55.670358"
     },
     {
-      "file": "matriz.csv",
-      "path": "verificacion/matriz.csv",
+      "file": "skill_usage.json",
+      "path": "verificacion/skill_usage.json",
       "source": "Workspace",
-      "mtime": 1786210290.4054003,
-      "date": "2026-08-08 13:31",
-      "date_raw": "2026-08-08T13:31:30.405400"
+      "mtime": 1786245715.670358,
+      "date": "2026-08-08 23:21",
+      "date_raw": "2026-08-08T23:21:55.670358"
     },
     {
-      "file": "accesos.json",
-      "path": "verificacion/07-08-2026/Chaimavida_Propuesta/scripts/accesos.json",
+      "file": "mesh_multi_to_landxml.py",
+      "path": "skills/superficies/scripts/mesh_multi_to_landxml.py",
       "source": "Workspace",
-      "mtime": 1786208750.9827456,
-      "date": "2026-08-08 13:05",
-      "date_raw": "2026-08-08T13:05:50.982746"
+      "mtime": 1786245715.6634095,
+      "date": "2026-08-08 23:21",
+      "date_raw": "2026-08-08T23:21:55.663409"
     },
     {
-      "file": "Calzadas_y_Accesos.dxf",
-      "path": "verificacion/07-08-2026/Chaimavida_Propuesta/02_DXF/Calzadas_y_Accesos.dxf",
+      "file": "mesh_to_breaklines_dxf.py",
+      "path": "skills/superficies/scripts/mesh_to_breaklines_dxf.py",
       "source": "Workspace",
-      "mtime": 1786208750.9711623,
-      "date": "2026-08-08 13:05",
-      "date_raw": "2026-08-08T13:05:50.971162"
+      "mtime": 1786245715.6634095,
+      "date": "2026-08-08 23:21",
+      "date_raw": "2026-08-08T23:21:55.663409"
     },
     {
-      "file": "Calzadas_y_Accesos_Chaimavida.xml",
-      "path": "verificacion/07-08-2026/Chaimavida_Propuesta/01_XML/Calzadas_y_Accesos_Chaimavida.xml",
+      "file": "mesh_to_landxml.py",
+      "path": "skills/superficies/scripts/mesh_to_landxml.py",
       "source": "Workspace",
-      "mtime": 1786208750.76484,
-      "date": "2026-08-08 13:05",
-      "date_raw": "2026-08-08T13:05:50.764840"
+      "mtime": 1786245715.6634095,
+      "date": "2026-08-08 23:21",
+      "date_raw": "2026-08-08T23:21:55.663409"
     },
     {
-      "file": "calzadas_xml.py",
-      "path": "verificacion/07-08-2026/Chaimavida_Propuesta/scripts/calzadas_xml.py",
+      "file": "mesh_utils.py",
+      "path": "skills/superficies/scripts/mesh_utils.py",
       "source": "Workspace",
-      "mtime": 1786208737.0622528,
-      "date": "2026-08-08 13:05",
-      "date_raw": "2026-08-08T13:05:37.062253"
+      "mtime": 1786245715.6634095,
+      "date": "2026-08-08 23:21",
+      "date_raw": "2026-08-08T23:21:55.663409"
     },
     {
-      "file": "taludes_lib.py",
-      "path": "verificacion/07-08-2026/Chaimavida/scripts/taludes_lib.py",
+      "file": "partir_una.py",
+      "path": "skills/superficies/scripts/partir_una.py",
       "source": "Workspace",
-      "mtime": 1786208276.1534011,
-      "date": "2026-08-08 12:57",
-      "date_raw": "2026-08-08T12:57:56.153401"
-    },
-    {
-      "file": "Terrazas_Replanteo.dwl2",
-      "path": "verificacion/07-08-2026/Chaimavida_Propuesta/Terrazas_Replanteo.dwl2",
-      "source": "Workspace",
-      "mtime": 1786207004.4042697,
-      "date": "2026-08-08 12:36",
-      "date_raw": "2026-08-08T12:36:44.404270"
+      "mtime": 1786245715.6634095,
+      "date": "2026-08-08 23:21",
+      "date_raw": "2026-08-08T23:21:55.663409"
     }
   ],
   "session_logs": [
-    {
-      "timestamp": "2026-08-08 13:31:40",
-      "task": "Auditoria y evaluacion de LandXML Calzadas y Accesos Chaimavida",
-      "corrections": "Generado Informe_Calzadas_y_Accesos.html en 03_Informe",
-      "warnings": "Detalles esteticos en triangulacion: sin Outer Boundaries explicitos en lotes",
-      "limitations": "Sin soporte nativo de edicion directa de breaklines LandXML sin reconstituir TIN",
-      "status": "WIP"
-    },
     {
       "timestamp": "2026-08-02 18:59:00",
       "task": "Estudio de terrazación en 4 lotes, traslación neutral LandXML y cubicación por regiones",
