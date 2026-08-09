@@ -2,12 +2,10 @@
 """Utilidades de malla TIN: lectura de LandXML, interpolacion baricentrica y
 triangulacion de poligonos con huecos.
 
-POR QUE VIVE AQUI. La cadena de calculo original importaba estas tres funciones
-desde la skill `civil3d-surface-clip-merge`, que solo existia en la maquina donde
-se armo el proyecto. Sin ellas `superficie_proyecto.py` no corre y no se puede
-regenerar `datos_proyecto.json` -- que es la fuente del area aprovechable por
-lote. Se reimplementan aqui, dentro del proyecto, para que la verificacion sea
-reproducible por si sola.
+POR QUE VIVE AQUI. Un flujo que dependa de utilidades instaladas fuera del
+paquete deja de correr en cuanto cambia de maquina. Estas tres funciones son
+todo lo que el metodo necesita de una libreria de mallas, asi que viajan con el:
+el paquete se copia y funciona.
 
 CONVENCION DE COORDENADAS. LandXML escribe cada punto como "norte este cota"
 (primero Y, luego X). Los vertices que devuelve este modulo estan en el orden
