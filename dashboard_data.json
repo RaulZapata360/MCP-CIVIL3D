@@ -1,14 +1,14 @@
 {
-  "last_update": "2026-08-02 19:08:01",
+  "last_update": "2026-08-08 13:34:19",
   "stats": {
     "total_skills": 8,
-    "total_tests": 15,
+    "total_tests": 16,
     "tests_ok": 9,
     "tests_falla": 2,
-    "tests_wip": 4,
+    "tests_wip": 5,
     "total_server_tools": 216,
     "total_server_modules": 30,
-    "total_sessions": 3
+    "total_sessions": 4
   },
   "skills": [
     {
@@ -250,6 +250,16 @@
       "evidencia": "verificacion/02-08-2026 v2/informe_estudio_terrazas.html",
       "fecha": "2026-08-02",
       "notas": "Generación automatizada de informe técnico impresurable con gráficos SVG 2D en planta, perfiles de corte/relleno y matriz de unidades imperiales"
+    },
+    {
+      "servidor": "civil3d-mcp",
+      "tool": "landxml_audit_calzadas",
+      "version_c3d": "2026",
+      "dwg_prueba": "verificacion/07-08-2026/Chaimavida_Propuesta/01_XML/Calzadas_y_Accesos_Chaimavida.xml",
+      "resultado": "WIP",
+      "evidencia": "verificacion/07-08-2026/Chaimavida_Propuesta/03_Informe/Informe_Calzadas_y_Accesos.html",
+      "fecha": "2026-08-08",
+      "notas": "Evaluación LandXML calzadas y accesos (90 superficies, 19068 pts). Pendiente incorporar outer boundaries explícitos (detalles estéticos)"
     }
   ],
   "server_tools": [
@@ -1336,103 +1346,111 @@
   },
   "timeline": [
     {
-      "file": "dashboard.html",
-      "path": "dashboard.html",
+      "file": "Informe_Propuesta_Terrazas.html",
+      "path": "verificacion/07-08-2026/Chaimavida_Propuesta/03_Informe/Informe_Propuesta_Terrazas.html",
       "source": "Workspace",
-      "mtime": 1785712056.9397187,
-      "date": "2026-08-02 19:07",
-      "date_raw": "2026-08-02T19:07:36.939719"
+      "mtime": 1786210456.691734,
+      "date": "2026-08-08 13:34",
+      "date_raw": "2026-08-08T13:34:16.691734"
+    },
+    {
+      "file": "Informe_Calzadas_y_Accesos.html",
+      "path": "verificacion/07-08-2026/Chaimavida_Propuesta/03_Informe/Informe_Calzadas_y_Accesos.html",
+      "source": "Workspace",
+      "mtime": 1786210450.1989796,
+      "date": "2026-08-08 13:34",
+      "date_raw": "2026-08-08T13:34:10.198980"
     },
     {
       "file": "dashboard_data.js",
       "path": "dashboard_data.js",
       "source": "Workspace",
-      "mtime": 1785711963.7445407,
-      "date": "2026-08-02 19:06",
-      "date_raw": "2026-08-02T19:06:03.744541"
+      "mtime": 1786210300.8107896,
+      "date": "2026-08-08 13:31",
+      "date_raw": "2026-08-08T13:31:40.810790"
     },
     {
       "file": "dashboard_data.json",
       "path": "dashboard_data.json",
       "source": "Workspace",
-      "mtime": 1785711963.7445407,
-      "date": "2026-08-02 19:06",
-      "date_raw": "2026-08-02T19:06:03.744541"
-    },
-    {
-      "file": "update_dashboard.py",
-      "path": "update_dashboard.py",
-      "source": "Workspace",
-      "mtime": 1785711583.613039,
-      "date": "2026-08-02 18:59",
-      "date_raw": "2026-08-02T18:59:43.613039"
+      "mtime": 1786210300.8107896,
+      "date": "2026-08-08 13:31",
+      "date_raw": "2026-08-08T13:31:40.810790"
     },
     {
       "file": "session_logs.json",
       "path": "verificacion/session_logs.json",
       "source": "Workspace",
-      "mtime": 1785711566.2993886,
-      "date": "2026-08-02 18:59",
-      "date_raw": "2026-08-02T18:59:26.299389"
-    },
-    {
-      "file": "track_usage.py",
-      "path": "verificacion/track_usage.py",
-      "source": "Workspace",
-      "mtime": 1785711557.6739664,
-      "date": "2026-08-02 18:59",
-      "date_raw": "2026-08-02T18:59:17.673966"
-    },
-    {
-      "file": "skill_usage.json",
-      "path": "verificacion/skill_usage.json",
-      "source": "Workspace",
-      "mtime": 1785711390.4004495,
-      "date": "2026-08-02 18:56",
-      "date_raw": "2026-08-02T18:56:30.400450"
+      "mtime": 1786210300.5206547,
+      "date": "2026-08-08 13:31",
+      "date_raw": "2026-08-08T13:31:40.520655"
     },
     {
       "file": "matriz.csv",
       "path": "verificacion/matriz.csv",
       "source": "Workspace",
-      "mtime": 1785711175.0337782,
-      "date": "2026-08-02 18:52",
-      "date_raw": "2026-08-02T18:52:55.033778"
+      "mtime": 1786210290.4054003,
+      "date": "2026-08-08 13:31",
+      "date_raw": "2026-08-08T13:31:30.405400"
     },
     {
-      "file": "informe_estudio_terrazas.html",
-      "path": "verificacion/02-08-2026 v2/informe_estudio_terrazas.html",
+      "file": "accesos.json",
+      "path": "verificacion/07-08-2026/Chaimavida_Propuesta/scripts/accesos.json",
       "source": "Workspace",
-      "mtime": 1785710836.5026655,
-      "date": "2026-08-02 18:47",
-      "date_raw": "2026-08-02T18:47:16.502666"
+      "mtime": 1786208750.9827456,
+      "date": "2026-08-08 13:05",
+      "date_raw": "2026-08-08T13:05:50.982746"
     },
     {
-      "file": "Superficie tipo.dwl2",
-      "path": "verificacion/02-08-2026 v2/Superficie tipo.dwl2",
+      "file": "Calzadas_y_Accesos.dxf",
+      "path": "verificacion/07-08-2026/Chaimavida_Propuesta/02_DXF/Calzadas_y_Accesos.dxf",
       "source": "Workspace",
-      "mtime": 1785707796.9038727,
-      "date": "2026-08-02 17:56",
-      "date_raw": "2026-08-02T17:56:36.903873"
+      "mtime": 1786208750.9711623,
+      "date": "2026-08-08 13:05",
+      "date_raw": "2026-08-08T13:05:50.971162"
     },
     {
-      "file": "Superficie tipo.dwl",
-      "path": "verificacion/02-08-2026 v2/Superficie tipo.dwl",
+      "file": "Calzadas_y_Accesos_Chaimavida.xml",
+      "path": "verificacion/07-08-2026/Chaimavida_Propuesta/01_XML/Calzadas_y_Accesos_Chaimavida.xml",
       "source": "Workspace",
-      "mtime": 1785707796.9032314,
-      "date": "2026-08-02 17:56",
-      "date_raw": "2026-08-02T17:56:36.903231"
+      "mtime": 1786208750.76484,
+      "date": "2026-08-08 13:05",
+      "date_raw": "2026-08-08T13:05:50.764840"
     },
     {
-      "file": "Superficie tipo.dwg",
-      "path": "verificacion/02-08-2026 v2/Superficie tipo.dwg",
+      "file": "calzadas_xml.py",
+      "path": "verificacion/07-08-2026/Chaimavida_Propuesta/scripts/calzadas_xml.py",
       "source": "Workspace",
-      "mtime": 1785707796.0,
-      "date": "2026-08-02 17:56",
-      "date_raw": "2026-08-02T17:56:36"
+      "mtime": 1786208737.0622528,
+      "date": "2026-08-08 13:05",
+      "date_raw": "2026-08-08T13:05:37.062253"
+    },
+    {
+      "file": "taludes_lib.py",
+      "path": "verificacion/07-08-2026/Chaimavida/scripts/taludes_lib.py",
+      "source": "Workspace",
+      "mtime": 1786208276.1534011,
+      "date": "2026-08-08 12:57",
+      "date_raw": "2026-08-08T12:57:56.153401"
+    },
+    {
+      "file": "Terrazas_Replanteo.dwl2",
+      "path": "verificacion/07-08-2026/Chaimavida_Propuesta/Terrazas_Replanteo.dwl2",
+      "source": "Workspace",
+      "mtime": 1786207004.4042697,
+      "date": "2026-08-08 12:36",
+      "date_raw": "2026-08-08T12:36:44.404270"
     }
   ],
   "session_logs": [
+    {
+      "timestamp": "2026-08-08 13:31:40",
+      "task": "Auditoria y evaluacion de LandXML Calzadas y Accesos Chaimavida",
+      "corrections": "Generado Informe_Calzadas_y_Accesos.html en 03_Informe",
+      "warnings": "Detalles esteticos en triangulacion: sin Outer Boundaries explicitos en lotes",
+      "limitations": "Sin soporte nativo de edicion directa de breaklines LandXML sin reconstituir TIN",
+      "status": "WIP"
+    },
     {
       "timestamp": "2026-08-02 18:59:00",
       "task": "Estudio de terrazación en 4 lotes, traslación neutral LandXML y cubicación por regiones",
