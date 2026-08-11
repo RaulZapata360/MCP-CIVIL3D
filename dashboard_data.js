@@ -1,14 +1,14 @@
 window.DASHBOARD_DATA = {
-  "last_update": "2026-08-05 11:26:41",
+  "last_update": "2026-08-11 13:49:19",
   "stats": {
-    "total_skills": 18,
-    "total_tests": 15,
-    "tests_ok": 9,
+    "total_skills": 20,
+    "total_tests": 21,
+    "tests_ok": 15,
     "tests_falla": 2,
     "tests_wip": 4,
     "total_server_tools": 216,
     "total_server_modules": 30,
-    "total_sessions": 3
+    "total_sessions": 6
   },
   "skills": [
     {
@@ -27,9 +27,9 @@ window.DASHBOARD_DATA = {
       "description": "Audita la integridad geométrica y estructural de archivos LandXML TIN: caras invisibles (i='1'), orden de coordenadas Norte/Este vs X/Y, unidades del dibujo y conservación de áreas 2D/3D.",
       "category": "Superficies",
       "file_path": "skills/superficies/auditoria-superficies-landxml.skill.md",
-      "uses": 18,
-      "success": 18,
-      "last_used": "2026-08-02 18:45:00",
+      "uses": 19,
+      "success": 19,
+      "last_used": "2026-08-11 10:31:00",
       "reliability": "Alta (Probada)",
       "rel_code": "HIGH"
     },
@@ -49,11 +49,11 @@ window.DASHBOARD_DATA = {
       "description": "Importa superficies TIN de Civil 3D a Revit 2026 como Toposolid vía Dynamo: resuelve errores de Slab Shape Edit failed, elimina desplomes/estalactitas, arregla cortes de huecos de edificación a cota real y optimiza la densidad para ejecuciones en 10-15 segundos. Incluye georreferenciación exacta y configuración de resolución de curvas de nivel.",
       "category": "Superficies",
       "file_path": "skills/superficies/importar-toposolid-revit.skill.md",
-      "uses": 12,
-      "success": 12,
-      "last_used": "2026-08-01 16:30:00",
-      "reliability": "Media (Frecuente)",
-      "rel_code": "MEDIUM"
+      "uses": 15,
+      "success": 14,
+      "last_used": "2026-08-11 12:45:00",
+      "reliability": "Alta (Probada)",
+      "rel_code": "HIGH"
     },
     {
       "name": "revision_curvas_verticales",
@@ -98,6 +98,28 @@ window.DASHBOARD_DATA = {
       "last_used": "2026-07-30 14:00:00",
       "reliability": "Media (Frecuente)",
       "rel_code": "MEDIUM"
+    },
+    {
+      "name": "civil3d-to-revit-toposolid",
+      "description": "Procedimiento completo y guía técnica para migrar superficies TIN de Civil 3D a Toposolids individuales en Revit 2024/2025/2026 mediante Dynamo Python. Incluye extracción de puntos y contornos (con huecos interiores y piezas disjuntas), limpiador geométrico en 3 pasadas para evitar errores de auto-intersección (foldbacks) y tolerancia de líneas (ShortCurveTolerance), silenciador seguro de warnings (WarningSwallower), reanudación automática por comentarios, guardado incremental pieza a pieza, diagnóstico de relieve y traslación por vector de coordenadas de control (OFFSET_X/OFFSET_Y).",
+      "category": "Migracion",
+      "file_path": "skills/migracion/civil3d-to-revit-toposolid.skill.md",
+      "uses": 2,
+      "success": 1,
+      "last_used": "2026-08-11 12:45:00",
+      "reliability": "Inicial (Por validar)",
+      "rel_code": "LOW"
+    },
+    {
+      "name": "civil3d-to-revit-toposolid",
+      "description": "Procedimiento completo y guía técnica para migrar superficies TIN de Civil 3D a Toposolids individuales en Revit 2024/2025/2026 mediante Dynamo Python. Incluye extracción de puntos y contornos (con huecos interiores y piezas disjuntas), limpiador geométrico en 3 pasadas para evitar errores de auto-intersección (foldbacks) y tolerancia de líneas (ShortCurveTolerance), silenciador seguro de warnings (WarningSwallower), reanudación automática por comentarios, guardado incremental pieza a pieza, diagnóstico de relieve y traslación por vector de coordenadas de control (OFFSET_X/OFFSET_Y).",
+      "category": "Civil3d-to-revit-toposolid",
+      "file_path": "skills/migracion/civil3d-to-revit-toposolid/SKILL.md",
+      "uses": 2,
+      "success": 1,
+      "last_used": "2026-08-11 12:45:00",
+      "reliability": "Inicial (Por validar)",
+      "rel_code": "LOW"
     },
     {
       "name": "inspeccion_dwg_por_xref",
@@ -360,6 +382,66 @@ window.DASHBOARD_DATA = {
       "evidencia": "verificacion/02-08-2026 v2/informe_estudio_terrazas.html",
       "fecha": "2026-08-02",
       "notas": "Generación automatizada de informe técnico impresurable con gráficos SVG 2D en planta, perfiles de corte/relleno y matriz de unidades imperiales"
+    },
+    {
+      "servidor": "civil3d-mcp",
+      "tool": "export_civil3d_to_revit_dynamo",
+      "version_c3d": "2026",
+      "dwg_prueba": "HRCP/CIVIL 3D/South Island/Superficie/04_ZONIFICACION/XML_repaso a mano/SI_SURFACE_XML.xml",
+      "resultado": "OK",
+      "evidencia": "HRCP/CIVIL 3D/South Island/Superficie/05_Dynamo_Revit/dynamo_log.txt",
+      "fecha": "2026-08-07",
+      "notas": "Entrega de las 22 superficies de carpeta de South Island: 589,384 ft2 (13.53 ac), 27,821 puntos, 5,886 vertices de contorno, 11 huecos. 22 Toposolid creadas, 0 errores"
+    },
+    {
+      "servidor": "civil3d-mcp",
+      "tool": "georreferenciacion_offset_revit",
+      "version_c3d": "2026",
+      "dwg_prueba": "HRCP/CIVIL 3D/South Island/Superficie/05_Dynamo_Revit/ImportarToposolids.dyn",
+      "resultado": "OK",
+      "evidencia": "HRCP/CIVIL 3D/South Island/Superficie/05_Dynamo_Revit/GEORREFERENCIA_Y_COORDENADAS.txt",
+      "fecha": "2026-08-10",
+      "notas": "OFFSET_X=+1,702.20 / OFFSET_Y=-3,792.42 medido contra 3 vertices de control del modelo de Revit; el vector de traslacion sale identico en los 3. No es geodesico: es un ajuste medido"
+    },
+    {
+      "servidor": "civil3d-mcp",
+      "tool": "extract_surfaces_landxml",
+      "version_c3d": "2026",
+      "dwg_prueba": "HRCP/CIVIL 3D/South Island/Superficie/08_XML SURFACE EXT/Volume_Surface_SI.xml",
+      "resultado": "OK",
+      "evidencia": "HRCP/CIVIL 3D/South Island/Superficie/08_XML SURFACE EXT/Dynamo_Revit_IS_EXT/verificacion_superficie.png",
+      "fecha": "2026-08-11",
+      "notas": "Terreno existente Surface_Exis_SI. Descartadas 11,676 de 220,482 caras con i=\"1\" (invisibles): sin ese filtro la huella sale 1,127,492 ft2 en vez de 490,244.56. Huella reconstruida cuadra al 0.0000 % con area2DSurf. 2 piezas y 10 huecos >5 ft2"
+    },
+    {
+      "servidor": "civil3d-mcp",
+      "tool": "decimado_tin_control_error",
+      "version_c3d": "2026",
+      "dwg_prueba": "HRCP/CIVIL 3D/South Island/Superficie/08_XML SURFACE EXT/Volume_Surface_SI.xml",
+      "resultado": "OK",
+      "evidencia": "HRCP/CIVIL 3D/South Island/Superficie/08_XML SURFACE EXT/Dynamo_Revit_IS_EXT/GEORREFERENCIA_Y_COORDENADAS.txt",
+      "fecha": "2026-08-11",
+      "notas": "105,419 puntos (malla de escaneo de 1.04 ft) reducidos a 7,711 (7.3 %) por insercion voraz conservando el contorno. Contrastado en malla de 2 ft (121,780 nodos): el juego COMPLETO no mejora, empeora la cola (233 nodos >1 ft frente a 173). Revit re-triangula por Delaunay"
+    },
+    {
+      "servidor": "civil3d-mcp",
+      "tool": "import_revit_toposolid",
+      "version_c3d": "2026",
+      "dwg_prueba": "HRCP/CIVIL 3D/South Island/Superficie/08_XML SURFACE EXT/CJV-SI-EXT-RVT25.rvt",
+      "resultado": "OK",
+      "evidencia": "HRCP/CIVIL 3D/South Island/Superficie/08_XML SURFACE EXT/Dynamo_Revit_IS_EXT/dynamo_log.txt",
+      "fecha": "2026-08-11",
+      "notas": "2 Toposolid del terreno existente, relieve conservado (18.387 esperado vs 18.388 real). El primer intento FALLO en la pieza grande con 'input curve loops cannot compose a valid boundary': 3 de los 10 huecos tocaban el borde exterior a 0.0000 ft. Resuelto anadiendo min_dist_loop_to_loop() y descartando huecos a menos de 0.05 ft del contorno"
+    },
+    {
+      "servidor": "civil3d-mcp",
+      "tool": "skill_terrazas_taludes_calzadas",
+      "version_c3d": "2026",
+      "dwg_prueba": "verificacion/07-08-2026/Chaimavida/02_DXF Loteo/Loteo.dxf",
+      "resultado": "OK",
+      "evidencia": "skills/loteo/terrazas-taludes-calzadas.skill.md",
+      "fecha": "2026-08-08",
+      "notas": "Superficie de proyecto de loteo en ladera: 89 terrazas a NPT con taludes 1:1 contra calzada y vecinos, y pavimento con rasante de red. Auditoria: cobertura 100%, 0 huecos, 0 piezas sueltas, 0 vertices flotantes, llano en talud 0,01%. Metodo empaquetado como skill reutilizable"
     }
   ],
   "server_tools": [
@@ -1446,103 +1528,127 @@ window.DASHBOARD_DATA = {
   },
   "timeline": [
     {
+      "file": "matriz.csv",
+      "path": "verificacion/matriz.csv",
+      "source": "Workspace",
+      "mtime": 1786470559.664616,
+      "date": "2026-08-11 13:49",
+      "date_raw": "2026-08-11T13:49:19.664616"
+    },
+    {
       "file": "dashboard_data.js",
       "path": "dashboard_data.js",
       "source": "Workspace",
-      "mtime": 1785943445.8993635,
-      "date": "2026-08-05 11:24",
-      "date_raw": "2026-08-05T11:24:05.899364"
+      "mtime": 1786469612.9749875,
+      "date": "2026-08-11 13:33",
+      "date_raw": "2026-08-11T13:33:32.974988"
     },
     {
       "file": "dashboard_data.json",
       "path": "dashboard_data.json",
       "source": "Workspace",
-      "mtime": 1785943445.8983622,
-      "date": "2026-08-05 11:24",
-      "date_raw": "2026-08-05T11:24:05.898362"
+      "mtime": 1786469612.9729397,
+      "date": "2026-08-11 13:33",
+      "date_raw": "2026-08-11T13:33:32.972940"
     },
     {
-      "file": "plano-svg.skill.md",
-      "path": "skills/reportes/plano-svg.skill.md",
+      "file": "session_logs.json",
+      "path": "verificacion/session_logs.json",
       "source": "Workspace",
-      "mtime": 1785937026.6653838,
-      "date": "2026-08-05 09:37",
-      "date_raw": "2026-08-05T09:37:06.665384"
+      "mtime": 1786469608.112259,
+      "date": "2026-08-11 13:33",
+      "date_raw": "2026-08-11T13:33:28.112259"
     },
     {
-      "file": "plano_svg.py",
-      "path": "skills/reportes/scripts/plano_svg.py",
+      "file": "skill_usage.json",
+      "path": "verificacion/skill_usage.json",
       "source": "Workspace",
-      "mtime": 1785936944.4709773,
-      "date": "2026-08-05 09:35",
-      "date_raw": "2026-08-05T09:35:44.470977"
+      "mtime": 1786469608.112259,
+      "date": "2026-08-11 13:33",
+      "date_raw": "2026-08-11T13:33:28.112259"
     },
     {
-      "file": "test_plano_svg.py",
-      "path": "skills/reportes/scripts/test_plano_svg.py",
+      "file": "SKILL.md",
+      "path": "skills/migracion/civil3d-to-revit-toposolid/SKILL.md",
       "source": "Workspace",
-      "mtime": 1785936852.9556267,
-      "date": "2026-08-05 09:34",
-      "date_raw": "2026-08-05T09:34:12.955627"
+      "mtime": 1786460173.6894157,
+      "date": "2026-08-11 10:56",
+      "date_raw": "2026-08-11T10:56:13.689416"
     },
     {
       "file": "router.py",
       "path": "skills/router.py",
       "source": "Workspace",
-      "mtime": 1785880633.4765947,
-      "date": "2026-08-04 17:57",
-      "date_raw": "2026-08-04T17:57:13.476595"
+      "mtime": 1786458004.77983,
+      "date": "2026-08-11 10:20",
+      "date_raw": "2026-08-11T10:20:04.779830"
     },
     {
-      "file": "malla-a-landxml.skill.md",
-      "path": "skills/superficies/malla-a-landxml.skill.md",
+      "file": "civil3d-to-revit-toposolid.skill.md",
+      "path": "skills/migracion/civil3d-to-revit-toposolid.skill.md",
       "source": "Workspace",
-      "mtime": 1785880607.4442513,
-      "date": "2026-08-04 17:56",
-      "date_raw": "2026-08-04T17:56:47.444251"
+      "mtime": 1786457997.9736054,
+      "date": "2026-08-11 10:19",
+      "date_raw": "2026-08-11T10:19:57.973605"
     },
     {
-      "file": "README.md",
-      "path": "skills/_cuarentena/README.md",
+      "file": "Civil3DMcpPlugin.dll",
+      "path": "server/Civil3D-MCP-Plugin/bin/Debug/net8.0-windows/Civil3DMcpPlugin.dll",
       "source": "Workspace",
-      "mtime": 1785880597.171946,
-      "date": "2026-08-04 17:56",
-      "date_raw": "2026-08-04T17:56:37.171946"
+      "mtime": 1786119498.6164715,
+      "date": "2026-08-07 12:18",
+      "date_raw": "2026-08-07T12:18:18.616472"
     },
     {
-      "file": "inspeccion-dwg.skill.md",
-      "path": "skills/dibujo/inspeccion-dwg.skill.md",
+      "file": "Civil3DMcpPlugin.dll",
+      "path": "server/Civil3D-MCP-Plugin/obj/Debug/net8.0-windows/Civil3DMcpPlugin.dll",
       "source": "Workspace",
-      "mtime": 1785880573.1330478,
-      "date": "2026-08-04 17:56",
-      "date_raw": "2026-08-04T17:56:13.133048"
+      "mtime": 1786119498.6164715,
+      "date": "2026-08-07 12:18",
+      "date_raw": "2026-08-07T12:18:18.616472"
     },
     {
-      "file": "comparar-superficies.skill.md",
-      "path": "skills/superficies/comparar-superficies.skill.md",
+      "file": "Civil3DMcpPlugin.dll",
+      "path": "server/Civil3D-MCP-Plugin/obj/Debug/net8.0-windows/ref/Civil3DMcpPlugin.dll",
       "source": "Workspace",
-      "mtime": 1785880558.363142,
-      "date": "2026-08-04 17:55",
-      "date_raw": "2026-08-04T17:55:58.363142"
+      "mtime": 1786119498.6164715,
+      "date": "2026-08-07 12:18",
+      "date_raw": "2026-08-07T12:18:18.616472"
     },
     {
-      "file": "ifc-a-civil3d.skill.md",
-      "path": "skills/migracion/ifc-a-civil3d.skill.md",
+      "file": "Civil3DMcpPlugin.dll",
+      "path": "server/Civil3D-MCP-Plugin/obj/Debug/net8.0-windows/refint/Civil3DMcpPlugin.dll",
       "source": "Workspace",
-      "mtime": 1785880545.334364,
-      "date": "2026-08-04 17:55",
-      "date_raw": "2026-08-04T17:55:45.334364"
-    },
-    {
-      "file": "rellenar-huecos.skill.md",
-      "path": "skills/superficies/rellenar-huecos.skill.md",
-      "source": "Workspace",
-      "mtime": 1785880505.6261704,
-      "date": "2026-08-04 17:55",
-      "date_raw": "2026-08-04T17:55:05.626170"
+      "mtime": 1786119498.6164715,
+      "date": "2026-08-07 12:18",
+      "date_raw": "2026-08-07T12:18:18.616472"
     }
   ],
   "session_logs": [
+    {
+      "timestamp": "2026-08-11 12:45:00",
+      "task": "Terreno existente de South Island (Surface_Exis_SI): LandXML a Toposolid de Revit con diezmado controlado, 2 piezas y 10 huecos",
+      "corrections": "Los huecos que TOCAN el contorno exterior invalidan el argumento 'profiles' de Toposolid.Create. 3 de los 10 huecos estaban a 0.0000 ft del borde y tumbaban la pieza grande entera; se anadio min_dist_loop_to_loop() al script de Dynamo para descartar los que queden a menos de 0.05 ft. Tras el arreglo, 2 de 2 piezas OK.",
+      "warnings": "Filtrar SIEMPRE las caras con i=\"1\" del LandXML antes de reconstruir la huella: aqui eran 11,676 de 220,482 y sin filtrarlas el area sale mas del doble (1,127,492 ft2 contra 490,244.56 reales).",
+      "limitations": "Un Toposolid es un campo de alturas 2,5D: las 163 caras de mas de 70 grados (hasta 88.5) salen como rampas y no se arreglan con mas puntos. Mandar los 105,419 puntos en vez de 7,711 no mejora la fidelidad: la empeora en la cola, porque Revit re-triangula por Delaunay y pierde las lineas de rotura del TIN.",
+      "status": "OK"
+    },
+    {
+      "timestamp": "2026-08-10 10:27:00",
+      "task": "Ajuste de georreferenciacion del paquete de las 22 superficies de South Island contra el modelo de Revit de destino",
+      "corrections": "OFFSET_X/OFFSET_Y pasan de 0.0 a +1,702.20 / -3,792.42, medidos comparando 3 vertices de control entre la importacion de Dynamo y el modelo de Revit. El vector sale identico en los 3 puntos.",
+      "warnings": "Ese offset NO es una propiedad del sistema de coordenadas y no se puede copiar entre islas ni entre modelos: es un ajuste medido. North Island usa otro (-3,298.08 / +2,207.36) y otro origen local.",
+      "limitations": "LEEME_INSTRUCCIONES_USO.md del paquete de las 22 carpetas quedo desactualizado: sigue diciendo que los offsets valen 0.0 mientras el .py y el .txt ya llevan los valores medidos.",
+      "status": "OK"
+    },
+    {
+      "timestamp": "2026-08-07 16:15:00",
+      "task": "Entrega de las 22 superficies de carpeta de South Island como Toposolid de Revit 2026",
+      "corrections": "El .dyn y el .py sueltos se unificaron con el MISMO codigo (en North Island habian divergido: el .dyn tenia reanudacion y el .py no).",
+      "warnings": "Origen local propio de South Island (E 12,124,000 / N 3,524,500), distinto del de North Island (E 12,119,000 / N 3,530,500) y no intercambiable.",
+      "limitations": "Contornos simplificados con Douglas-Peucker a 0.001 ft: de 21,073 a 5,886 vertices, con hueco maximo de 0.00008 ft entre superficies adyacentes.",
+      "status": "OK"
+    },
     {
       "timestamp": "2026-08-02 18:59:00",
       "task": "Estudio de terrazación en 4 lotes, traslación neutral LandXML y cubicación por regiones",

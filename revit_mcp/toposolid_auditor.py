@@ -87,5 +87,5 @@ def auditar_carpeta_entrega(carpeta_path):
     print("=" * 70)
 
 if __name__ == "__main__":
-    target_dir = r"C:\Users\raulz\OneDrive\Escritorio\Trabajo\IA\OTROS\MCP\Autocad\verificacion\01-08-2026\12_Entrega_DWG_Optimizado\REVIT-Dynamo\ENTREGA_SUPERFICIES_REVIT"
+    target_dir = r"C:\Users\Usuario\OneDrive\Escritorio\Raul ZOIN\HRCP\CIVIL 3D\North Island\Caminos\Avances\12_Entrega_DWG_Optimizado\Dynamo_Surface_Revit"
     auditar_carpeta_entrega(target_dir)

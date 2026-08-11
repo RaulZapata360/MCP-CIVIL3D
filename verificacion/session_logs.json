@@ -1,5 +1,29 @@
 [
   {
+    "timestamp": "2026-08-11 12:45:00",
+    "task": "Terreno existente de South Island (Surface_Exis_SI): LandXML a Toposolid de Revit con diezmado controlado, 2 piezas y 10 huecos",
+    "corrections": "Los huecos que TOCAN el contorno exterior invalidan el argumento 'profiles' de Toposolid.Create. 3 de los 10 huecos estaban a 0.0000 ft del borde y tumbaban la pieza grande entera; se anadio min_dist_loop_to_loop() al script de Dynamo para descartar los que queden a menos de 0.05 ft. Tras el arreglo, 2 de 2 piezas OK.",
+    "warnings": "Filtrar SIEMPRE las caras con i=\"1\" del LandXML antes de reconstruir la huella: aqui eran 11,676 de 220,482 y sin filtrarlas el area sale mas del doble (1,127,492 ft2 contra 490,244.56 reales).",
+    "limitations": "Un Toposolid es un campo de alturas 2,5D: las 163 caras de mas de 70 grados (hasta 88.5) salen como rampas y no se arreglan con mas puntos. Mandar los 105,419 puntos en vez de 7,711 no mejora la fidelidad: la empeora en la cola, porque Revit re-triangula por Delaunay y pierde las lineas de rotura del TIN.",
+    "status": "OK"
+  },
+  {
+    "timestamp": "2026-08-10 10:27:00",
+    "task": "Ajuste de georreferenciacion del paquete de las 22 superficies de South Island contra el modelo de Revit de destino",
+    "corrections": "OFFSET_X/OFFSET_Y pasan de 0.0 a +1,702.20 / -3,792.42, medidos comparando 3 vertices de control entre la importacion de Dynamo y el modelo de Revit. El vector sale identico en los 3 puntos.",
+    "warnings": "Ese offset NO es una propiedad del sistema de coordenadas y no se puede copiar entre islas ni entre modelos: es un ajuste medido. North Island usa otro (-3,298.08 / +2,207.36) y otro origen local.",
+    "limitations": "LEEME_INSTRUCCIONES_USO.md del paquete de las 22 carpetas quedo desactualizado: sigue diciendo que los offsets valen 0.0 mientras el .py y el .txt ya llevan los valores medidos.",
+    "status": "OK"
+  },
+  {
+    "timestamp": "2026-08-07 16:15:00",
+    "task": "Entrega de las 22 superficies de carpeta de South Island como Toposolid de Revit 2026",
+    "corrections": "El .dyn y el .py sueltos se unificaron con el MISMO codigo (en North Island habian divergido: el .dyn tenia reanudacion y el .py no).",
+    "warnings": "Origen local propio de South Island (E 12,124,000 / N 3,524,500), distinto del de North Island (E 12,119,000 / N 3,530,500) y no intercambiable.",
+    "limitations": "Contornos simplificados con Douglas-Peucker a 0.001 ft: de 21,073 a 5,886 vertices, con hueco maximo de 0.00008 ft entre superficies adyacentes.",
+    "status": "OK"
+  },
+  {
     "timestamp": "2026-08-02 18:59:00",
     "task": "Estudio de terrazación en 4 lotes, traslación neutral LandXML y cubicación por regiones",
     "corrections": "Corrección de error de unidades en informe y esquemas (asumición de metros corregida a Sistema Imperial nativo ft, sq ft, cu yd). Rediseño proporcionado de la tabla de cubicación en informe HTML y ajuste de proporciones en el Dashboard QA.",

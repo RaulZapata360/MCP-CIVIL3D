@@ -129,6 +129,14 @@ REGISTRO_SKILLS = {
         "script": os.path.join(BASE_DIR, "migracion", "scripts", "ifc_to_ncs_dxf.py"),
         "doc": os.path.join(BASE_DIR, "migracion", "ifc-a-civil3d.skill.md"),
     },
+    "civil3d_to_revit_toposolid": {
+        "nombre": "Migración Civil 3D a Revit Toposolid (Dynamo)",
+        "categoria": "Migración",
+        "palabras_clave": ["revit", "toposolid", "dynamo", "importar a revit", "exportar a revit",
+                           "civil3d a revit", "foldback", "shortcurvetolerance", "warningswallower", "offset_x"],
+        "script": os.path.join(BASE_DIR, "migracion", "civil3d-to-revit-toposolid", "scripts", "Dynamo_CreateToposolids_ConHuecos.py"),
+        "doc": os.path.join(BASE_DIR, "migracion", "civil3d-to-revit-toposolid", "SKILL.md"),
+    },
     "inspeccion_dwg_por_xref": {
         "nombre": "Unificar DWG por XREF para Inspección",
         "categoria": "Dibujo",

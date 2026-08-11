@@ -346,6 +346,45 @@ public static class SurfaceCommands
     });
   }
 
+  public static Task<object?> ExtractSurfaceBorderAsync(JsonObject? parameters)
+  {
+    var name = PluginRuntime.GetRequiredString(parameters, "name");
+
+    return CivilExecution.WriteAsync<object?>((doc, civilDoc, database, transaction) =>
+    {
+      var surface = CivilObjectUtils.FindSurfaceByName(civilDoc, transaction, name, OpenMode.ForRead);
+      object? result = null;
+      try
+      {
+        result = CivilObjectUtils.InvokeMethod(surface, "ExtractBorder");
+      }
+      catch
+      {
+        try
+        {
+          var enumType = surface.GetType().Assembly.GetType("Autodesk.Civil.DatabaseServices.SurfaceObjectType");
+          if (enumType != null)
+          {
+            var borderType = Enum.Parse(enumType, "Border");
+            result = CivilObjectUtils.InvokeMethod(surface, "ExtractObjects", borderType);
+          }
+        }
+        catch { }
+      }
+
+      var objectIds = CivilObjectUtils.ToObjectIds(result).ToList();
+
+      return new Dictionary<string, object?>
+      {
+        ["surfaceName"] = surface.Name,
+        ["borderCount"] = objectIds.Count,
+        ["handles"] = objectIds
+          .Select(objectId => CivilObjectUtils.GetHandle(CivilObjectUtils.GetRequiredObject<Autodesk.AutoCAD.DatabaseServices.Entity>(transaction, objectId, OpenMode.ForRead)))
+          .ToList(),
+      };
+    });
+  }
+
   public static Task<object?> ComputeSurfaceVolumeAsync(JsonObject? parameters)
   {
     var baseSurfaceName = PluginRuntime.GetRequiredString(parameters, "baseSurface");
