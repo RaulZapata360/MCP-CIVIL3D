@@ -54,7 +54,8 @@ p.guardar("plano.svg")
 | `lineas(polilineas, rol, cerrar, guion)` | Ejes, perímetros, quiebres |
 | `puntos(coords, rol, rotulos)` | Vértices, estacas, puntos COGO |
 | `nota(texto)` | Línea de contexto bajo el subtítulo |
-| `guardar(ruta)` | Calcula el encuadre y escribe el archivo |
+| `render()` | Calcula el encuadre y devuelve el SVG como texto, sin escribir archivo |
+| `guardar(ruta)` | Envoltorio de `render()` que además escribe el archivo |
 
 Roles: `contexto` (tinta de chrome, recesivo) y `serie1`..`serie3` (paleta categórica,
 en orden fijo). Temas `claro` y `oscuro`.
@@ -204,3 +205,9 @@ lejanas para que las de prueba se junten de verdad.
 
 *   `skills/superficies/recortar_superficie.py` la importa para su plano de recorte.
     Ese es el patrón: las skills de cálculo no dibujan, delegan acá.
+*   `skills/superficies/informe_superficie.py` (skill `informe-analisis-superficies`)
+    usa `render()` para incrustar el plano en planta directamente dentro del HTML
+    del informe, sin pasar por un archivo `.svg` intermedio.
+*   `skills/reportes/scripts/graficos_svg.py` es el compañero de este módulo:
+    mismas paleta y helpers de escape, para barras, rosa de orientación y
+    perfiles (con sombreado de corte/relleno) que no son planos en planta.
