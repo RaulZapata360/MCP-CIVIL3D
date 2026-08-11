@@ -1,14 +1,14 @@
 {
-  "last_update": "2026-08-11 14:02:44",
+  "last_update": "2026-08-11 14:03:38",
   "stats": {
-    "total_skills": 20,
+    "total_skills": 21,
     "total_tests": 21,
     "tests_ok": 15,
     "tests_falla": 2,
     "tests_wip": 4,
     "total_server_tools": 216,
     "total_server_modules": 30,
-    "total_sessions": 6
+    "total_sessions": 7
   },
   "skills": [
     {
@@ -170,6 +170,17 @@
       "description": "Extrae el paquete completo de contornos (anillo exterior y huecos) de cada superficie de un LandXML y simplifica los vértices redundantes; explica por qué un boundary de Civil 3D no recorta la triangulación.",
       "category": "Superficies",
       "file_path": "skills/superficies/contornos-y-boundaries.skill.md",
+      "uses": 0,
+      "success": 0,
+      "last_used": "Sin registrar",
+      "reliability": "Sin uso",
+      "rel_code": "NONE"
+    },
+    {
+      "name": "informe_analisis_superficies",
+      "description": "Genera un informe HTML autocontenido de analisis de superficie(s) TIN LandXML: zonificacion de cotas y pendientes, rosa de orientacion, perfil longitudinal y secciones transversales con corte/relleno sombreado, computo volumetrico por grilla, tablas y hallazgos automaticos.",
+      "category": "Superficies",
+      "file_path": "skills/superficies/informe-analisis-superficies.skill.md",
       "uses": 0,
       "success": 0,
       "last_used": "Sin registrar",
@@ -1528,6 +1539,86 @@
   },
   "timeline": [
     {
+      "file": "session_logs.json",
+      "path": "verificacion/session_logs.json",
+      "source": "Workspace",
+      "mtime": 1786471418.3879151,
+      "date": "2026-08-11 14:03",
+      "date_raw": "2026-08-11T14:03:38.387915"
+    },
+    {
+      "file": "informe_superficie.py",
+      "path": "skills/superficies/scripts/informe_superficie.py",
+      "source": "Workspace",
+      "mtime": 1786471382.6648638,
+      "date": "2026-08-11 14:03",
+      "date_raw": "2026-08-11T14:03:02.664864"
+    },
+    {
+      "file": "test_informe_superficie.py",
+      "path": "skills/superficies/scripts/test_informe_superficie.py",
+      "source": "Workspace",
+      "mtime": 1786471382.6648638,
+      "date": "2026-08-11 14:03",
+      "date_raw": "2026-08-11T14:03:02.664864"
+    },
+    {
+      "file": "informe-analisis-superficies.skill.md",
+      "path": "skills/superficies/informe-analisis-superficies.skill.md",
+      "source": "Workspace",
+      "mtime": 1786471382.663864,
+      "date": "2026-08-11 14:03",
+      "date_raw": "2026-08-11T14:03:02.663864"
+    },
+    {
+      "file": "graficos_svg.py",
+      "path": "skills/reportes/scripts/graficos_svg.py",
+      "source": "Workspace",
+      "mtime": 1786471382.6628642,
+      "date": "2026-08-11 14:03",
+      "date_raw": "2026-08-11T14:03:02.662864"
+    },
+    {
+      "file": "plano_svg.py",
+      "path": "skills/reportes/scripts/plano_svg.py",
+      "source": "Workspace",
+      "mtime": 1786471382.6628642,
+      "date": "2026-08-11 14:03",
+      "date_raw": "2026-08-11T14:03:02.662864"
+    },
+    {
+      "file": "generacion-planos-svg.skill.md",
+      "path": "skills/reportes/generacion-planos-svg.skill.md",
+      "source": "Workspace",
+      "mtime": 1786471382.6613955,
+      "date": "2026-08-11 14:03",
+      "date_raw": "2026-08-11T14:03:02.661396"
+    },
+    {
+      "file": "plano-svg.skill.md",
+      "path": "skills/reportes/plano-svg.skill.md",
+      "source": "Workspace",
+      "mtime": 1786471382.6613955,
+      "date": "2026-08-11 14:03",
+      "date_raw": "2026-08-11T14:03:02.661396"
+    },
+    {
+      "file": "dashboard_data.js",
+      "path": "dashboard_data.js",
+      "source": "Workspace",
+      "mtime": 1786471364.1125786,
+      "date": "2026-08-11 14:02",
+      "date_raw": "2026-08-11T14:02:44.112579"
+    },
+    {
+      "file": "dashboard_data.json",
+      "path": "dashboard_data.json",
+      "source": "Workspace",
+      "mtime": 1786471364.1120722,
+      "date": "2026-08-11 14:02",
+      "date_raw": "2026-08-11T14:02:44.112072"
+    },
+    {
       "file": "router.py",
       "path": "skills/router.py",
       "source": "Workspace",
@@ -1542,89 +1633,17 @@
       "mtime": 1786471350.587957,
       "date": "2026-08-11 14:02",
       "date_raw": "2026-08-11T14:02:30.587957"
-    },
-    {
-      "file": "dashboard_data.js",
-      "path": "dashboard_data.js",
-      "source": "Workspace",
-      "mtime": 1786471235.892815,
-      "date": "2026-08-11 14:00",
-      "date_raw": "2026-08-11T14:00:35.892815"
-    },
-    {
-      "file": "dashboard_data.json",
-      "path": "dashboard_data.json",
-      "source": "Workspace",
-      "mtime": 1786471235.8915515,
-      "date": "2026-08-11 14:00",
-      "date_raw": "2026-08-11T14:00:35.891551"
-    },
-    {
-      "file": "matriz.csv",
-      "path": "verificacion/matriz.csv",
-      "source": "Workspace",
-      "mtime": 1786471207.9627907,
-      "date": "2026-08-11 14:00",
-      "date_raw": "2026-08-11T14:00:07.962791"
-    },
-    {
-      "file": "terrazas-taludes-calzadas.skill.md",
-      "path": "skills/loteo/terrazas-taludes-calzadas.skill.md",
-      "source": "Workspace",
-      "mtime": 1786471186.4226403,
-      "date": "2026-08-11 13:59",
-      "date_raw": "2026-08-11T13:59:46.422640"
-    },
-    {
-      "file": "terrazas_lib.py",
-      "path": "skills/loteo/scripts/terrazas_lib.py",
-      "source": "Workspace",
-      "mtime": 1786471186.421801,
-      "date": "2026-08-11 13:59",
-      "date_raw": "2026-08-11T13:59:46.421801"
-    },
-    {
-      "file": "vialidad_lib.py",
-      "path": "skills/loteo/scripts/vialidad_lib.py",
-      "source": "Workspace",
-      "mtime": 1786471186.421801,
-      "date": "2026-08-11 13:59",
-      "date_raw": "2026-08-11T13:59:46.421801"
-    },
-    {
-      "file": "rasantes_lib.py",
-      "path": "skills/loteo/scripts/rasantes_lib.py",
-      "source": "Workspace",
-      "mtime": 1786471186.4207964,
-      "date": "2026-08-11 13:59",
-      "date_raw": "2026-08-11T13:59:46.420796"
-    },
-    {
-      "file": "rasantes_red.py",
-      "path": "skills/loteo/scripts/rasantes_red.py",
-      "source": "Workspace",
-      "mtime": 1786471186.4207964,
-      "date": "2026-08-11 13:59",
-      "date_raw": "2026-08-11T13:59:46.420796"
-    },
-    {
-      "file": "loteo_io.py",
-      "path": "skills/loteo/scripts/loteo_io.py",
-      "source": "Workspace",
-      "mtime": 1786471186.4192922,
-      "date": "2026-08-11 13:59",
-      "date_raw": "2026-08-11T13:59:46.419292"
-    },
-    {
-      "file": "mesh_io.py",
-      "path": "skills/loteo/scripts/mesh_io.py",
-      "source": "Workspace",
-      "mtime": 1786471186.4192922,
-      "date": "2026-08-11 13:59",
-      "date_raw": "2026-08-11T13:59:46.419292"
     }
   ],
   "session_logs": [
+    {
+      "timestamp": "2026-08-11 14:05:00",
+      "task": "Unificacion del repositorio: se juntan en una sola rama las skills de develop, la rama suelta de informes de analisis de superficies y el trabajo local sin commitear",
+      "corrections": "La skill civil3d-to-revit-toposolid estaba a medias: un .skill.md que solo enlazaba a una ruta local, una carpeta anidada con el contenido real, y el router apuntando a un scripts/ inexistente. Se paso a la convencion del repo y se le anadieron sus scripts. La copia de Dynamo_CreateToposolids_ConHuecos.py de superficies/scripts/ estaba obsoleta (sin la comprobacion de huecos tangentes) y se actualizo.",
+      "warnings": "El tablero contaba la skill dos veces porque la categoria sale del nombre de la carpeta contenedora: una carpeta con SKILL.md dentro crea una categoria fantasma. Los dashboard_data.* se resuelven regenerando, nunca fusionando a mano.",
+      "limitations": "ExtractSurfaceBorderAsync sigue sin exponerse como herramienta MCP (no esta en surfaceDomain.ts) y el bundle desplegado en Civil 3D es del 24 de junio, asi que ese comando no es invocable todavia.",
+      "status": "OK"
+    },
     {
       "timestamp": "2026-08-11 12:45:00",
       "task": "Terreno existente de South Island (Surface_Exis_SI): LandXML a Toposolid de Revit con diezmado controlado, 2 piezas y 10 huecos",

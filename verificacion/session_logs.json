@@ -1,5 +1,13 @@
 [
   {
+    "timestamp": "2026-08-11 14:05:00",
+    "task": "Unificacion del repositorio: se juntan en una sola rama las skills de develop, la rama suelta de informes de analisis de superficies y el trabajo local sin commitear",
+    "corrections": "La skill civil3d-to-revit-toposolid estaba a medias: un .skill.md que solo enlazaba a una ruta local, una carpeta anidada con el contenido real, y el router apuntando a un scripts/ inexistente. Se paso a la convencion del repo y se le anadieron sus scripts. La copia de Dynamo_CreateToposolids_ConHuecos.py de superficies/scripts/ estaba obsoleta (sin la comprobacion de huecos tangentes) y se actualizo.",
+    "warnings": "El tablero contaba la skill dos veces porque la categoria sale del nombre de la carpeta contenedora: una carpeta con SKILL.md dentro crea una categoria fantasma. Los dashboard_data.* se resuelven regenerando, nunca fusionando a mano.",
+    "limitations": "ExtractSurfaceBorderAsync sigue sin exponerse como herramienta MCP (no esta en surfaceDomain.ts) y el bundle desplegado en Civil 3D es del 24 de junio, asi que ese comando no es invocable todavia.",
+    "status": "OK"
+  },
+  {
     "timestamp": "2026-08-11 12:45:00",
     "task": "Terreno existente de South Island (Surface_Exis_SI): LandXML a Toposolid de Revit con diezmado controlado, 2 piezas y 10 huecos",
     "corrections": "Los huecos que TOCAN el contorno exterior invalidan el argumento 'profiles' de Toposolid.Create. 3 de los 10 huecos estaban a 0.0000 ft del borde y tumbaban la pieza grande entera; se anadio min_dist_loop_to_loop() al script de Dynamo para descartar los que queden a menos de 0.05 ft. Tras el arreglo, 2 de 2 piezas OK.",
