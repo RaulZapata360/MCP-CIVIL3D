@@ -1,7 +1,7 @@
 window.DASHBOARD_DATA = {
-  "last_update": "2026-08-11 14:00:35",
+  "last_update": "2026-08-11 14:02:44",
   "stats": {
-    "total_skills": 21,
+    "total_skills": 20,
     "total_tests": 21,
     "tests_ok": 15,
     "tests_falla": 2,
@@ -104,17 +104,6 @@ window.DASHBOARD_DATA = {
       "description": "Procedimiento completo y guía técnica para migrar superficies TIN de Civil 3D a Toposolids individuales en Revit 2024/2025/2026 mediante Dynamo Python. Incluye extracción de puntos y contornos (con huecos interiores y piezas disjuntas), limpiador geométrico en 3 pasadas para evitar errores de auto-intersección (foldbacks) y tolerancia de líneas (ShortCurveTolerance), silenciador seguro de warnings (WarningSwallower), reanudación automática por comentarios, guardado incremental pieza a pieza, diagnóstico de relieve y traslación por vector de coordenadas de control (OFFSET_X/OFFSET_Y).",
       "category": "Migracion",
       "file_path": "skills/migracion/civil3d-to-revit-toposolid.skill.md",
-      "uses": 2,
-      "success": 1,
-      "last_used": "2026-08-11 12:45:00",
-      "reliability": "Inicial (Por validar)",
-      "rel_code": "LOW"
-    },
-    {
-      "name": "civil3d-to-revit-toposolid",
-      "description": "Procedimiento completo y guía técnica para migrar superficies TIN de Civil 3D a Toposolids individuales en Revit 2024/2025/2026 mediante Dynamo Python. Incluye extracción de puntos y contornos (con huecos interiores y piezas disjuntas), limpiador geométrico en 3 pasadas para evitar errores de auto-intersección (foldbacks) y tolerancia de líneas (ShortCurveTolerance), silenciador seguro de warnings (WarningSwallower), reanudación automática por comentarios, guardado incremental pieza a pieza, diagnóstico de relieve y traslación por vector de coordenadas de control (OFFSET_X/OFFSET_Y).",
-      "category": "Civil3d-to-revit-toposolid",
-      "file_path": "skills/migracion/civil3d-to-revit-toposolid/SKILL.md",
       "uses": 2,
       "success": 1,
       "last_used": "2026-08-11 12:45:00",
@@ -1539,20 +1528,44 @@ window.DASHBOARD_DATA = {
   },
   "timeline": [
     {
+      "file": "router.py",
+      "path": "skills/router.py",
+      "source": "Workspace",
+      "mtime": 1786471350.5904615,
+      "date": "2026-08-11 14:02",
+      "date_raw": "2026-08-11T14:02:30.590461"
+    },
+    {
+      "file": "civil3d-to-revit-toposolid.skill.md",
+      "path": "skills/migracion/civil3d-to-revit-toposolid.skill.md",
+      "source": "Workspace",
+      "mtime": 1786471350.587957,
+      "date": "2026-08-11 14:02",
+      "date_raw": "2026-08-11T14:02:30.587957"
+    },
+    {
+      "file": "dashboard_data.js",
+      "path": "dashboard_data.js",
+      "source": "Workspace",
+      "mtime": 1786471235.892815,
+      "date": "2026-08-11 14:00",
+      "date_raw": "2026-08-11T14:00:35.892815"
+    },
+    {
+      "file": "dashboard_data.json",
+      "path": "dashboard_data.json",
+      "source": "Workspace",
+      "mtime": 1786471235.8915515,
+      "date": "2026-08-11 14:00",
+      "date_raw": "2026-08-11T14:00:35.891551"
+    },
+    {
       "file": "matriz.csv",
       "path": "verificacion/matriz.csv",
       "source": "Workspace",
       "mtime": 1786471207.9627907,
       "date": "2026-08-11 14:00",
       "date_raw": "2026-08-11T14:00:07.962791"
-    },
-    {
-      "file": "router.py",
-      "path": "skills/router.py",
-      "source": "Workspace",
-      "mtime": 1786471186.4226403,
-      "date": "2026-08-11 13:59",
-      "date_raw": "2026-08-11T13:59:46.422640"
     },
     {
       "file": "terrazas-taludes-calzadas.skill.md",
@@ -1609,30 +1622,6 @@ window.DASHBOARD_DATA = {
       "mtime": 1786471186.4192922,
       "date": "2026-08-11 13:59",
       "date_raw": "2026-08-11T13:59:46.419292"
-    },
-    {
-      "file": "dashboard_data.json",
-      "path": "dashboard_data.json",
-      "source": "Workspace",
-      "mtime": 1786471186.4182923,
-      "date": "2026-08-11 13:59",
-      "date_raw": "2026-08-11T13:59:46.418292"
-    },
-    {
-      "file": "dashboard_data.js",
-      "path": "dashboard_data.js",
-      "source": "Workspace",
-      "mtime": 1786471186.4172926,
-      "date": "2026-08-11 13:59",
-      "date_raw": "2026-08-11T13:59:46.417293"
-    },
-    {
-      "file": "session_logs.json",
-      "path": "verificacion/session_logs.json",
-      "source": "Workspace",
-      "mtime": 1786469608.112259,
-      "date": "2026-08-11 13:33",
-      "date_raw": "2026-08-11T13:33:28.112259"
     }
   ],
   "session_logs": [
