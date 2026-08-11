@@ -1,7 +1,7 @@
 window.DASHBOARD_DATA = {
-  "last_update": "2026-08-11 13:49:19",
+  "last_update": "2026-08-11 14:00:35",
   "stats": {
-    "total_skills": 20,
+    "total_skills": 21,
     "total_tests": 21,
     "tests_ok": 15,
     "tests_falla": 2,
@@ -126,6 +126,17 @@ window.DASHBOARD_DATA = {
       "description": "Unifica por XREF todos los DWG de una carpeta en un solo dibujo de comparación visual, con rutas relativas para que la carpeta de salida sea copiable o comprimible sin romper enlaces.",
       "category": "Dibujo",
       "file_path": "skills/dibujo/inspeccion-dwg.skill.md",
+      "uses": 0,
+      "success": 0,
+      "last_used": "Sin registrar",
+      "reliability": "Sin uso",
+      "rel_code": "NONE"
+    },
+    {
+      "name": "terrazas_taludes_calzadas",
+      "description": "Genera la superficie de proyecto de un loteo en ladera: terrazas horizontales por lote a su NPT, taludes contra la calzada y entre lotes vecinos, y el pavimento de la vialidad con rasante continua. Parte de un DXF de loteo y el TIN del terreno natural, y entrega LandXML importable a Civil 3D más DXF de bordes editable. Usar cuando pidan modelar plataformas/terrazas de un loteo, generar taludes entre lotes o contra calles, cubicar un loteo en cerro, o cuando una superficie de proyecto ya generada salga con triangulación sucia, bordes dentados o taludes discontinuos.",
+      "category": "Loteo",
+      "file_path": "skills/loteo/terrazas-taludes-calzadas.skill.md",
       "uses": 0,
       "success": 0,
       "last_used": "Sin registrar",
@@ -395,6 +406,16 @@ window.DASHBOARD_DATA = {
     },
     {
       "servidor": "civil3d-mcp",
+      "tool": "skill_terrazas_taludes_calzadas",
+      "version_c3d": "2026",
+      "dwg_prueba": "verificacion/07-08-2026/Chaimavida/02_DXF Loteo/Loteo.dxf",
+      "resultado": "OK",
+      "evidencia": "skills/loteo/terrazas-taludes-calzadas.skill.md",
+      "fecha": "2026-08-08",
+      "notas": "Superficie de proyecto de loteo en ladera: 89 terrazas a NPT con taludes 1:1 contra calzada y vecinos, y pavimento con rasante de red. Auditoria: cobertura 100%, 0 huecos, 0 piezas sueltas, 0 vertices flotantes, llano en talud 0,01%. Metodo empaquetado como skill reutilizable"
+    },
+    {
+      "servidor": "civil3d-mcp",
       "tool": "georreferenciacion_offset_revit",
       "version_c3d": "2026",
       "dwg_prueba": "HRCP/CIVIL 3D/South Island/Superficie/05_Dynamo_Revit/ImportarToposolids.dyn",
@@ -432,16 +453,6 @@ window.DASHBOARD_DATA = {
       "evidencia": "HRCP/CIVIL 3D/South Island/Superficie/08_XML SURFACE EXT/Dynamo_Revit_IS_EXT/dynamo_log.txt",
       "fecha": "2026-08-11",
       "notas": "2 Toposolid del terreno existente, relieve conservado (18.387 esperado vs 18.388 real). El primer intento FALLO en la pieza grande con 'input curve loops cannot compose a valid boundary': 3 de los 10 huecos tocaban el borde exterior a 0.0000 ft. Resuelto anadiendo min_dist_loop_to_loop() y descartando huecos a menos de 0.05 ft del contorno"
-    },
-    {
-      "servidor": "civil3d-mcp",
-      "tool": "skill_terrazas_taludes_calzadas",
-      "version_c3d": "2026",
-      "dwg_prueba": "verificacion/07-08-2026/Chaimavida/02_DXF Loteo/Loteo.dxf",
-      "resultado": "OK",
-      "evidencia": "skills/loteo/terrazas-taludes-calzadas.skill.md",
-      "fecha": "2026-08-08",
-      "notas": "Superficie de proyecto de loteo en ladera: 89 terrazas a NPT con taludes 1:1 contra calzada y vecinos, y pavimento con rasante de red. Auditoria: cobertura 100%, 0 huecos, 0 piezas sueltas, 0 vertices flotantes, llano en talud 0,01%. Metodo empaquetado como skill reutilizable"
     }
   ],
   "server_tools": [
@@ -1531,25 +1542,89 @@ window.DASHBOARD_DATA = {
       "file": "matriz.csv",
       "path": "verificacion/matriz.csv",
       "source": "Workspace",
-      "mtime": 1786470559.664616,
-      "date": "2026-08-11 13:49",
-      "date_raw": "2026-08-11T13:49:19.664616"
+      "mtime": 1786471207.9627907,
+      "date": "2026-08-11 14:00",
+      "date_raw": "2026-08-11T14:00:07.962791"
     },
     {
-      "file": "dashboard_data.js",
-      "path": "dashboard_data.js",
+      "file": "router.py",
+      "path": "skills/router.py",
       "source": "Workspace",
-      "mtime": 1786469612.9749875,
-      "date": "2026-08-11 13:33",
-      "date_raw": "2026-08-11T13:33:32.974988"
+      "mtime": 1786471186.4226403,
+      "date": "2026-08-11 13:59",
+      "date_raw": "2026-08-11T13:59:46.422640"
+    },
+    {
+      "file": "terrazas-taludes-calzadas.skill.md",
+      "path": "skills/loteo/terrazas-taludes-calzadas.skill.md",
+      "source": "Workspace",
+      "mtime": 1786471186.4226403,
+      "date": "2026-08-11 13:59",
+      "date_raw": "2026-08-11T13:59:46.422640"
+    },
+    {
+      "file": "terrazas_lib.py",
+      "path": "skills/loteo/scripts/terrazas_lib.py",
+      "source": "Workspace",
+      "mtime": 1786471186.421801,
+      "date": "2026-08-11 13:59",
+      "date_raw": "2026-08-11T13:59:46.421801"
+    },
+    {
+      "file": "vialidad_lib.py",
+      "path": "skills/loteo/scripts/vialidad_lib.py",
+      "source": "Workspace",
+      "mtime": 1786471186.421801,
+      "date": "2026-08-11 13:59",
+      "date_raw": "2026-08-11T13:59:46.421801"
+    },
+    {
+      "file": "rasantes_lib.py",
+      "path": "skills/loteo/scripts/rasantes_lib.py",
+      "source": "Workspace",
+      "mtime": 1786471186.4207964,
+      "date": "2026-08-11 13:59",
+      "date_raw": "2026-08-11T13:59:46.420796"
+    },
+    {
+      "file": "rasantes_red.py",
+      "path": "skills/loteo/scripts/rasantes_red.py",
+      "source": "Workspace",
+      "mtime": 1786471186.4207964,
+      "date": "2026-08-11 13:59",
+      "date_raw": "2026-08-11T13:59:46.420796"
+    },
+    {
+      "file": "loteo_io.py",
+      "path": "skills/loteo/scripts/loteo_io.py",
+      "source": "Workspace",
+      "mtime": 1786471186.4192922,
+      "date": "2026-08-11 13:59",
+      "date_raw": "2026-08-11T13:59:46.419292"
+    },
+    {
+      "file": "mesh_io.py",
+      "path": "skills/loteo/scripts/mesh_io.py",
+      "source": "Workspace",
+      "mtime": 1786471186.4192922,
+      "date": "2026-08-11 13:59",
+      "date_raw": "2026-08-11T13:59:46.419292"
     },
     {
       "file": "dashboard_data.json",
       "path": "dashboard_data.json",
       "source": "Workspace",
-      "mtime": 1786469612.9729397,
-      "date": "2026-08-11 13:33",
-      "date_raw": "2026-08-11T13:33:32.972940"
+      "mtime": 1786471186.4182923,
+      "date": "2026-08-11 13:59",
+      "date_raw": "2026-08-11T13:59:46.418292"
+    },
+    {
+      "file": "dashboard_data.js",
+      "path": "dashboard_data.js",
+      "source": "Workspace",
+      "mtime": 1786471186.4172926,
+      "date": "2026-08-11 13:59",
+      "date_raw": "2026-08-11T13:59:46.417293"
     },
     {
       "file": "session_logs.json",
@@ -1558,70 +1633,6 @@ window.DASHBOARD_DATA = {
       "mtime": 1786469608.112259,
       "date": "2026-08-11 13:33",
       "date_raw": "2026-08-11T13:33:28.112259"
-    },
-    {
-      "file": "skill_usage.json",
-      "path": "verificacion/skill_usage.json",
-      "source": "Workspace",
-      "mtime": 1786469608.112259,
-      "date": "2026-08-11 13:33",
-      "date_raw": "2026-08-11T13:33:28.112259"
-    },
-    {
-      "file": "SKILL.md",
-      "path": "skills/migracion/civil3d-to-revit-toposolid/SKILL.md",
-      "source": "Workspace",
-      "mtime": 1786460173.6894157,
-      "date": "2026-08-11 10:56",
-      "date_raw": "2026-08-11T10:56:13.689416"
-    },
-    {
-      "file": "router.py",
-      "path": "skills/router.py",
-      "source": "Workspace",
-      "mtime": 1786458004.77983,
-      "date": "2026-08-11 10:20",
-      "date_raw": "2026-08-11T10:20:04.779830"
-    },
-    {
-      "file": "civil3d-to-revit-toposolid.skill.md",
-      "path": "skills/migracion/civil3d-to-revit-toposolid.skill.md",
-      "source": "Workspace",
-      "mtime": 1786457997.9736054,
-      "date": "2026-08-11 10:19",
-      "date_raw": "2026-08-11T10:19:57.973605"
-    },
-    {
-      "file": "Civil3DMcpPlugin.dll",
-      "path": "server/Civil3D-MCP-Plugin/bin/Debug/net8.0-windows/Civil3DMcpPlugin.dll",
-      "source": "Workspace",
-      "mtime": 1786119498.6164715,
-      "date": "2026-08-07 12:18",
-      "date_raw": "2026-08-07T12:18:18.616472"
-    },
-    {
-      "file": "Civil3DMcpPlugin.dll",
-      "path": "server/Civil3D-MCP-Plugin/obj/Debug/net8.0-windows/Civil3DMcpPlugin.dll",
-      "source": "Workspace",
-      "mtime": 1786119498.6164715,
-      "date": "2026-08-07 12:18",
-      "date_raw": "2026-08-07T12:18:18.616472"
-    },
-    {
-      "file": "Civil3DMcpPlugin.dll",
-      "path": "server/Civil3D-MCP-Plugin/obj/Debug/net8.0-windows/ref/Civil3DMcpPlugin.dll",
-      "source": "Workspace",
-      "mtime": 1786119498.6164715,
-      "date": "2026-08-07 12:18",
-      "date_raw": "2026-08-07T12:18:18.616472"
-    },
-    {
-      "file": "Civil3DMcpPlugin.dll",
-      "path": "server/Civil3D-MCP-Plugin/obj/Debug/net8.0-windows/refint/Civil3DMcpPlugin.dll",
-      "source": "Workspace",
-      "mtime": 1786119498.6164715,
-      "date": "2026-08-07 12:18",
-      "date_raw": "2026-08-07T12:18:18.616472"
     }
   ],
   "session_logs": [
