@@ -384,8 +384,14 @@ class PlanoSVG:
 
         return tx, s, (mx, my, mw, mh)
 
-    # ----------------------------------------------------------------- guardar
-    def guardar(self, ruta: str) -> str:
+    # ------------------------------------------------------------------ render
+    def render(self) -> str:
+        """Devuelve el SVG como texto, sin escribir archivo.
+
+        Para incrustarlo en un informe HTML autocontenido (ver skill
+        `informe-analisis-superficies`): el mismo motor de dibujo sirve para
+        archivo suelto (`guardar`) o para incrustacion inline (`render`).
+        """
         tx, s, (mx, my, mw, mh) = self._transformar()
         C = self.C
         O = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{self.ancho}" '
@@ -538,9 +544,14 @@ class PlanoSVG:
                          f'fill="{C["muted"]}" text-anchor="middle">{_esc(tit)}</text>')
 
         O.append("</svg>")
+        return "\n".join(O)
+
+    # ----------------------------------------------------------------- guardar
+    def guardar(self, ruta: str) -> str:
+        texto = self.render()
         os.makedirs(os.path.dirname(os.path.abspath(ruta)) or ".", exist_ok=True)
         with open(ruta, "w", encoding="utf-8") as fh:
-            fh.write("\n".join(O))
+            fh.write(texto)
         return ruta
 
 
