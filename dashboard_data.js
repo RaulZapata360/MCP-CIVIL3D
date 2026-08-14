@@ -1,7 +1,7 @@
 window.DASHBOARD_DATA = {
-  "last_update": "2026-08-11 14:03:38",
+  "last_update": "2026-08-14 15:39:31",
   "stats": {
-    "total_skills": 21,
+    "total_skills": 22,
     "total_tests": 21,
     "tests_ok": 15,
     "tests_falla": 2,
@@ -137,6 +137,17 @@ window.DASHBOARD_DATA = {
       "description": "Convierte modelos IFC (Bentley OpenRoads/GeoPak) a DXF con capas NCS o a LandXML TIN georreferenciado en VA83-SF, conservando la triangulación, con diagnóstico previo del esquema y control explícito del factor de escala.",
       "category": "Migracion",
       "file_path": "skills/migracion/ifc-a-civil3d.skill.md",
+      "uses": 0,
+      "success": 0,
+      "last_used": "Sin registrar",
+      "reliability": "Sin uso",
+      "rel_code": "NONE"
+    },
+    {
+      "name": "marcas-pavimentacion-a-revit",
+      "description": "Migra elementos discretos de un DXF de IFC (marcas de pavimentación, barreras New Jersey, mobiliario, señales — cualquier malla AcDbPolyFaceMesh) a Revit 2024/2025/2026 como Familias o DirectShape, decidiendo la técnica por medición geométrica en vez de a ojo. Incluye clasificador automático (planitud, piezas, huecos, rectangularidad), exportador que detecta si cada malla ya es un sólido cerrado o una lámina 2,5D que hay que solidificar, matemática de colocación verificable fuera de Revit (eje de inercia vs rectángulo mínimo, ancla por transformación rígida), diagnóstico y corrección de piezas enterradas en el Toposolid tras colocarlas, y las plantillas de Dynamo con cada gotcha de la API de Revit ya resuelto (plantillas de familia por idioma, ciclo de vida de LoadFamily, parámetros Tipo vs Instancia, TessellatedShapeBuilder con caras que se tocan, Solid.IntersectWithCurve, grilla UV de caras).",
+      "category": "Migracion",
+      "file_path": "skills/migracion/marcas-pavimentacion-a-revit.skill.md",
       "uses": 0,
       "success": 0,
       "last_used": "Sin registrar",
@@ -1539,100 +1550,100 @@ window.DASHBOARD_DATA = {
   },
   "timeline": [
     {
-      "file": "session_logs.json",
-      "path": "verificacion/session_logs.json",
+      "file": "civil3d-to-revit-toposolid.skill.md",
+      "path": "skills/migracion/civil3d-to-revit-toposolid.skill.md",
       "source": "Workspace",
-      "mtime": 1786471418.3879151,
-      "date": "2026-08-11 14:03",
-      "date_raw": "2026-08-11T14:03:38.387915"
-    },
-    {
-      "file": "informe_superficie.py",
-      "path": "skills/superficies/scripts/informe_superficie.py",
-      "source": "Workspace",
-      "mtime": 1786471382.6648638,
-      "date": "2026-08-11 14:03",
-      "date_raw": "2026-08-11T14:03:02.664864"
-    },
-    {
-      "file": "test_informe_superficie.py",
-      "path": "skills/superficies/scripts/test_informe_superficie.py",
-      "source": "Workspace",
-      "mtime": 1786471382.6648638,
-      "date": "2026-08-11 14:03",
-      "date_raw": "2026-08-11T14:03:02.664864"
-    },
-    {
-      "file": "informe-analisis-superficies.skill.md",
-      "path": "skills/superficies/informe-analisis-superficies.skill.md",
-      "source": "Workspace",
-      "mtime": 1786471382.663864,
-      "date": "2026-08-11 14:03",
-      "date_raw": "2026-08-11T14:03:02.663864"
-    },
-    {
-      "file": "graficos_svg.py",
-      "path": "skills/reportes/scripts/graficos_svg.py",
-      "source": "Workspace",
-      "mtime": 1786471382.6628642,
-      "date": "2026-08-11 14:03",
-      "date_raw": "2026-08-11T14:03:02.662864"
-    },
-    {
-      "file": "plano_svg.py",
-      "path": "skills/reportes/scripts/plano_svg.py",
-      "source": "Workspace",
-      "mtime": 1786471382.6628642,
-      "date": "2026-08-11 14:03",
-      "date_raw": "2026-08-11T14:03:02.662864"
-    },
-    {
-      "file": "generacion-planos-svg.skill.md",
-      "path": "skills/reportes/generacion-planos-svg.skill.md",
-      "source": "Workspace",
-      "mtime": 1786471382.6613955,
-      "date": "2026-08-11 14:03",
-      "date_raw": "2026-08-11T14:03:02.661396"
-    },
-    {
-      "file": "plano-svg.skill.md",
-      "path": "skills/reportes/plano-svg.skill.md",
-      "source": "Workspace",
-      "mtime": 1786471382.6613955,
-      "date": "2026-08-11 14:03",
-      "date_raw": "2026-08-11T14:03:02.661396"
-    },
-    {
-      "file": "dashboard_data.js",
-      "path": "dashboard_data.js",
-      "source": "Workspace",
-      "mtime": 1786471364.1125786,
-      "date": "2026-08-11 14:02",
-      "date_raw": "2026-08-11T14:02:44.112579"
-    },
-    {
-      "file": "dashboard_data.json",
-      "path": "dashboard_data.json",
-      "source": "Workspace",
-      "mtime": 1786471364.1120722,
-      "date": "2026-08-11 14:02",
-      "date_raw": "2026-08-11T14:02:44.112072"
+      "mtime": 1786736365.0071461,
+      "date": "2026-08-14 15:39",
+      "date_raw": "2026-08-14T15:39:25.007146"
     },
     {
       "file": "router.py",
       "path": "skills/router.py",
       "source": "Workspace",
-      "mtime": 1786471350.5904615,
-      "date": "2026-08-11 14:02",
-      "date_raw": "2026-08-11T14:02:30.590461"
+      "mtime": 1786736331.0789015,
+      "date": "2026-08-14 15:38",
+      "date_raw": "2026-08-14T15:38:51.078902"
     },
     {
-      "file": "civil3d-to-revit-toposolid.skill.md",
-      "path": "skills/migracion/civil3d-to-revit-toposolid.skill.md",
+      "file": "marcas-pavimentacion-a-revit.skill.md",
+      "path": "skills/migracion/marcas-pavimentacion-a-revit.skill.md",
       "source": "Workspace",
-      "mtime": 1786471350.587957,
-      "date": "2026-08-11 14:02",
-      "date_raw": "2026-08-11T14:02:30.587957"
+      "mtime": 1786736316.39617,
+      "date": "2026-08-14 15:38",
+      "date_raw": "2026-08-14T15:38:36.396170"
+    },
+    {
+      "file": "dynamo_corregir_enterrado_toposolid.py",
+      "path": "skills/migracion/scripts/dynamo_corregir_enterrado_toposolid.py",
+      "source": "Workspace",
+      "mtime": 1786736237.4864752,
+      "date": "2026-08-14 15:37",
+      "date_raw": "2026-08-14T15:37:17.486475"
+    },
+    {
+      "file": "dynamo_diagnostico_vs_toposolid.py",
+      "path": "skills/migracion/scripts/dynamo_diagnostico_vs_toposolid.py",
+      "source": "Workspace",
+      "mtime": 1786736174.8755395,
+      "date": "2026-08-14 15:36",
+      "date_raw": "2026-08-14T15:36:14.875540"
+    },
+    {
+      "file": "dashboard_data.js",
+      "path": "dashboard_data.js",
+      "source": "Workspace",
+      "mtime": 1786717633.4394822,
+      "date": "2026-08-14 10:27",
+      "date_raw": "2026-08-14T10:27:13.439482"
+    },
+    {
+      "file": "dashboard_data.json",
+      "path": "dashboard_data.json",
+      "source": "Workspace",
+      "mtime": 1786717633.4379785,
+      "date": "2026-08-14 10:27",
+      "date_raw": "2026-08-14T10:27:13.437979"
+    },
+    {
+      "file": "dynamo_directshape_desde_malla.py",
+      "path": "skills/migracion/scripts/dynamo_directshape_desde_malla.py",
+      "source": "Workspace",
+      "mtime": 1786717509.2602227,
+      "date": "2026-08-14 10:25",
+      "date_raw": "2026-08-14T10:25:09.260223"
+    },
+    {
+      "file": "exportar_marcas_pavimento.py",
+      "path": "skills/migracion/scripts/exportar_marcas_pavimento.py",
+      "source": "Workspace",
+      "mtime": 1786717459.0484505,
+      "date": "2026-08-14 10:24",
+      "date_raw": "2026-08-14T10:24:19.048450"
+    },
+    {
+      "file": "dynamo_colocar_familias_marcas.py",
+      "path": "skills/migracion/scripts/dynamo_colocar_familias_marcas.py",
+      "source": "Workspace",
+      "mtime": 1786633439.8028963,
+      "date": "2026-08-13 11:03",
+      "date_raw": "2026-08-13T11:03:59.802896"
+    },
+    {
+      "file": "dynamo_diagnostico_firmas_revit.py",
+      "path": "skills/migracion/scripts/dynamo_diagnostico_firmas_revit.py",
+      "source": "Workspace",
+      "mtime": 1786633327.372815,
+      "date": "2026-08-13 11:02",
+      "date_raw": "2026-08-13T11:02:07.372815"
+    },
+    {
+      "file": "clasificar_marcas_pavimento.py",
+      "path": "skills/migracion/scripts/clasificar_marcas_pavimento.py",
+      "source": "Workspace",
+      "mtime": 1786633092.709697,
+      "date": "2026-08-13 10:58",
+      "date_raw": "2026-08-13T10:58:12.709697"
     }
   ],
   "session_logs": [

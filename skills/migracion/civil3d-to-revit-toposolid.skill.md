@@ -72,8 +72,9 @@ Este catálogo documenta los errores de Revit API, CPython3 y Dynamo que fueron 
   *(Garantiza que la longitud mínima de todas las líneas sea $> 0.03\text{ ft}$, muy superior a la tolerancia de Revit).*
 
 ### ❌ Error 3: Incompatibilidad de Herencia .NET en CPython3 (`WarningSwallower`)
-- **Mensaje de Dynamo/Python**: `TypeError: cannot create instances of WarningSwallower` o fallos en el binding de `IFailuresPreprocessor`.
+- **Mensaje de Dynamo/Python**: `TypeError: cannot create instances of WarningSwallower` o fallos en el binding de `IFailuresPreprocessor`. También visto como `"interface takes exactly one argument"` (South Island, marcas de pavimentación vs Toposolid) — mismo límite de fondo que con `IFamilyLoadOptions` en `marcas-pavimentacion-a-revit.skill.md`: Python.NET/CPython no siempre puede implementar una interfaz .NET desde CPython, y el mensaje exacto varía según el método/firma que falle, no solo según la interfaz.
 - **Causa**: En Dynamo Revit 2025/2026 con CPython3, heredar directamente de la interfaz .NET `DB.IFailuresPreprocessor` puede fallar durante la instanciación en tiempo de ejecución.
+- **Si el wrapper falla en silencio (`swallower = None`) y el script sigue sin él**: no asumir que el problema de fondo (un diálogo modal de aviso colgando Dynamo) quedó resuelto. Verificarlo aparte — en South Island el script terminó corriendo sin el swallower funcional, y eso no fue la causa real del cuelgue que se estaba investigando en ese momento.
 - **Solución Obligatoria (Wrapper Seguro `try...except`)**:
   ```python
   swallower = None
