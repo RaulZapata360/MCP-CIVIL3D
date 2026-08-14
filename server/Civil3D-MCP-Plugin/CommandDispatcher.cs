@@ -64,6 +64,7 @@ public static class CommandDispatcher
       "addSurfaceBreakline" => SurfaceCommands.AddSurfaceBreaklineAsync(parameters),
       "addSurfaceBoundary" => SurfaceCommands.AddSurfaceBoundaryAsync(parameters),
       "extractSurfaceContours" => SurfaceCommands.ExtractSurfaceContoursAsync(parameters),
+      "extractSurfaceBorder" => SurfaceCommands.ExtractSurfaceBorderAsync(parameters),
       "computeSurfaceVolume" => SurfaceCommands.ComputeSurfaceVolumeAsync(parameters),
       "calculateSurfaceVolume" => SurfaceCommands.CalculateSurfaceVolumeAsync(parameters),
       "getSurfaceVolumeReport" => SurfaceCommands.GetSurfaceVolumeReportAsync(parameters),

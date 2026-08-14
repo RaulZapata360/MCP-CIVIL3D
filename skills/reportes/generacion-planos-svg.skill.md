@@ -47,4 +47,4 @@ python skills/reportes/scripts/plano_svg.py --xml superficie.xml --dxf perimetro
 
 ## Estado
 
-Completamente validado y utilizado en los scripts de recorte de superficie (`recortar_superficie.py`) y en la carpeta de pruebas `SUR/prueba ia`.
+Completamente validado y utilizado en los scripts de recorte de superficie (`recortar_superficie.py`) y en la carpeta de pruebas `SUR/prueba ia`. También es la base del informe HTML completo de la skill `informe-analisis-superficies` (`skills/superficies/`), que lo combina con `graficos_svg.py` (barras, rosa de orientación, perfiles) para armar un documento único en vez de planos sueltos.

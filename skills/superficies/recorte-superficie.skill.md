@@ -129,3 +129,28 @@ teselado al afinar `--sagitta`, polígono no convexo, unidades métricas, perím
 contacto, perímetro que se sale parcialmente, DXF con varias polilíneas, y el plano SVG
 con su leyenda. Además reproduce el caso real (`SUR/prueba ia`, Pavement Surface 5:
 8.950,443 ft² en planta) cruzado contra Civil 3D.
+
+## Trampas al usar `mesh_utils` desde un script nuevo
+
+*   **`clip_surface_by_polygon` devuelve TRES valores** — `(verts, faces, stats)`.
+    Desempaquetar dos lanza `ValueError`, y si la llamada va dentro de un
+    `try/except` (lo habitual, para no perder el lote entero por una pieza) el
+    error se lo traga y la sección sale **vacía sin decir por qué**.
+*   **`boundary_holes(faces)` también devuelve una tupla** — `(n_huecos,
+    n_aristas_no_manifold)` — y **ya cuenta por componente conexa** por dentro.
+    Envolverla en `len()` da siempre `2`, y aplicarla a mano por componente
+    duplica el trabajo. Se detecta porque el resultado sale sospechosamente
+    regular: "2 huecos por componente" en todas las secciones a la vez.
+*   **Clasificar anillos exterior/hueco por profundidad de anidamiento, no por
+    punto representativo.** En una pieza con forma de anillo, el
+    `representative_point()` del contorno exterior puede caer **dentro de su
+    propio hueco**, y entonces se cuenta el exterior como hueco y el área sale
+    negativa. Contar cuántos otros anillos lo contienen: par = exterior, impar
+    = hueco.
+*   **`patch_holes=False` cuando los huecos son reales.** El parcheador rellena
+    un hueco si su centro cae dentro de un triángulo *original*, asumiendo que
+    es un artefacto numérico. Si estás recortando una sección con forma de
+    anillo alrededor de otra (el terreno original **sí** cubre el centro), esa
+    premisa no se cumple y te tapa el hueco de verdad: medido, 16.387 ft² de
+    relleno indebido en `Pavement Surface 5` de South Island. Se nota porque el
+    "sobra" de la verificación coincide con el área exacta de la sección vecina.
