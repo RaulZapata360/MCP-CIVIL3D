@@ -1,5 +1,5 @@
 window.DASHBOARD_DATA = {
-  "last_update": "2026-08-14 15:39:31",
+  "last_update": "2026-08-14 18:03:10",
   "stats": {
     "total_skills": 22,
     "total_tests": 21,
@@ -1550,6 +1550,62 @@ window.DASHBOARD_DATA = {
   },
   "timeline": [
     {
+      "file": "recorte-superficie.skill.md",
+      "path": "skills/superficies/recorte-superficie.skill.md",
+      "source": "Workspace",
+      "mtime": 1786744984.7702188,
+      "date": "2026-08-14 18:03",
+      "date_raw": "2026-08-14T18:03:04.770219"
+    },
+    {
+      "file": "comparar-superficies.skill.md",
+      "path": "skills/superficies/comparar-superficies.skill.md",
+      "source": "Workspace",
+      "mtime": 1786744958.687997,
+      "date": "2026-08-14 18:02",
+      "date_raw": "2026-08-14T18:02:38.687997"
+    },
+    {
+      "file": "marcas-pavimentacion-a-revit.skill.md",
+      "path": "skills/migracion/marcas-pavimentacion-a-revit.skill.md",
+      "source": "Workspace",
+      "mtime": 1786744929.3115082,
+      "date": "2026-08-14 18:02",
+      "date_raw": "2026-08-14T18:02:09.311508"
+    },
+    {
+      "file": "conformar_piezas_a_terreno.py",
+      "path": "skills/migracion/scripts/conformar_piezas_a_terreno.py",
+      "source": "Workspace",
+      "mtime": 1786744849.8943236,
+      "date": "2026-08-14 18:00",
+      "date_raw": "2026-08-14T18:00:49.894324"
+    },
+    {
+      "file": "dynamo_exportar_malla_toposolid.py",
+      "path": "skills/migracion/scripts/dynamo_exportar_malla_toposolid.py",
+      "source": "Workspace",
+      "mtime": 1786744816.5390108,
+      "date": "2026-08-14 18:00",
+      "date_raw": "2026-08-14T18:00:16.539011"
+    },
+    {
+      "file": "dashboard_data.js",
+      "path": "dashboard_data.js",
+      "source": "Workspace",
+      "mtime": 1786736371.9616425,
+      "date": "2026-08-14 15:39",
+      "date_raw": "2026-08-14T15:39:31.961643"
+    },
+    {
+      "file": "dashboard_data.json",
+      "path": "dashboard_data.json",
+      "source": "Workspace",
+      "mtime": 1786736371.9606407,
+      "date": "2026-08-14 15:39",
+      "date_raw": "2026-08-14T15:39:31.960641"
+    },
+    {
       "file": "civil3d-to-revit-toposolid.skill.md",
       "path": "skills/migracion/civil3d-to-revit-toposolid.skill.md",
       "source": "Workspace",
@@ -1564,14 +1620,6 @@ window.DASHBOARD_DATA = {
       "mtime": 1786736331.0789015,
       "date": "2026-08-14 15:38",
       "date_raw": "2026-08-14T15:38:51.078902"
-    },
-    {
-      "file": "marcas-pavimentacion-a-revit.skill.md",
-      "path": "skills/migracion/marcas-pavimentacion-a-revit.skill.md",
-      "source": "Workspace",
-      "mtime": 1786736316.39617,
-      "date": "2026-08-14 15:38",
-      "date_raw": "2026-08-14T15:38:36.396170"
     },
     {
       "file": "dynamo_corregir_enterrado_toposolid.py",
@@ -1590,60 +1638,12 @@ window.DASHBOARD_DATA = {
       "date_raw": "2026-08-14T15:36:14.875540"
     },
     {
-      "file": "dashboard_data.js",
-      "path": "dashboard_data.js",
-      "source": "Workspace",
-      "mtime": 1786717633.4394822,
-      "date": "2026-08-14 10:27",
-      "date_raw": "2026-08-14T10:27:13.439482"
-    },
-    {
-      "file": "dashboard_data.json",
-      "path": "dashboard_data.json",
-      "source": "Workspace",
-      "mtime": 1786717633.4379785,
-      "date": "2026-08-14 10:27",
-      "date_raw": "2026-08-14T10:27:13.437979"
-    },
-    {
       "file": "dynamo_directshape_desde_malla.py",
       "path": "skills/migracion/scripts/dynamo_directshape_desde_malla.py",
       "source": "Workspace",
       "mtime": 1786717509.2602227,
       "date": "2026-08-14 10:25",
       "date_raw": "2026-08-14T10:25:09.260223"
-    },
-    {
-      "file": "exportar_marcas_pavimento.py",
-      "path": "skills/migracion/scripts/exportar_marcas_pavimento.py",
-      "source": "Workspace",
-      "mtime": 1786717459.0484505,
-      "date": "2026-08-14 10:24",
-      "date_raw": "2026-08-14T10:24:19.048450"
-    },
-    {
-      "file": "dynamo_colocar_familias_marcas.py",
-      "path": "skills/migracion/scripts/dynamo_colocar_familias_marcas.py",
-      "source": "Workspace",
-      "mtime": 1786633439.8028963,
-      "date": "2026-08-13 11:03",
-      "date_raw": "2026-08-13T11:03:59.802896"
-    },
-    {
-      "file": "dynamo_diagnostico_firmas_revit.py",
-      "path": "skills/migracion/scripts/dynamo_diagnostico_firmas_revit.py",
-      "source": "Workspace",
-      "mtime": 1786633327.372815,
-      "date": "2026-08-13 11:02",
-      "date_raw": "2026-08-13T11:02:07.372815"
-    },
-    {
-      "file": "clasificar_marcas_pavimento.py",
-      "path": "skills/migracion/scripts/clasificar_marcas_pavimento.py",
-      "source": "Workspace",
-      "mtime": 1786633092.709697,
-      "date": "2026-08-13 10:58",
-      "date_raw": "2026-08-13T10:58:12.709697"
     }
   ],
   "session_logs": [

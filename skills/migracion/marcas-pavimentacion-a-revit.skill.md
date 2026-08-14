@@ -189,9 +189,29 @@ bien, con la geometría correcta, en las coordenadas correctas — el problema
 aparece recién al mirarla en Revit, y solo en algunas piezas puntuales.
 
 ```
-dynamo_diagnostico_vs_toposolid.py       -- SIEMPRE primero, solo lectura
-dynamo_corregir_enterrado_toposolid.py   -- sube lo que el diagnostico marco
+dynamo_exportar_malla_toposolid.py   -- en Dynamo, solo lectura, ~1,5 s
+conformar_piezas_a_terreno.py        -- Python normal, FUERA de Revit, ~2 s
+dynamo_directshape_desde_malla.py    -- en Dynamo, con ELEVACION = 0.0
 ```
+
+> ⚠️ **No consultes la altura del terreno vértice a vértice desde Revit.**
+> La primera versión lo hacía con `Solid.IntersectWithCurve()` por cada
+> vértice, y **colgó Dynamo**: cada llamada es una intersección booleana B-rep
+> completa, del orden de **milisegundos**. Con 109.730 vértices son más de 18
+> minutos. Filtrar candidatos por caja o agrupar vértices reduce el *número*
+> de llamadas pero no el **costo unitario**, que es el problema real — se
+> intentaron ambas cosas y siguió sin terminar.
+>
+> El planteo correcto es al revés: hacerle a Revit **una sola** pregunta cara
+> ("dame la triangulación del terreno") y resolver las N consultas de altura
+> fuera, con interpolación baricéntrica — microsegundos cada una. **Es la
+> misma superficie exacta**, no una aproximación: son los triángulos que Revit
+> reporta. Medido: de 18+ minutos sin terminar a **1,9 s** en total.
+>
+> Los scripts antiguos `dynamo_diagnostico_vs_toposolid.py` y
+> `dynamo_corregir_enterrado_toposolid.py` siguen en la carpeta porque
+> documentan nueve iteraciones de gotchas reales, pero **para trabajo nuevo
+> usar el flujo de tres pasos de arriba.**
 
 El diagnóstico prueba, para cada pieza, si su geometría real queda por
 debajo de la cara superior del **sólido real** de cada Toposolid del
@@ -366,6 +386,78 @@ lo intenta de todas formas envuelto en `try/except` (no hace daño si falla),
 pero **no asumir que protege de verdad** — si algo vuelve a colgar Dynamo al
 mover una pieza anclada, es una causa distinta que investigar de nuevo.
 
+### ❌ El bobinado de `Face.Triangulate()` no sirve para saber si una cara mira arriba
+Al extraer la cara superior de un Toposolid, lo natural es quedarse con los
+triángulos cuya normal (calculada del bobinado de sus propios vértices) apunte
+hacia +Z. **Falla en unas pocas caras**: `Face.Triangulate()` devuelve los
+triángulos según la parametrización de la *superficie*, y en Revit el sentido
+de esa parametrización no siempre coincide con la orientación real de la cara
+dentro del sólido — para eso existe `Face.OrientationMatchesSurfaceOrientation`.
+Resultado: algunas caras **inferiores** salen invertidas y pasan el filtro.
+
+Se detectan solas y sin ambigüedad: dejan vértices que comparten XY exacto con
+otro, separados **justo por el espesor de la losa** (1,0000 ft medido en las 22
+piezas de South Island) — y una superficie de terreno real es univaluada, no
+puede tener dos alturas en el mismo XY. Comprobación barata en el log: en una
+losa, los triángulos guardados y los descartados "por mirar abajo" deben ser
+**casi iguales** (la cara inferior refleja a la superior). En South Island:
+34.039 y 34.039, exacto.
+
+### ❌ `matplotlib`/`scipy` rechazan la malla de un Toposolid
+`LinearTriInterpolator` y compañía exigen una triangulación **válida** (sin
+puntos XY repetidos, sin triángulos solapados) y fallan con
+`RuntimeError: Triangulation is invalid`. Una malla sacada de Revit no lo es,
+por el gotcha anterior y porque además hay solapes en planta dentro de alguna
+pieza. Quitar los duplicados no alcanzó.
+
+Lo que sí funciona es un localizador propio por rejilla uniforme + prueba
+baricéntrica, quedándose con el **máximo Z** entre los triángulos que cubren el
+punto: no necesita que la malla sea válida, tolera solapes en vez de fallar con
+ellos, y encima implementa exactamente la semántica que se quiere (la cara de
+arriba del terreno). Ver `altura_terreno()` en `conformar_piezas_a_terreno.py`.
+
+### ❌ Un solo valor de terreno por celda XY: mal donde el terreno es vertical
+Para mover juntas la cara de arriba y la de abajo de una pieza, es tentador
+agrupar los vértices en celdas XY y aplicar a todo el grupo la altura de
+terreno de la celda. **Está mal.** Medido en la marca 193 de South Island: una
+celda de 0,01 ft juntó 3 posiciones XY separadas 0,005 ft, y el terreno varía
+**0,9169 ft** en esa distancia (un borde casi vertical del Toposolid). Los
+vértices del lado bajo recibieron la altura del lado alto y quedaron volando
+0,94 ft. Con escalones reales de hasta 0,17 ft entre piezas solapadas,
+cualquier agrupación espacial del terreno mete este error.
+
+Correcto: **cada vértice usa su propio terreno**. El espesor se conserva solo,
+porque la cara de arriba y la de abajo están en el MISMO XY exacto (la pieza se
+extruyó recta hacia abajo) y consultan el mismo valor — basta identificar cuál
+es la de abajo (por su separación = el espesor) y restarle esa cantidad.
+
+### ❌ Un umbral de verificación más fino que la precisión del archivo
+La verificación reportó **18.923 vértices "enterrados"**... de 1,5 micrómetros.
+El JSON guarda la Z redondeada a 5 decimales (1e-5 ft) y la cara inferior se
+deja exactamente a la cota del terreno, así que ese redondeo la deja unas
+micras por debajo; el umbral era 1e-6. **Un umbral por debajo de la precisión
+del formato genera falsos positivos que tapan los problemas reales.** Usar algo
+con significado físico (1e-4 ft = 0,03 mm) y decirlo en el mensaje.
+
+### ❌ `OST_Railing` no existe (y no enumerar categorías con `Enum.GetNames`)
+`AttributeError: type object 'BuiltInCategory' has no attribute 'OST_Railing'`.
+El nombre interno de una categoría no tiene por qué parecerse al visible. Y
+`Enum.GetNames` **no** se puede usar para enumerarlas (ver el gotcha del final:
+tumba el nodo entero fuera de todo `try/except`).
+
+Lo que funciona: `dir(DB.BuiltInCategory)` — reflexión de Python normal,
+segura — filtrando por una palabra clave, validando cada candidata con
+`DirectShape.IsValidCategoryId(ElementId(bic), doc)` y eligiendo por el
+**nombre visible** de la categoría (`doc.Settings.Categories.get_Item(bic).Name`),
+no por el interno. Dejar los candidatos en el log para que se vea en cuál
+aterrizó.
+
+### ❌ Validar DESPUÉS de borrar deja el modelo a medias
+El script de barreras hacía `limpiar_anterior()` (borra lo de la pasada
+previa) y *después* resolvía la categoría. Al fallar la categoría, las 12
+barreras quedaron **borradas y sin recrear**. Cualquier comprobación que pueda
+abortar el script tiene que ir **antes** de tocar el modelo.
+
 ### ❌ Reflexionar `Enum.GetNames` para volcar valores de un enum al log
 `PythonEvaluator.Evaluate operation failed ... violates the constraint of
 type 'TEnum'`. Python.NET resuelve mal ese genérico y liga `TEnum` al propio
@@ -395,14 +487,20 @@ vuelta**, nunca confiar en que no saltó nada.
   Familia (mismo símbolo / paramétrica), con `CONFIGURACION` al principio.
 - `dynamo_directshape_desde_malla.py` — plantilla para DirectShape, sirve
   igual para láminas solidificadas que para sólidos ya cerrados.
-- `dynamo_diagnostico_vs_toposolid.py` — solo lectura. Comprueba, contra la
-  geometría real de cada Toposolid del proyecto, si alguna pieza colocada
-  queda con su cara superior por debajo del terreno.
-- `dynamo_corregir_enterrado_toposolid.py` — sube las piezas que el
-  diagnóstico anterior marcó, con reintento por pieza y verificación en frío
-  al final. Tiene un modo acotado (`ELEMENTOS_A_CORREGIR`) para reprocesar
-  solo piezas puntuales en vez de todo el paquete, por si un paquete grande
-  llega a colgar o cerrar Revit al procesarlo entero de una vez.
+- `dynamo_exportar_malla_toposolid.py` — **(paso 1 de 3, el flujo bueno)** solo
+  lectura. Saca la triangulación real de la cara superior de los Toposolid a un
+  JSON. ~1,5 s para 34.039 triángulos.
+- `conformar_piezas_a_terreno.py` — **(paso 2 de 3)** Python normal, **fuera de
+  Revit**. Apoya cada vértice sobre el terreno con interpolación baricéntrica,
+  preservando el espesor. ~0,25 s para 109.730 vértices. Modos `conformar`
+  (corrige enterrado *y* flotando) y `solo_enterradas`.
+  El paso 3 es `dynamo_directshape_desde_malla.py` con **`ELEVACION = 0.0`**:
+  el JSON corregido ya trae la Z final y volver a sumarla la levantaría de más.
+- `dynamo_diagnostico_vs_toposolid.py` y `dynamo_corregir_enterrado_toposolid.py`
+  — **enfoque viejo, superado por los dos de arriba.** Consultan la altura
+  vértice a vértice desde Revit y no escalan (ver el aviso del Paso 5). Se
+  conservan porque documentan nueve iteraciones de gotchas reales que siguen
+  siendo válidos, pero no son el punto de partida para trabajo nuevo.
 
 Todos los scripts de Dynamo se pegan en un nodo **Python Script** (motor
 **CPython3**) de un grafo nuevo, con un nodo **File Path** por cada entrada
